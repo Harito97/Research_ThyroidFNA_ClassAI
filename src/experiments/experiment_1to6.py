@@ -80,6 +80,7 @@ def run(config):
 
     # Initialize model
     model = H97_EfficientNetB0(
+        retrain_whole_net=config["model"]["retrain_whole_net"],
         dropout_rate=config["model"]["dropout_rate"], num_classes=len(config["classes"])
     )
     model.to(config["device"])
