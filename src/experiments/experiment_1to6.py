@@ -53,10 +53,12 @@ def run(config):
 
     # Load datasets
     train_dataset = MultiImageFolderDataset(
-        config["data"]["train_path"], transform=train_transforms
+        experiment_yaml_config=config,
+        root_dirs=config["data"]["train_path"], transform=train_transforms
     )
     val_dataset = MultiImageFolderDataset(
-        config["data"]["val_path"], transform=val_transforms
+        experiment_yaml_config=config,
+        root_dirs=config["data"]["val_path"], transform=val_transforms
     )
 
     # Create data loaders
