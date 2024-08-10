@@ -58,6 +58,8 @@ __pycache__/
 *.vs/         
 # Visual Studio
 
+
+
 # Caches and temporary files
 *.cache/      
 # General cache directory
@@ -77,4 +79,5 @@ __pycache__/
 # Temporary files
 *.temp/       
 # Temporary files
-
+.pytest_cache/
+# pytest cache
