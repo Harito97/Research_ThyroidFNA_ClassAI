@@ -1,0 +1,1 @@
+# Just simple use run `pytest` in the terminal to run the tests.

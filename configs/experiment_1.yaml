@@ -1,15 +1,19 @@
+# configs/experiment_1.yaml
 type: "experiment"
 
 experiment: "1"
 name: "Fine tune EfficientNetB0"
 
+device: "cuda"
+
 data:
-  train_path: "data/processed/train"
-  val_path: "data/processed/val"
+  train_path: ["~/data/dataver0/train"]
+  val_path: ["~/data/dataver0/valid"]
+  num_workers: 20
 
 model:
   type: "EfficientNetB0"
-  dropout: 0.1
+  dropout_rate: 0.1
   retrain_whole_net: false
 
 training:
@@ -17,6 +21,8 @@ training:
   epochs: 100
   learning_rate: 0.0001
   optimizer: "adam"
+  patience: 10
+  save_path: "results/experiment_1/experiment_1.pth"
 
 augmentation:
   horizontal_flip: true
@@ -29,3 +35,5 @@ seed: 42
 logging:
   wandb: true
   project_name: "ThyroidFNA_ClassAI"
+  run_name: "experiment 1: Fine tune EfficientNetB0"
+  save_path: "results/experiment_1"

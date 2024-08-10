@@ -1,0 +1,60 @@
+{
+    "os": "Linux-6.9.3-zen1-1-zen-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "heartbeatAt": "2024-08-10T17:17:45.514593",
+    "startedAt": "2024-08-10T17:17:43.934513",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/mnt/DataSamsung/project/Research_ThyroidFNA_ClassAI/tests/test_valid_image_classification_model.py",
+    "codePathLocal": "tests/test_valid_image_classification_model.py",
+    "codePath": "tests/test_valid_image_classification_model.py",
+    "git": {
+        "remote": "https://github.com/Harito97/Research_ThyroidFNA_ClassAI.git",
+        "commit": "cb83cc92f012826240dacd52c4fb6aa5705bd20b"
+    },
+    "email": "harito9703@gmail.com",
+    "root": "/mnt/DataSamsung/project/Research_ThyroidFNA_ClassAI",
+    "host": "archlinux",
+    "username": "harito",
+    "executable": "/home/harito/venv/ai_env_3.12/bin/python",
+    "cpu_count": 2,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 1999.991,
+        "min": 400.0,
+        "max": 2000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2000.014,
+            "min": 400.0,
+            "max": 2000.0
+        },
+        {
+            "current": 1999.979,
+            "min": 400.0,
+            "max": 2000.0
+        },
+        {
+            "current": 1999.701,
+            "min": 400.0,
+            "max": 2000.0
+        },
+        {
+            "current": 2000.332,
+            "min": 400.0,
+            "max": 2000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 548.6475601196289,
+            "used": 158.58634567260742
+        }
+    },
+    "memory": {
+        "total": 15.503227233886719
+    }
+}

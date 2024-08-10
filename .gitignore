@@ -49,19 +49,32 @@ temp*
 *.ipynb_checkpoints/
 
 # IDE configurations
-__pycache__/  # Python
-*.idea/       # JetBrains IDEs (PyCharm, IntelliJ IDEA, etc.)
-*.vscode/     # Visual Studio Code
-*.vs/         # Visual Studio
+__pycache__/ 
+# Python
+*.idea/       
+# JetBrains IDEs (PyCharm, IntelliJ IDEA, etc.)
+*.vscode/     
+# Visual Studio Code
+*.vs/         
+# Visual Studio
 
 # Caches and temporary files
-*.cache/      # General cache directory
-*.egg-info/   # Python egg metadata
-*.egg/        # Python egg
-*.env/        # Virtual environment
-*.venv/       # Virtual environment (alternative name)
-*.tox/        # Tox environment
-*.logs/       # Log files
-*.tmp/        # Temporary files
-*.temp/       # Temporary files
+*.cache/      
+# General cache directory
+*.egg-info/   
+# Python egg metadata
+*.egg/        
+# Python egg
+*.env/        
+# Virtual environment
+*.venv/       
+# Virtual environment (alternative name)
+*.tox/        
+# Tox environment
+*.logs/       
+# Log files
+*.tmp/        
+# Temporary files
+*.temp/       
+# Temporary files
 
