@@ -103,6 +103,8 @@ def __create_folder(config, datever_path):
 
 
 def run(config):
+    start_time = time.time()
+    
     print("Running Data Creator: " + config["name"])
 
     # Load the detect cell cluster model
@@ -138,7 +140,7 @@ def run(config):
         image_paths = data_input[start_index:end_index]
 
         # print(image_paths)
-        results = model.predict(source=image_paths)
+        results = model.predict(source=image_paths, verbose=config["model"]["verbose"])
         print(f"Predicted batch {num_step+1}/{num_images//batch_size+1}")
 
         for i, result in enumerate(results):
@@ -157,7 +159,7 @@ def run(config):
                     image_dataver1_path=image_dataver1_path, output_dir=output_dir
                 )
             if config["data_creator_2_image"]:
-                output_crop_dir = "results/dataver2_image/" + destination
+                output_dir = "results/dataver2_image/" + destination
                 get_top_boxes_and_save_crop(
                     result=result,
                     original_image=image_path,
@@ -166,4 +168,4 @@ def run(config):
                 )
             print(f"Processed image {i+1}/{len(results)}")
 
-    print("Data creation complete")
+    print("Data creation complete in", time.time() - start_time, "seconds")
