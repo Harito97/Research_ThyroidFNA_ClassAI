@@ -137,7 +137,7 @@ def run(config):
         end_index = min(num_images, (num_step + 1) * batch_size)
         image_paths = data_input[start_index:end_index]
 
-        results = model.predict(source=image_paths)
+        results = model(image_paths) #model.predict(source=image_paths)
 
         for i, result in enumerate(results):
             image_path = image_paths[i]
