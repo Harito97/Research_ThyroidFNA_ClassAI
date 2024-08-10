@@ -1,25 +1,31 @@
 type: "experiment"
-experiment: "a"
-name: "Baseline_CNN"
+
+experiment: "1"
+name: "Fine tune EfficientNetB0"
+
 data:
   train_path: "data/processed/train"
   val_path: "data/processed/val"
-  test_path: "data/processed/test"
+
 model:
-  type: "CNN"
-  layers: [64, 128, 256]
-  dropout: 0.5
+  type: "EfficientNetB0"
+  dropout: 0.1
+  retrain_whole_net: false
+
 training:
-  batch_size: 32
+  batch_size: 114
   epochs: 100
   learning_rate: 0.0001
   optimizer: "adam"
+
 augmentation:
   horizontal_flip: true
-  vertical_flip: false
+  vertical_flip: true
   rotation_range: 20
+
 classes: ["B2", "B5", "B6"]
 seed: 42
+
 logging:
   wandb: true
   project_name: "ThyroidFNA_ClassAI"

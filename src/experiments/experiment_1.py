@@ -5,12 +5,12 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from src.data.data_loading import load_data
-from src.models.simple_cnn import SimpleCNN
+from src.models.efficient_net import H97_EfficientNetB0
 from src.utils.metrics import calculate_accuracy
 from src.utils.visualization import plot_training_curve
 
 def run(config):
-    print("Running Experiment A: Baseline CNN")
+    print("Running Experiment 1:", config['name'])
     
     # Set random seeds for reproducibility
     torch.manual_seed(config['seed'])
@@ -18,19 +18,18 @@ def run(config):
     # Load data
     train_data, val_data, test_data = load_data(
         config['data']['train_path'],
-        config['data']['val_path'],
-        config['data']['test_path']
+        config['data']['val_path']
     )
     
     # Create data loaders
     train_loader = DataLoader(train_data, batch_size=config['training']['batch_size'], shuffle=True)
     val_loader = DataLoader(val_data, batch_size=config['training']['batch_size'])
-    test_loader = DataLoader(test_data, batch_size=config['training']['batch_size'])
     
     # Initialize model
-    model = SimpleCNN(layers=config['model']['layers'], num_classes=len(config['classes']))
+    model = H97_EfficientNetB0(num_classes=len(config['classes']), retrain_whole_net=config['training']['retrain_whole_net'])
     
-    # Define loss function and optimizer
+    # Define loss function with weight for each class and optimizer
+    
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=config['training']['learning_rate'])
     
