@@ -36,17 +36,17 @@ def run_task(config: Dict[str, Any]) -> None:
         # Placeholder for experiment runner
         # experiment_runner.run(config)
         # pass
-        if config["experiment"] == 1:
+        if config["experiment"] == "1":
             experiment_1.run(config)
-        elif config["experiment"] == 2:
+        elif config["experiment"] == "2":
             experiment_2.run(config)
-        elif config["experiment"] == 3:
+        elif config["experiment"] == "3":
             experiment_3.run(config)
-        elif config["experiment"] == 4:
+        elif config["experiment"] == "4":
             experiment_4.run(config)
-        elif config["experiment"] == 5:
+        elif config["experiment"] == "5":
             experiment_5.run(config)
-        elif config["experiment"] == 6:
+        elif config["experiment"] == "6":
             experiment_6.run(config)
         
     else:

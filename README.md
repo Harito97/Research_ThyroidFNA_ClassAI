@@ -31,4 +31,14 @@ Results of data set analysis is in output_dir: /path/to/output/directory of the 
 
 ## Process the experiments
 
+### Ex1:
+```bash
+cd /path/to/this/project
+nohup python main.py --config configs/experiment_1.yaml > output_experiment_1.log 2>&1 &
+# change the configs/experiment_1.yaml as you want (but must be sustainable)
+tail -n 50 output_experiment_1.log # to see last 50 lines of output info 
+# see the output_experiment_1.log more if you want
+rm *.log
+# remove all log
+```
 ...
