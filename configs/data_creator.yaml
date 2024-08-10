@@ -1,0 +1,26 @@
+# support data_creator: ["1", "2_image", "2_patch"]
+data_creator_1: true        # can modify this to false
+data_creator_2_image: true  # can modify this to false
+data_creator_2_patch: true  # can modify this to false
+
+name: "Create_Data_Versions"
+data_input:
+  part: ["train", "valid"]
+  train_path: "dataver0/train"
+  valid_path: "dataver0/valid"
+class: ["B2", "B5", "B6"]   # can remove 1 or more classes
+data_output:
+  dataver1_path: "dataver1" # can modify this
+  dataver2_image_path: "dataver2_image" # can modify this
+  dataver2_patch_path: "dataver2_patch" # can modify this
+model:
+  name: "detect cell clusters"
+  path: "..." # can modify this to point to the model
+  task: "detect"
+  verbose: true
+  batch_size: 64
+# seed: 42
+# logging:
+#   wandb: true
+#   project_name: "ThyroidFNA_ClassAI"
+#   name: "Create_Data_Versions"

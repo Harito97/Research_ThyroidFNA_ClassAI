@@ -19,7 +19,7 @@ augmentation:
   vertical_flip: true
   rotation_range: 30
   zoom_range: 0.1
-classes: ["benign", "malignant"]
+classes: ["B2", "B5", "B6"]
 seed: 42
 logging:
   wandb: true

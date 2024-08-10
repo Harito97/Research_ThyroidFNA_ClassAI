@@ -11,13 +11,13 @@ model:
 training:
   batch_size: 32
   epochs: 100
-  learning_rate: 0.001
+  learning_rate: 0.0001
   optimizer: "adam"
 augmentation:
   horizontal_flip: true
   vertical_flip: false
   rotation_range: 20
-classes: ["benign", "malignant"]
+classes: ["B2", "B5", "B6"]
 seed: 42
 logging:
   wandb: true
