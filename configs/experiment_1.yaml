@@ -7,8 +7,8 @@ name: "Fine tune EfficientNetB0"
 device: "cuda"
 
 data:
-  train_path: ["~/data/dataver0/train"]
-  val_path: ["~/data/dataver0/valid"]
+  train_path: ["/home/haipn/data/dataver0/train"]
+  val_path: ["/home/haipn/data/dataver0/valid"]
   num_workers: 20
 
 model:
