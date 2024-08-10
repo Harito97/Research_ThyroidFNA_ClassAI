@@ -113,16 +113,14 @@ def run(config):
 
     data_input = []
     for label in config["class"]:
-        data_input.append(
-            glob.glob(os.path.join(config["data_input"]["train_path"], label, "*.jpg"))
-        )
-        data_input.append(
-            glob.glob(os.path.join(config["data_input"]["valid_path"], label, "*.jpg"))
-        )
+        data_input += glob.glob(os.path.join(config["data_input"]["train_path"], label, "*.jpg"))
+        data_input += glob.glob(os.path.join(config["data_input"]["valid_path"], label, "*.jpg"))
     print("Loaded data dir input")
 
     batch_size = config["model"]["batch_size"]
     num_images = len(data_input)
+    print(f"Total images: {num_images}")
+    print(f"Batch size: {batch_size}")
 
     if config["data_creator_1"]:
         __create_folder(config=config, datever_path="results/dataver1/")
@@ -137,8 +135,10 @@ def run(config):
         end_index = min(num_images, (num_step + 1) * batch_size)
         image_paths = data_input[start_index:end_index]
 
-        results = model(image_paths) #model.predict(source=image_paths)
-
+        # print(image_paths)
+        results = model.predict(source=image_paths)
+        print(f"Predicted batch {num_step+1}/{num_images//batch_size+1}")
+        
         for i, result in enumerate(results):
             image_path = image_paths[i]
             destination = "/".join(
