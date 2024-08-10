@@ -15,6 +15,8 @@ def save_plot_image(result, output_dir):
 
 # 2. Get top 8 bounding boxes with max area, crop and save them (B)
 def get_top_boxes_and_save_crop(result, original_image, output_dir, num_boxes=8):
+    if isinstance(original_image, str):
+        original_image = cv2.imread(original_image)
     if num_boxes > 8:
         raise ValueError("Number of boxes should be less than or equal to 8")
     boxes = result.boxes.xyxy.cpu().numpy()
@@ -66,7 +68,7 @@ def get_top_boxes_and_save_crop(result, original_image, output_dir, num_boxes=8)
     for i in range(8):
         crops[i] = cv2.resize(crops[i], (224, 224))
         # Save the crop
-        cv2.imwrite(output_dir + "_crop_{i}.jpg", crops[i])
+        cv2.imwrite(output_dir + f"_crop_{i}.jpg", crops[i])
 
 
 # 3. Get 12 patches from image A, resize, and save
@@ -138,7 +140,7 @@ def run(config):
         # print(image_paths)
         results = model.predict(source=image_paths)
         print(f"Predicted batch {num_step+1}/{num_images//batch_size+1}")
-        
+
         for i, result in enumerate(results):
             image_path = image_paths[i]
             destination = "/".join(

@@ -18,7 +18,7 @@ model:
   name: "detect cell clusters"
   path: "/home/haipn/weights/best.pt" # can modify this to point to the model
   task: "detect"
-  verbose: true
+  verbose: false
   batch_size: 64
 # seed: 42
 # logging:
