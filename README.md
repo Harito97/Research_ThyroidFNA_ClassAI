@@ -41,4 +41,10 @@ tail -n 50 output_experiment_1.log # to see last 50 lines of output info
 rm *.log
 # remove all log
 ```
+
+### Ex2:
+```bash
+nohup python main.py --config configs/experiment_2.yaml > output_experiment_2.log 2>&1 &
+tail -n 50 output_experiment_2.log
+```
 ...

@@ -1,27 +1,39 @@
+# configs/experiment_2.yaml
 type: "experiment"
-experiment: "b"
-name: "Transfer_Learning_ResNet50"
+
+experiment: "2"
+name: "Retrain EfficientNetB0"
+
+device: "cuda"
+
 data:
-  train_path: "data/processed/train"
-  val_path: "data/processed/val"
-  test_path: "data/processed/test"
+  train_path: ["/home/haipn/data/dataver0/train"]
+  val_path: ["/home/haipn/data/dataver0/valid"]
+  num_workers: 20
+
 model:
-  type: "ResNet50"
-  pretrained: true
-  fine_tune_layers: 5
+  type: "EfficientNetB0"
+  dropout_rate: 0.1
+  retrain_whole_net: true
+
 training:
-  batch_size: 16
-  epochs: 50
+  batch_size: 114
+  epochs: 100
   learning_rate: 0.0001
-  optimizer: "sgd"
-  momentum: 0.9
+  optimizer: "adam"
+  patience: 10
+  save_path: "results/experiment_2/experiment_2.pth"
+
 augmentation:
   horizontal_flip: true
   vertical_flip: true
-  rotation_range: 30
-  zoom_range: 0.1
+  rotation_range: 20
+
 classes: ["B2", "B5", "B6"]
 seed: 42
+
 logging:
   wandb: true
   project_name: "ThyroidFNA_ClassAI"
+  run_name: "experiment 2: Retrain EfficientNetB0"
+  save_path: "results/experiment_2"

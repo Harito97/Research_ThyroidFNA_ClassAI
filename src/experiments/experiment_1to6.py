@@ -128,7 +128,7 @@ def run(config):
     # Start validation
     validator.evaluate()
 
-    print("Experiment A completed.")
+    print(f"Experiment {config["experiment"]} completed.")
 
 
 if __name__ == "__main__":
