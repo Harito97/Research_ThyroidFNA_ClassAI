@@ -5,6 +5,7 @@ import cv2
 from ultralytics import YOLO
 from PIL import Image
 import random
+import time
 
 
 # 1. Get and save the plot images (A)
@@ -104,7 +105,7 @@ def __create_folder(config, datever_path):
 
 def run(config):
     start_time = time.time()
-    
+
     print("Running Data Creator: " + config["name"])
 
     # Load the detect cell cluster model
