@@ -1,15 +1,19 @@
 import argparse
 import yaml
 from src.experiments import * #experiment_a, experiment_b
+from src.data import data_creator
 
 def main(config_path):
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
+
+    if config['type'] == 'data_creator':
+        data_creator.run(config)
     
-    if config['experiment'] == 'a':
-        experiment_a.run(config)
-    elif config['experiment'] == 'b':
-        experiment_b.run(config)
+    # if config['experiment'] == 'a':
+    #     experiment_a.run(config)
+    # elif config['experiment'] == 'b':
+    #     experiment_b.run(config)
     # Add more experiments
 
 if __name__ == "__main__":

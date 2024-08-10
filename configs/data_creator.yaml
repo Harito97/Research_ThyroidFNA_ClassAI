@@ -1,3 +1,4 @@
+type: "data_creator"
 # support data_creator: ["1", "2_image", "2_patch"]
 data_creator_1: true        # can modify this to false
 data_creator_2_image: true  # can modify this to false

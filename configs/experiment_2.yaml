@@ -1,3 +1,4 @@
+type: "experiment"
 experiment: "b"
 name: "Transfer_Learning_ResNet50"
 data:

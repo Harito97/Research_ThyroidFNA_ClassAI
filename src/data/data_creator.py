@@ -1,9 +1,7 @@
-# src/data/create_data_versions.py
+# src/data/data_creator.py
 import glob
 import os
-from torchvision import transforms
 import cv2
-import numpy as np
 from ultralytics import YOLO
 from PIL import Image
 import random

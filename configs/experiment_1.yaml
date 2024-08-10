@@ -1,3 +1,4 @@
+type: "experiment"
 experiment: "a"
 name: "Baseline_CNN"
 data:
