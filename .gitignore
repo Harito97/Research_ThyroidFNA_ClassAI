@@ -45,18 +45,23 @@ temp*
 *.flv
 *.f4v
 
-# Temporary files
-*/__pycache__/
+# Jupyter notebook checkpoints
 *.ipynb_checkpoints/
-*.idea/
-*.vscode/
-*.vs/
-*.cache/
-*.egg-info/
-*.egg/
-*.env/
-*.venv/
-*.tox/
-*.logs/
-*.tmp/
-*.temp/
+
+# IDE configurations
+__pycache__/  # Python
+*.idea/       # JetBrains IDEs (PyCharm, IntelliJ IDEA, etc.)
+*.vscode/     # Visual Studio Code
+*.vs/         # Visual Studio
+
+# Caches and temporary files
+*.cache/      # General cache directory
+*.egg-info/   # Python egg metadata
+*.egg/        # Python egg
+*.env/        # Virtual environment
+*.venv/       # Virtual environment (alternative name)
+*.tox/        # Tox environment
+*.logs/       # Log files
+*.tmp/        # Temporary files
+*.temp/       # Temporary files
+
