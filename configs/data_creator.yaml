@@ -7,8 +7,8 @@ data_creator_2_patch: true  # can modify this to false
 name: "Create_Data_Versions"
 data_input:
   part: ["train", "valid"]
-  train_path: "dataver0/train"
-  valid_path: "dataver0/valid"
+  train_path: "/home/haipn/data/dataver0/train"
+  valid_path: "/home/haipn/data/dataver0/valid"
 class: ["B2", "B5", "B6"]   # can remove 1 or more classes
 data_output:
   dataver1_path: "dataver1" # can modify this
@@ -16,7 +16,7 @@ data_output:
   dataver2_patch_path: "dataver2_patch" # can modify this
 model:
   name: "detect cell clusters"
-  path: "..." # can modify this to point to the model
+  path: "/home/haipn/weights/best.pt" # can modify this to point to the model
   task: "detect"
   verbose: true
   batch_size: 64
