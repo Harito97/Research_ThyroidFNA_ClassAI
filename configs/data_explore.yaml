@@ -8,7 +8,7 @@ dataset_versions:
 
 dataset_paths:
   # /path/to/dataver0
-  dataver0: results/dataver0
+  dataver0: /home/haipn/data/dataver0
   # /path/to/dataver1
   dataver1: results/dataver1
   # /path/to/dataver2_image
