@@ -74,6 +74,9 @@ def run(config):
         shuffle=False,
         num_workers=config["data"]["num_workers"],
     )
+    print("Number of training samples:", len(train_dataset))
+    print("Number of validation samples:", len(val_dataset))
+    print("Data loaded successfully.")
 
     # Initialize model
     model = H97_EfficientNetB0(
@@ -83,7 +86,7 @@ def run(config):
 
     # Calculate class weights for CrossEntropyLoss
     class_counts = torch.tensor(
-        [train_dataset.get_labels().count(c) for c in config["classes"]]
+        [train_dataset.get_labels().count(c) for c, _ in enumerate(config["classes"])]
     )
     class_weights = 1.0 / class_counts.float()
     class_weights = class_weights / class_weights.sum() * len(class_counts)
