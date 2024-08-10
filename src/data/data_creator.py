@@ -94,7 +94,7 @@ def get_patches_and_save(
 
 def __create_folder(config, datever_path):
     for label in config["class"]:
-        for split in config["part"]:
+        for split in config["data_input"]["part"]:
             folder_path = os.path.join(datever_path, split, label)
             if not os.path.exists(folder_path):
                 os.makedirs(folder_path)
