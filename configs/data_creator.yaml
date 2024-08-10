@@ -1,8 +1,8 @@
 type: "data_creator"
 # support data_creator: ["1", "2_image", "2_patch"]
-data_creator_1: false        # can modify this to false
+data_creator_1: true        # can modify this to false
 data_creator_2_image: true  # can modify this to false
-data_creator_2_patch: false  # can modify this to false
+data_creator_2_patch: true  # can modify this to false
 # data_creator_2_patch: true -> data_creator_1 must be true
 
 name: "Create_Data_Versions"
@@ -20,7 +20,7 @@ model:
   path: "/home/haipn/weights/best.pt" # can modify this to point to the model
   task: "detect"
   verbose: false
-  batch_size: 128 # 64  # 1024 will stackoverflow
+  batch_size: 350 # 64  # 1024 will stackoverflow, 128 will take 4834MiB
 # seed: 42
 # logging:
 #   wandb: true
