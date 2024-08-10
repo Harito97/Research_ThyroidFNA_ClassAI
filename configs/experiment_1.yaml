@@ -1,0 +1,24 @@
+experiment: "a"
+name: "Baseline_CNN"
+data:
+  train_path: "data/processed/train"
+  val_path: "data/processed/val"
+  test_path: "data/processed/test"
+model:
+  type: "CNN"
+  layers: [64, 128, 256]
+  dropout: 0.5
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+  optimizer: "adam"
+augmentation:
+  horizontal_flip: true
+  vertical_flip: false
+  rotation_range: 20
+classes: ["benign", "malignant"]
+seed: 42
+logging:
+  wandb: true
+  project_name: "ThyroidFNA_ClassAI"

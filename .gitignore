@@ -1,0 +1,57 @@
+weights/
+# experiments/
+temp*
+# *ipynb
+
+# About model weights + data + logs
+*.pt
+*.pth
+*.pkl
+*.csv
+*.log
+
+*.jpg
+*.png
+*.jpeg
+*.gif
+*.zip
+*.tar
+*.gz
+*.bz2
+*.xz
+*.rar
+*.7z
+*.mp4
+*.avi
+*.mkv
+*.flv
+*.mov
+*.wmv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.opus
+*.mpg
+*.mpeg
+*.m4a
+*.m4v
+*.flv
+*.f4v
+
+# Temporary files
+*/__pycache__/
+*.ipynb_checkpoints/
+*.idea/
+*.vscode/
+*.vs/
+*.cache/
+*.egg-info/
+*.egg/
+*.env/
+*.venv/
+*.tox/
+*.logs/
+*.tmp/
+*.temp/

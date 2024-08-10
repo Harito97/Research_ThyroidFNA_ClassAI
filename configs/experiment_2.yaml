@@ -1,0 +1,26 @@
+experiment: "b"
+name: "Transfer_Learning_ResNet50"
+data:
+  train_path: "data/processed/train"
+  val_path: "data/processed/val"
+  test_path: "data/processed/test"
+model:
+  type: "ResNet50"
+  pretrained: true
+  fine_tune_layers: 5
+training:
+  batch_size: 16
+  epochs: 50
+  learning_rate: 0.0001
+  optimizer: "sgd"
+  momentum: 0.9
+augmentation:
+  horizontal_flip: true
+  vertical_flip: true
+  rotation_range: 30
+  zoom_range: 0.1
+classes: ["benign", "malignant"]
+seed: 42
+logging:
+  wandb: true
+  project_name: "ThyroidFNA_ClassAI"
