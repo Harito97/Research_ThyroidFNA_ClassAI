@@ -47,4 +47,34 @@ rm *.log
 nohup python main.py --config configs/experiment_2.yaml > output_experiment_2.log 2>&1 &
 tail -n 50 output_experiment_2.log
 ```
+
+### Ex3:
+```bash
+nohup python main.py --config configs/experiment_3.yaml > output_experiment_3.log 2>&1 &
+tail -n 50 output_experiment_3.log
+```
+
+### Ex4:
+```bash
+nohup python main.py --config configs/experiment_4.yaml > output_experiment_4.log 2>&1 &
+tail -n 50 output_experiment_4.log
+```
+
+### Ex5:
+```bash
+nohup python main.py --config configs/experiment_5.yaml > output_experiment_5.log 2>&1 &
+tail -n 50 output_experiment_5.log
+```
+
+### Ex6:
+```bash
+nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
+tail -n 50 output_experiment_6.log
+```
+
+<!-- ### Ex7:
+```bash
+nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
+tail -n 50 output_experiment_6.log
+``` -->
 ...
