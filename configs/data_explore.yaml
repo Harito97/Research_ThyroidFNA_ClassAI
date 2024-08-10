@@ -1,3 +1,5 @@
+type: "data_explore"
+
 dataset_versions:
   - dataver0
   - dataver1
