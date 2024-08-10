@@ -4,12 +4,9 @@ from PIL import Image
 from torch.utils.data import Dataset
 
 class MultiImageFolderDataset(Dataset):
-    def __init__(self, root_dirs, transform=None):
+    def __init__(self, experiment_yaml_config, root_dirs, transform=None):
         """
-        Use: create a dataset from multiple folders containing images
-        Args:
-            root_dirs (list): list of paths to folders containing images
-            transform (torchvision.transforms): transformations to apply to images 
+        Use: create a dataset from multiple folders containing images 
         """
         self.image_paths = []
         self.labels = []
@@ -17,20 +14,18 @@ class MultiImageFolderDataset(Dataset):
         self.class_to_idx = {}
         self.idx_to_class = {}
         
-        # Tạo một danh sách các thư mục con và chỉ mục nhãn
-        for idx, root_dir in enumerate(root_dirs):
-            if not os.path.isdir(root_dir):
-                raise ValueError(f"{root_dir} is not a exist directory")
-            
-            # Lưu các lớp và chỉ mục của chúng
-            class_name = os.path.basename(root_dir)
+        for idx, class_name in enumerate(experiment_yaml_config["classes"]):
             self.class_to_idx[class_name] = idx
             self.idx_to_class[idx] = class_name
 
-            # Tìm tất cả các ảnh trong thư mục con
-            image_paths = glob.glob(os.path.join(root_dir, '*.jpg'))  # Thay đổi định dạng file nếu cần
-            self.image_paths.extend(image_paths)
-            self.labels.extend([idx] * len(image_paths))
+        for root_dir in root_dirs:
+            if not os.path.isdir(root_dir):
+                raise ValueError(f"{root_dir} is not a exist directory")
+            for label in experiment_yaml_config["classes"]:
+                # Tìm tất cả các ảnh trong thư mục con
+                image_paths = glob.glob(os.path.join(root_dir, label, '*.jpg'))  # Thay đổi định dạng file nếu cần
+                self.image_paths.extend(image_paths)
+                self.labels.extend([self.class_to_idx[label]] * len(image_paths))
 
     def __len__(self):
         return len(self.image_paths)
