@@ -90,6 +90,7 @@ def run(config):
     )
     class_weights = 1.0 / class_counts.float()
     class_weights = class_weights / class_weights.sum() * len(class_counts)
+    print("Class weights:", class_weights)
     criterion = nn.CrossEntropyLoss(weight=class_weights.to(config["device"]))
 
     # Define optimizer and scheduler
