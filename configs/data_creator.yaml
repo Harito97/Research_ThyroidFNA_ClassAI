@@ -20,7 +20,8 @@ model:
   path: "/home/haipn/weights/best.pt" # can modify this to point to the model
   task: "detect"
   verbose: false
-  batch_size: 350 # 64  # 1024 will stackoverflow, 128 will take 4834MiB
+  batch_size: 350 # 64  # 1024 will stackoverflow, 128 will take 4834MiB, 350 will take 12822MiB
+  
 # seed: 42
 # logging:
 #   wandb: true

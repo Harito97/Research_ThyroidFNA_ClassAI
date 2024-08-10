@@ -1,0 +1,20 @@
+dataset_versions:
+  - dataver0
+  - dataver1
+  - dataver2_image
+  - dataver2_patch
+
+dataset_paths:
+  # /path/to/dataver0
+  dataver0: results/dataver0
+  # /path/to/dataver1
+  dataver1: results/dataver1
+  # /path/to/dataver2_image
+  dataver2_image: results/dataver2_image
+  # /path/to/dataver2_patch
+  dataver2_patch: results/dataver2_patch
+
+# /path/to/output/directory
+output_dir: results/data_explore
+
+max_images_per_class: 1000
