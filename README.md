@@ -5,8 +5,8 @@
 Example usage:
 ```bash
 cd /path/to/this/project
-nohup python main.py --config configs/data_creator.yaml > output_data_creator.log 2>&1
-# install nohup if you don't have (or thus use python)
+nohup python main.py --config configs/data_creator.yaml > output_data_creator.log 2>&1 &
+# install nohup if you don't have (or thus use python) 
 # change the configs/data_creator.yaml as you want (but must be sustainable)
 tail -n 50 output_data_creator.log # to see last 50 lines of output info 
 # see the output_data_creator.log more if you want
@@ -20,7 +20,7 @@ The dataset be create will stay in results/dataset_just_create
 Example usage:
 ```bash
 cd /path/to/this/project
-nohup python main.py --config configs/data_explore.yaml > output_data_explore.log 2>&1
+nohup python main.py --config configs/data_explore.yaml > output_data_explore.log 2>&1 &
 # change the configs/data_explore.yaml as you want (but must be sustainable)
 tail -n 50 output_data_explore.log # to see last 50 lines of output info 
 # see the output_data_explore.log more if you want

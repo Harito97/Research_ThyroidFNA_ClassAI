@@ -1,7 +1,12 @@
 weights/
-# experiments/
 temp*
 # *ipynb
+
+# Output reports
+# *.png
+# *.pdf
+# *.joblib
+
 
 # About model weights + data + logs
 *.pt
@@ -11,7 +16,7 @@ temp*
 *.log
 
 *.jpg
-*.png
+# *.png
 *.jpeg
 *.gif
 *.zip
