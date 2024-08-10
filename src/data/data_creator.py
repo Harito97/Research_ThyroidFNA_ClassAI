@@ -92,7 +92,7 @@ def get_patches_and_save(
             patch.save(output_dir + f"_patch_{i*4+j+1}.jpg")
 
 
-def __create_folder(datever_path):
+def __create_folder(config, datever_path):
     for label in config["class"]:
         for split in config["part"]:
             folder_path = os.path.join(datever_path, split, label)
@@ -125,11 +125,11 @@ def run(config):
     num_images = len(data_input)
 
     if config["data_creator_1"]:
-        __create_folder("results/dataver1/")
+        __create_folder(config=config, datever_path="results/dataver1/")
     if config["data_creator_2_patch"]:
-        __create_folder(f"results/dataver2_patch/")
+        __create_folder(config=config, datever_path="results/dataver2_patch/")
     if config["data_creator_2_image"]:
-        __create_folder(f"results/dataver2_image/")
+        __create_folder(config=config, datever_path="results/dataver2_image/")
     print("Created output folders")
 
     for num_step in range(0, num_images // batch_size + 1):
