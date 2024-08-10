@@ -29,9 +29,9 @@ def run_task(config: Dict[str, Any]) -> None:
     """Run the appropriate task based on the configuration."""
     task_type = config.get("type")
     if task_type == "data_creator":
-        data_creator.run(config)
+        data_creator.run(config=config)
     elif task_type == "data_explore":
-        data_explore.run(config)
+        data_explore.run(config=config)
     elif task_type == "experiment":
         # Placeholder for experiment runner
         # experiment_runner.run(config)

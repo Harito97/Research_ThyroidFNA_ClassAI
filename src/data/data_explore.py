@@ -111,6 +111,6 @@ class DataExplorer:
         self.create_pdf_report()
         print("Analysis complete. PDF report generated.")
 
-def run(config_path):
-    explorer = DataExplorer(config_path)
+def run(config_path=None, config=None):
+    explorer = DataExplorer(config_path=config_path, config=config)
     explorer.run()
