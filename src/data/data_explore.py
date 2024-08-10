@@ -12,9 +12,14 @@ from reportlab.platypus import SimpleDocTemplate, Image as ReportLabImage
 import joblib
 
 class DataExplorer:
-    def __init__(self, config_path):
-        with open(config_path, 'r') as file:
-            self.config = yaml.safe_load(file)
+    def __init__(self, config_path=None, config=None):
+        if config is not None:
+            self.config = config    # config is a dictionary (dict or typing.Dict)
+        else:
+            if config_path is None:
+                raise ValueError("Either config_path or config must be provided")
+            with open(config_path, 'r') as file:
+                self.config = yaml.safe_load(file)
         
         self.dataset_versions = self.config['dataset_versions']
         self.dataset_paths = self.config['dataset_paths']
