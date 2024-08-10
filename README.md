@@ -68,7 +68,14 @@ tail -n 50 output_experiment_5.log
 
 ### Ex6:
 ```bash
-nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
+# nohup python main.py --config configs/experiment_5.yaml > output_experiment_5.log 2>&1 &
+# [1] 346474
+nohup bash -c 'while kill -0 346474 2>/dev/null; do sleep 5; done; nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &' > output_run_after_completion.log 2>&1 &
+# [2] 354432
+
+# 346474 is the pid of experiment 5
+
+# nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
 tail -n 50 output_experiment_6.log
 ```
 
