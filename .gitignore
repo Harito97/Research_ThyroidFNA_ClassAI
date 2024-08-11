@@ -1,5 +1,6 @@
 weights/
 temp*
+wandb/
 # *ipynb
 
 # Output reports
