@@ -1,5 +1,10 @@
 # All action in this research can be do with main.py
 
+```bash
+watch -n 1 nvidia-smi
+# Update real time info of GPU when run command
+```
+
 ## Create data versions
 
 Example usage:
@@ -92,5 +97,17 @@ nohup python main.py --config configs/experiment_10.yaml > output_experiment_10.
 nohup python main.py --config configs/experiment_11.yaml > output_experiment_11.log 2>&1 && \
 nohup python main.py --config configs/experiment_12.yaml > output_experiment_12.log 2>&1 && \
 nohup python main.py --config configs/experiment_13.yaml > output_experiment_13.log 2>&1
+```
+
+### Train Ex15 Ex16 Ex17 Ex18 Ex19 Ex20
+```bash
+#!/bin/bash
+
+nohup python main.py --config configs/experiment_15.yaml > output_experiment_15.log 2>&1 && \
+nohup python main.py --config configs/experiment_16.yaml > output_experiment_16.log 2>&1 && \
+nohup python main.py --config configs/experiment_17.yaml > output_experiment_17.log 2>&1 && \
+nohup python main.py --config configs/experiment_18.yaml > output_experiment_18.log 2>&1 && \
+nohup python main.py --config configs/experiment_19.yaml > output_experiment_19.log 2>&1 && \
+nohup python main.py --config configs/experiment_20.yaml > output_experiment_20.log 2>&1
 ```
 ...
