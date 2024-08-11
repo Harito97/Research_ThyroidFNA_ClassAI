@@ -38,7 +38,7 @@ def run_task(config: Dict[str, Any]) -> None:
             experiment_1to6.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 144
         elif config["experiment"] in ["8", "9", "10", "11", "12", "13"]: # Experiment 8 to 13
             experiment_8to13.run(config)# use model H0_EfficientNetB0, batch_size = 144
-        elif config["expreriment"] in ["15", "16", "17", "18", "19", "20"]: # Experiment 15 to 20
+        elif config["experiment"] in ["15", "16", "17", "18", "19", "20"]: # Experiment 15 to 20
             experiment_1to6.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 32
     else:
         raise ValueError(f"Unknown task type: {task_type}")
