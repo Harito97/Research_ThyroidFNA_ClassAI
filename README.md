@@ -69,12 +69,9 @@ tail -n 50 output_experiment_5.log
 ### Ex6:
 ```bash
 # nohup python main.py --config configs/experiment_5.yaml > output_experiment_5.log 2>&1 &
-# [1] 346474
+# [1] 346474 # 346474 is the pid of experiment 5
 nohup bash -c 'while kill -0 346474 2>/dev/null; do sleep 5; done; nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &' > output_run_after_completion.log 2>&1 &
 # [2] 354432
-
-# 346474 is the pid of experiment 5
-
 # nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
 tail -n 50 output_experiment_6.log
 ```
@@ -84,4 +81,16 @@ tail -n 50 output_experiment_6.log
 nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
 tail -n 50 output_experiment_6.log
 ``` -->
+
+### Train Ex8 Ex9 Ex10 Ex11 Ex12 Ex13
+```bash
+#!/bin/bash
+
+nohup python main.py --config configs/experiment_8.yaml > output_experiment_8.log 2>&1 && \
+nohup python main.py --config configs/experiment_9.yaml > output_experiment_9.log 2>&1 && \
+nohup python main.py --config configs/experiment_10.yaml > output_experiment_10.log 2>&1 && \
+nohup python main.py --config configs/experiment_11.yaml > output_experiment_11.log 2>&1 && \
+nohup python main.py --config configs/experiment_12.yaml > output_experiment_12.log 2>&1 && \
+nohup python main.py --config configs/experiment_13.yaml > output_experiment_13.log 2>&1
+```
 ...

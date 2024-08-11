@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import transforms
-from src.models.efficient_net import H97_9_7_EfficientNetB0
+from src.models.efficient_net import H0_EfficientNetB0
 from src.data.dataset.image_classification import MultiImageFolderDataset
 from src.utils.build_model.image_classification import (
     TrainImageClassificationModel,
@@ -79,7 +79,7 @@ def run(config):
     print("Data loaded successfully.")
 
     # Initialize model
-    model = H97_9_7_EfficientNetB0(
+    model = H0_EfficientNetB0(
         retrain_whole_net=config["model"]["retrain_whole_net"],
         dropout_rate=config["model"]["dropout_rate"], num_classes=len(config["classes"])
     )
@@ -135,7 +135,7 @@ def run(config):
 if __name__ == "__main__":
     # Example of how to run the experiment
     # Load configuration from YAML file
-    with open("configs/experiment_1.yaml", "r") as file:
+    with open("configs/experiment_8.yaml", "r") as file:
         config = yaml.safe_load(file)
 
     # Run the experiment
