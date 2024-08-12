@@ -1,0 +1,39 @@
+# configs/experiment_30.yaml
+type: "experiment"
+
+experiment: "30"
+name: "Retrain EfficientNetB7"
+
+device: "cuda"
+
+data:
+  train_path: ["/home/haipn/data/dataver0/train"]
+  val_path: ["/home/haipn/data/dataver0/valid"]
+  num_workers: 20
+
+model:
+  type: "EfficientNetB7"
+  dropout_rate: 0.1 # have no meaning in this experiment
+  retrain_whole_net: true
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.0001
+  optimizer: "adam"
+  patience: 10
+  save_path: "results/experiment_30/experiment_30.pth"
+
+augmentation:
+  horizontal_flip: true
+  vertical_flip: true
+  rotation_range: 20
+
+classes: ["B2", "B5", "B6"]
+seed: 42
+
+logging:
+  wandb: true
+  project_name: "ThyroidFNA_ClassAI"
+  run_name: "experiment 30: Retrain EfficientNetB7"
+  save_path: "results/experiment_30"

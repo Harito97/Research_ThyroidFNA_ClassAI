@@ -7,9 +7,12 @@ from typing import Dict, Any
 import yaml
 
 # Internal imports
-import src.experiments.experiment_H97_9_7_EfficientNetB0 as experiment_H97_9_7_EfficientNetB0    # Import all experiments
-import src.experiments.experiment_H0_EfficientNetB0 as experiment_H0_EfficientNetB0  # Import all experiments
-from src.data import data_creator, data_explore  # Import specific modules
+## Import all experiments
+import src.experiments.experiment_H97_9_7_EfficientNetB0 as experiment_H97_9_7_EfficientNetB0    
+import src.experiments.experiment_H0_EfficientNetB0 as experiment_H0_EfficientNetB0  
+import src.experiments.experiment_H0_EfficientNetB7 as experiment_H0_EfficientNetB7
+## Import all data modules
+from src.data import data_creator, data_explore
 
 
 def valid_file(param: str) -> str:
@@ -42,6 +45,8 @@ def run_task(config: Dict[str, Any]) -> None:
             experiment_H97_9_7_EfficientNetB0.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 32
         elif config["experiment"] in ["22", "23", "24", "25", "26", "27"]: # Experiment 22 to 27
             experiment_H0_EfficientNetB0.run(config) # use model H0_EfficientNetB0, batch_size = 32
+        elif config["experiment"] in ["29", "30", "31", "32", "33", "34"]: # Experiment 29 to 34
+            experiment_H0_EfficientNetB7.run(config) # use model H0_EfficientNetB7, batch_size = 32
     else:
         raise ValueError(f"Unknown task type: {task_type}")
 

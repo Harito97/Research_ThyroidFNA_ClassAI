@@ -7,6 +7,7 @@
 import torch
 import torch.nn as nn
 from torchvision.models import efficientnet_b0, EfficientNet_B0_Weights
+from torchvision.models import efficientnet_b7, EfficientNet_B7_Weights
 
 
 class H97_9_7_EfficientNetB0(nn.Module):
@@ -84,6 +85,41 @@ class H0_EfficientNetB0(nn.Module):
 
         # Initialize model with pretrained weights
         self.model = efficientnet_b0(weights=EfficientNet_B0_Weights.DEFAULT)
+
+        # Replace the final classification layer
+        in_features = self.model.classifier[1].in_features
+        self.model.classifier[1] = nn.Linear(in_features, num_classes)
+
+        # Freeze all layers except the final classifier layer if not retraining the whole network
+        if not retrain_whole_net:
+            # Freeze all parameters
+            for param in self.model.parameters():
+                param.requires_grad = False
+            # Unfreeze only the parameters of the final classifier layer
+            for param in self.model.classifier[1].parameters():
+                param.requires_grad = True
+
+    def forward(self, x):
+        return self.model(x)
+
+class H0_EfficientNetB7(nn.Module):
+    def __init__(
+        self,
+        experiment_yaml_config=None,
+        num_classes=3,
+        retrain_whole_net=False,
+        dropout_rate=0,
+    ):
+        super(H0_EfficientNetB7, self).__init__()
+
+        # Load configuration
+        if experiment_yaml_config is not None:
+            num_classes = len(experiment_yaml_config["classes"])
+            retrain_whole_net = experiment_yaml_config["training"]["retrain_whole_net"]
+            dropout_rate = experiment_yaml_config["training"]["dropout_rate"]
+
+        # Initialize model with pretrained weights
+        self.model = efficientnet_b7(weights=EfficientNet_B7_Weights.DEFAULT)
 
         # Replace the final classification layer
         in_features = self.model.classifier[1].in_features

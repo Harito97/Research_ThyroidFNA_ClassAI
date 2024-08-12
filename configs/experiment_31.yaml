@@ -1,0 +1,39 @@
+# configs/experiment_31.yaml
+type: "experiment"
+
+experiment: "31"
+name: "Fine tune EfficientNetB7"
+
+device: "cuda"
+
+data:
+  train_path: ["/home/haipn/Research_ThyroidFNA_ClassAI/results/dataver1/train"]
+  val_path: ["/home/haipn/Research_ThyroidFNA_ClassAI/results/dataver1/valid"]
+  num_workers: 20
+
+model:
+  type: "EfficientNetB7"
+  dropout_rate: 0.1
+  retrain_whole_net: false
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.0001
+  optimizer: "adam"
+  patience: 10
+  save_path: "results/experiment_31/experiment_31.pth"
+
+augmentation:
+  horizontal_flip: true
+  vertical_flip: true
+  rotation_range: 20
+
+classes: ["B2", "B5", "B6"]
+seed: 42
+
+logging:
+  wandb: true
+  project_name: "ThyroidFNA_ClassAI"
+  run_name: "experiment 31: Fine tune EfficientNetB7"
+  save_path: "results/experiment_31"
