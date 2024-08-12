@@ -14,7 +14,7 @@ import os
 
 
 def run(config):
-    print(f"Running Experiment {config["experiment"]}: {config["name"]}")
+    print(f"Running Experiment {config['experiment']}: {config['name']}")
 
     # Set random seeds for reproducibility
     torch.manual_seed(config["seed"])
@@ -129,7 +129,7 @@ def run(config):
     # Start validation
     validator.evaluate()
 
-    print(f"Experiment {config["experiment"]} completed.")
+    print(f"Experiment {config['experiment']} completed.")
 
 
 if __name__ == "__main__":

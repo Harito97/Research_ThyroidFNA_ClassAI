@@ -7,8 +7,8 @@ from typing import Dict, Any
 import yaml
 
 # Internal imports
-import src.experiments.experiment_1to6 as experiment_1to6    # Import all experiments
-import src.experiments.experiment_8to13 as experiment_8to13  # Import all experiments
+import src.experiments.experiment_H97_9_7_EfficientNetB0 as experiment_H97_9_7_EfficientNetB0    # Import all experiments
+import src.experiments.experiment_H0_EfficientNetB0 as experiment_H0_EfficientNetB0  # Import all experiments
 from src.data import data_creator, data_explore  # Import specific modules
 
 
@@ -35,11 +35,13 @@ def run_task(config: Dict[str, Any]) -> None:
         data_explore.run(config=config)
     elif task_type == "experiment":
         if config["experiment"] in ["1", "2", "3", "4", "5", "6"]: # Experiment 1 to 6
-            experiment_1to6.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 144
+            experiment_H97_9_7_EfficientNetB0.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 144
         elif config["experiment"] in ["8", "9", "10", "11", "12", "13"]: # Experiment 8 to 13
-            experiment_8to13.run(config)# use model H0_EfficientNetB0, batch_size = 144
+            experiment_H0_EfficientNetB0.run(config) # use model H0_EfficientNetB0, batch_size = 144
         elif config["experiment"] in ["15", "16", "17", "18", "19", "20"]: # Experiment 15 to 20
-            experiment_1to6.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 32
+            experiment_H97_9_7_EfficientNetB0.run(config) # use model H97_9_7_EfficientNetB0, batch_size = 32
+        elif config["experiment"] in ["22", "23", "24", "25", "26", "27"]: # Experiment 22 to 27
+            experiment_H0_EfficientNetB0.run(config) # use model H0_EfficientNetB0, batch_size = 32
     else:
         raise ValueError(f"Unknown task type: {task_type}")
 
