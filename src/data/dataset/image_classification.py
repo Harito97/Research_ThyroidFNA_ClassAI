@@ -2,6 +2,8 @@
 import os
 import glob
 from PIL import Image
+import cv2
+import numpy as np
 from torch.utils.data import Dataset
 
 class MultiImageFolderDataset(Dataset):
@@ -36,6 +38,10 @@ class MultiImageFolderDataset(Dataset):
         label = self.labels[idx]
 
         image = Image.open(img_path).convert('RGB')
+
+        if "dataver1" in img_path or "dataver2_patch" in img_path:
+            image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+            image = Image.fromarray(image)
 
         if self.transform:
             image = self.transform(image)
