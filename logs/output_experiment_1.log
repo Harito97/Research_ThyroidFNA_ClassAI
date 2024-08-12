@@ -1,0 +1,203 @@
+nohup: ignoring input
+wandb: Currently logged in as: harito97 (harito). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240810_184326-zz8uuhkb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment 1: Fine tune EfficientNetB0
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/zz8uuhkb
+Running Experiment 1: Fine tune EfficientNetB0
+Number of training samples: 1441
+Number of validation samples: 363
+Data loaded successfully.
+Class weights: tensor([1.1961, 1.0660, 0.7380])
+Epoch 1/100:
+	+ Train Loss: 1.095942, Train Accuracy: 0.326162
+	+ Validation Loss: 1.090675, Validation Accuracy: 0.316804
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 2/100:
+	+ Train Loss: 1.088224, Train Accuracy: 0.425399
+	+ Validation Loss: 1.081945, Validation Accuracy: 0.451791
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 3/100:
+	+ Train Loss: 1.076961, Train Accuracy: 0.530187
+	+ Validation Loss: 1.068926, Validation Accuracy: 0.506887
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 4/100:
+	+ Train Loss: 1.062659, Train Accuracy: 0.576683
+	+ Validation Loss: 1.054206, Validation Accuracy: 0.575758
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 5/100:
+	+ Train Loss: 1.046489, Train Accuracy: 0.598890
+	+ Validation Loss: 1.038034, Validation Accuracy: 0.652893
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 6/100:
+	+ Train Loss: 1.031577, Train Accuracy: 0.604441
+	+ Validation Loss: 1.022554, Validation Accuracy: 0.666667
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 7/100:
+	+ Train Loss: 1.012806, Train Accuracy: 0.620402
+	+ Validation Loss: 1.007042, Validation Accuracy: 0.677686
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 8/100:
+	+ Train Loss: 0.991192, Train Accuracy: 0.619015
+	+ Validation Loss: 0.990914, Validation Accuracy: 0.683196
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 9/100:
+	+ Train Loss: 0.981014, Train Accuracy: 0.621790
+	+ Validation Loss: 0.975763, Validation Accuracy: 0.683196
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 10/100:
+	+ Train Loss: 0.959955, Train Accuracy: 0.630812
+	+ Validation Loss: 0.961485, Validation Accuracy: 0.669421
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 11/100:
+	+ Train Loss: 0.949161, Train Accuracy: 0.646079
+	+ Validation Loss: 0.959646, Validation Accuracy: 0.672176
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 12/100:
+	+ Train Loss: 0.946106, Train Accuracy: 0.658570
+	+ Validation Loss: 0.956759, Validation Accuracy: 0.669421
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 13/100:
+	+ Train Loss: 0.940871, Train Accuracy: 0.644691
+	+ Validation Loss: 0.954259, Validation Accuracy: 0.669421
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 14/100:
+	+ Train Loss: 0.943759, Train Accuracy: 0.636364
+	+ Validation Loss: 0.952536, Validation Accuracy: 0.674931
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 15/100:
+	+ Train Loss: 0.938633, Train Accuracy: 0.637058
+	+ Validation Loss: 0.951729, Validation Accuracy: 0.677686
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 16/100:
+	+ Train Loss: 0.943019, Train Accuracy: 0.646773
+	+ Validation Loss: 0.949238, Validation Accuracy: 0.674931
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 17/100:
+	+ Train Loss: 0.925843, Train Accuracy: 0.671062
+	+ Validation Loss: 0.947671, Validation Accuracy: 0.677686
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 18/100:
+	+ Train Loss: 0.933862, Train Accuracy: 0.629424
+	+ Validation Loss: 0.948289, Validation Accuracy: 0.674931
+Epoch 19/100:
+	+ Train Loss: 0.939634, Train Accuracy: 0.631506
+	+ Validation Loss: 0.946113, Validation Accuracy: 0.674931
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 20/100:
+	+ Train Loss: 0.929479, Train Accuracy: 0.641915
+	+ Validation Loss: 0.946019, Validation Accuracy: 0.669421
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 21/100:
+	+ Train Loss: 0.934447, Train Accuracy: 0.641221
+	+ Validation Loss: 0.945435, Validation Accuracy: 0.669421
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 22/100:
+	+ Train Loss: 0.933905, Train Accuracy: 0.640527
+	+ Validation Loss: 0.943441, Validation Accuracy: 0.677686
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 23/100:
+	+ Train Loss: 0.923710, Train Accuracy: 0.645385
+	+ Validation Loss: 0.944088, Validation Accuracy: 0.674931
+Epoch 24/100:
+	+ Train Loss: 0.926365, Train Accuracy: 0.663428
+	+ Validation Loss: 0.943473, Validation Accuracy: 0.672176
+Epoch 25/100:
+	+ Train Loss: 0.929882, Train Accuracy: 0.646079
+	+ Validation Loss: 0.944094, Validation Accuracy: 0.677686
+Epoch 26/100:
+	+ Train Loss: 0.922357, Train Accuracy: 0.646773
+	+ Validation Loss: 0.942240, Validation Accuracy: 0.677686
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 27/100:
+	+ Train Loss: 0.935690, Train Accuracy: 0.622484
+	+ Validation Loss: 0.941047, Validation Accuracy: 0.674931
+Model saved to results/experiment_1/experiment_1.pth
+Epoch 28/100:
+	+ Train Loss: 0.925338, Train Accuracy: 0.640527
+	+ Validation Loss: 0.942884, Validation Accuracy: 0.674931
+Epoch 29/100:
+	+ Train Loss: 0.929785, Train Accuracy: 0.643303
+	+ Validation Loss: 0.942473, Validation Accuracy: 0.677686
+Epoch 30/100:
+	+ Train Loss: 0.929554, Train Accuracy: 0.644691
+	+ Validation Loss: 0.941995, Validation Accuracy: 0.672176
+Epoch 31/100:
+	+ Train Loss: 0.931699, Train Accuracy: 0.630118
+	+ Validation Loss: 0.942765, Validation Accuracy: 0.677686
+Epoch 32/100:
+	+ Train Loss: 0.924543, Train Accuracy: 0.648855
+	+ Validation Loss: 0.942852, Validation Accuracy: 0.674931
+Epoch 33/100:
+	+ Train Loss: 0.919999, Train Accuracy: 0.661346
+	+ Validation Loss: 0.942318, Validation Accuracy: 0.674931
+Epoch 34/100:
+	+ Train Loss: 0.930184, Train Accuracy: 0.637058
+	+ Validation Loss: 0.942480, Validation Accuracy: 0.680441
+Epoch 35/100:
+	+ Train Loss: 0.924820, Train Accuracy: 0.643303
+	+ Validation Loss: 0.941726, Validation Accuracy: 0.677686
+Epoch 36/100:
+	+ Train Loss: 0.928907, Train Accuracy: 0.644691
+	+ Validation Loss: 0.941966, Validation Accuracy: 0.677686
+Epoch 37/100:
+	+ Train Loss: 0.925400, Train Accuracy: 0.657876
+wandb: - 0.007 MB of 0.021 MB uploaded (0.003 MB deduped)wandb: \ 0.007 MB of 0.021 MB uploaded (0.003 MB deduped)wandb: | 0.015 MB of 0.021 MB uploaded (0.003 MB deduped)wandb: / 0.015 MB of 0.021 MB uploaded (0.003 MB deduped)wandb: - 0.021 MB of 0.021 MB uploaded (0.003 MB deduped)wandb:                                                                                
+wandb: W&B sync reduced upload amount by 13.1%
+wandb: 
+wandb: Run history:
+wandb: train_accuracy ▁▃▅▆▇▇▇▇▇▇▇█▇▇▇██▇▇▇▇▇▇█▇█▇▇▇▇▇██▇▇▇█
+wandb:     train_loss ██▇▇▆▅▅▄▃▃▂▂▂▂▂▂▁▂▂▁▂▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁
+wandb: valid_accuracy ▁▄▅▆▇████████████████████████████████
+wandb:     valid_loss ██▇▆▆▅▄▃▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb: train_accuracy 0.65788
+wandb:     train_loss 0.9254
+wandb: valid_accuracy 0.67769
+wandb:     valid_loss 0.94212
+wandb: 
+wandb: 🚀 View run experiment 1: Fine tune EfficientNetB0 at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/zz8uuhkb
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240810_184326-zz8uuhkb/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: wandb version 0.17.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240810_184800-i2l1pf6m
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment 1: Fine tune EfficientNetB0_validation
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/i2l1pf6m
+	+ Validation Loss: 0.942119, Validation Accuracy: 0.677686
+Early stopping triggered after 37 epochs.
+wandb: - 0.104 MB of 0.104 MB uploadedwandb: \ 0.104 MB of 0.104 MB uploadedwandb: | 0.104 MB of 0.104 MB uploadedwandb: / 0.104 MB of 0.104 MB uploadedwandb: - 0.111 MB of 0.120 MB uploaded (0.003 MB deduped)wandb: \ 0.111 MB of 0.120 MB uploaded (0.003 MB deduped)wandb: | 0.120 MB of 0.120 MB uploaded (0.003 MB deduped)wandb:                                                                                
+wandb: W&B sync reduced upload amount by 2.3%
+wandb: 
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  f1_score ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb: 
+wandb: Run summary:
+wandb:  accuracy 0.67493
+wandb:  f1_score 0.64098
+wandb: precision 0.65278
+wandb:    recall 0.67493
+wandb: 
+wandb: 🚀 View run experiment 1: Fine tune EfficientNetB0_validation at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/i2l1pf6m
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 3 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240810_184800-i2l1pf6m/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+Accuracy: 0.6749
+Precision: 0.6528
+Recall: 0.6749
+F1 Score: 0.6410
+Experiment A completed.

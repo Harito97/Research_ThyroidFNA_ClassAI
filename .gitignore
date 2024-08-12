@@ -13,8 +13,8 @@ wandb/
 *.pt
 *.pth
 *.pkl
-*.csv
-*.log
+# *.csv
+# *.log
 
 *.jpg
 # *.png
