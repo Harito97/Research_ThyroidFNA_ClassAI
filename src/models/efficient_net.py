@@ -133,6 +133,7 @@ class H97_9_7_EfficientNetB7(nn.Module):
         self.fc3 = nn.Linear(9, 7)
         self.fc4 = nn.Linear(7, num_classes)
         self.dropout = nn.Dropout(dropout_rate)
+        self.leaky_relu = nn.LeakyReLU(negative_slope=0.01)
 
         # Hook for CAM
         # self.features = None
@@ -148,13 +149,16 @@ class H97_9_7_EfficientNetB7(nn.Module):
 
         # Pass through the dense network
         x = self.fc1(x)
-        x = nn.ReLU()(x)
+        # x = nn.ReLU()(x)
+        x = self.leaky_relu(x)
         x = self.dropout(x)
         x = self.fc2(x)
-        x = nn.ReLU()(x)
+        # x = nn.ReLU()(x)
+        x = self.leaky_relu(x)
         x = self.dropout(x)
         x = self.fc3(x)
-        x = nn.ReLU()(x)
+        # x = nn.ReLU()(x)
+        x = self.leaky_relu(x)
         x = self.dropout(x)
         x = self.fc4(x)
         return x
