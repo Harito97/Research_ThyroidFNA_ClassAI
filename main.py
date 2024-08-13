@@ -9,6 +9,7 @@ import yaml
 # Internal imports
 ## Import all experiments
 import src.experiments.experiment_H97_9_7_EfficientNetB0 as experiment_H97_9_7_EfficientNetB0    
+import src.experiments.experiment_H97_9_7_EfficientNetB7 as experiment_H97_9_7_EfficientNetB7
 import src.experiments.experiment_H0_EfficientNetB0 as experiment_H0_EfficientNetB0  
 import src.experiments.experiment_H0_EfficientNetB7 as experiment_H0_EfficientNetB7
 ## Import all data modules
@@ -47,6 +48,8 @@ def run_task(config: Dict[str, Any]) -> None:
             experiment_H0_EfficientNetB0.run(config) # use model H0_EfficientNetB0, batch_size = 32
         elif config["experiment"] in ["29", "30", "31", "32", "33", "34"]: # Experiment 29 to 34
             experiment_H0_EfficientNetB7.run(config) # use model H0_EfficientNetB7, batch_size = 32
+        elif config["experiment"] in ["36", "37", "38", "39", "40", "41"]: # Experiment 36 to 41
+            experiment_H97_9_7_EfficientNetB7.run(config) # use model H97_9_7_EfficientNetB7, batch_size = 32 vs 16 if retrains whole network
     else:
         raise ValueError(f"Unknown task type: {task_type}")
 
