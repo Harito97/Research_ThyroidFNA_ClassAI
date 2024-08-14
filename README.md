@@ -146,3 +146,17 @@ nohup python main.py --config configs/experiment_39.yaml > output_experiment_39.
 nohup python main.py --config configs/experiment_40.yaml > output_experiment_40.log 2>&1 && \
 nohup python main.py --config configs/experiment_41.yaml > output_experiment_41.log 2>&1
 ```
+
+### Train Ex43
+```bash
+#!/bin/bash
+
+nohup python main.py --config configs/experiment_43.yaml > output_experiment_43.log 2>&1
+```
+
+### Train Ex44
+```bash
+#!/bin/bash
+
+nohup python main.py --config configs/experiment_44.yaml > output_experiment_44.log 2>&1
+```

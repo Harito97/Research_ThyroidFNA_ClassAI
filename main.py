@@ -13,6 +13,8 @@ import src.experiments.experiment_H97_9_7_EfficientNetB7 as experiment_H97_9_7_E
 import src.experiments.experiment_H0_EfficientNetB0 as experiment_H0_EfficientNetB0  
 import src.experiments.experiment_H0_EfficientNetB7 as experiment_H0_EfficientNetB7
 import src.experiments.experiment_43 as experiment_43
+import src.experiments.experiment_44 as experiment_44
+
 ## Import all data modules
 from src.data import data_creator, data_explore
 
@@ -51,8 +53,10 @@ def run_task(config: Dict[str, Any]) -> None:
             experiment_H0_EfficientNetB7.run(config) # use model H0_EfficientNetB7, batch_size = 32
         elif config["experiment"] in ["36", "37", "38", "39", "40", "41"]: # Experiment 36 to 41
             experiment_H97_9_7_EfficientNetB7.run(config) # use model H97_9_7_EfficientNetB7, batch_size = 32 vs 16 if retrains whole network
-        elif config["experiment"] in ["43"]: # Experiment 43
-            experiment_43.run(config)
+        elif config["experiment"] in ["43"]: # Experiment 43    
+            experiment_43.run(config) # use model H0_EfficientNetB0, batch_size = 120
+        elif config["experiment"] in ["44"]: # Experiment 44
+            experiment_44.run(config) # use model H0_EfficientNetB7, batch_size = 20
     else:
         raise ValueError(f"Unknown task type: {task_type}")
 
