@@ -1,0 +1,120 @@
+nohup: ignoring input
+wandb: Currently logged in as: harito97 (harito). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240812_093152-jetet7ho
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment 32: Retrain EfficientNetB7
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/jetet7ho
+Running Experiment 32: Retrain EfficientNetB7
+Number of training samples: 1441
+Number of validation samples: 363
+Data loaded successfully.
+Class weights: tensor([1.1961, 1.0660, 0.7380])
+Epoch 1/100:
+	+ Train Loss: 0.777854, Train Accuracy: 0.666898
+	+ Validation Loss: 0.657438, Validation Accuracy: 0.760331
+Model saved to results/experiment_32/experiment_32.pth
+Epoch 2/100:
+	+ Train Loss: 0.490936, Train Accuracy: 0.792505
+	+ Validation Loss: 0.581653, Validation Accuracy: 0.743802
+Model saved to results/experiment_32/experiment_32.pth
+Epoch 3/100:
+	+ Train Loss: 0.372022, Train Accuracy: 0.839001
+	+ Validation Loss: 0.559483, Validation Accuracy: 0.793388
+Model saved to results/experiment_32/experiment_32.pth
+Epoch 4/100:
+	+ Train Loss: 0.305579, Train Accuracy: 0.877169
+	+ Validation Loss: 0.502267, Validation Accuracy: 0.796143
+Model saved to results/experiment_32/experiment_32.pth
+Epoch 5/100:
+	+ Train Loss: 0.251376, Train Accuracy: 0.897294
+	+ Validation Loss: 0.568404, Validation Accuracy: 0.793388
+Epoch 6/100:
+	+ Train Loss: 0.207488, Train Accuracy: 0.916031
+	+ Validation Loss: 0.473616, Validation Accuracy: 0.829201
+Model saved to results/experiment_32/experiment_32.pth
+Epoch 7/100:
+	+ Train Loss: 0.181071, Train Accuracy: 0.928522
+	+ Validation Loss: 0.519356, Validation Accuracy: 0.837466
+Epoch 8/100:
+	+ Train Loss: 0.166357, Train Accuracy: 0.934768
+	+ Validation Loss: 0.637143, Validation Accuracy: 0.818182
+Epoch 9/100:
+	+ Train Loss: 0.120776, Train Accuracy: 0.950035
+	+ Validation Loss: 0.599108, Validation Accuracy: 0.826446
+Epoch 10/100:
+	+ Train Loss: 0.159523, Train Accuracy: 0.941013
+	+ Validation Loss: 0.500218, Validation Accuracy: 0.820937
+Epoch 11/100:
+	+ Train Loss: 0.118941, Train Accuracy: 0.955586
+	+ Validation Loss: 0.474710, Validation Accuracy: 0.837466
+Epoch 12/100:
+	+ Train Loss: 0.088100, Train Accuracy: 0.963220
+	+ Validation Loss: 0.506540, Validation Accuracy: 0.837466
+Epoch 13/100:
+	+ Train Loss: 0.079766, Train Accuracy: 0.968078
+	+ Validation Loss: 0.514022, Validation Accuracy: 0.837466
+Epoch 14/100:
+	+ Train Loss: 0.085944, Train Accuracy: 0.963220
+	+ Validation Loss: 0.522522, Validation Accuracy: 0.831956
+Epoch 15/100:
+	+ Train Loss: 0.075878, Train Accuracy: 0.966690
+	+ Validation Loss: 0.526957, Validation Accuracy: 0.845730
+Epoch 16/100:
+	+ Train Loss: 0.066217, Train Accuracy: 0.970854
+wandb: - 0.003 MB of 0.003 MB uploadedwandb: \ 0.003 MB of 0.014 MB uploadedwandb: | 0.003 MB of 0.014 MB uploadedwandb: / 0.004 MB of 0.014 MB uploadedwandb: - 0.011 MB of 0.014 MB uploadedwandb: \ 0.011 MB of 0.014 MB uploadedwandb: | 0.011 MB of 0.014 MB uploadedwandb: / 0.011 MB of 0.014 MB uploadedwandb: - 0.011 MB of 0.014 MB uploadedwandb: \ 0.011 MB of 0.014 MB uploadedwandb: | 0.011 MB of 0.014 MB uploadedwandb: / 0.011 MB of 0.014 MB uploadedwandb: - 0.011 MB of 0.014 MB uploadedwandb: \ 0.011 MB of 0.014 MB uploadedwandb: | 0.011 MB of 0.014 MB uploadedwandb: / 0.011 MB of 0.014 MB uploadedwandb: - 0.011 MB of 0.014 MB uploadedwandb: \ 0.011 MB of 0.014 MB uploadedwandb: | 0.011 MB of 0.014 MB uploadedwandb: / 0.011 MB of 0.014 MB uploadedwandb: - 0.011 MB of 0.014 MB uploadedwandb: \ 0.011 MB of 0.014 MB uploadedwandb: | 0.011 MB of 0.014 MB uploadedwandb: / 0.011 MB of 0.014 MB uploadedwandb: - 0.014 MB of 0.014 MB uploadedwandb: \ 0.014 MB of 0.014 MB uploadedwandb: | 0.014 MB of 0.014 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: train_accuracy ▁▄▅▆▆▇▇▇█▇██████
+wandb:     train_loss █▅▄▃▃▂▂▂▂▂▂▁▁▁▁▁
+wandb: valid_accuracy ▂▁▄▅▄▇▇▆▇▆▇▇▇▇██
+wandb:     valid_loss █▅▄▂▅▁▃▇▆▂▁▂▃▃▃▄
+wandb: 
+wandb: Run summary:
+wandb: train_accuracy 0.97085
+wandb:     train_loss 0.06622
+wandb: valid_accuracy 0.84022
+wandb:     valid_loss 0.54243
+wandb: 
+wandb: 🚀 View run experiment 32: Retrain EfficientNetB7 at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/jetet7ho
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240812_093152-jetet7ho/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240812_095024-jauvmfa3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment 32: Retrain EfficientNetB7_validation
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/jauvmfa3
+	+ Validation Loss: 0.542426, Validation Accuracy: 0.840220
+Early stopping triggered after 16 epochs.
+wandb: - 0.100 MB of 0.100 MB uploadedwandb: \ 0.100 MB of 0.100 MB uploadedwandb: | 0.100 MB of 0.109 MB uploadedwandb: / 0.101 MB of 0.109 MB uploadedwandb: - 0.101 MB of 0.109 MB uploadedwandb: \ 0.109 MB of 0.109 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  f1_score ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb: 
+wandb: Run summary:
+wandb:  accuracy 0.8292
+wandb:  f1_score 0.83034
+wandb: precision 0.83198
+wandb:    recall 0.8292
+wandb: 
+wandb: 🚀 View run experiment 32: Retrain EfficientNetB7_validation at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/jauvmfa3
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 3 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240812_095024-jauvmfa3/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+Accuracy: 0.8292
+Precision: 0.8320
+Recall: 0.8292
+F1 Score: 0.8303
+Experiment 32 completed.

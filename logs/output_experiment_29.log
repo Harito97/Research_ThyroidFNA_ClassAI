@@ -1,0 +1,235 @@
+nohup: ignoring input
+Downloading: "https://download.pytorch.org/models/efficientnet_b7_lukemelas-c5b4e57e.pth" to /home/haipn/.cache/torch/hub/checkpoints/efficientnet_b7_lukemelas-c5b4e57e.pth
+Running Experiment 29: Fine tune EfficientNetB7
+Number of training samples: 1441
+Number of validation samples: 363
+Data loaded successfully.
+  0%|          | 0.00/255M [00:00<?, ?B/s]  0%|          | 896k/255M [00:00<00:30, 8.75MB/s]  1%|          | 1.75M/255M [00:00<00:30, 8.77MB/s]  1%|          | 2.75M/255M [00:00<00:28, 9.16MB/s]  1%|▏         | 3.75M/255M [00:00<00:28, 9.26MB/s]  2%|▏         | 4.75M/255M [00:00<00:27, 9.37MB/s]  2%|▏         | 5.75M/255M [00:00<00:27, 9.49MB/s]  3%|▎         | 6.75M/255M [00:00<00:26, 9.63MB/s]  3%|▎         | 7.75M/255M [00:00<00:27, 9.49MB/s]  3%|▎         | 8.75M/255M [00:00<00:26, 9.60MB/s]  4%|▍         | 9.75M/255M [00:01<00:26, 9.81MB/s]  4%|▍         | 10.8M/255M [00:01<00:26, 9.67MB/s]  5%|▍         | 11.8M/255M [00:01<00:25, 9.82MB/s]  5%|▌         | 12.8M/255M [00:01<00:26, 9.65MB/s]  5%|▌         | 13.8M/255M [00:01<00:25, 9.87MB/s]  6%|▌         | 14.8M/255M [00:01<00:25, 9.89MB/s]  6%|▌         | 15.8M/255M [00:01<00:25, 9.93MB/s]  7%|▋         | 16.8M/255M [00:01<00:25, 9.87MB/s]  7%|▋         | 17.8M/255M [00:01<00:25, 9.77MB/s]  7%|▋         | 18.8M/255M [00:02<00:25, 9.69MB/s]  8%|▊         | 19.8M/255M [00:02<00:25, 9.68MB/s]  8%|▊         | 20.8M/255M [00:02<00:25, 9.73MB/s]  9%|▊         | 21.8M/255M [00:02<00:24, 9.78MB/s]  9%|▉         | 22.8M/255M [00:02<00:25, 9.61MB/s]  9%|▉         | 23.9M/255M [00:02<00:24, 9.92MB/s] 10%|▉         | 24.9M/255M [00:02<00:24, 9.87MB/s] 10%|█         | 25.9M/255M [00:02<00:24, 9.87MB/s] 11%|█         | 26.9M/255M [00:02<00:24, 9.71MB/s] 11%|█         | 28.0M/255M [00:03<00:23, 9.94MB/s] 11%|█▏        | 29.0M/255M [00:03<00:24, 9.77MB/s] 12%|█▏        | 30.0M/255M [00:03<00:23, 9.89MB/s] 12%|█▏        | 31.0M/255M [00:03<00:23, 9.80MB/s] 13%|█▎        | 32.0M/255M [00:03<00:24, 9.54MB/s] 13%|█▎        | 33.0M/255M [00:03<00:23, 9.78MB/s] 13%|█▎        | 34.0M/255M [00:03<00:24, 9.61MB/s] 14%|█▎        | 35.0M/255M [00:03<00:23, 9.69MB/s] 14%|█▍        | 36.0M/255M [00:03<00:23, 9.75MB/s] 15%|█▍        | 37.1M/255M [00:04<00:22, 9.96MB/s] 15%|█▍        | 38.1M/255M [00:04<00:23, 9.80MB/s] 15%|█▌        | 39.1M/255M [00:04<00:23, 9.63MB/s] 16%|█▌        | 40.2M/255M [00:04<00:22, 10.0MB/s] 16%|█▌        | 41.2M/255M [00:04<00:22, 10.1MB/s] 17%|█▋        | 42.2M/255M [00:04<00:22, 10.1MB/s] 17%|█▋        | 43.2M/255M [00:04<00:22, 10.0MB/s] 17%|█▋        | 44.2M/255M [00:04<00:22, 9.95MB/s] 18%|█▊        | 45.2M/255M [00:04<00:22, 9.88MB/s] 18%|█▊        | 46.2M/255M [00:04<00:22, 9.81MB/s] 19%|█▊        | 47.2M/255M [00:05<00:22, 9.80MB/s] 19%|█▉        | 48.2M/255M [00:05<00:22, 9.77MB/s] 19%|█▉        | 49.2M/255M [00:05<00:22, 9.78MB/s] 20%|█▉        | 50.2M/255M [00:05<00:21, 9.80MB/s] 20%|██        | 51.2M/255M [00:05<00:21, 9.76MB/s] 21%|██        | 52.2M/255M [00:05<00:21, 9.85MB/s] 21%|██        | 53.2M/255M [00:05<00:21, 10.0MB/s] 21%|██▏       | 54.2M/255M [00:05<00:20, 10.0MB/s] 22%|██▏       | 55.2M/255M [00:05<00:21, 9.94MB/s] 22%|██▏       | 56.2M/255M [00:06<00:21, 9.90MB/s] 22%|██▏       | 57.2M/255M [00:06<00:21, 9.76MB/s] 23%|██▎       | 58.2M/255M [00:06<00:20, 9.84MB/s] 23%|██▎       | 59.4M/255M [00:06<00:20, 10.0MB/s] 24%|██▎       | 60.4M/255M [00:06<00:20, 9.90MB/s] 24%|██▍       | 61.4M/255M [00:06<00:20, 9.91MB/s] 24%|██▍       | 62.4M/255M [00:06<00:20, 10.1MB/s] 25%|██▍       | 63.4M/255M [00:06<00:20, 9.89MB/s] 25%|██▌       | 64.5M/255M [00:06<00:20, 9.52MB/s] 26%|██▌       | 65.6M/255M [00:07<00:19, 10.0MB/s] 26%|██▌       | 66.6M/255M [00:07<00:19, 10.1MB/s] 27%|██▋       | 67.6M/255M [00:07<00:19, 10.1MB/s] 27%|██▋       | 68.6M/255M [00:07<00:19, 10.0MB/s] 27%|██▋       | 69.6M/255M [00:07<00:19, 10.1MB/s] 28%|██▊       | 70.6M/255M [00:07<00:19, 9.82MB/s] 28%|██▊       | 71.6M/255M [00:07<00:19, 9.64MB/s] 29%|██▊       | 72.8M/255M [00:07<00:19, 9.79MB/s] 29%|██▉       | 73.8M/255M [00:07<00:19, 9.97MB/s] 29%|██▉       | 74.8M/255M [00:07<00:19, 9.88MB/s] 30%|██▉       | 75.8M/255M [00:08<00:19, 9.85MB/s] 30%|███       | 76.8M/255M [00:08<00:18, 9.83MB/s] 31%|███       | 77.8M/255M [00:08<00:18, 9.80MB/s] 31%|███       | 78.8M/255M [00:08<00:18, 9.79MB/s] 31%|███▏      | 79.8M/255M [00:08<00:18, 9.87MB/s] 32%|███▏      | 80.8M/255M [00:08<00:18, 9.82MB/s] 32%|███▏      | 81.8M/255M [00:08<00:18, 9.76MB/s] 33%|███▎      | 82.9M/255M [00:08<00:18, 9.94MB/s] 33%|███▎      | 83.9M/255M [00:08<00:17, 10.1MB/s] 33%|███▎      | 84.9M/255M [00:09<00:18, 9.84MB/s] 34%|███▎      | 85.9M/255M [00:09<00:17, 9.90MB/s] 34%|███▍      | 86.9M/255M [00:09<00:17, 10.0MB/s] 35%|███▍      | 87.9M/255M [00:09<00:17, 10.0MB/s] 35%|███▍      | 88.9M/255M [00:09<00:17, 9.90MB/s] 35%|███▌      | 90.0M/255M [00:09<00:17, 9.90MB/s] 36%|███▌      | 91.1M/255M [00:09<00:16, 10.1MB/s] 36%|███▌      | 92.1M/255M [00:09<00:16, 10.0MB/s] 37%|███▋      | 93.1M/255M [00:09<00:17, 9.76MB/s] 37%|███▋      | 94.1M/255M [00:10<00:21, 7.99MB/s] 37%|███▋      | 95.0M/255M [00:10<00:22, 7.28MB/s] 38%|███▊      | 95.9M/255M [00:10<00:21, 7.62MB/s] 38%|███▊      | 97.0M/255M [00:10<00:19, 8.36MB/s] 39%|███▊      | 98.1M/255M [00:10<00:18, 8.90MB/s] 39%|███▉      | 99.1M/255M [00:10<00:18, 9.05MB/s] 39%|███▉      | 100M/255M [00:10<00:17, 9.43MB/s]  40%|███▉      | 101M/255M [00:10<00:16, 9.55MB/s] 40%|████      | 102M/255M [00:11<00:16, 9.76MB/s] 41%|████      | 103M/255M [00:11<00:16, 9.79MB/s] 41%|████      | 104M/255M [00:11<00:16, 9.83MB/s] 41%|████▏     | 105M/255M [00:11<00:16, 9.79MB/s] 42%|████▏     | 106M/255M [00:11<00:15, 9.81MB/s] 42%|████▏     | 107M/255M [00:11<00:16, 9.65MB/s] 43%|████▎     | 108M/255M [00:11<00:15, 9.85MB/s] 43%|████▎     | 109M/255M [00:11<00:15, 9.99MB/s] 43%|████▎     | 110M/255M [00:11<00:15, 10.0MB/s] 44%|████▎     | 111M/255M [00:12<00:15, 9.90MB/s] 44%|████▍     | 112M/255M [00:12<00:15, 9.73MB/s] 45%|████▍     | 113M/255M [00:12<00:15, 9.67MB/s] 45%|████▍     | 114M/255M [00:12<00:15, 9.61MB/s] 45%|████▌     | 116M/255M [00:12<00:14, 9.89MB/s] 46%|████▌     | 116M/255M [00:12<00:14, 9.84MB/s] 46%|████▌     | 118M/255M [00:12<00:14, 9.76MB/s] 47%|████▋     | 118M/255M [00:12<00:14, 9.74MB/s] 47%|████▋     | 120M/255M [00:12<00:14, 9.83MB/s] 47%|████▋     | 120M/255M [00:13<00:14, 10.0MB/s] 48%|████▊     | 122M/255M [00:13<00:13, 10.0MB/s] 48%|████▊     | 122M/255M [00:13<00:13, 10.0MB/s] 48%|████▊     | 124M/255M [00:13<00:13, 10.0MB/s] 49%|████▉     | 124M/255M [00:13<00:13, 9.94MB/s] 49%|████▉     | 126M/255M [00:13<00:13, 9.83MB/s] 50%|████▉     | 126M/255M [00:13<00:13, 9.92MB/s] 50%|█████     | 128M/255M [00:13<00:13, 10.0MB/s] 50%|█████     | 128M/255M [00:13<00:13, 9.83MB/s] 51%|█████     | 130M/255M [00:13<00:13, 9.89MB/s] 51%|█████▏    | 131M/255M [00:14<00:12, 10.1MB/s] 52%|█████▏    | 132M/255M [00:14<00:12, 10.1MB/s] 52%|█████▏    | 133M/255M [00:14<00:12, 10.1MB/s] 52%|█████▏    | 134M/255M [00:14<00:12, 10.0MB/s] 53%|█████▎    | 135M/255M [00:14<00:12, 10.1MB/s] 53%|█████▎    | 136M/255M [00:14<00:12, 10.0MB/s] 54%|█████▎    | 137M/255M [00:14<00:12, 10.0MB/s] 54%|█████▍    | 138M/255M [00:14<00:12, 9.83MB/s] 54%|█████▍    | 139M/255M [00:14<00:12, 9.94MB/s] 55%|█████▍    | 140M/255M [00:15<00:12, 9.94MB/s] 55%|█████▌    | 141M/255M [00:15<00:11, 10.0MB/s] 56%|█████▌    | 142M/255M [00:15<00:11, 9.98MB/s] 56%|█████▌    | 143M/255M [00:15<00:11, 10.0MB/s] 56%|█████▋    | 144M/255M [00:15<00:11, 10.0MB/s] 57%|█████▋    | 145M/255M [00:15<00:11, 10.1MB/s] 57%|█████▋    | 146M/255M [00:15<00:11, 10.1MB/s] 58%|█████▊    | 147M/255M [00:15<00:11, 10.1MB/s] 58%|█████▊    | 148M/255M [00:15<00:11, 10.1MB/s] 58%|█████▊    | 149M/255M [00:15<00:11, 10.1MB/s] 59%|█████▉    | 150M/255M [00:16<00:10, 10.1MB/s] 59%|█████▉    | 151M/255M [00:16<00:10, 9.92MB/s] 60%|█████▉    | 152M/255M [00:16<00:10, 10.1MB/s] 60%|██████    | 153M/255M [00:16<00:10, 10.2MB/s] 60%|██████    | 154M/255M [00:16<00:10, 9.98MB/s] 61%|██████    | 155M/255M [00:16<00:10, 9.85MB/s] 61%|██████▏   | 156M/255M [00:16<00:10, 9.94MB/s] 62%|██████▏   | 157M/255M [00:16<00:10, 10.2MB/s] 62%|██████▏   | 158M/255M [00:16<00:10, 10.1MB/s] 63%|██████▎   | 159M/255M [00:17<00:10, 9.92MB/s] 63%|██████▎   | 160M/255M [00:17<00:09, 10.0MB/s] 63%|██████▎   | 161M/255M [00:17<00:09, 9.99MB/s] 64%|██████▎   | 162M/255M [00:17<00:09, 10.0MB/s] 64%|██████▍   | 163M/255M [00:17<00:09, 10.0MB/s] 64%|██████▍   | 164M/255M [00:17<00:09, 9.92MB/s] 65%|██████▍   | 165M/255M [00:17<00:09, 9.94MB/s] 65%|██████▌   | 166M/255M [00:17<00:09, 9.86MB/s] 66%|██████▌   | 167M/255M [00:17<00:09, 10.0MB/s] 66%|██████▌   | 168M/255M [00:18<00:09, 10.0MB/s] 66%|██████▋   | 169M/255M [00:18<00:08, 9.97MB/s] 67%|██████▋   | 170M/255M [00:18<00:08, 10.0MB/s] 67%|██████▋   | 171M/255M [00:18<00:08, 10.1MB/s] 68%|██████▊   | 172M/255M [00:18<00:08, 10.1MB/s] 68%|██████▊   | 173M/255M [00:18<00:08, 10.0MB/s] 68%|██████▊   | 174M/255M [00:18<00:08, 10.0MB/s] 69%|██████▉   | 175M/255M [00:18<00:08, 10.0MB/s] 69%|██████▉   | 176M/255M [00:18<00:08, 9.99MB/s] 70%|██████▉   | 177M/255M [00:18<00:08, 10.0MB/s] 70%|██████▉   | 178M/255M [00:19<00:07, 10.1MB/s] 70%|███████   | 179M/255M [00:19<00:07, 10.1MB/s] 71%|███████   | 180M/255M [00:19<00:07, 10.0MB/s] 71%|███████   | 181M/255M [00:19<00:07, 9.99MB/s] 72%|███████▏  | 182M/255M [00:19<00:07, 9.99MB/s] 72%|███████▏  | 183M/255M [00:19<00:07, 9.83MB/s] 72%|███████▏  | 184M/255M [00:19<00:07, 9.94MB/s] 73%|███████▎  | 185M/255M [00:19<00:07, 10.0MB/s] 73%|███████▎  | 186M/255M [00:19<00:07, 10.0MB/s] 74%|███████▎  | 187M/255M [00:19<00:06, 10.1MB/s] 74%|███████▍  | 188M/255M [00:20<00:06, 10.1MB/s] 74%|███████▍  | 189M/255M [00:20<00:06, 10.2MB/s] 75%|███████▍  | 190M/255M [00:20<00:09, 7.04MB/s] 75%|███████▌  | 191M/255M [00:20<00:08, 7.61MB/s] 76%|███████▌  | 192M/255M [00:20<00:07, 8.39MB/s] 76%|███████▌  | 193M/255M [00:20<00:07, 8.74MB/s] 76%|███████▋  | 194M/255M [00:20<00:06, 9.18MB/s] 77%|███████▋  | 195M/255M [00:20<00:06, 9.34MB/s] 77%|███████▋  | 196M/255M [00:21<00:06, 9.49MB/s] 78%|███████▊  | 197M/255M [00:21<00:06, 9.61MB/s] 78%|███████▊  | 198M/255M [00:21<00:06, 9.67MB/s] 78%|███████▊  | 199M/255M [00:21<00:05, 9.75MB/s] 79%|███████▊  | 200M/255M [00:21<00:05, 9.74MB/s] 79%|███████▉  | 201M/255M [00:21<00:05, 9.81MB/s] 79%|███████▉  | 202M/255M [00:21<00:05, 9.94MB/s] 80%|███████▉  | 203M/255M [00:21<00:05, 9.82MB/s] 80%|████████  | 204M/255M [00:21<00:05, 9.78MB/s] 81%|████████  | 206M/255M [00:22<00:05, 10.1MB/s] 81%|████████  | 207M/255M [00:22<00:05, 10.0MB/s] 82%|████████▏ | 208M/255M [00:22<00:04, 10.0MB/s] 82%|████████▏ | 209M/255M [00:22<00:04, 10.0MB/s] 82%|████████▏ | 210M/255M [00:22<00:04, 9.98MB/s] 83%|████████▎ | 211M/255M [00:22<00:04, 9.82MB/s] 83%|████████▎ | 212M/255M [00:22<00:04, 10.2MB/s] 84%|████████▎ | 213M/255M [00:22<00:04, 10.0MB/s] 84%|████████▍ | 214M/255M [00:22<00:04, 10.1MB/s] 84%|████████▍ | 215M/255M [00:23<00:04, 10.2MB/s] 85%|████████▍ | 216M/255M [00:23<00:04, 10.0MB/s] 85%|████████▌ | 217M/255M [00:23<00:03, 10.0MB/s] 86%|████████▌ | 218M/255M [00:23<00:03, 10.1MB/s] 86%|████████▌ | 219M/255M [00:23<00:03, 10.1MB/s] 86%|████████▋ | 220M/255M [00:23<00:03, 10.0MB/s] 87%|████████▋ | 221M/255M [00:23<00:03, 9.78MB/s] 87%|████████▋ | 222M/255M [00:23<00:03, 9.83MB/s] 88%|████████▊ | 223M/255M [00:23<00:03, 9.97MB/s] 88%|████████▊ | 224M/255M [00:24<00:03, 9.95MB/s] 88%|████████▊ | 225M/255M [00:24<00:03, 9.97MB/s] 89%|████████▉ | 226M/255M [00:24<00:02, 10.1MB/s] 89%|████████▉ | 227M/255M [00:24<00:02, 9.99MB/s] 90%|████████▉ | 228M/255M [00:24<00:02, 9.93MB/s] 90%|████████▉ | 229M/255M [00:24<00:02, 10.0MB/s] 90%|█████████ | 230M/255M [00:24<00:02, 9.98MB/s] 91%|█████████ | 231M/255M [00:24<00:02, 9.81MB/s] 91%|█████████ | 232M/255M [00:24<00:02, 9.96MB/s] 92%|█████████▏| 233M/255M [00:24<00:02, 9.90MB/s] 92%|█████████▏| 234M/255M [00:25<00:02, 9.92MB/s] 92%|█████████▏| 235M/255M [00:25<00:02, 9.84MB/s] 93%|█████████▎| 236M/255M [00:25<00:01, 9.84MB/s] 93%|█████████▎| 237M/255M [00:25<00:01, 9.95MB/s] 94%|█████████▎| 238M/255M [00:25<00:01, 10.1MB/s] 94%|█████████▍| 239M/255M [00:25<00:01, 10.1MB/s] 94%|█████████▍| 240M/255M [00:25<00:01, 10.0MB/s] 95%|█████████▍| 241M/255M [00:25<00:01, 9.78MB/s] 95%|█████████▌| 242M/255M [00:25<00:01, 9.63MB/s] 96%|█████████▌| 243M/255M [00:26<00:01, 9.25MB/s] 96%|█████████▌| 244M/255M [00:26<00:01, 9.05MB/s] 96%|█████████▋| 245M/255M [00:26<00:01, 9.26MB/s] 97%|█████████▋| 246M/255M [00:26<00:00, 9.29MB/s] 97%|█████████▋| 247M/255M [00:26<00:00, 9.36MB/s] 97%|█████████▋| 248M/255M [00:26<00:00, 9.22MB/s] 98%|█████████▊| 249M/255M [00:26<00:00, 9.31MB/s] 98%|█████████▊| 250M/255M [00:26<00:00, 9.41MB/s] 99%|█████████▊| 251M/255M [00:26<00:00, 9.15MB/s] 99%|█████████▉| 252M/255M [00:27<00:00, 9.56MB/s] 99%|█████████▉| 253M/255M [00:27<00:00, 9.44MB/s]100%|█████████▉| 254M/255M [00:27<00:00, 9.50MB/s]100%|██████████| 255M/255M [00:27<00:00, 9.77MB/s]
+wandb: Currently logged in as: harito97 (harito). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240812_083352-1g7a0uxt
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment 29: Fine tune EfficientNetB7
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/1g7a0uxt
+Class weights: tensor([1.1961, 1.0660, 0.7380])
+Epoch 1/100:
+	+ Train Loss: 1.092132, Train Accuracy: 0.380291
+	+ Validation Loss: 1.078853, Validation Accuracy: 0.352617
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 2/100:
+	+ Train Loss: 1.059188, Train Accuracy: 0.462179
+	+ Validation Loss: 1.053042, Validation Accuracy: 0.476584
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 3/100:
+	+ Train Loss: 1.031990, Train Accuracy: 0.505205
+	+ Validation Loss: 1.034320, Validation Accuracy: 0.561983
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 4/100:
+	+ Train Loss: 1.009719, Train Accuracy: 0.536433
+	+ Validation Loss: 1.015947, Validation Accuracy: 0.570248
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 5/100:
+	+ Train Loss: 0.982300, Train Accuracy: 0.567661
+	+ Validation Loss: 0.993218, Validation Accuracy: 0.595041
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 6/100:
+	+ Train Loss: 0.969802, Train Accuracy: 0.583622
+	+ Validation Loss: 0.971631, Validation Accuracy: 0.597796
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 7/100:
+	+ Train Loss: 0.938174, Train Accuracy: 0.610687
+	+ Validation Loss: 0.949089, Validation Accuracy: 0.619835
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 8/100:
+	+ Train Loss: 0.934516, Train Accuracy: 0.601666
+	+ Validation Loss: 0.932327, Validation Accuracy: 0.628099
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 9/100:
+	+ Train Loss: 0.914439, Train Accuracy: 0.609299
+	+ Validation Loss: 0.916756, Validation Accuracy: 0.650138
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 10/100:
+	+ Train Loss: 0.911034, Train Accuracy: 0.622484
+	+ Validation Loss: 0.908988, Validation Accuracy: 0.633609
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 11/100:
+	+ Train Loss: 0.903673, Train Accuracy: 0.615545
+	+ Validation Loss: 0.907807, Validation Accuracy: 0.619835
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 12/100:
+	+ Train Loss: 0.892787, Train Accuracy: 0.624566
+	+ Validation Loss: 0.907224, Validation Accuracy: 0.633609
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 13/100:
+	+ Train Loss: 0.899089, Train Accuracy: 0.628036
+	+ Validation Loss: 0.907650, Validation Accuracy: 0.630854
+Epoch 14/100:
+	+ Train Loss: 0.899423, Train Accuracy: 0.628036
+	+ Validation Loss: 0.906827, Validation Accuracy: 0.641873
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 15/100:
+	+ Train Loss: 0.896439, Train Accuracy: 0.616933
+	+ Validation Loss: 0.906384, Validation Accuracy: 0.636364
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 16/100:
+	+ Train Loss: 0.894101, Train Accuracy: 0.623872
+	+ Validation Loss: 0.905365, Validation Accuracy: 0.636364
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 17/100:
+	+ Train Loss: 0.891889, Train Accuracy: 0.613463
+	+ Validation Loss: 0.904386, Validation Accuracy: 0.636364
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 18/100:
+	+ Train Loss: 0.881547, Train Accuracy: 0.650243
+	+ Validation Loss: 0.903102, Validation Accuracy: 0.636364
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 19/100:
+	+ Train Loss: 0.878679, Train Accuracy: 0.647467
+	+ Validation Loss: 0.903142, Validation Accuracy: 0.633609
+Epoch 20/100:
+	+ Train Loss: 0.884742, Train Accuracy: 0.632200
+	+ Validation Loss: 0.901735, Validation Accuracy: 0.630854
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 21/100:
+	+ Train Loss: 0.882543, Train Accuracy: 0.632894
+	+ Validation Loss: 0.901297, Validation Accuracy: 0.636364
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 22/100:
+	+ Train Loss: 0.886235, Train Accuracy: 0.628730
+	+ Validation Loss: 0.901652, Validation Accuracy: 0.630854
+Epoch 23/100:
+	+ Train Loss: 0.885446, Train Accuracy: 0.620402
+	+ Validation Loss: 0.902032, Validation Accuracy: 0.633609
+Epoch 24/100:
+	+ Train Loss: 0.890053, Train Accuracy: 0.630812
+	+ Validation Loss: 0.902353, Validation Accuracy: 0.636364
+Epoch 25/100:
+	+ Train Loss: 0.906471, Train Accuracy: 0.601666
+	+ Validation Loss: 0.901525, Validation Accuracy: 0.630854
+Epoch 26/100:
+	+ Train Loss: 0.892163, Train Accuracy: 0.617627
+	+ Validation Loss: 0.901157, Validation Accuracy: 0.639118
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 27/100:
+	+ Train Loss: 0.887986, Train Accuracy: 0.616933
+	+ Validation Loss: 0.900758, Validation Accuracy: 0.630854
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 28/100:
+	+ Train Loss: 0.888688, Train Accuracy: 0.641221
+	+ Validation Loss: 0.901331, Validation Accuracy: 0.636364
+Epoch 29/100:
+	+ Train Loss: 0.887855, Train Accuracy: 0.615545
+	+ Validation Loss: 0.900497, Validation Accuracy: 0.625344
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 30/100:
+	+ Train Loss: 0.884910, Train Accuracy: 0.630118
+	+ Validation Loss: 0.900500, Validation Accuracy: 0.630854
+Epoch 31/100:
+	+ Train Loss: 0.892975, Train Accuracy: 0.609299
+	+ Validation Loss: 0.900856, Validation Accuracy: 0.639118
+Epoch 32/100:
+	+ Train Loss: 0.880014, Train Accuracy: 0.637058
+	+ Validation Loss: 0.901032, Validation Accuracy: 0.630854
+Epoch 33/100:
+	+ Train Loss: 0.895536, Train Accuracy: 0.639139
+	+ Validation Loss: 0.901275, Validation Accuracy: 0.639118
+Epoch 34/100:
+	+ Train Loss: 0.884967, Train Accuracy: 0.623178
+	+ Validation Loss: 0.901496, Validation Accuracy: 0.641873
+Epoch 35/100:
+	+ Train Loss: 0.894365, Train Accuracy: 0.616933
+	+ Validation Loss: 0.901640, Validation Accuracy: 0.647383
+Epoch 36/100:
+	+ Train Loss: 0.875496, Train Accuracy: 0.641915
+	+ Validation Loss: 0.900802, Validation Accuracy: 0.633609
+Epoch 37/100:
+	+ Train Loss: 0.890921, Train Accuracy: 0.624566
+	+ Validation Loss: 0.900026, Validation Accuracy: 0.633609
+Model saved to results/experiment_29/experiment_29.pth
+Epoch 38/100:
+	+ Train Loss: 0.885982, Train Accuracy: 0.635670
+	+ Validation Loss: 0.900605, Validation Accuracy: 0.630854
+Epoch 39/100:
+	+ Train Loss: 0.885290, Train Accuracy: 0.630118
+	+ Validation Loss: 0.900653, Validation Accuracy: 0.630854
+Epoch 40/100:
+	+ Train Loss: 0.893382, Train Accuracy: 0.625954
+	+ Validation Loss: 0.900685, Validation Accuracy: 0.636364
+Epoch 41/100:
+	+ Train Loss: 0.894582, Train Accuracy: 0.625954
+	+ Validation Loss: 0.900302, Validation Accuracy: 0.636364
+Epoch 42/100:
+	+ Train Loss: 0.883454, Train Accuracy: 0.644691
+	+ Validation Loss: 0.901887, Validation Accuracy: 0.639118
+Epoch 43/100:
+	+ Train Loss: 0.879770, Train Accuracy: 0.646079
+	+ Validation Loss: 0.901753, Validation Accuracy: 0.636364
+Epoch 44/100:
+	+ Train Loss: 0.885201, Train Accuracy: 0.642609
+	+ Validation Loss: 0.901372, Validation Accuracy: 0.639118
+Epoch 45/100:
+	+ Train Loss: 0.884053, Train Accuracy: 0.650243
+	+ Validation Loss: 0.901667, Validation Accuracy: 0.639118
+Epoch 46/100:
+	+ Train Loss: 0.890689, Train Accuracy: 0.624566
+	+ Validation Loss: 0.901981, Validation Accuracy: 0.633609
+Epoch 47/100:
+	+ Train Loss: 0.887257, Train Accuracy: 0.628036
+wandb: - 0.007 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: \ 0.007 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: | 0.008 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: / 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: - 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: \ 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: | 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: / 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: - 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: \ 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: | 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: / 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: - 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: \ 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: | 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: / 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: - 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: \ 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: | 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: / 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: - 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: \ 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: | 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: / 0.020 MB of 0.022 MB uploaded (0.003 MB deduped)wandb: - 0.022 MB of 0.022 MB uploaded (0.003 MB deduped)wandb:                                                                                
+wandb: W&B sync reduced upload amount by 12.4%
+wandb: 
+wandb: Run history:
+wandb: train_accuracy ▁▃▄▅▆▆▇▇▇▇▇▇▇▇▇███▇▇▇▇▇█▇▇▇█▇▇█▇█▇▇████▇
+wandb:     train_loss █▇▆▅▄▄▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▂▂▁▁▁▂▁▁▂▁▁▁▁▂▁▁▁▁▁
+wandb: valid_accuracy ▁▄▆▆▇▇▇██▇██████████████▇███████████████
+wandb:     valid_loss █▇▆▆▅▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb: train_accuracy 0.62804
+wandb:     train_loss 0.88726
+wandb: valid_accuracy 0.63636
+wandb:     valid_loss 0.90214
+wandb: 
+wandb: 🚀 View run experiment 29: Fine tune EfficientNetB7 at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/1g7a0uxt
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240812_083352-1g7a0uxt/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240812_085221-qfhavv13
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment 29: Fine tune EfficientNetB7_validation
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/qfhavv13
+	+ Validation Loss: 0.902141, Validation Accuracy: 0.636364
+Early stopping triggered after 47 epochs.
+wandb: - 0.105 MB of 0.105 MB uploadedwandb: \ 0.105 MB of 0.105 MB uploadedwandb: | 0.105 MB of 0.105 MB uploadedwandb: / 0.105 MB of 0.105 MB uploadedwandb: - 0.105 MB of 0.105 MB uploadedwandb: \ 0.113 MB of 0.121 MB uploaded (0.003 MB deduped)wandb: | 0.113 MB of 0.121 MB uploaded (0.003 MB deduped)wandb: / 0.121 MB of 0.121 MB uploaded (0.003 MB deduped)wandb:                                                                                
+wandb: W&B sync reduced upload amount by 2.3%
+wandb: 
+wandb: Run history:
+wandb:  accuracy ▁
+wandb:  f1_score ▁
+wandb: precision ▁
+wandb:    recall ▁
+wandb: 
+wandb: Run summary:
+wandb:  accuracy 0.63361
+wandb:  f1_score 0.63386
+wandb: precision 0.64016
+wandb:    recall 0.63361
+wandb: 
+wandb: 🚀 View run experiment 29: Fine tune EfficientNetB7_validation at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/qfhavv13
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 3 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240812_085221-qfhavv13/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+Accuracy: 0.6336
+Precision: 0.6402
+Recall: 0.6336
+F1 Score: 0.6339
+Experiment 29 completed.

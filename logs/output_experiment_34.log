@@ -1,0 +1,52 @@
+# Me no chay nham lenh the la mat het lich su chay vao file nay
+# Co ma thi nghiem 34 nay cung khong co gi qua dac biet
+nohup: ignoring input
+Running Experiment 34: Retrain EfficientNetB7
+Number of training samples: 17292
+Number of validation samples: 4356
+Data loaded successfully.
+Traceback (most recent call last):
+  File "/home/haipn/Research_ThyroidFNA_ClassAI/main.py", line 80, in <module>
+    main()
+  File "/home/haipn/Research_ThyroidFNA_ClassAI/main.py", line 76, in main
+    run_task(config)
+  File "/home/haipn/Research_ThyroidFNA_ClassAI/main.py", line 50, in run_task
+    experiment_H0_EfficientNetB7.run(config) # use model H0_EfficientNetB7, batch_size = 32
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/Research_ThyroidFNA_ClassAI/src/experiments/experiment_H0_EfficientNetB7.py", line 82, in run
+    model = H0_EfficientNetB7(
+            ^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/Research_ThyroidFNA_ClassAI/src/models/efficient_net.py", line 184, in __init__
+    self.model = efficientnet_b7(weights=EfficientNet_B7_Weights.DEFAULT)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/models/_utils.py", line 142, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/models/_utils.py", line 228, in inner_wrapper
+    return builder(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 1009, in efficientnet_b7
+    return _efficientnet(
+           ^^^^^^^^^^^^^^
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 357, in _efficientnet
+    model = EfficientNet(inverted_residual_setting, dropout, last_channel=last_channel, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 294, in __init__
+    stage.append(block_cnf.block(block_cnf, sd_prob, norm_layer))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 126, in __init__
+    Conv2dNormActivation(
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/ops/misc.py", line 159, in __init__
+    super().__init__(
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torchvision/ops/misc.py", line 97, in __init__
+    conv_layer(
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 445, in __init__
+    super().__init__(
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 139, in __init__
+    self.reset_parameters()
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 145, in reset_parameters
+    init.kaiming_uniform_(self.weight, a=math.sqrt(5))
+  File "/home/haipn/python_env/miniconda3/envs/thyroidcancer/lib/python3.12/site-packages/torch/nn/init.py", line 460, in kaiming_uniform_
+    return tensor.uniform_(-bound, bound, generator=generator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

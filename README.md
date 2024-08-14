@@ -50,25 +50,25 @@ rm *.log
 ### Ex2:
 ```bash
 nohup python main.py --config configs/experiment_2.yaml > output_experiment_2.log 2>&1 &
-tail -n 50 output_experiment_2.log
+tail -f output_experiment_2.log
 ```
 
 ### Ex3:
 ```bash
 nohup python main.py --config configs/experiment_3.yaml > output_experiment_3.log 2>&1 &
-tail -n 50 output_experiment_3.log
+tail -f output_experiment_3.log
 ```
 
 ### Ex4:
 ```bash
 nohup python main.py --config configs/experiment_4.yaml > output_experiment_4.log 2>&1 &
-tail -n 50 output_experiment_4.log
+tail -f output_experiment_4.log
 ```
 
 ### Ex5:
 ```bash
 nohup python main.py --config configs/experiment_5.yaml > output_experiment_5.log 2>&1 &
-tail -n 50 output_experiment_5.log
+tail -f output_experiment_5.log
 ```
 
 ### Ex6:
@@ -78,7 +78,7 @@ tail -n 50 output_experiment_5.log
 nohup bash -c 'while kill -0 346474 2>/dev/null; do sleep 5; done; nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &' > output_run_after_completion.log 2>&1 &
 # [2] 354432
 # nohup python main.py --config configs/experiment_6.yaml > output_experiment_6.log 2>&1 &
-tail -n 50 output_experiment_6.log
+tail -f output_experiment_6.log
 ```
 
 <!-- ### Ex7:
