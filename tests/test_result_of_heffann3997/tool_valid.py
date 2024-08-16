@@ -147,9 +147,6 @@ class Validator:
                 "f1_score_per_class": wandb.Image(
                     os.path.join(self.save_path, "f1_score_per_class.png")
                 ),
-                "accuracy_per_class": wandb.Image(
-                    os.path.join(self.save_path, "accuracy_per_class.png")
-                ),
                 "top2_accuracy_per_class": wandb.Image(
                     os.path.join(self.save_path, "top2_accuracy_per_class.png")
                 ),
@@ -238,13 +235,6 @@ class Validator:
         plt.title("F1 Score per Class")
         plt.xticks(rotation=90)
         plt.savefig(os.path.join(self.save_path, "f1_score_per_class.png"))
-        plt.close()
-
-        plt.figure(figsize=(10, 7))
-        sns.barplot(x=metrics_df.index, y="Accuracy", data=metrics_df)
-        plt.title("Accuracy per Class")
-        plt.xticks(rotation=90)
-        plt.savefig(os.path.join(self.save_path, "accuracy_per_class.png"))
         plt.close()
 
         plt.figure(figsize=(10, 7))
