@@ -19,8 +19,9 @@ import torch
 from torch import no_grad, device
 from PIL import Image
 
+
 class Validator:
-    def __init__(self, experiment_yaml_config, model, data_dir:str):
+    def __init__(self, experiment_yaml_config, model, data_dir: str):
         """Data dir has B2/ B5/ B6/"""
         self.model = model
         self.data_dir = data_dir
@@ -67,7 +68,9 @@ class Validator:
                     all_labels.extend([label] * len(preds))
                     all_probs.extend(outputs.cpu().numpy())
 
-                    top2_preds = torch.topk(outputs, 2, dim=1)[1]  # Get top-2 predictions
+                    top2_preds = torch.topk(outputs, 2, dim=1)[
+                        1
+                    ]  # Get top-2 predictions
                     if label in top2_preds.cpu().numpy():
                         top2_correct += 1
                     total_samples += 1
@@ -191,52 +194,69 @@ class Validator:
     def plot_per_class_metrics(self, class_report, top2_accuracy):
         metrics = {}
         for label, metrics_dict in class_report.items():
-            if label == 'accuracy' or label == 'macro avg' or label == 'weighted avg':
+            if label == "accuracy" or label == "macro avg" or label == "weighted avg":
                 continue
             metrics[label] = {
-                'F1 Score': metrics_dict.get('f1-score', 0),
-                'Accuracy': metrics_dict.get('support', 0) / sum(class_report[label].get('support', 0)),
+                "F1 Score": metrics_dict.get("f1-score", 0),
+                "Accuracy": metrics_dict.get("support", 0)
+                / sum(
+                    [
+                        v.get("support", 0)
+                        for k, v in class_report.items()
+                        if k not in ["accuracy", "macro avg", "weighted avg"]
+                    ]
+                ),
             }
-        
+
         metrics_df = pd.DataFrame(metrics).T
         metrics_df.sort_index(inplace=True)
 
         plt.figure(figsize=(10, 7))
-        sns.barplot(x=metrics_df.index, y='F1 Score', data=metrics_df)
+        sns.barplot(x=metrics_df.index, y="F1 Score", data=metrics_df)
         plt.title("F1 Score per Class")
         plt.xticks(rotation=90)
         plt.savefig(os.path.join(self.save_path, "f1_score_per_class.png"))
         plt.close()
 
         plt.figure(figsize=(10, 7))
-        sns.barplot(x=metrics_df.index, y='Accuracy', data=metrics_df)
+        sns.barplot(x=metrics_df.index, y="Accuracy", data=metrics_df)
         plt.title("Accuracy per Class")
         plt.xticks(rotation=90)
         plt.savefig(os.path.join(self.save_path, "accuracy_per_class.png"))
         plt.close()
 
         plt.figure(figsize=(10, 7))
-        top2_acc_per_class = {
-            label: top2_accuracy for label in metrics_df.index
-        }
-        top2_acc_df = pd.DataFrame(top2_acc_per_class.items(), columns=['Class', 'Top-2 Accuracy'])
-        sns.barplot(x='Class', y='Top-2 Accuracy', data=top2_acc_df)
+        top2_acc_per_class = {label: top2_accuracy for label in metrics_df.index}
+        top2_acc_df = pd.DataFrame(
+            top2_acc_per_class.items(), columns=["Class", "Top-2 Accuracy"]
+        )
+        sns.barplot(x="Class", y="Top-2 Accuracy", data=top2_acc_df)
         plt.title("Top-2 Accuracy per Class")
         plt.xticks(rotation=90)
         plt.savefig(os.path.join(self.save_path, "top2_accuracy_per_class.png"))
         plt.close()
 
-        all_data_metrics_df = pd.DataFrame({
-            'Metric': ['Accuracy', 'Precision', 'Recall', 'F1 Score', 'Top-2 Accuracy'],
-            'Value': [accuracy_score(all_labels, all_preds), 
-                      precision_score(all_labels, all_preds, average='weighted'),
-                      recall_score(all_labels, all_preds, average='weighted'),
-                      f1_score(all_labels, all_preds, average='weighted'),
-                      top2_accuracy]
-        })
+        all_data_metrics_df = pd.DataFrame(
+            {
+                "Metric": [
+                    "Accuracy",
+                    "Precision",
+                    "Recall",
+                    "F1 Score",
+                    "Top-2 Accuracy",
+                ],
+                "Value": [
+                    accuracy_score(all_labels, all_preds),
+                    precision_score(all_labels, all_preds, average="weighted"),
+                    recall_score(all_labels, all_preds, average="weighted"),
+                    f1_score(all_labels, all_preds, average="weighted"),
+                    top2_accuracy,
+                ],
+            }
+        )
 
         plt.figure(figsize=(10, 7))
-        sns.barplot(x='Metric', y='Value', data=all_data_metrics_df)
+        sns.barplot(x="Metric", y="Value", data=all_data_metrics_df)
         plt.title("Metrics for All Data")
         plt.savefig(os.path.join(self.save_path, "metrics_all_data.png"))
         plt.close()
