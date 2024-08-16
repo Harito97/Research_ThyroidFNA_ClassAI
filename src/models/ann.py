@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class H39_97_ANN(nn.Module):
-    def __init__(self, input_dim, output_dim):
+    def __init__(self, input_dim=39, output_dim=3):
         super(H39_97_ANN, self).__init__()
         self.fc1 = nn.Linear(input_dim, 97)
         # self.fc2 = nn.Linear(64, 32)
