@@ -19,12 +19,10 @@ def run(config):
 
     # Load datasets
     train_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config,
-        root_dirs=config["data"]["train_path"]
+        experiment_yaml_config=config, root_dirs=config["data"]["train_path"]
     )
     val_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config,
-        root_dirs=config["data"]["val_path"]
+        experiment_yaml_config=config, root_dirs=config["data"]["val_path"]
     )
 
     # Create data loaders

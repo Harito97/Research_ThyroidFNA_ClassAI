@@ -160,3 +160,10 @@ nohup python main.py --config configs/experiment_43.yaml > output_experiment_43.
 
 nohup python main.py --config configs/experiment_44.yaml > output_experiment_44.log 2>&1
 ```
+
+### Experiment Heffann3997
+```bash
+#!/bin/bash
+
+nohup python main.py --config configs/experiment_heffann3997.yaml > output_experiment_heffann3997.log 2>&1
+```
