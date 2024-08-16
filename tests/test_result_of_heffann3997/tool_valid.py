@@ -65,7 +65,7 @@ class Validator:
         total_samples = 0
 
         print(f'About the dataset:\nNumber of samples: {len(self.x)}\nNumber of classes: {len(set(self.y))}')
-        
+
         self.model.to(self.device)
         self.model.eval()
         self.model.eval_mode()
@@ -75,7 +75,8 @@ class Validator:
                 # end_index = min(i + self.batch_size, len(self.x))
                 batch_x = self.x[i : min(i + self.batch_size, len(self.x))]
                 batch_y = self.y[i : min(i + self.batch_size, len(self.y))]
-                outputs = self.model(batch_x)
+                # outputs = self.model(batch_x)
+                outputs = self.model.predict_from_path(batch_x)
                 _, preds = torch.max(outputs, 1)
                 all_preds.extend(preds.cpu().numpy())
                 all_labels.extend(batch_y)
