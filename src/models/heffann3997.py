@@ -50,9 +50,12 @@ class Heffann3997(nn.Module):
         x = torch.stack(images)
 
         x = self.efficient_net(x)
+        # print(x.shape)    # (13, 3)
 
         # Step 5. Flatten and pass through ANN
-        x = x.view(x.size(0), -1)  # Flatten the feature maps
+        x = x.view(-1)  # Flatten the feature maps
+        # print(x.shape)    # (39)
+        x = x.unsqueeze(0)  # Add batch dimension for ANN (1, 39)
         x = self.ann(x)
 
         return x
