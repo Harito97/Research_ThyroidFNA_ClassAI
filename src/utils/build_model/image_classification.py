@@ -367,7 +367,8 @@ class ValidImageClassificationModel:
         self.model.eval()
         with no_grad():
             for inputs, labels in self.val_loader:
-                inputs = inputs.to(self.device)
+                if not isinstance(inputs, str):
+                    inputs = inputs.to(self.device)
                 labels = labels.to(self.device)
 
                 outputs = self.model(inputs)
