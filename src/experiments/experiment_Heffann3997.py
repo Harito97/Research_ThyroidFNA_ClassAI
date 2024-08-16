@@ -23,7 +23,6 @@ def run(config):
         experiment_yaml_config=config,
         model=model,
         data_dir=config["data"]["train_path"][0],
-        batch_size=config["training"]["batch_size"],
     )
 
     # Start validation
