@@ -17,12 +17,24 @@ def run(config):
     # Set random seeds for reproducibility
     torch.manual_seed(config["seed"])
 
+    # Transform
+    val_transforms = transforms.Compose(
+        [
+            transforms.Resize((224, 224)),  # Resize images to 224x224
+            transforms.ToTensor(),
+        ]
+    )
+
     # Load datasets
     train_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config, root_dirs=config["data"]["train_path"]
+        experiment_yaml_config=config,
+        root_dirs=config["data"]["train_path"],
+        transform=val_transforms,
     )
     val_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config, root_dirs=config["data"]["val_path"]
+        experiment_yaml_config=config,
+        root_dirs=config["data"]["val_path"],
+        transform=val_transforms,
     )
 
     # Create data loaders
