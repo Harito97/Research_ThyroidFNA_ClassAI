@@ -49,7 +49,8 @@ class Validator:
         total_samples = 0
 
         self.model.to(self.device)
-        self.model.eval()
+        # self.model.eval()
+        self.model.eval_mode()
         with no_grad():
             for class_dir in os.listdir(self.data_dir):
                 class_path = os.path.join(self.data_dir, class_dir)

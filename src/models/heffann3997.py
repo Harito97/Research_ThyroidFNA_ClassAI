@@ -17,8 +17,10 @@ class Heffann3997(nn.Module):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.efficient_net.to(self.device)
         self.ann.to(self.device)
-        self.eval()
-        self.hook = None
+
+    def eval_mode(self):
+        self.efficient_net.eval()
+        self.ann.eval()
 
     def load_weight(self, module_1_path: str, module_2_path: str):
         self.efficient_net.load_state_dict(
