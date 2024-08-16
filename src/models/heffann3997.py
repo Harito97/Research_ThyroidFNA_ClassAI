@@ -30,8 +30,12 @@ class Heffann3997(nn.Module):
 
     def forward(self, x):
         """x is tensor of shape (batch_size, 3, 224, 224)"""
-        if x.size(0) % 13 != 0:
+        if isinstance(x, torch.Tensor) and x.size(0) % 13 != 0:
             raise ValueError("batch_size must be multiple of 13")
+        elif isinstance(x, list) and len(x) % 13 != 0:
+            raise ValueError("batch_size must be multiple of 13")
+        else:
+            raise ValueError("x must be a tensor or a list of tensors")
         # print(x.shape)
         x = self.efficient_net(x)  # shape (batch_size, 3)
         # print(x.shape)
