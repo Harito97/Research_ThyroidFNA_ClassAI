@@ -9,6 +9,7 @@ device: "cuda"
 data:
   train_path: ["/home/haipn/data/dataver0/train"]
   val_path: ["/home/haipn/data/dataver0/valid"]
+  batch_size: 8
 
 model:
   type: "Heffann3997"

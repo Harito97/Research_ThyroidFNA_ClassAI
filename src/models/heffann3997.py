@@ -11,16 +11,11 @@ class Heffann3997(nn.Module):
         super(Heffann3997, self).__init__()
         self.efficient_net = H0_EfficientNetB0()
         self.ann = H39_97_ANN()
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
         self.transforms = transforms.Compose(
             [transforms.Resize((224, 224)), transforms.ToTensor()]
         )
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.efficient_net.to(self.device)
-        self.ann.to(self.device)
-
-    def eval_mode(self):
-        self.efficient_net.eval()
-        self.ann.eval()
 
     def load_weight(self, module_1_path: str, module_2_path: str):
         self.efficient_net.load_state_dict(
@@ -28,41 +23,66 @@ class Heffann3997(nn.Module):
         )
         self.ann.load_state_dict(torch.load(module_2_path, map_location=self.device))
 
+    def eval_mode(self):
+        self.eval()
+        # self.efficient_net.eval()
+        # self.ann.eval()
+
     def forward(self, x):
-        """x is either a path to an image or a PIL Image object"""
-        if isinstance(x, str):
-            x = Image.open(x).resize((1024, 768)).convert("RGB")
-        elif isinstance(x, Image.Image):
-            x = x.resize((1024, 768))
-        else:
-            raise ValueError("x must be a path to an image or a PIL Image object")
-
-        # Step 2. Crop 12 patches 256x256 images from the image
-        patches = []
-        for i in range(3):
-            for j in range(4):
-                patch = x.crop((i * 256, j * 256, (i + 1) * 256, (j + 1) * 256))
-                patches.append(patch)
-        images = [x] + patches
-
-        # Step 3. Use transforms to resize 224x224 and convert the patches to tensors
-        images = [self.transforms(image).to(self.device) for image in images]
-
-        # Step 4. Stack the tensors along the batch dimension
-        x = torch.stack(images)
-
-        x = self.efficient_net(x)
-        # print(x.shape)    # (13, 3)
-
-        # Step 5. Flatten and pass through ANN
-        x = x.view(-1)  # Flatten the feature maps
-        # print(x.shape)    # (39)
-        x = x.unsqueeze(0)  # Add batch dimension for ANN (1, 39)
-        x = self.ann(x)
-
+        """x is tensor of shape (batch_size, 3, 224, 224)"""
+        if x.size(0) % 13 != 0:
+            raise ValueError("batch_size must be multiple of 13")
+        # print(x.shape)
+        x = self.efficient_net(x)  # shape (batch_size, 3)
+        # print(x.shape)
+        x = x.view(-1, 39)  # shape (batch_size // 13, 13 * 3)
+        # print(x.shape)
+        x = self.ann(x)  # shape (batch_size // 13, 3)
+        # print(x.shape)
         return x
 
-    @torch.no_grad()
-    def predict(self, x):
-        x = self.forward(x)
-        return torch.argmax(x, dim=1).item()
+    def predict_from_path(self, imgs_path):
+        inputs = []
+        for img_path in imgs_path:
+            img = Image.open(img_path).convert("RGB").resize((1024, 768))
+            crops = self._crop_image(img)
+            crops = [transforms.ToTensor()(crop) for crop in crops]
+            img = transforms.Resize((224, 224))(img)
+            img = transforms.ToTensor()(img)
+            x = torch.stack([img] + crops)
+            inputs.append(x)
+        inputs = torch.stack(inputs)
+        inputs = inputs.to(self.device)
+        inputs = inputs.view(-1, 3, 224, 224)
+        outputs = self.forward(inputs)
+        return outputs
+
+    def predict_from_PIL(self, imgs_PIL):
+        """Make sure that imgs is a list of PIL images and img is RGB"""
+        inputs = []
+        for img in imgs_PIL:
+            crops = self._crop_image(img.resize((1024, 768)))
+            crops = [transforms.ToTensor()(crop) for crop in crops]
+            img = transforms.Resize((224, 224))(img)
+            img = transforms.ToTensor()(img)
+            x = torch.stack([img] + crops)
+            inputs.append(x)
+        inputs = torch.stack(inputs)
+        inputs = inputs.to(self.device)
+        outputs = self.forward(inputs)
+        return outputs
+
+    def _crop_image(self, img):
+        img_crops = []
+        width, height = img.size
+        crop_width = 256
+        crop_height = 256
+        for i in range(3):  # 3 rows
+            for j in range(4):  # 4 columns
+                left = j * crop_width
+                top = i * crop_height
+                right = min(left + crop_width, width)
+                bottom = min(top + crop_height, height)
+                crop = img.crop((left, top, right, bottom)).resize((224, 224))
+                img_crops.append(crop)
+        return img_crops

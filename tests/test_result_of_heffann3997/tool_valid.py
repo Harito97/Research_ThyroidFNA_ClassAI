@@ -25,6 +25,10 @@ class Validator:
         """Data dir has B2/ B5/ B6/"""
         self.model = model
         self.data_dir = data_dir
+        self.x = []
+        self.y = []
+        self.batch_size = experiment_yaml_config["data"]["batch_size"]
+        self.load_x_y()
         self.device = device("cuda" if torch.cuda.is_available() else "cpu")
         self.save_path = experiment_yaml_config["logging"]["save_path"]
 
@@ -41,6 +45,18 @@ class Validator:
             name=experiment_yaml_config["logging"]["run_name"] + "_validation",
         )
 
+    def load_x_y(self):
+        for class_dir in os.listdir(self.data_dir):
+            class_path = os.path.join(self.data_dir, class_dir)
+            if not os.path.isdir(class_path):
+                continue
+
+            label = self.label_to_index(class_dir)
+            for img_file in os.listdir(class_path):
+                img_path = os.path.join(class_path, img_file)
+                self.x.append(img_path)
+                self.y.append(label)
+
     def evaluate(self):
         all_preds = []
         all_labels = []
@@ -48,36 +64,32 @@ class Validator:
         top2_correct = 0
         total_samples = 0
 
+        print(f'About the dataset:\nNumber of samples: {len(self.x)}\nNumber of classes: {len(set(self.y))}')
+        
         self.model.to(self.device)
-        # self.model.eval()
+        self.model.eval()
         self.model.eval_mode()
         with no_grad():
-            for class_dir in os.listdir(self.data_dir):
-                class_path = os.path.join(self.data_dir, class_dir)
-                if not os.path.isdir(class_path):
-                    continue
-
-                label = self.label_to_index(class_dir)
-                for img_file in os.listdir(class_path):
-                    img_path = os.path.join(class_path, img_file)
-                    image = Image.open(img_path).convert("RGB")
-
-                    outputs = self.model(image)
-                    _, preds = torch.max(outputs, 1)
-
-                    all_preds.extend(preds.cpu().numpy())
-                    all_labels.extend([label] * len(preds))
-                    all_probs.extend(outputs.cpu().numpy())
-
-                    top2_preds = torch.topk(outputs, 2, dim=1)[
-                        1
-                    ]  # Get top-2 predictions
+            for i in range(0, len(self.x), self.batch_size):
+                # start_index = i
+                # end_index = min(i + self.batch_size, len(self.x))
+                batch_x = self.x[i : min(i + self.batch_size, len(self.x))]
+                batch_y = self.y[i : min(i + self.batch_size, len(self.y))]
+                outputs = self.model(batch_x)
+                _, preds = torch.max(outputs, 1)
+                all_preds.extend(preds.cpu().numpy())
+                all_labels.extend(batch_y)
+                all_probs.extend(outputs.cpu().numpy())
+                print(f"Batch {i // self.batch_size + 1} / {len(self.x) // self.batch_size}:")
+                print(f"Precisions: {preds.cpu().numpy()}\nLabels: {batch_y}\nPobabilities: {outputs.cpu().numpy()}")
+                for label, output in zip(batch_y, outputs):
+                    top2_preds = torch.topk(output, 2, dim=1)[1]  # Get top-2 predictions
                     if label in top2_preds.cpu().numpy():
                         top2_correct += 1
                     total_samples += 1
 
         all_preds = np.array(all_preds)
-        all_labels = np.array(all_labels)
+        all_labels = np.array(all_labels) #self.y)
         all_probs = np.array(all_probs)
 
         # Compute metrics
@@ -108,7 +120,7 @@ class Validator:
         self.save_results(all_labels, all_preds, all_probs)
 
         # Plot per-class metrics
-        self.plot_per_class_metrics(all_labels, all_preds,class_report, top2_accuracy)
+        self.plot_per_class_metrics(all_labels, all_preds, class_report, top2_accuracy)
 
         # Log final metrics to W&B
         wandb.log(
@@ -192,7 +204,9 @@ class Validator:
         plt.savefig(os.path.join(self.save_path, "confusion_matrix.png"))
         plt.close()
 
-    def plot_per_class_metrics(self, all_labels, all_preds, class_report, top2_accuracy):
+    def plot_per_class_metrics(
+        self, all_labels, all_preds, class_report, top2_accuracy
+    ):
         metrics = {}
         for label, metrics_dict in class_report.items():
             if label == "accuracy" or label == "macro avg" or label == "weighted avg":
