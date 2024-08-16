@@ -80,12 +80,12 @@ class Validator:
                 all_preds.extend(preds.cpu().numpy())
                 all_labels.extend(batch_y)
                 all_probs.extend(outputs.cpu().numpy())
-                print(
-                    f"Batch {i // self.batch_size + 1} / {len(self.x) // self.batch_size}:"
-                )
-                print(
-                    f"Precisions: {preds.cpu().numpy()}\nLabels: {batch_y}" #\nPobabilities: {outputs.cpu().numpy()}"
-                )
+                # print(
+                #     f"Batch {i // self.batch_size + 1} / {len(self.x) // self.batch_size}:"
+                # )
+                # print(
+                #     f"Prediction: {preds.cpu().numpy()}\nLabels: {batch_y}" #\nPobabilities: {outputs.cpu().numpy()}"
+                # )
 
                 for label, output in zip(batch_y, outputs):
                     top2_preds = torch.topk(output, 2)[
