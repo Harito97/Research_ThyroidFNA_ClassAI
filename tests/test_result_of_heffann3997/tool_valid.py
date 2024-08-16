@@ -107,7 +107,7 @@ class Validator:
         self.save_results(all_labels, all_preds, all_probs)
 
         # Plot per-class metrics
-        self.plot_per_class_metrics(class_report, top2_accuracy)
+        self.plot_per_class_metrics(all_labels, all_preds,class_report, top2_accuracy)
 
         # Log final metrics to W&B
         wandb.log(
@@ -191,7 +191,7 @@ class Validator:
         plt.savefig(os.path.join(self.save_path, "confusion_matrix.png"))
         plt.close()
 
-    def plot_per_class_metrics(self, class_report, top2_accuracy):
+    def plot_per_class_metrics(self, all_labels, all_preds, class_report, top2_accuracy):
         metrics = {}
         for label, metrics_dict in class_report.items():
             if label == "accuracy" or label == "macro avg" or label == "weighted avg":
