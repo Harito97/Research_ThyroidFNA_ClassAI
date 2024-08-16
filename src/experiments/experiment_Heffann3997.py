@@ -1,38 +1,14 @@
 import torch
-import torch.nn as nn
-from torchvision import transforms
 import yaml
 import os
 from src.models.heffann3997 import Heffann3997
-from src.utils.build_model.image_classification import (
-    ValidImageClassificationModel,
-)
-from src.data.dataset.image_classification import MultiImageFolderDataset
-
+from tests.test_result_of_heffann3997.tool_valid import Validator
 
 def run(config):
     print(f"Running Experiment {config['experiment']}: {config['name']}")
 
     # Set random seeds for reproducibility
     torch.manual_seed(config["seed"])
-
-    train_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config,
-        root_dirs=config["data"]["train_path"],
-        transform=None,
-    )
-    val_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config,
-        root_dirs=config["data"]["val_path"],
-        transform=None,
-    )
-
-    print("Number of training samples:", len(train_dataset))
-    print("Number of validation samples:", len(val_dataset))
-    print("Data loaded successfully.")
-
-    train_loader = zip(train_dataset.image_paths, train_dataset.labels)
-    val_loader = zip(val_dataset.image_paths, val_dataset.labels)
 
     # Initialize model
     model = Heffann3997()
@@ -43,10 +19,10 @@ def run(config):
     model.to(config["device"])
 
     # Validate model
-    validator = ValidImageClassificationModel(
+    validator = Validator(
         experiment_yaml_config=config,
         model=model,
-        val_loader=train_loader,
+        data_dir=config["data"]["train_path"],
     )
 
     # Start validation
@@ -54,10 +30,10 @@ def run(config):
     validator.evaluate()
 
     # Validate model
-    validator = ValidImageClassificationModel(
+    validator = Validator(
         experiment_yaml_config=config,
         model=model,
-        val_loader=val_loader,
+        data_dir=config["data"]["val_path"],
     )
 
     # Start validation
