@@ -26,7 +26,7 @@ class Heffann3997(nn.Module):
         )
         self.ann.load_state_dict(torch.load(module_2_path, map_location=self.device))
 
-    def forward(self, x, grad_cam=False):
+    def forward(self, x):
         """x is either a path to an image or a PIL Image object"""
         if isinstance(x, str):
             x = Image.open(x).resize((1024, 768)).convert("RGB")

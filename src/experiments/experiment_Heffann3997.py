@@ -1,14 +1,13 @@
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
 from torchvision import transforms
+import yaml
+import os
 from src.models.heffann3997 import Heffann3997
-from src.data.dataset.image_classification import MultiImageFolderDataset
 from src.utils.build_model.image_classification import (
     ValidImageClassificationModel,
 )
-import yaml
-import os
+from src.data.dataset.image_classification import MultiImageFolderDataset
 
 
 def run(config):
@@ -17,42 +16,23 @@ def run(config):
     # Set random seeds for reproducibility
     torch.manual_seed(config["seed"])
 
-    # Transform
-    val_transforms = transforms.Compose(
-        [
-            transforms.Resize((224, 224)),  # Resize images to 224x224
-            transforms.ToTensor(),
-        ]
-    )
-
-    # Load datasets
     train_dataset = MultiImageFolderDataset(
         experiment_yaml_config=config,
         root_dirs=config["data"]["train_path"],
-        transform=val_transforms,
+        transform=None,
     )
     val_dataset = MultiImageFolderDataset(
         experiment_yaml_config=config,
         root_dirs=config["data"]["val_path"],
-        transform=val_transforms,
+        transform=None,
     )
 
-    # Create data loaders
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=config["data"]["batch_size"],
-        shuffle=True,
-        num_workers=config["data"]["num_workers"],
-    )
-    val_loader = DataLoader(
-        val_dataset,
-        batch_size=config["data"]["batch_size"],
-        shuffle=False,
-        num_workers=config["data"]["num_workers"],
-    )
     print("Number of training samples:", len(train_dataset))
     print("Number of validation samples:", len(val_dataset))
     print("Data loaded successfully.")
+
+    train_loader = zip(train_dataset.image_paths, train_dataset.labels)
+    val_loader = zip(val_dataset.image_paths, val_dataset.labels)
 
     # Initialize model
     model = Heffann3997()
