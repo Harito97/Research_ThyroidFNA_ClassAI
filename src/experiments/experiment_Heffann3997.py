@@ -22,7 +22,7 @@ def run(config):
     validator = Validator(
         experiment_yaml_config=config,
         model=model,
-        data_dir=config["data"]["train_path"],
+        data_dir=config["data"]["train_path"][0],
     )
 
     # Start validation
@@ -33,7 +33,7 @@ def run(config):
     validator = Validator(
         experiment_yaml_config=config,
         model=model,
-        data_dir=config["data"]["val_path"],
+        data_dir=config["data"]["val_path"][0],
     )
 
     # Start validation
