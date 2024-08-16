@@ -1,0 +1,81 @@
+nohup: ignoring input
+wandb: Currently logged in as: harito97 (harito). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240816_083620-nwhspo6k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment heffann3997: Test Heffann3997 in whole original dataset_validation
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/nwhspo6k
+wandb: - 0.147 MB of 0.147 MB uploadedwandb: \ 0.147 MB of 0.147 MB uploadedwandb: | 0.147 MB of 0.147 MB uploadedwandb: / 0.147 MB of 0.147 MB uploadedwandb: - 0.157 MB of 0.167 MB uploaded (0.003 MB deduped)wandb: \ 0.157 MB of 0.167 MB uploaded (0.003 MB deduped)wandb: | 0.157 MB of 0.167 MB uploaded (0.003 MB deduped)wandb: / 0.167 MB of 0.167 MB uploaded (0.003 MB deduped)wandb:                                                                                
+wandb: W&B sync reduced upload amount by 1.7%
+wandb: 
+wandb: Run history:
+wandb:      accuracy ▁
+wandb:      f1_score ▁
+wandb:     precision ▁
+wandb:        recall ▁
+wandb: top2_accuracy ▁
+wandb: 
+wandb: Run summary:
+wandb:      accuracy 0.9771
+wandb:      f1_score 0.9772
+wandb:     precision 0.978
+wandb:        recall 0.9771
+wandb: top2_accuracy 1.0
+wandb: 
+wandb: 🚀 View run experiment heffann3997: Test Heffann3997 in whole original dataset_validation at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/nwhspo6k
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 6 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240816_083620-nwhspo6k/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.17.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/haipn/Research_ThyroidFNA_ClassAI/wandb/run-20240816_083753-rbj9ov5q
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run experiment heffann3997: Test Heffann3997 in whole original dataset_validation
+wandb: ⭐️ View project at https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: 🚀 View run at https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/rbj9ov5q
+wandb: - 0.146 MB of 0.146 MB uploadedwandb: \ 0.146 MB of 0.146 MB uploadedwandb: | 0.146 MB of 0.156 MB uploadedwandb: / 0.146 MB of 0.156 MB uploadedwandb: - 0.156 MB of 0.156 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:      accuracy ▁
+wandb:      f1_score ▁
+wandb:     precision ▁
+wandb:        recall ▁
+wandb: top2_accuracy ▁
+wandb: 
+wandb: Run summary:
+wandb:      accuracy 0.90634
+wandb:      f1_score 0.90721
+wandb:     precision 0.90961
+wandb:        recall 0.90634
+wandb: top2_accuracy 0.98347
+wandb: 
+wandb: 🚀 View run experiment heffann3997: Test Heffann3997 in whole original dataset_validation at: https://wandb.ai/harito/ThyroidFNA_ClassAI/runs/rbj9ov5q
+wandb: ⭐️ View project at: https://wandb.ai/harito/ThyroidFNA_ClassAI
+wandb: Synced 6 W&B file(s), 6 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240816_083753-rbj9ov5q/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+Running Experiment Heffann3997: Retrain Heffann3997
+Starting validation on train set of dataver0...
+About the dataset:
+Number of samples: 1441
+Number of classes: 3
+Accuracy: 0.9771
+Precision: 0.9780
+Recall: 0.9771
+F1 Score: 0.9772
+Top-2 Accuracy: 1.0000
+Starting validation on valid set of dataver0...
+About the dataset:
+Number of samples: 363
+Number of classes: 3
+Accuracy: 0.9063
+Precision: 0.9096
+Recall: 0.9063
+F1 Score: 0.9072
+Top-2 Accuracy: 0.9835
+Experiment Heffann3997 completed.
