@@ -335,8 +335,8 @@ class ValidImageClassificationModel:
         self.val_loader = val_loader
         self.device = device("cuda" if torch.cuda.is_available() else "cpu")
         self.save_path = experiment_yaml_config["logging"]["save_path"]
-        
-        if config["experiment"] not in ["Heffann3997"]:
+
+        if experiment_yaml_config["experiment"] not in ["Heffann3997"]:
             self.model_best_path = experiment_yaml_config["training"]["save_path"]
             self.model.load_state_dict(
                 torch.load(self.model_best_path, map_location=self.device), strict=False
