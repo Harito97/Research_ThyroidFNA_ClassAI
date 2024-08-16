@@ -1,0 +1,27 @@
+# configs/experiment_heffann3997".yaml
+type: "experiment"
+
+experiment: "Heffann3997"
+name: "Retrain Heffann3997"
+
+device: "cuda"
+
+data:
+  train_path: ["/home/haipn/data/dataver0/train"]
+  val_path: ["/home/haipn/data/dataver0/valid"]
+  num_workers: 20
+  batch_size: 120
+
+model:
+  type: "Heffann3997"
+  module1: "results/experiment_43/experiment_43.pth"
+  module2: "notebooks/best_model_H39_97_ANN_withAug.pth"
+
+classes: ["B2", "B5", "B6"]
+seed: 42
+
+logging:
+  wandb: true
+  project_name: "ThyroidFNA_ClassAI"
+  run_name: "experiment heffann3997: Test Heffann3997 in whole original dataset"
+  save_path: "results/experiment_heffann3997"

@@ -8,6 +8,7 @@ import yaml
 
 # Internal imports
 ## Import all experiments
+import src.experiments.experiment_Heffann3997 as experiment_Heffann3997
 import src.experiments.experiment_H97_9_7_EfficientNetB0 as experiment_H97_9_7_EfficientNetB0    
 import src.experiments.experiment_H97_9_7_EfficientNetB7 as experiment_H97_9_7_EfficientNetB7
 import src.experiments.experiment_H0_EfficientNetB0 as experiment_H0_EfficientNetB0  
@@ -57,6 +58,8 @@ def run_task(config: Dict[str, Any]) -> None:
             experiment_43.run(config) # use model H0_EfficientNetB0, batch_size = 120
         elif config["experiment"] in ["44"]: # Experiment 44
             experiment_44.run(config) # use model H0_EfficientNetB7, batch_size = 20
+        elif config["experiment"] in ["Heffann3997"]:
+            experiment_Heffann3997.run(config)
     else:
         raise ValueError(f"Unknown task type: {task_type}")
 

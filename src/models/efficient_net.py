@@ -84,7 +84,7 @@ class H0_EfficientNetB0(nn.Module):
             dropout_rate = experiment_yaml_config["training"]["dropout_rate"]
 
         # Initialize model with pretrained weights
-        self.model = efficientnet_b0(weights=EfficientNet_B0_Weights.DEFAULT)
+        self.model = efficientnet_b0() # weights=EfficientNet_B0_Weights.DEFAULT)
 
         # Replace the final classification layer
         in_features = self.model.classifier[1].in_features
