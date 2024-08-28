@@ -1,0 +1,5 @@
+reportlab
+torch
+torchvision
+numpy
+matplotlib

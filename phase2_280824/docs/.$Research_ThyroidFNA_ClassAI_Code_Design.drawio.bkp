@@ -1,0 +1,34 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.234 Electron/31.4.0 Safari/537.36" version="24.7.5">
+  <diagram name="Page-1" id="JAzPeNdvBuw6Gj0Pd9kv">
+    <mxGraphModel dx="1414" dy="855" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-1" value="Data Creator" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="400" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-2" value="Cho phép tạo các tập train, valid, test theo tỷ lệ mong muốn -&amp;gt; Set A" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="d2D6NG0mUu8Y8uRPwAP7-1">
+          <mxGeometry y="30" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-3" value="Tạo B, C, D để hỗ trợ train module 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="d2D6NG0mUu8Y8uRPwAP7-1">
+          <mxGeometry y="60" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-4" value="E là set ảo sẽ dùng sau khi module 1 train xong" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="d2D6NG0mUu8Y8uRPwAP7-1">
+          <mxGeometry y="90" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-6" value="Data Explorer" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="400" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-7" value="Cho phép tạo các tập train, valid, test theo tỷ lệ mong muốn -&amp;gt; Set A" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="d2D6NG0mUu8Y8uRPwAP7-6">
+          <mxGeometry y="30" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-8" value="Tạo B, C, D để hỗ trợ train module 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="d2D6NG0mUu8Y8uRPwAP7-6">
+          <mxGeometry y="60" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d2D6NG0mUu8Y8uRPwAP7-9" value="E là set ảo sẽ dùng sau khi module 1 train xong" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="d2D6NG0mUu8Y8uRPwAP7-6">
+          <mxGeometry y="90" width="400" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
