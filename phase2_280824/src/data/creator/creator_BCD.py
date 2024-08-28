@@ -95,10 +95,10 @@ def get_patches_and_save(
             patch.save(output_dir + f"_patch_{i*4+j+1}.jpg")
 
 
-def __create_folder(config, datever_path):
-    for label in config["class"]:
-        for split in config["data_input"]["part"]:
-            folder_path = os.path.join(datever_path, split, label)
+def __create_folder(config, dataset_dir):
+    for label in config["data"]["class"]:
+        for split in ["train", "valid", "test"]:
+            folder_path = os.path.join(dataset_dir, split, label)
             if not os.path.exists(folder_path):
                 os.makedirs(folder_path)
 
@@ -133,11 +133,11 @@ def run(config, A_set_dir:str):
     C_set_dir = A_set_dir.replace("A", "C")
     D_set_dir = A_set_dir.replace("A", "D")
     if config["creator"]["B_set"]:
-        __create_folder(config=config, datever_path=B_set_dir)
+        __create_folder(config=config, dataset_dir=B_set_dir)
     if config["creator"]["C_set"]:
-        __create_folder(config=config, datever_path=C_set_dir)
+        __create_folder(config=config, dataset_dir=C_set_dir)
     if config["creator"]["D_set"]:
-        __create_folder(config=config, datever_path=D_set_dir)
+        __create_folder(config=config, dataset_dir=D_set_dir)
     print("Created output folders")
 
     for num_step in range(0, num_images // batch_size + 1):
