@@ -155,7 +155,7 @@ def run(config, A_set_dir:str):
                 image_path.split("/")[-3:],
             )   # part/label/img_name.jpg
             if config["creator"]["B_set"]:
-                output_dir = os.path.join(B_set_dir, destination)
+                image_B_set_path = os.path.join(B_set_dir, destination)
                 save_plot_image(result=result, output_dir=output_dir)
             if config["creator"]["C_set"]:
                 output_dir = os.path.join(C_set_dir, destination)
