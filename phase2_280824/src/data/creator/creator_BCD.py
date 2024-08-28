@@ -11,7 +11,7 @@ import time
 # 1. Get and save the plot images (B)
 def save_plot_image(result, output_dir):
     img = result.plot(labels=False, conf=False)
-    cv2.imwrite(output_dir, cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
+    cv2.imwrite(output_dir, cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 
 
 # 2. Get top 8 bounding boxes with max area, crop from A set and save them (C)
