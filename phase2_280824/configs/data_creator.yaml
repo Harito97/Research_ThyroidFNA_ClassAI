@@ -8,7 +8,7 @@ data:
 
 model:
   # this is the cell cluster detect model
-  path: weights/cluster_detect.pth
+  path: weights/cluster_detect.pt
   task: "detect"
   verbose: True
   batch_size: 144

@@ -120,8 +120,8 @@ def run(config, A_set_dir:str):
     train_path = os.path.join(A_set_dir, "train")
     valid_path = os.path.join(A_set_dir, "valid")
     for label in config["data"]["class"]:
-        data_input += glob.glob(train_path, label, "*.jpg")
-        data_input += glob.glob(valid_path, label, "*.jpg")
+        data_input += glob.glob(os.path.join(train_path, label, "*.jpg"))
+        data_input += glob.glob(os.path.join(valid_path, label, "*.jpg"))
     print("Loaded data dir input")
 
     batch_size = config["model"]["batch_size"]
