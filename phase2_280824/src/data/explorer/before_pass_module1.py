@@ -90,6 +90,6 @@ def main(folder_path: str = "/path/to/your/folder"):
     plot_interactive_3d(reduced_data)
 
 
-if __main__ == "__main__":
+if __name__ == "__main__":
     folder_path = "/path/to/your/folder"
     main(folder_path=folder_path)
