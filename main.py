@@ -58,6 +58,8 @@ def run_task(config: Dict[str, Any]) -> None:
             experiment_43.run(config) # use model H0_EfficientNetB0, batch_size = 120
         elif config["experiment"] in ["44"]: # Experiment 44
             experiment_44.run(config) # use model H0_EfficientNetB7, batch_size = 20
+        elif config["experiment"] in ["48"]: # has 91% accuracy f1 score in valid set
+            experiment_48.run(config)
         elif config["experiment"] in ["Heffann3997"]:
             experiment_Heffann3997.run(config)
     else:

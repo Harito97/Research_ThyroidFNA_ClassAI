@@ -1,6 +1,7 @@
-weights/
+# weights/
 temp*
 wandb/
+tmp/
 # *ipynb
 
 # Output reports
