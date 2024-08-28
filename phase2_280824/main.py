@@ -38,8 +38,8 @@ def run_task(config: Dict[str, Any]) -> None:
     """Run the appropriate task based on the configuration."""
     task_type = config.get("type")
     if task_type == "data_creator":
-        creator_A.run(config=config)
-        creator_BCD.run(config=config)
+        A_set_dir = creator_A.run(config=config)
+        creator_BCD.run(config=config, A_set_dir=A_set_dir)
     # elif task_type == "data_explore":
     #     data_explore.run(config=config)
     # elif task_type == "experiment":
