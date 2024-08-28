@@ -11,7 +11,7 @@ model:
   path: weights/cluster_detect.pt
   task: "detect"
   verbose: True
-  batch_size: 144
+  batch_size: 1000
 
 creator:
   A_set: True # if B_set or C_set is True, A_set is True
