@@ -156,7 +156,7 @@ def run(config, A_set_dir:str):
             )   # part/label/img_name.jpg
             if config["creator"]["B_set"]:
                 image_B_set_path = os.path.join(B_set_dir, destination)
-                save_plot_image(result=result, output_dir=output_dir)
+                save_plot_image(result=result, output_dir=image_B_set_path)
             if config["creator"]["C_set"]:
                 output_dir = os.path.join(C_set_dir, destination)
                 get_top_boxes_and_save_crop(
