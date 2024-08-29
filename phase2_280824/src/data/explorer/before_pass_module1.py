@@ -6,29 +6,45 @@ import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from PIL import Image
+from collections import defaultdict
 
 
 def load_random_images(folder_path, num_images=100):
     image_files = []
     labels = []
+    folder_count = defaultdict(int)
 
     # Duyệt qua tất cả các thư mục con
     for root, _, files in os.walk(folder_path):
         for file in files:
             if file.endswith(("png", "jpg", "jpeg", "bmp", "tiff")):
                 file_path = os.path.join(root, file)
-                
-                # Lấy nhãn từ phần tên file trước dấu '/'
-                label = file_path.split("/")[-2]
+
+                if ".ipynb_checkpoints" in file_path:
+                    continue
+
+                # # Lấy nhãn từ phần tên file trước dấu '/'
+                # label = file_path.split("/")[-2]
+                # Lấy nhãn từ tên thư mục cha của file ảnh
+                label = os.path.basename(os.path.dirname(file_path))
 
                 # Thêm file ảnh và nhãn vào danh sách
                 image_files.append(file_path)
                 labels.append(label)
 
+                folder_count[
+                    os.path.dirname(file_path)
+                ] += 1  # Tăng số lượng ảnh tương ứng với folder
+
+    # In ra số lượng ảnh trong mỗi thư mục
+    print("Số lượng ảnh trong mỗi folder:")
+    for folder, count in folder_count.items():
+        print(f"{folder}: {count} ảnh")
+
     # Shuffle và lấy ngẫu nhiên num_images ảnh, nếu không đủ thì lấy số lượng ảnh tối đa
     combined = list(zip(image_files, labels))
     random.shuffle(combined)
-    selected_files, selected_labels = zip(*combined[:min(num_images, len(combined))])
+    selected_files, selected_labels = zip(*combined[: min(num_images, len(combined))])
 
     # Đọc các ảnh vào danh sách
     images = [Image.open(f).resize((64, 64)) for f in selected_files]
@@ -73,7 +89,9 @@ def plot_interactive_3d(data, labels):
     # Vẽ biểu đồ 3D tương tác
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
-    scatter = ax.scatter(data[:, 0], data[:, 1], data[:, 2], c=colors, cmap="viridis", marker="o")
+    scatter = ax.scatter(
+        data[:, 0], data[:, 1], data[:, 2], c=colors, cmap="viridis", marker="o"
+    )
 
     # Thêm thanh màu để biết nhãn tương ứng với màu gì
     legend1 = ax.legend(*scatter.legend_elements(), title="Labels")
