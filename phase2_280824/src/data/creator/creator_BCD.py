@@ -10,8 +10,11 @@ import time
 
 # 1. Get and save the plot images (B)
 def save_plot_image(result, output_dir):
-    img = result.plot(labels=False, conf=False)
-    cv2.imwrite(output_dir, cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    # img = result.plot(labels=False, conf=False)
+    # cv2.imwrite(output_dir, img)
+    result.save(filename=output_dir, labels=False, conf=False)  
+    # Save without labels and confidence
+    # This will make sure save in RGB format, not BGR
 
 
 # 2. Get top 8 bounding boxes with max area, crop from A set and save them (C)
@@ -112,7 +115,6 @@ def run(config, A_set_dir:str):
     model = YOLO(
         model=config["model"]["path"],
         task=config["model"]["task"],
-        verbose=config["model"]["verbose"],
     )
     print("Loaded cluster detect model")
 
@@ -146,7 +148,8 @@ def run(config, A_set_dir:str):
         image_paths = data_input[start_index:end_index]
 
         # print(image_paths)
-        results = model.predict(source=image_paths, verbose=config["model"]["verbose"])
+        results = model.predict(source=image_paths, verbose=config["model"]["verbose"]) 
+        # verbose=False to stop printing logs
         print(f"Predicted batch {num_step+1}/{num_images//batch_size+1}")
 
         for i, result in enumerate(results):

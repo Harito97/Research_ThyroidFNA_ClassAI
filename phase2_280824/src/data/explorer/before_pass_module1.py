@@ -10,30 +10,29 @@ from PIL import Image
 
 def load_random_images(folder_path, num_images=100):
     image_files = []
+    labels = []
 
     # Duyệt qua tất cả các thư mục con
     for root, _, files in os.walk(folder_path):
-        # Lọc các file ảnh
-        image_files_in_folder = [
-            os.path.join(root, f)
-            for f in files
-            if f.endswith(("png", "jpg", "jpeg", "bmp", "tiff"))
-        ]
+        for file in files:
+            if file.endswith(("png", "jpg", "jpeg", "bmp", "tiff")):
+                file_path = os.path.join(root, file)
+                
+                # Lấy nhãn từ phần tên file trước dấu '/'
+                label = file_path.split("/")[-2]
 
-        # In ra số lượng ảnh trong thư mục mức cuối cùng
-        if len(image_files_in_folder) > 0:
-            print(f"Found {len(image_files_in_folder)} images in {root}")
-
-        # Thêm các file ảnh từ thư mục này vào danh sách tổng
-        image_files.extend(image_files_in_folder)
+                # Thêm file ảnh và nhãn vào danh sách
+                image_files.append(file_path)
+                labels.append(label)
 
     # Shuffle và lấy ngẫu nhiên num_images ảnh, nếu không đủ thì lấy số lượng ảnh tối đa
-    random.shuffle(image_files)
-    selected_files = image_files[: min(num_images, len(image_files))]
+    combined = list(zip(image_files, labels))
+    random.shuffle(combined)
+    selected_files, selected_labels = zip(*combined[:min(num_images, len(combined))])
 
     # Đọc các ảnh vào danh sách
     images = [Image.open(f).resize((64, 64)) for f in selected_files]
-    return images
+    return images, selected_labels
 
 
 def plot_images(images):
@@ -63,11 +62,22 @@ def reduce_dimensionality(images):
     return reduced_data_tsne
 
 
-def plot_interactive_3d(data):
+def plot_interactive_3d(data, labels):
+    # Lấy danh sách các nhãn duy nhất
+    unique_labels = list(set(labels))
+
+    # Tạo một dictionary để ánh xạ nhãn thành các giá trị số (cho phép vẽ màu khác nhau)
+    label_to_color = {label: idx for idx, label in enumerate(unique_labels)}
+    colors = [label_to_color[label] for label in labels]
+
     # Vẽ biểu đồ 3D tương tác
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
-    ax.scatter(data[:, 0], data[:, 1], data[:, 2], c="r", marker="o")
+    scatter = ax.scatter(data[:, 0], data[:, 1], data[:, 2], c=colors, cmap="viridis", marker="o")
+
+    # Thêm thanh màu để biết nhãn tương ứng với màu gì
+    legend1 = ax.legend(*scatter.legend_elements(), title="Labels")
+    ax.add_artist(legend1)
 
     ax.set_xlabel("X Label")
     ax.set_ylabel("Y Label")
@@ -77,8 +87,8 @@ def plot_interactive_3d(data):
 
 
 def main(folder_path: str = "/path/to/your/folder"):
-    # Load ngẫu nhiên 100 ảnh từ thư mục
-    images = load_random_images(folder_path, num_images=100)
+    # Load ngẫu nhiên 100 ảnh từ thư mục và các nhãn tương ứng
+    images, labels = load_random_images(folder_path, num_images=100)
 
     # Hiển thị các ảnh đã chọn
     plot_images(images)
@@ -86,8 +96,8 @@ def main(folder_path: str = "/path/to/your/folder"):
     # Giảm chiều dữ liệu ảnh xuống 3 chiều
     reduced_data = reduce_dimensionality(images)
 
-    # Vẽ biểu đồ 3D tương tác
-    plot_interactive_3d(reduced_data)
+    # Vẽ biểu đồ 3D tương tác với nhãn
+    plot_interactive_3d(reduced_data, labels)
 
 
 if __name__ == "__main__":

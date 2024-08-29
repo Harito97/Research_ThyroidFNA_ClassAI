@@ -10,7 +10,7 @@ model:
   # this is the cell cluster detect model
   path: weights/cluster_detect.pt
   task: "detect"
-  verbose: True
+  verbose: False  # to stop printing the logs
   batch_size: 200
 
 creator:
