@@ -101,7 +101,7 @@ def run(config):
     # Initialize model
     model = H0_EfficientNetB0(
         train_entire_network=config["training"]["train_entire_network"],
-        num_classes=len(config["config"]["classes"]),
+        num_classes=len(config["data"]["classes"]),
     )
     model.to(config["training"]["device"])
 
@@ -109,7 +109,7 @@ def run(config):
     class_counts = torch.tensor(
         [
             train_dataset.get_labels().count(c)
-            for c, _ in enumerate(config["training"]["classes"])
+            for c, _ in enumerate(config["data"]["classes"])
         ]
     )
     class_weights = 1.0 / class_counts.float()
