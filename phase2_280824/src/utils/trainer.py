@@ -35,10 +35,10 @@ class TrainClassificationModel:
         self.criterion = criterion
         self.optimizer = optimizer
         self.scheduler = scheduler
-        self.num_epochs = config["train_valid_para"]["num_epochs"]
-        self.patience = config["train_valid_para"]["patience"]
+        self.num_epochs = config["training"]["num_epochs"]
+        self.patience = config["training"]["patience"]
         self.device = torch.device(
-            config["train_valid_para"]["device"] if torch.cuda.is_available() else "cpu"
+            config["training"]["device"] if torch.cuda.is_available() else "cpu"
         )
 
         # Generate time_stamp and update config
@@ -48,8 +48,8 @@ class TrainClassificationModel:
         # Update paths with time_stamp and model name/type
         config["info_save"]["dir_path"] = config["info_save"]["dir_path"].format(
             time_stamp=config["time_stamp"],
-            model_name=config["train_valid_para"]["model_name"],
-            model_type=config["train_valid_para"]["model_type"],
+            model_name=config["training"]["model_name"],
+            model_type=config["training"]["model_type"],
         )
         self.save_path = os.path.join(
             config["info_save"]["dir_path"], config["info_save"]["model_path"]
