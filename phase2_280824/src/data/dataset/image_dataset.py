@@ -17,14 +17,14 @@ class MultiImageFolderDataset(Dataset):
         self.class_to_idx = {}
         self.idx_to_class = {}
         
-        for idx, class_name in enumerate(config["data_para"]["classes"]):
+        for idx, class_name in enumerate(config["data"]["classes"]):
             self.class_to_idx[class_name] = idx
             self.idx_to_class[idx] = class_name
 
         for root_dir in root_dirs:
             if not os.path.isdir(root_dir):
                 raise ValueError(f"{root_dir} is not a exist directory")
-            for label in config["data_para"]["classes"]:
+            for label in config["data"]["classes"]:
                 # Tìm tất cả các ảnh trong thư mục con
                 image_paths = glob.glob(os.path.join(root_dir, label, '*.jpg'))  # Thay đổi định dạng file nếu cần
                 self.image_paths.extend(image_paths)
