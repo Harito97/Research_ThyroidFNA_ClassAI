@@ -133,7 +133,7 @@ class TrainClassificationModel:
         patience_counter = 0
 
         train_losses, valid_losses = [], []
-        train_accs, valid_accs = []
+        train_accs, valid_accs = [], []
 
         for epoch in range(self.num_epochs):
             self.model.train()
