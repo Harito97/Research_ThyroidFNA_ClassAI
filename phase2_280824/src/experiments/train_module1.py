@@ -48,21 +48,21 @@ def run(config):
 
     # Load datasets
     train_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config,
+        config=config,
         root_dirs=config["data"]["train_path"],
         transform=train_transforms,
     )
     val_dataset = MultiImageFolderDataset(
-        experiment_yaml_config=config,
+        config=config,
         root_dirs=config["data"]["valid_path"],
         transform=val_transforms,
     )
     # test_dataset_dataver0 = MultiImageFolderDataset(
-    #     experiment_yaml_config=config,
+    #     config=config,
     #     root_dirs=[config["data"]["test_path"][0]], transform=val_transforms
     # )
     # test_dataset_dataver1 = MultiImageFolderDataset(
-    #     experiment_yaml_config=config,
+    #     config=config,
     #     root_dirs=[config["data"]["test_path"][1]], transform=val_transforms
     # )
 
@@ -143,7 +143,7 @@ def run(config):
     # print("Validating model... on the validation set")
     # # Validate model
     # validator = ValidImageClassificationModel(
-    #     experiment_yaml_config=config,
+    #     config=config,
     #     model=model,
     #     val_loader=val_loader,
     # )
@@ -154,7 +154,7 @@ def run(config):
     # print("Testing model... on the test set (dataver0)")
     # # Test model
     # tester_dataver0 = ValidImageClassificationModel(
-    #     experiment_yaml_config=config,
+    #     config=config,
     #     model=model,
     #     val_loader=test_loader_dataver0,
     # )
@@ -164,7 +164,7 @@ def run(config):
 
     # print("Testing model... on the test set (dataver1)")
     # test_dataver1 = ValidImageClassificationModel(
-    #     experiment_yaml_config=config,
+    #     config=config,
     #     model=model,
     #     val_loader=test_loader_dataver1,
     # )
