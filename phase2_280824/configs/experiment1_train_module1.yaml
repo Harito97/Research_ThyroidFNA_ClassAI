@@ -20,16 +20,28 @@ data:
     horizontal_flip: True
     vertical_flip: True
     rotation_range: 20
-  train_path: ["data/1725013654_A_set/train", "data/1725013654_B_set/train", "data/1725013654_C_set/train", "data/1725013654_D_set/train"]
-  valid_path: ["data/1725013654_A_set/valid", "data/1725013654_B_set/valid", "data/1725013654_C_set/valid", "data/1725013654_D_set/valid"]
+  train_path:
+    [
+      "data/1725013654_A_set/train",
+      "data/1725013654_B_set/train",
+      "data/1725013654_C_set/train",
+      "data/1725013654_D_set/train",
+    ]
+  valid_path:
+    [
+      "data/1725013654_A_set/valid",
+      "data/1725013654_B_set/valid",
+      "data/1725013654_C_set/valid",
+      "data/1725013654_D_set/valid",
+    ]
   # test_path: [] # not used
 
 training:
   model_type: H0_EfficientNetB0
-  batch_size: 20
+  batch_size: 120
   num_epochs: 100
   patience: 10
-  lr: 0.001
+  lr: 0.0001
   seed: 97
   device: cuda
   train_entire_network: True
