@@ -7,7 +7,8 @@ wandb:
     - Validation Set: 15% of the data
     # - Test Set: 15% of the data (not used)
 
-experiment: 1
+type: "experiment"
+experiment: "1"
 
 name: "train module 1"
 

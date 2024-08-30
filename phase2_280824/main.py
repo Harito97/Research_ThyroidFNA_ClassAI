@@ -15,6 +15,7 @@ import yaml
 # import src.experiments.experiment_H0_EfficientNetB7 as experiment_H0_EfficientNetB7
 # import src.experiments.experiment_43 as experiment_43
 # import src.experiments.experiment_44 as experiment_44
+import src.experiments.train_module1 as train_module1
 
 ## Import all data modules
 import src.data.creator.creator_A as creator_A
@@ -40,6 +41,10 @@ def run_task(config: Dict[str, Any]) -> None:
     if task_type == "data_creator":
         A_set_dir = creator_A.run(config=config)
         creator_BCD.run(config=config, A_set_dir=A_set_dir)
+    elif task_type == "experiment":
+        if config["experiment"] in ["1"]:
+            train_module1.run(config)
+            
     # elif task_type == "data_explore":
     #     data_explore.run(config=config)
     # elif task_type == "experiment":
