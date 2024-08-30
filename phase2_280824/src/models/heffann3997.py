@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from PIL import Image
 from torchvision import transforms
-from src.models.efficient_net import H0_EfficientNetB0
-from src.models.ann import H39_97_ANN
+from src.models.module1.efficient_net import H0_EfficientNetB0
+from src.models.module2.ann import H39_97_ANN
 
 
 class Heffann3997(nn.Module):

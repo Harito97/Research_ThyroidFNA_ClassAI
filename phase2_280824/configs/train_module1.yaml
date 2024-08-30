@@ -1,0 +1,30 @@
+wandb:
+  project: ThyroidFNA_ClassAI
+  name: _{time_stamp}_phase2_280824_train_module1
+  description: |
+    Phase 2: Train Module 1
+    - Train Set: 70% of the data
+    - Validation Set: 15% of the data
+    # - Test Set: 15% of the data (not used)
+
+data_para:
+  data_dir: ./data/phase2_280824
+  classes: ["B2", "B5", "B6"]
+  num_workers: 20
+
+train_valid_para:
+  model_type: H0_EfficientNetB0
+  batch_size: 120
+  num_epochs: 100
+  patience: 10
+  lr: 0.001
+  seed: 97
+  device: cuda
+  train_entire_network: True
+  model_name: phase2_280824_module1
+
+info_save:
+  dir_path: ./results/{time_stamp}_{model_name}_{model_type}
+  model_path: best_loss.pth
+  training_log: training_log.csv
+  training_metrics: training_metrics.png

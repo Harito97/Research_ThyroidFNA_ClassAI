@@ -7,7 +7,7 @@ import torch
 class TrainImageClassificationModel:
     def __init__(
         self,
-        experiment_yaml_config,
+        config,
         model,
         train_loader,
         val_loader,
@@ -23,7 +23,7 @@ class TrainImageClassificationModel:
         Train an image classification model.
 
         Args:
-            experiment_yaml_config (dict): Configuration for the experiment including logging details.
+            config (dict): Configuration for the experiment including logging details.
             model (torch.nn.Module): Model to train.
             train_loader (torch.utils.data.DataLoader): Training data loader.
             val_loader (torch.utils.data.DataLoader): Validation data loader.
@@ -48,13 +48,13 @@ class TrainImageClassificationModel:
 
         # Initialize wandb
         wandb.init(
-            project=experiment_yaml_config["logging"]["project_name"],
+            project=config["logging"]["project_name"],
             config={
                 "epochs": num_epochs,
                 "learning_rate": optimizer.defaults["lr"],
                 "batch_size": train_loader.batch_size,
             },
-            name=experiment_yaml_config["logging"]["run_name"],
+            name=config["logging"]["run_name"],
         )
 
         # Check save directory exists
@@ -162,12 +162,12 @@ from torch import no_grad, device
 
 
 class ValidImageClassificationModel:
-    def __init__(self, experiment_yaml_config, model, val_loader):
+    def __init__(self, config, model, val_loader):
         self.model = model
         self.val_loader = val_loader
         self.device = device("cuda" if torch.cuda.is_available() else "cpu")
-        self.save_path = experiment_yaml_config["logging"]["save_path"]
-        self.model_best_path = experiment_yaml_config["training"]["save_path"]
+        self.save_path = config["logging"]["save_path"]
+        self.model_best_path = config["training"]["save_path"]
         self.model.load_state_dict(
             torch.load(self.model_best_path, map_location=self.device), strict=False
         )
@@ -178,12 +178,12 @@ class ValidImageClassificationModel:
 
         # Initialize wandb
         wandb.init(
-            project=experiment_yaml_config["logging"]["project_name"],
+            project=config["logging"]["project_name"],
             config={
                 # Adjusted for available parameters
                 "save_path": self.save_path,
             },
-            name=experiment_yaml_config["logging"]["run_name"] + "_validation",
+            name=config["logging"]["run_name"] + "_validation",
         )
 
     def evaluate(self):

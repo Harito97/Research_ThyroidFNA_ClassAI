@@ -5,7 +5,7 @@ import random
 import time
 
 
-def split_dataset(path, train_ratio=0.7, valid_ratio=0.15):
+def split_dataset(path, train_ratio=0.7, valid_ratio=0.15, seed: int = None):
     # Kiểm tra đường dẫn tồn tại
     if not os.path.exists(path):
         raise ValueError(f"Path {path} does not exist.")
@@ -48,6 +48,8 @@ def split_dataset(path, train_ratio=0.7, valid_ratio=0.15):
         ]
 
         # Shuffle ảnh để đảm bảo việc phân chia ngẫu nhiên
+        if seed is not None:
+            random.seed(seed)
         random.shuffle(images)
 
         # Tính toán số lượng ảnh cho mỗi tập
@@ -105,6 +107,7 @@ def run(config):
         config["data"]["path"],
         config["data"]["train_ratio"],
         config["data"]["valid_ratio"],
+        config["data"]["seed"],
     )
     print(f"Data A creator finished in {time.time() - start_time} seconds.")
     return A_set_dir
@@ -113,7 +116,7 @@ def run(config):
 if __name__ == "__main__":
     # Sử dụng hàm
     path = "/path/to/your/dataset"
-    split_dataset(path, train_ratio=0.7, valid_ratio=0.2)
+    split_dataset(path, train_ratio=0.7, valid_ratio=0.15)
 
     # or get the config from a file
     # config = {...}

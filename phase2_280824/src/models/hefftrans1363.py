@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from PIL import Image
 from torchvision import transforms
-from src.models.efficient_net import H0_EfficientNetB0
-from src.models.vit import H13_63_ViT
+from src.models.module1.efficient_net import H0_EfficientNetB0
+from src.models.module2.vit import H13_63_ViT
 
 
 class Hefftrans1363(nn.Module):
