@@ -7,12 +7,23 @@ wandb:
     - Validation Set: 15% of the data
     # - Test Set: 15% of the data (not used)
 
-data_para:
+experiment: 1
+
+name: "train module 1"
+
+data:
   data_dir: ./data/phase2_280824
   classes: ["B2", "B5", "B6"]
   num_workers: 20
+  augmentation:
+    horizontal_flip: True
+    vertical_flip: True
+    rotation_range: 20
+  train_path: []
+  valid_path: []
+  test_path: []
 
-train_valid_para:
+training:
   model_type: H0_EfficientNetB0
   batch_size: 120
   num_epochs: 100
