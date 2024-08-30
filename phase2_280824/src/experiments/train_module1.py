@@ -22,17 +22,17 @@ def run(config):
             transforms.Resize((224, 224)),  # Resize images to 224x224
             (
                 transforms.RandomHorizontalFlip()
-                if config["augmentation"]["horizontal_flip"]
+                if config["data"]["augmentation"]["horizontal_flip"]
                 else transforms.Lambda(lambda x: x)
             ),
             (
                 transforms.RandomVerticalFlip()
-                if config["augmentation"]["vertical_flip"]
+                if config["data"]["augmentation"]["vertical_flip"]
                 else transforms.Lambda(lambda x: x)
             ),
             (
-                transforms.RandomRotation(config["augmentation"]["rotation_range"])
-                if config["augmentation"]["rotation_range"] > 0
+                transforms.RandomRotation(config["data"]["augmentation"]["rotation_range"])
+                if config["data"]["augmentation"]["rotation_range"] > 0
                 else transforms.Lambda(lambda x: x)
             ),
             transforms.ToTensor(),
