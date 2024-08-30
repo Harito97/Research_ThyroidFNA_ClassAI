@@ -4,11 +4,8 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from src.models.module1.efficient_net import H0_EfficientNetB0
-from src.data.dataset.image_classification import MultiImageFolderDataset
-from src.utils.build_model.image_classification import (
-    TrainClassificationModel,
-    # EvaluateClassificationModel,
-)
+from src.data.dataset.image_dataset import MultiImageFolderDataset
+from src.utils.trainer import TrainClassificationModel
 import yaml
 import os
 
