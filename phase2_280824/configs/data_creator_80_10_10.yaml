@@ -1,0 +1,22 @@
+type: data_creator
+
+data:
+  path: data/raw
+  train_ratio: 0.8
+  valid_ratio: 0.1
+  class: ["B2", "B5", "B6"]
+  seed: 97
+
+model:
+  # this is the cell cluster detect model
+  path: weights/cluster_detect.pt
+  task: "detect"
+  verbose: False  # to stop printing the logs
+  batch_size: 200
+
+creator:
+  A_set: True # if B_set or C_set is True, A_set is True
+  B_set: True
+  C_set: True
+  D_set: True 
+  # E_set is virtual set
