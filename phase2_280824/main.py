@@ -16,6 +16,7 @@ import yaml
 # import src.experiments.experiment_43 as experiment_43
 # import src.experiments.experiment_44 as experiment_44
 import src.experiments.train_module1 as train_module1
+import src.experiments.eval_module1 as eval_module1
 
 ## Import all data modules
 import src.data.creator.creator_A as creator_A
@@ -42,8 +43,10 @@ def run_task(config: Dict[str, Any]) -> None:
         A_set_dir = creator_A.run(config=config)
         creator_BCD.run(config=config, A_set_dir=A_set_dir)
     elif task_type == "experiment":
-        if config["experiment"] in ["1"]:
+        if config["experiment"] in ["1", "3"]:
             train_module1.run(config)
+        if config["experiment"] in ["2", "4"]:
+            eval_module1.run(config)
             
     # elif task_type == "data_explore":
     #     data_explore.run(config=config)

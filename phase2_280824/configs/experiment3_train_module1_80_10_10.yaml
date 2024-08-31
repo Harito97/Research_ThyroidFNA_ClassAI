@@ -8,7 +8,7 @@ wandb:
     # - Test Set: 15% of the data (not used)
 
 type: "experiment"
-experiment: "1"
+experiment: "3"
 
 name: "train module 1"
 
