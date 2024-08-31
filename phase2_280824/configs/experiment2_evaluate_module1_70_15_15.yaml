@@ -12,8 +12,8 @@ experiment: "2"
 name: "valid module 1"
 
 data:
-  data_dir: ./data/1725013654_A_set/test # (70:15:15)
-  # data/1725071492_A_set/test (80:10:10)
+  data_dir: ["./data/1725013654_A_set/test"] # (70:15:15)
+  # ["./data/1725071492_A_set/test"] # (80:10:10)
   classes: ["B2", "B5", "B6"]
   num_workers: 20
 

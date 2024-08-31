@@ -1,0 +1,43 @@
+wandb:
+  project: ThyroidFNA_ClassAI
+  name: "{time_stamp}_phase2_280824_valid_module1"
+  description: |
+    Phase 2: Valid Module 1
+    # - Train Set: 70% of the data (not used)
+    - Validation Set: 15% of the data
+    # - Test Set: 15% of the data (not used)
+
+type: "experiment"
+experiment: "2"
+name: "valid module 1"
+
+data:
+  data_dir: ["./data/1725071492_A_set/test"] # (80:10:10)
+  # ["./data/1725071492_A_set/test"] # (80:10:10)
+  # ["./data/1725013654_A_set/test"] # (70:15:15)
+  classes: ["B2", "B5", "B6"]
+  num_workers: 20
+
+evaluate:
+  time_stamp: "1725034685" # "1725072013" 
+  # manually set 1725072013 80:10:10 batch_size=140 (lr = 0.0001)
+  # or 1725034685 70:15:15 batch_size=120 (lr = 0.0001)
+  # or 1725015623 70:15:15 batch_size=120 (not used) as lr = 0.001
+  type: validation # validation or testing
+  model_type: H0_EfficientNetB0
+  model_name: phase2_280824_module1
+  model_path: "{dir_path}/{model_path}"
+  batch_size: 120
+  seed: 97
+  device: cuda
+
+info_read:
+  dir_path: ./results/{time_stamp}_{model_name}_{model_type}
+  model_path: best_loss.pth
+
+info_save:
+  dir_path: "./results/{time_stamp}_{model_name}_{model_type}"
+  evaluate_log: "{type}_log.csv"
+  evaluate_confusion_matrix: "{type}_confusion_matrix.png"
+  evaluate_roc_curve: "{type}_roc_curve.png"
+  evaluate_classification_report: "{type}_classification_report.png"
