@@ -22,7 +22,7 @@ evaluate:
   # manually set 1725072013 80:10:10 batch_size=140 (lr = 0.0001)
   # or 1725034685 70:15:15 batch_size=120 (lr = 0.0001)
   # or 1725015623 70:15:15 batch_size=120 (not used) as lr = 0.001
-  type: validation # validation or testing
+  type: testing # validation or testing
   model_type: H0_EfficientNetB0
   model_name: phase2_280824_module1
   model_path: "{dir_path}/{model_path}"

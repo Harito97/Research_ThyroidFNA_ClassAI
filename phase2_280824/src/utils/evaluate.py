@@ -20,34 +20,31 @@ from torch import no_grad, device
 
 
 class EvaluateClassificationModel:
-    def __init__(self, config, model, eval_loader, time_stamp=None):
-        if time_stamp is None:
-            raise ValueError("time_stamp is required")
-
+    def __init__(self, config, model, eval_loader):
         self.model = model
         self.eval_loader = eval_loader
 
         # Check device availability
         if (
-            config["evaluate_para"]["device"] == "cuda"
+            config["evaluate"]["device"] == "cuda"
             and not torch.cuda.is_available()
         ):
             print("CUDA is not available. Falling back to CPU.")
             self.device = torch.device("cpu")
         else:
-            self.device = torch.device(config["evaluate_para"]["device"])
+            self.device = torch.device(config["evaluate"]["device"])
 
-        self.type = config["evaluate_para"]["type"]  # validation or testing
+        self.type = config["evaluate"]["type"]  # validation or testing
         self.config = config
 
         # Constructing dynamic paths based on the config
         dir_path = config["info_read"]["dir_path"].format(
-            time_stamp=time_stamp,
-            model_name=config["evaluate_para"]["model_name"],
-            model_type=config["evaluate_para"]["model_type"],
+            time_stamp=config["evaluate"]["time_stamp"],
+            model_name=config["evaluate"]["model_name"],
+            model_type=config["evaluate"]["model_type"],
         )
         self.save_path = dir_path
-        self.model_best_path = config["evaluate_para"]["model_path"].format(
+        self.model_best_path = config["evaluate"]["model_path"].format(
             dir_path=dir_path, model_path=config["info_read"]["model_path"]
         )
 
@@ -63,7 +60,7 @@ class EvaluateClassificationModel:
         wandb.init(
             project=config["wandb"]["project"],
             config=config,
-            name=config["wandb"]["name"].format(time_stamp=time_stamp),
+            name=config["wandb"]["name"].format(time_stamp=config["evaluate"]["time_stamp"]),
             notes=config["wandb"].get("description", ""),
         )
 
@@ -128,14 +125,14 @@ class EvaluateClassificationModel:
                         self.save_path,
                         self.config["info_save"][
                             "evaluate_classification_report"
-                        ].format(type=self.config["evaluate_para"]["type"]),
+                        ].format(type=self.config["evaluate"]["type"]),
                     )
                 ),
                 "roc_curve": wandb.Image(
                     os.path.join(
                         self.save_path,
                         self.config["info_save"]["evaluate_roc_curve"].format(
-                            type=self.config["evaluate_para"]["type"]
+                            type=self.config["evaluate"]["type"]
                         ),
                     )
                 ),
@@ -143,7 +140,7 @@ class EvaluateClassificationModel:
                     os.path.join(
                         self.save_path,
                         self.config["info_save"]["evaluate_confusion_matrix"].format(
-                            type=self.config["evaluate_para"]["type"]
+                            type=self.config["evaluate"]["type"]
                         ),
                     )
                 ),
@@ -162,7 +159,7 @@ class EvaluateClassificationModel:
             os.path.join(
                 self.save_path,
                 self.config["info_save"]["evaluate_classification_report"].format(
-                    type=self.config["evaluate_para"]["type"]
+                    type=self.config["evaluate"]["type"]
                 ),
             )
         )
@@ -189,7 +186,7 @@ class EvaluateClassificationModel:
             os.path.join(
                 self.save_path,
                 self.config["info_save"]["evaluate_roc_curve"].format(
-                    type=self.config["evaluate_para"]["type"]
+                    type=self.config["evaluate"]["type"]
                 ),
             )
         )
@@ -213,7 +210,7 @@ class EvaluateClassificationModel:
             os.path.join(
                 self.save_path,
                 self.config["info_save"]["evaluate_confusion_matrix"].format(
-                    type=self.config["evaluate_para"]["type"]
+                    type=self.config["evaluate"]["type"]
                 ),
             )
         )
@@ -226,7 +223,7 @@ class EvaluateClassificationModel:
             os.path.join(
                 self.save_path,
                 self.config["info_save"]["evaluate_log"].format(
-                    type=self.config["evaluate_para"]["type"]
+                    type=self.config["evaluate"]["type"]
                 ),
             ),
             index=False,
