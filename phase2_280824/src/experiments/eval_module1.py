@@ -28,7 +28,7 @@ def run(config):
     # Load datasets
     evaluate_dataset = MultiImageFolderDataset(
         config=config,
-        root_dirs=config["data"]["valid_path"],
+        root_dirs=config["data"]["data_dir"],
         transform=eval_transforms,
     )
 
