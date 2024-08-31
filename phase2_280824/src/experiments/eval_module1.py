@@ -18,7 +18,7 @@ def run(config):
     # Set random seeds for reproducibility
     torch.manual_seed(config["evaluate"]["seed"])
 
-    transforms = transforms.Compose(
+    eval_transforms = transforms.Compose(
         [
             transforms.Resize((224, 224)),  # Resize images to 224x224
             transforms.ToTensor(),
@@ -29,7 +29,7 @@ def run(config):
     evaluate_dataset = MultiImageFolderDataset(
         config=config,
         root_dirs=config["data"]["valid_path"],
-        transform=transforms,
+        transform=eval_transforms,
     )
 
     # Create data loaders
