@@ -13,7 +13,7 @@ experiment: "1"
 name: "train module 1"
 
 data:
-  data_dir: ./data/phase2_280824
+  # data_dir: ./data/phase2_280824
   classes: ["B2", "B5", "B6"]
   num_workers: 20
   augmentation:

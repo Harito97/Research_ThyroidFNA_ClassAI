@@ -6,13 +6,22 @@ wandb:
     # - Train Set: 70% of the data (not used)
     - Validation Set: 15% of the data
     # - Test Set: 15% of the data (not used)
-      
-data_para:
-  data_dir: ./data/phase2_280824
+
+type: "experiment"
+experiment: "2"
+name: "valid module 1"
+
+data:
+  data_dir: ./data/1725013654_A_set/test # (70:15:15)
+  # data/1725071492_A_set/test (80:10:10)
   classes: ["B2", "B5", "B6"]
   num_workers: 20
 
-evaluate_para:
+evaluate:
+  time_stamp: "1725015623" # "1725072013" 
+  # manually set 1725072013 80:10:10 batch_size=140 
+  # or 1725034685 70:15:15 batch_size=20 (not used)
+  # or 1725015623 70:15:15 batch_size=120
   type: validation # validation or testing
   model_type: H0_EfficientNetB0
   model_name: phase2_280824_module1
