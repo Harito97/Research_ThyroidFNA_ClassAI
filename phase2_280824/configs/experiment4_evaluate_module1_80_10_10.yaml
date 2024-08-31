@@ -19,7 +19,7 @@ data:
   num_workers: 20
 
 evaluate:
-  time_stamp: "1725034685" # "1725072013" 
+  time_stamp: "1725072013" # "1725072013" 
   # manually set 1725072013 80:10:10 batch_size=140 (lr = 0.0001)
   # or 1725034685 70:15:15 batch_size=120 (lr = 0.0001)
   # or 1725015623 70:15:15 batch_size=120 (not used) as lr = 0.001
