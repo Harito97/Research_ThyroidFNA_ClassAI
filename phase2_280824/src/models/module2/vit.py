@@ -56,7 +56,7 @@ class H13_63_ViT(nn.Module):
 
 if __name__ == "__main__":
     # Ví dụ sử dụng
-    model = ViT(num_classes=3, dim=6, depth=3, heads=2, mlp_dim=12)
+    model = H13_63_ViT(num_classes=3, dim=6, depth=3, heads=2, mlp_dim=12)
     x = torch.randn(2, 13, 3)  # Một batch gồm 2 ảnh
     output = model(x)
 
