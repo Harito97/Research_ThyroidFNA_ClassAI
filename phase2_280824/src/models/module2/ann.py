@@ -1,17 +1,19 @@
 import torch
 import torch.nn as nn
 
-class H39_97_ANN(nn.Module):
-    def __init__(self, input_dim=39, output_dim=3):
-        super(H39_97_ANN, self).__init__()
-        self.fc1 = nn.Linear(input_dim, 97)
-        # self.fc2 = nn.Linear(64, 32)
-        self.fc3 = nn.Linear(97, output_dim)
-        self.dropout = nn.Dropout(0.5)
+class ANN(nn.Module):
+    def __init__(self, input_dim=39, output_dim=3, num_hidden=9, num_layers=3, dropout=0.5):
+        super(ANN, self).__init__()
+        self.start = nn.Linear(input_dim, num_hidden)
+        self.hidden = nn.ModuleList([nn.Linear(num_hidden, num_hidden) for _ in range(num_layers - 1)])
+        self.end = nn.Linear(num_hidden, output_dim)
+        self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
-        x = torch.relu(self.fc1(x))
+        x = torch.relu(self.start(x))
         x = self.dropout(x)
-        # x = torch.relu(self.fc2(x))
-        x = self.fc3(x)
+        for layer in self.hidden:
+            x = torch.relu(layer(x))
+            x = self.dropout(x)
+        x = self.end(x)
         return x
