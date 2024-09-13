@@ -1,4 +1,6 @@
-**All action in this research can be do with main.py**
+For short: 87% in test set (after pass module 1 + module 2).
+
+<!-- **All action in this research can be do with main.py**
 ```bash
 cd /path/to/this/project/phase2
 ```
@@ -54,4 +56,4 @@ with x is id of experiment - see in configs file.
 ```bash
 nohup python main.py --config configs/experiment_{id1}.yaml > logs/output_experiment_{id1}.log 2>&1 && \
 nohup python main.py --config configs/experiment_{id2}.yaml > logs/output_experiment_{id2}.log 2>&1
-```
+``` -->
