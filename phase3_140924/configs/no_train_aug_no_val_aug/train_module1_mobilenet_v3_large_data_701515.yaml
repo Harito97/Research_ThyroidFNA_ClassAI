@@ -1,8 +1,8 @@
 trainer:
-  model_type: "vgg16"                
+  model_type: "mobilenet_v3_large"                
   num_epochs: 100                       
-  batch_size: 10                     
-  patience: 10                         
+  batch_size: 120                
+  patience: 10                      
   device: "cuda"   
   seed: 42                    
   lr: 0.0001                 
