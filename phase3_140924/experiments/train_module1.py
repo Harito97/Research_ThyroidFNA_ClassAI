@@ -1,6 +1,10 @@
 import yaml
 import argparse
+import sys
 import os
+
+# Thêm thư mục gốc của dự án vào sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src.models.module1.cnn import get_cnn_model
 from src.models.module1.vit import get_vit_model
 from src.data.data_loader import get_dataloader
