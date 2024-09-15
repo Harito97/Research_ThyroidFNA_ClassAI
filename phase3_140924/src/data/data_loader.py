@@ -3,7 +3,36 @@ import os
 import random
 from torchvision import transforms
 from PIL import Image
+import numpy as np
+import torch
 from torch.utils.data import Dataset, DataLoader
+
+
+class GroupedImageSampler(torch.utils.data.Sampler):
+    def __init__(self, dataset):
+        self.dataset = dataset
+        self.groups = ["D", "C", "B", "A"]
+        self.group_indices = {group: [] for group in self.groups}
+        self.group_sizes = {group: 0 for group in self.groups}
+        self._build_group_indices()
+
+    def _build_group_indices(self):
+        for idx, (image, label) in enumerate(self.dataset):
+            for group in self.groups:
+                if group in self.dataset.image_paths[idx]:
+                    self.group_indices[group].append(idx)
+                    self.group_sizes[group] += 1
+                    break
+
+    def __iter__(self):
+        indices = []
+        for group in self.groups:
+            np.random.shuffle(self.group_indices[group])  # Shuffle within the group
+            indices.extend(self.group_indices[group])
+        return iter(indices)
+
+    def __len__(self):
+        return sum(len(self.group_indices[group]) for group in self.groups)
 
 
 class CustomImageDataset(Dataset):
@@ -38,7 +67,9 @@ class CustomImageDataset(Dataset):
                         elif "_A." in file_name:
                             image_paths["A"].append(os.path.join(label_dir, file_name))
                         else:
-                            image_paths["other"].append(os.path.join(label_dir, file_name))
+                            image_paths["other"].append(
+                                os.path.join(label_dir, file_name)
+                            )
         return image_paths
 
     def _shuffle_within_groups(self, image_paths):
@@ -57,12 +88,14 @@ class CustomImageDataset(Dataset):
     def __getitem__(self, idx):
         img_path = self.image_paths[idx]
         image = Image.open(img_path).convert("RGB")
-        
+
         # Lấy tên lớp từ tên thư mục chứa ảnh
         label_name = os.path.basename(os.path.dirname(img_path))
 
         # Chuyển đổi tên lớp thành số lớp theo từ điển label_dict
-        label = self.label_dict.get(label_name, -1)  # Sử dụng -1 nếu tên lớp không hợp lệ
+        label = self.label_dict.get(
+            label_name, -1
+        )  # Sử dụng -1 nếu tên lớp không hợp lệ
 
         if self.transform:
             image = self.transform(image)
@@ -79,3 +112,17 @@ def get_dataloader(
         dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers
     )
     return dataloader
+
+# def get_augment_dataloader(
+#     root_dir, batch_size=32, num_workers=4, transform=None
+# ):
+#     dataset = CustomImageDataset(root_dir=root_dir, transform=transform)
+#     sampler = GroupedImageSampler(dataset)
+#     dataloader = DataLoader(
+#         dataset,
+#         batch_size=batch_size,
+#         sampler=sampler,
+#         num_workers=num_workers
+#     )
+#     return dataloader
+

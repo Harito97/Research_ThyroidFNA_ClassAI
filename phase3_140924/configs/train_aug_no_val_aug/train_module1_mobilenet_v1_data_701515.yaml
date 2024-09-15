@@ -1,0 +1,17 @@
+trainer:
+  model_type: "mobilenet_v1"                
+  num_epochs: 100                       
+  batch_size: 200              
+  patience: 10                         
+  device: "cuda"   
+  seed: 42                    
+  lr: 0.0001                 
+  
+data:
+  train_dir: "./data/augmented/augmented_train_1726417351_70_15_15_42"
+  val_dir: "./data/processed/1726417351_70_15_15_42/valid"
+  num_classes: 3
+  augmentations:
+    rotation: 15                     # Góc quay
+    horizontal_flip: true            # Flip ngang
+    vertical_flip: true              # Flip dọc
