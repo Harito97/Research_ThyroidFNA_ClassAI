@@ -9,7 +9,7 @@ from src.models.module1.cnn import get_cnn_model
 from src.models.module1.vit import get_vit_model
 from src.data.data_loader import get_dataloader
 from src.training.train_model import TrainClassificationModel
-from src.utils.helpers import load_config
+from src.utils.utils import load_config
 
 import torch
 import torch.nn as nn
