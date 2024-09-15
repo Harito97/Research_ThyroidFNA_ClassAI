@@ -1,0 +1,2 @@
+# List your dependencies here
+pip install fpdf
