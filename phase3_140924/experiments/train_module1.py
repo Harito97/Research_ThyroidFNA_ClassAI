@@ -176,7 +176,7 @@ def train_module1(config_path):
     num_classes = config["data"]["num_classes"]
     train_dir = config["data"]["train_dir"]
     val_dir = config["data"]["val_dir"]
-    augmentations = config["data"]["augmentation"]
+    augmentations = config["data"]["augmentations"]
 
     # Khởi tạo mô hình
     model = initialize_model(model_type, num_classes)
