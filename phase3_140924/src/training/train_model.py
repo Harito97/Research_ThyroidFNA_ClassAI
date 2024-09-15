@@ -14,6 +14,8 @@ class TrainClassificationModel:
         config = load_config(config_path, **kwargs)
         print("Config loaded")
         print(config)
+        if "trainer" not in config:
+            raise ValueError("Config must have `trainer` key")
         self.model_type = config["trainer"]["model_type"]
         self.num_epochs = config["trainer"]["num_epochs"]
         self.patience = config["trainer"]["patience"]
