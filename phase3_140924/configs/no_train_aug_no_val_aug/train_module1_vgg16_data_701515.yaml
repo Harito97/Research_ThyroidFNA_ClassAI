@@ -1,7 +1,7 @@
 trainer:
   model_type: "vgg16"                
   num_epochs: 100                       
-  batch_size: 10                     
+  batch_size: 60             
   patience: 10                         
   device: "cuda"   
   seed: 42                    
