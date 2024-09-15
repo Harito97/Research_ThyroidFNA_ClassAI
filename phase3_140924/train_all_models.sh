@@ -2,7 +2,7 @@
 # in ./ project directory
 
 # Chạy từng lệnh tuần tự với nohup để tiếp tục chạy ngay cả khi mất kết nối
-nohup python experiments/train_module1.py --config_path configs/no_train_aug_no_val_aug/train_module1_vgg16_data_701515.yaml > logs/no_train_aug_no_val_aug_vgg16_data_701515.log 2>&1
+# nohup python experiments/train_module1.py --config_path configs/no_train_aug_no_val_aug/train_module1_vgg16_data_701515.yaml > logs/no_train_aug_no_val_aug_vgg16_data_701515.log 2>&1
 nohup python experiments/train_module1.py --config_path configs/no_train_aug_no_val_aug/train_module1_vgg19_data_701515.yaml > logs/no_train_aug_no_val_aug_vgg19_data_701515.log 2>&1
 nohup python experiments/train_module1.py --config_path configs/no_train_aug_no_val_aug/train_module1_resnet18_data_701515.yaml > logs/no_train_aug_no_val_aug_resnet18_data_701515.log 2>&1
 nohup python experiments/train_module1.py --config_path configs/no_train_aug_no_val_aug/train_module1_resnet152_data_701515.yaml > logs/no_train_aug_no_val_aug_resnet152_data_701515.log 2>&1
