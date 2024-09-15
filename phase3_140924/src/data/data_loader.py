@@ -17,6 +17,7 @@ class CustomImageDataset(Dataset):
         self.transform = transform
         self.image_paths = self._get_image_paths()
         self.image_paths = self._shuffle_within_groups(self.image_paths)
+        self.label_dict = {"B2": 0, "B5": 1, "B6": 2}
 
     def _get_image_paths(self):
         """
@@ -56,7 +57,12 @@ class CustomImageDataset(Dataset):
     def __getitem__(self, idx):
         img_path = self.image_paths[idx]
         image = Image.open(img_path).convert("RGB")
-        label = os.path.basename(os.path.dirname(img_path))
+        
+        # Lấy tên lớp từ tên thư mục chứa ảnh
+        label_name = os.path.basename(os.path.dirname(img_path))
+
+        # Chuyển đổi tên lớp thành số lớp theo từ điển label_dict
+        label = self.label_dict.get(label_name, -1)  # Sử dụng -1 nếu tên lớp không hợp lệ
 
         if self.transform:
             image = self.transform(image)
