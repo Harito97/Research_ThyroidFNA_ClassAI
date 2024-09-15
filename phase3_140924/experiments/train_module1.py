@@ -189,13 +189,7 @@ def train_module1(config_path):
 
     # Khởi tạo và cấu hình huấn luyện
     trainer = TrainClassificationModel(
-        None,
-        config
-        # config_path=None,  # Không dùng lại file config ở đây
-        # model_type=model_type,
-        # num_epochs=num_epochs,
-        # patience=patience,
-        # device=device,
+        config=config
     )
 
     # Setup và huấn luyện mô hình

@@ -10,8 +10,11 @@ from src.utils.logger import update_log, save_log_and_visualizations, save_model
 
 
 class TrainClassificationModel:
-    def __init__(self, config_path=None, **kwargs):
-        config = load_config(config_path, **kwargs)
+    def __init__(self, config_path=None, config=None,**kwargs):
+        if config is not None:
+            config = config
+        else:
+            config = load_config(config_path, **kwargs)
         print("Config loaded")
         print(config)
         if "trainer" not in config:
