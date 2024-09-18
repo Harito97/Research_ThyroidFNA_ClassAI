@@ -93,7 +93,7 @@ def setup_data_loaders(test_dir, batch_size):
         transform=test_transforms,
     )
 
-    return train_loader, test_loader
+    return test_loader
 
 
 def test_module1(config_path):
