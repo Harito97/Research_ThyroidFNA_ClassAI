@@ -82,7 +82,8 @@ class TestClassificationModel:
         with open(os.path.join(log_dir, "description.txt"), "w") as f:
             f.write(description)
 
-        save_log_and_visualizations(log_dir, logs_info, test_cm)
+        with open(os.path.join(log_dir, "train_logs.txt"), "x") as f:
+            f.write(logs_info)
 
     def __test_one_epoch(self):
         self.model.eval()
