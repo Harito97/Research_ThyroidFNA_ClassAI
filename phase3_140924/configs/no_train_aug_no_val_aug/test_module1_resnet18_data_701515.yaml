@@ -3,5 +3,6 @@ tester:
   model_type: resnet18
   model_path: "logs/1726425897_resnet18/best_f1_model.pth"
   test_data_path: "data/processed/1726417351_70_15_15_42/test"
+  batch_size: 60 
   device: cuda:0
   test_logs_dir: "logs/test_module1_results/no_train_aug_no_val_aug"

@@ -2,6 +2,7 @@
 tester:
   model_type: densenet121
   model_path: "logs/1726478027_densenet121/best_f1_model.pth"
+  batch_size: 32
   test_data_path: "data/processed/1726417351_70_15_15_42/test"
   device: cuda:0
   test_logs_dir: "logs/test_module1_results/train_aug_no_val_aug"

@@ -3,5 +3,6 @@ tester:
   model_type: vit_l_16
   model_path: "logs/1726431104_vit_l_16/best_f1_model.pth"
   test_data_path: "data/processed/1726417351_70_15_15_42/test"
+  batch_size: 10
   device: cuda:0
   test_logs_dir: "logs/test_module1_results/no_train_aug_no_val_aug"
