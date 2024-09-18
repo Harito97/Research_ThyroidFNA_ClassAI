@@ -30,7 +30,7 @@ class TestClassificationModel:
         # time_stamp = int(time.time())
         model_path = self.config["tester"]["model_path"]
         time_stamp_when_train_model = (
-            os.basedir(model_path).split("/")[-1].split("_")[0]
+            os.path.dirname(model_path).split("/")[-1].split("_")[0]
         )
         try:
             time_stamp = int(time_stamp_when_train_model)
