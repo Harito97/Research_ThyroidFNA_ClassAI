@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import torch
 from src.training.test_model import TestClassificationModel
 from src.utils.utils import load_config
-from src.utils.helpers import load_criterion
+from src.utils.helpers import load_criterion  # not defined yet
 
 
 def initialize_model(model_type, num_classes):
@@ -101,11 +101,11 @@ def test_module1(config_path):
     test_loader = load_test_loader(config["tester"]["test_data_path"], config)
 
     # Load tiêu chí tính loss
-    criterion = load_criterion(config["tester"]["criterion"])
+    # criterion = load_criterion(config["tester"]["criterion"]) # no need use criterion when testing
 
     # Thiết lập và kiểm tra mô hình
     tester = TestClassificationModel(config=config)
-    tester.setup(model, test_loader, criterion)
+    tester.setup(model, test_loader) #, criterion)
     tester.test()
 
 
