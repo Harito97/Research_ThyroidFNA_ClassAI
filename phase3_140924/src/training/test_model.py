@@ -46,9 +46,9 @@ class TestClassificationModel:
         os.makedirs(log_dir, exist_ok=True)
         return log_dir, time_stamp
 
-    def __save_predictions(self, log_dir, labels, preds):
-        predictions_path = os.path.join(log_dir, "test_predictions.csv")
-        save_predictions(predictions_path, labels, preds)
+    # def __save_predictions(self, log_dir, labels, preds):
+    #     predictions_path = os.path.join(log_dir, "test_predictions.csv")
+    #     save_predictions(predictions_path, labels, preds)
 
     def test(self):
         log_dir, time_stamp = self.__prepare_log_dir()
@@ -56,7 +56,7 @@ class TestClassificationModel:
         test_loss, test_f1, test_acc, test_cm, all_labels, all_preds = (
             self.__test_one_epoch()
         )
-        self.__save_predictions(log_dir, all_labels, all_preds)
+        # self.__save_predictions(log_dir, all_labels, all_preds)
 
         # Ghi log và lưu các chỉ số
         logs_info = f"Test Results:\n"

@@ -2,12 +2,16 @@
 import argparse
 import sys
 import os
+import torch
+from torchvision import transforms
 
 # Thêm thư mục gốc của dự án vào sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import torch
-from src.training.test_model import TestClassificationModel
+from src.models.module1.cnn import get_cnn_model
+from src.models.module1.vit import get_vit_model
+from src.data.data_loader import get_dataloader
 from src.utils.utils import load_config
+from src.training.test_model import TestClassificationModel
 
 # from src.utils.helpers import load_criterion  # not defined yet
 
