@@ -1,0 +1,7 @@
+# configs/no_train_aug_no_val_aug/test_module1_mobilenet_v1_data_701515.yaml
+tester:
+  model_type: mobilenet_v1
+  model_path: "logs/1726429297_mobilenet_v1/best_f1_model.pth"
+  test_data_path: "data/processed/1726417351_70_15_15_42/test"
+  device: cuda:0
+  test_logs_dir: "logs/test_module1_results/no_train_aug_no_val_aug"

@@ -1,4 +1,4 @@
-# train_model.py content
+# src.training.train_model.py content
 import torch
 import textwrap
 import os
@@ -222,7 +222,7 @@ class TrainClassificationModel:
     def __train_one_epoch(self):
         self.model.train()
         total_loss = 0
-        all_labels = []
+        all_lsave_predictionsabels = []
         all_preds = []
 
         for inputs, labels in self.train_loader:
