@@ -1,7 +1,7 @@
 trainer:
   model_type: "mobilenet_v1"                
   num_epochs: 100                       
-  batch_size: 200              
+  batch_size: 140              
   patience: 10                         
   device: "cuda"   
   seed: 42                    
