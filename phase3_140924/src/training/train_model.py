@@ -222,7 +222,7 @@ class TrainClassificationModel:
     def __train_one_epoch(self):
         self.model.train()
         total_loss = 0
-        all_lsave_predictionsabels = []
+        all_labels = []
         all_preds = []
 
         for inputs, labels in self.train_loader:
