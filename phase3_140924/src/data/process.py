@@ -1,5 +1,14 @@
 # process.py content
 # Used to process the data for the Thyroid FNA classification project.
+import os
+import sys
+
+# Thêm thư mục gốc của dự án vào sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+####################################################################################################
+# Split before pass module 1                                                                       #
+####################################################################################################
 
 import os
 import random
@@ -109,6 +118,8 @@ def split_dataset(
     )
 
 
+####################################################################################################
+# Augmentation image before train module 1                                                         #
 ####################################################################################################
 
 import os
@@ -287,3 +298,366 @@ def augment_images(data_dir, destination_dir, model_path, batch_size=20):
     print(f"Augmented the images in {data_dir}.")
     print(f"Time: {time.time() - begin_time} seconds.")
     return destination_dir
+
+
+####################################################################################################
+# Prepare data to train module 2                                                                   #
+####################################################################################################
+
+# import os
+# import torch
+# import time
+# from PIL import Image
+# from src.models.module1.cnn import get_cnn_model
+# from src.models.module1.vit import get_vit_model
+
+
+# class PrepareDataTrainModule2:
+#     """
+#     This class is used to prepare the data for training the model in module 2.
+#     **Para one**: The path to folder dataset (train or val or test)
+#     It will take the folder directory of a set of data:
+#     Eg: 'data/processed/{dataset_name}/{dataset_subset}' like this
+#         'data/processed/1631550860_70_15_15_42/train' or
+#         'data/processed/1631550860_70_15_15_42/valid' or
+#         'data/processed/1631550860_70_15_15_42/test'.
+
+#     In each of these folder has the subfolders B2, B5, B6, etc. which contain the images.
+#     B2, B5, B6 are the classes of the images.
+
+#     **Para two**: The path to the model that will be used to predict label from one images.
+#     The second parameter is the path to a model that will be used to predict label from one images.
+#     Eg: 'model/best_f1_efficientNet_model.pth'
+
+#     **Output**:
+#     The output of this class is a dataframe that contains
+#         + the path to the images,
+#         + and the label of the images,
+#         + and the feature vector,
+#         + and the predicted vector.
+#     Eg:
+#     | path_to_image | label | feature_vector | predicted_vector |
+
+#     **How this works**:
+#     Step 1. Load the model
+#     Step 2. Load the data_dir
+#     Step 3. For each image in the data_dir, read the image.
+#     Step 4. Create a list []. Append the read image to the list.
+#     Step 5. From the image, crop 12 images as grid 4 columns and 3 rows.
+#     Step 6. Pass 13 images from a list to model.
+#     Step 7. Before pass to last dense layer -> get feature vector -> 13 vectors -> save this.
+#     Step 8. Pass feature vector to last dense layer -> 13 vectors -> save this.
+#     Step 9. Compare argmax(predicted label) to true label and then -> F1 score, accuracy, AUC, ...
+#     """
+
+#     def __init__(
+#         self,
+#         data_dir,
+#         model_path,
+#         model_type="efficientnet_b0",
+#         device="cpu",
+#         num_classes=3,
+#     ):
+#         self.data_dir = data_dir
+#         self.model_map = {
+#             "vgg16": "vgg16",
+#             "vgg19": "vgg19",
+#             "resnet18": "resnet18",
+#             "resnet152": "resnet152",
+#             "densenet121": "densenet121",
+#             "densenet201": "densenet201",
+#             "efficientnet_b0": "efficientnet_b0",
+#             "efficientnet_b7": "efficientnet_b7",
+#             "mobilenet_v1": "mobilenet_v1",
+#             "mobilenet_v3_large": "mobilenet_v3_large",
+#             "vit_b_16": "vit_b_16",
+#             "vit_l_16": "vit_l_16",
+#         }
+#         self.set_model(
+#             model_path=model_path,
+#             model_type=model_type,
+#             device=device,
+#             num_classes=num_classes,
+#         )
+
+#     def set_data_dir(self, data_dir):
+#         self.data_dir = data_dir
+
+#     def set_model(self, model_path, model_type='efficientnet_b0', device='cpu', num_classes=3):
+#         self.model_path = model_path
+#         self.model_type = model_type
+#         self.device = ...  # device if torch.is ...
+#         self.model = self.load_model(
+#             model_path=model_path, model_type=model_type, device=device, num_boxes=num_classes
+#         )
+
+#     def __get_model_structure(self, model_type, num_classes):
+#         if model_type in self.model_map:
+#             if "vit" in model_type:
+#                 return get_vit_model(
+#                     name=self.model_map[model_type], num_classes=num_classes
+#                 )
+#             else:
+#                 return get_cnn_model(
+#                     name=self.model_map[model_type], num_classes=num_classes
+#                 )
+#         else:
+#             raise ValueError(f"Unsupported model type: {model_type}")
+
+#     def load_model(self, model_path, model_type, device, num_classes):
+#         model = self.__get_model_structure(
+#             model_type=model_type, num_classes=num_classes
+#         )
+#         model.load_state_dict(torch.load(model_path, weights_only=True), device=device)
+#         model.to(self.device)
+#         model.eval()
+#         return model
+
+#     def process(self):
+#         start_time = time.time()
+#         all_data = []
+#         label_map = {'B2': 0, 'B5': 1, 'B6': 2}
+#         for label in os.listdir(self.data_dir):
+#             for image_path in os.listfile(os.path.join(self.data_dir, label)):
+#                 id_label = label_map[label]
+#                 record = [image_path, id_label]
+#                 # read the origin image
+#                 origin_image = Image.read_image(image_path)
+#                 list_of_images = [origin_image]
+
+#                 # crop 12 image as grid from origin image
+#                 list_of_images += self.__crop_12_patches(origin_image=origin_image)
+
+#                 # pass 13 images to model to get feature vector
+#                 feature_vector = self.model ...
+#                 # save feature vector
+#                 record.append(feature_vector)
+
+#                 # pass feature vector to last dense layer to get predicted vector
+#                 predicted_vector = self.model ...
+#                 # save predicted vector
+#                 record.append(predicted_vector)
+
+#                 # save the predicted label
+#                 record.append(torch.argmax(predicted_vector[0]).item()) # get predict for the origin image level
+#                 all_data.append(record)
+
+#         # save the file as a csv
+#         with open("data.csv", "w") as f:
+#             f.write("path_to_image, label, feature_vector, predicted_vector, predicted_label\n")
+#             for record in all_data:
+#                 f.write(",".join(record) + "\n")
+
+#         # calculate the F1 score, accuracy, AUC, ...
+#         ...
+#         # print the result
+#         print("F1 score: ", ...)
+#         print("Accuracy: ", ...)
+#         print("AUC: ", ...)
+
+#         print(f'All done! in {time.time() - start_time} seconds.')
+#         return all_data
+
+
+#     def __crop_12_patches(self, origin_image) -> list:
+#         ...
+#         return ...
+
+#     def help_to_use():
+#         print("Here is a example to use")
+#         print("data_dir = 'data/processed/1631550860_70_15_15_42/train'")
+#         print("model_path = 'model/best_f1_efficientNet_model.pth'")
+#         print("model_type = 'efficientnet_b0'")
+#         print("device = 'cuda:0'")
+#         print("num_classes = 3")
+#         print("prepare_data = PrepareDataTrainModule2(data_dir, model_path, model_type, device, num_classes)")
+#         print("prepare_data.process()")
+#         print("If you want to know more about this class: ")
+#         print("PrepareDataTrainModule2.help_to_use()")
+
+
+import os
+import torch
+import time
+import numpy as np
+from PIL import Image
+from src.models.module1.cnn import get_cnn_model
+from src.models.module1.vit import get_vit_model
+from torchvision import transforms
+from sklearn.metrics import f1_score, accuracy_score, roc_auc_score
+
+
+class PrepareDataTrainModule2:
+    def __init__(
+        self,
+        data_dir,
+        model_path,
+        model_type="efficientnet_b0",
+        device="cpu",
+        num_classes=3,
+    ):
+        self.set_data_dir(data_dir)
+        self.model_map = {
+            "vgg16": "vgg16",
+            "vgg19": "vgg19",
+            "resnet18": "resnet18",
+            "resnet152": "resnet152",
+            "densenet121": "densenet121",
+            "densenet201": "densenet201",
+            "efficientnet_b0": "efficientnet_b0",
+            "efficientnet_b7": "efficientnet_b7",
+            "mobilenet_v1": "mobilenet_v1",
+            "mobilenet_v3_large": "mobilenet_v3_large",
+            "vit_b_16": "vit_b_16",
+            "vit_l_16": "vit_l_16",
+        }
+        self.set_model(
+            model_path=model_path,
+            model_type=model_type,
+            device=device,
+            num_classes=num_classes,
+        )
+        self.transform = transforms.Compose(
+            [
+                transforms.Resize((224, 224)),
+                transforms.ToTensor(),
+            ]
+        )
+
+    def set_data_dir(self, data_dir):
+        self.data_dir = data_dir
+
+    def set_model(
+        self, model_path, model_type="efficientnet_b0", device="cpu", num_classes=3
+    ):
+        self.model_path = model_path
+        self.model_type = model_type
+        self.device = torch.device(device if torch.cuda.is_available() else "cpu")
+        self.model = self.load_model(
+            model_path=model_path,
+            model_type=model_type,
+            device=self.device,
+            num_classes=num_classes,
+        )
+
+    def __get_model_structure(self, model_type, num_classes):
+        if model_type in self.model_map:
+            if "vit" in model_type:
+                return get_vit_model(
+                    name=self.model_map[model_type], num_classes=num_classes
+                )
+            else:
+                return get_cnn_model(
+                    name=self.model_map[model_type], num_classes=num_classes
+                )
+        else:
+            raise ValueError(f"Unsupported model type: {model_type}")
+
+    def load_model(self, model_path, model_type, device, num_classes):
+        model = self.__get_model_structure(
+            model_type=model_type, num_classes=num_classes
+        )
+        model.load_state_dict(torch.load(model_path, map_location=device))
+        model.to(device)
+        model.eval()
+        return model
+
+    def process(self, path_save:str="data.csv"):
+        start_time = time.time()
+        all_data = []
+        label_map = {"B2": 0, "B5": 1, "B6": 2}
+        true_labels = []
+        predicted_labels = []
+
+        for label in os.listdir(self.data_dir):
+            for image_name in os.listdir(os.path.join(self.data_dir, label)):
+                image_path = os.path.join(self.data_dir, label, image_name)
+                id_label = label_map[label]
+                record = [image_path, id_label]
+
+                # Read the origin image
+                origin_image = Image.open(image_path).convert("RGB")
+                list_of_images = [origin_image]
+
+                # Crop 12 images as grid from origin image
+                list_of_images += self.__crop_12_patches(origin_image=origin_image)
+
+                # Process images
+                processed_images = torch.stack(
+                    [self.transform(img) for img in list_of_images]
+                ).to(self.device)
+
+                # Pass 13 images to model to get feature vector
+                with torch.no_grad():
+                    feature_vector = self.model.features(processed_images).cpu().numpy()
+                record.append(feature_vector.tolist())
+
+                # Pass feature vector to last dense layer to get predicted vector
+                with torch.no_grad():
+                    predicted_vector = self.model(processed_images).cpu().numpy()
+                record.append(predicted_vector.tolist())
+
+                # Save the predicted label for the origin image
+                predicted_label = np.argmax(predicted_vector[0])
+                record.append(predicted_label.item())
+
+                all_data.append(record)
+                true_labels.append(id_label)
+                predicted_labels.append(predicted_label)
+
+        # Save the file as a csv
+        with open(path_save, "w") as f:
+            f.write(
+                "path_to_image,label,feature_vector,predicted_vector,predicted_label\n"
+            )
+            for record in all_data:
+                f.write(
+                    f"{record[0]},{record[1]},{record[2]},{record[3]},{record[4]}\n"
+                )
+
+        # Calculate the F1 score, accuracy, AUC
+        f1 = f1_score(true_labels, predicted_labels, average="weighted")
+        accuracy = accuracy_score(true_labels, predicted_labels)
+        auc = roc_auc_score(
+            true_labels, predicted_labels, average="weighted", multi_class="ovr"
+        )
+
+        # Print the results
+        print(f"F1 score: {f1:.4f}")
+        print(f"Accuracy: {accuracy:.4f}")
+        print(f"AUC: {auc:.4f}")
+
+        print(f"All done! in {time.time() - start_time:.2f} seconds.")
+        return all_data
+
+    def __crop_12_patches(self, origin_image) -> list:
+        width, height = origin_image.size
+        patch_width = width // 4
+        patch_height = height // 3
+        patches = []
+
+        for i in range(3):
+            for j in range(4):
+                left = j * patch_width
+                top = i * patch_height
+                right = left + patch_width
+                bottom = top + patch_height
+                patch = origin_image.crop((left, top, right, bottom))
+                patches.append(patch)
+
+        return patches
+
+    @staticmethod
+    def help_to_use():
+        print("Here is an example to use:")
+        print("data_dir = 'data/processed/1631550860_70_15_15_42/train'")
+        print("model_path = 'model/best_f1_efficientNet_model.pth'")
+        print("model_type = 'efficientnet_b0'")
+        print("device = 'cuda:0'")
+        print("num_classes = 3")
+        print(
+            "prepare_data = PrepareDataTrainModule2(data_dir, model_path, model_type, device, num_classes)"
+        )
+        print("prepare_data.process(path_save='data.csv')")
+        print("If you want to know more about this class: ")
+        print("PrepareDataTrainModule2.help_to_use()")
