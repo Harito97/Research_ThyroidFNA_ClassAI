@@ -15,7 +15,7 @@ if __name__ == "__main__":
     root_data_dir_not_aug = "./data/processed/1726417351_70_15_15_42"
     root_data_dir_aug = "./data/augmented"
     train_not_aug = root_data_dir_not_aug + "/train"
-    val_not_aug = root_data_dir_not_aug + "/val"
+    val_not_aug = root_data_dir_not_aug + "/valid"
     test_not_aug = root_data_dir_not_aug + "/test"
     train_aug = root_data_dir_aug + "/augmented_train_1726417351_70_15_15_42"
 
