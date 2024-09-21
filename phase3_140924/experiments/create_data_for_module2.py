@@ -12,9 +12,9 @@ if __name__ == "__main__":
     print("Preparing data for Module 2...")
 
     # Data directories
-    root_data_dir_not_aug = "/home/haipn/Clone/Research_ThyroidFNA_ClassAI/phase3_140924/data/processed/1726417351_70_15_15_42"
+    root_data_dir_not_aug = "./data/processed/1726417351_70_15_15_42"
     root_data_dir_aug = (
-        "/home/haipn/Clone/Research_ThyroidFNA_ClassAI/phase3_140924/data/augmented"
+        "./data/augmented"
     )
     train_not_aug = root_data_dir_not_aug + "/train"
     val_not_aug = root_data_dir_not_aug + "/val"
@@ -22,14 +22,14 @@ if __name__ == "__main__":
     train_aug = root_data_dir_aug + "/augmented_train_1726417351_70_15_15_42"
 
     # Model directory
-    model_path = "/home/haipn/Clone/Research_ThyroidFNA_ClassAI/phase3_140924/logs/1726492356_efficientnet_b0"
+    model_path = "./logs/1726492356_efficientnet_b0"
     model_path += "/best_f1_model.pth"
 
     # Device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Save directory
-    save_dir = "home/haipn/Clone/Research_ThyroidFNA_ClassAI/phase3_140924/data/data_for_module2"
+    save_dir = "./data/data_for_module2"
     os.makedirs(save_dir, exist_ok=True)
 
     # Prepare data
