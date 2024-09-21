@@ -307,6 +307,7 @@ def augment_images(data_dir, destination_dir, model_path, batch_size=20):
 import os
 import torch
 import time
+import csv
 import numpy as np
 from PIL import Image
 from src.models.module1.cnn import get_cnn_model
@@ -432,102 +433,175 @@ class PrepareDataTrainModule2:
         model.eval()
         return model
 
+    # def process(self, description: str = "Creator", path_save: str = "data.csv"):
+    #     start_time = time.time()
+    #     log = f"\nStart processing data for {description} when {start_time}..."
+    #     print(log)
+    #     logs = log
+    #     all_data = []
+    #     label_map = {"B2": 0, "B5": 1, "B6": 2}
+    #     true_labels = []
+    #     predicted_labels = []
+
+    #     for label in os.listdir(self.data_dir):
+    #         for image_name in os.listdir(os.path.join(self.data_dir, label)):
+    #             image_path = os.path.join(self.data_dir, label, image_name)
+    #             id_label = label_map[label]
+    #             record = [image_path, id_label]
+    #             log = f"\n{'#' * 20}\nProcessing {image_path} with label {id_label}..."
+    #             print(log)
+    #             logs += log
+
+    #             # Read the origin image
+    #             log = f"\nTaking 13 images from 1 image {image_path}..."
+    #             print(log)
+    #             logs += log
+    #             origin_image = Image.open(image_path).convert("RGB")
+    #             list_of_images = [origin_image]
+
+    #             # Crop 12 images as grid from origin image
+    #             list_of_images += self.__crop_12_patches(origin_image=origin_image)
+
+    #             # Process images
+    #             processed_images = torch.stack(
+    #                 [self.transform(img) for img in list_of_images]
+    #             ).to(self.device)
+
+    #             # Pass 13 images to model to get feature vector
+    #             log = f"\nPassing 13 images to model to get feature vector..."
+    #             print(log)
+    #             logs += log
+    #             with torch.no_grad():
+    #                 feature_vector = self.model.features(processed_images).cpu().numpy()
+    #                 log = f"\nFeature vector shape: {feature_vector.shape}"
+    #                 # log += f"\nFeature vector: {feature_vector}"
+    #                 print(log)
+    #                 logs += log
+    #             record.append(feature_vector.tolist())
+
+    #             # Pass feature vector to last dense layer to get predicted vector
+    #             log = f"\nPassing feature vector to last dense layer to get predicted vector..."
+    #             print(log)
+    #             with torch.no_grad():
+    #                 predicted_vector = (
+    #                     self.model(processed_images).cpu().numpy()
+    #                 )
+    #                 log = f"\nPredicted vector shape: {predicted_vector.shape}"
+    #                 log += f"\nPredicted vector: {predicted_vector}"
+    #                 print(log)
+    #                 logs += log
+    #             record.append(predicted_vector.tolist())
+
+    #             # Save the predicted label for the origin image
+    #             predicted_label = np.argmax(predicted_vector[0])
+    #             log = f"\nPredicted label: {predicted_label}"
+    #             print(log)
+    #             logs += log
+    #             record.append(predicted_label.item())
+
+    #             all_data.append(record)
+    #             true_labels.append(id_label)
+    #             predicted_labels.append(predicted_label)
+
+    #     # Save the file as a csv
+    #     print(f"Saving the data to {path_save}...")
+    #     with open(path_save, "w") as f:
+    #         f.write(
+    #             "path_to_image,label,feature_vector,predicted_vector,predicted_label\n"
+    #         )
+    #         for record in all_data:
+    #             f.write(
+    #                 f"{record[0]},{record[1]},{record[2]},{record[3]},{record[4]}\n"
+    #             )
+
+    #     # Calculate the F1 score, accuracy, AUC
+    #     f1 = f1_score(true_labels, predicted_labels, average="weighted")
+    #     accuracy = accuracy_score(true_labels, predicted_labels)
+
+    #     # Print the results
+    #     log = f"\n{'#' * 20}\nData saved to {path_save}. Analyzing the results..."
+    #     log += f"\nF1 score: {f1:.4f}"
+    #     log += f"\nAccuracy: {accuracy:.4f}"
+    #     log += f"\nAll done! in {time.time() - start_time:.2f} seconds.\n"
+    #     print(log)
+    #     logs += log
+
+    #     # Save the logs
+    #     with open("logs.txt", "a") as f:
+    #         f.write(logs)
+    #     return all_data
+
     def process(self, description: str = "Creator", path_save: str = "data.csv"):
         start_time = time.time()
         log = f"\nStart processing data for {description} when {start_time}..."
         print(log)
         logs = log
-        all_data = []
-        label_map = {"B2": 0, "B5": 1, "B6": 2}
-        true_labels = []
-        predicted_labels = []
 
-        for label in os.listdir(self.data_dir):
-            for image_name in os.listdir(os.path.join(self.data_dir, label)):
-                image_path = os.path.join(self.data_dir, label, image_name)
-                id_label = label_map[label]
-                record = [image_path, id_label]
-                log = f"\n{'#' * 20}\nProcessing {image_path} with label {id_label}..."
-                print(log)
-                logs += log
-
-                # Read the origin image
-                log = f"\nTaking 13 images from 1 image {image_path}..."
-                print(log)
-                logs += log
-                origin_image = Image.open(image_path).convert("RGB")
-                list_of_images = [origin_image]
-
-                # Crop 12 images as grid from origin image
-                list_of_images += self.__crop_12_patches(origin_image=origin_image)
-
-                # Process images
-                processed_images = torch.stack(
-                    [self.transform(img) for img in list_of_images]
-                ).to(self.device)
-
-                # Pass 13 images to model to get feature vector
-                log = f"\nPassing 13 images to model to get feature vector..."
-                print(log)
-                logs += log
-                with torch.no_grad():
-                    feature_vector = self.model.features(processed_images).cpu().numpy()
-                    log = f"\nFeature vector shape: {feature_vector.shape}"
-                    log += f"\nFeature vector: {feature_vector}"
-                    print(log)
-                    logs += log
-                record.append(feature_vector.tolist())
-
-                # Pass feature vector to last dense layer to get predicted vector
-                log = f"\nPassing feature vector to last dense layer to get predicted vector..."
-                print(log)
-                with torch.no_grad():
-                    predicted_vector = (
-                        self.model(processed_images).cpu().numpy()
-                    )
-                    log = f"\nPredicted vector shape: {predicted_vector.shape}"
-                    log += f"\nPredicted vector: {predicted_vector}"
-                    print(log)
-                    logs += log
-                record.append(predicted_vector.tolist())
-
-                # Save the predicted label for the origin image
-                predicted_label = np.argmax(predicted_vector[0])
-                log = f"\nPredicted label: {predicted_label}"
-                print(log)
-                logs += log
-                record.append(predicted_label.item())
-
-                all_data.append(record)
-                true_labels.append(id_label)
-                predicted_labels.append(predicted_label)
-
-        # Save the file as a csv
-        with open(path_save, "w") as f:
-            f.write(
-                "path_to_image,label,feature_vector,predicted_vector,predicted_label\n"
+        # Mở tệp CSV và ghi header trước khi bắt đầu xử lý dữ liệu
+        with open(path_save, "w", newline="") as csvfile:
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(
+                [
+                    "path_to_image",
+                    "label",
+                    "feature_vector",
+                    "predicted_vector",
+                    "predicted_label",
+                ]
             )
-            for record in all_data:
-                f.write(
-                    f"{record[0]},{record[1]},{record[2]},{record[3]},{record[4]}\n"
-                )
 
-        # Calculate the F1 score, accuracy, AUC
-        f1 = f1_score(true_labels, predicted_labels, average="weighted")
-        accuracy = accuracy_score(true_labels, predicted_labels)
+            label_map = {"B2": 0, "B5": 1, "B6": 2}
+            true_labels = []
+            predicted_labels = []
 
-        # Print the results
-        log = f"\n{'#' * 20}\nData saved to {path_save}. Analyzing the results..."
-        log += f"\nF1 score: {f1:.4f}"
-        log += f"\nAccuracy: {accuracy:.4f}"
-        # log += f"\nAUC: {auc:.4f}"
-        log += f"\nAll done! in {time.time() - start_time:.2f} seconds.\n"
-        print(log)
-        logs += log
+            for label in os.listdir(self.data_dir):
+                for image_name in os.listdir(os.path.join(self.data_dir, label)):
+                    image_path = os.path.join(self.data_dir, label, image_name)
+                    id_label = label_map[label]
+                    log = f"\nProcessing {image_path} with label {id_label}..."
+                    print(log)
+                    logs += log
+
+                    origin_image = Image.open(image_path).convert("RGB")
+                    list_of_images = [origin_image] + self.__crop_12_patches(
+                        origin_image=origin_image
+                    )
+                    processed_images = torch.stack(
+                        [self.transform(img) for img in list_of_images]
+                    ).to(self.device)
+
+                    # Get feature and predicted vectors
+                    with torch.no_grad():
+                        feature_vector = (
+                            self.model.features(processed_images).cpu().numpy()
+                        )
+                        predicted_vector = self.model(processed_images).cpu().numpy()
+
+                    predicted_label = np.argmax(predicted_vector[0])
+
+                    # Ghi log ra tệp CSV từng hàng
+                    csvwriter.writerow(
+                        [
+                            image_path,
+                            id_label,
+                            feature_vector.tolist(),
+                            predicted_vector.tolist(),
+                            predicted_label,
+                        ]
+                    )
+
+                    true_labels.append(id_label)
+                    predicted_labels.append(predicted_label)
+
+            # Save final metrics
+            f1 = f1_score(true_labels, predicted_labels, average="weighted")
+            accuracy = accuracy_score(true_labels, predicted_labels)
 
         # Save the logs
         with open("logs.txt", "a") as f:
-            f.write(logs)
+            log = f"\nF1 score: {f1:.4f}\nAccuracy: {accuracy:.4f}\nAll done! in {time.time() - start_time:.2f} seconds.\n"
+            f.write(logs + log)
+
         return all_data
 
     def __crop_12_patches(self, origin_image) -> list:

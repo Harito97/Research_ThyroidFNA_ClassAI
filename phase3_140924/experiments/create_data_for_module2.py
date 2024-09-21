@@ -13,9 +13,7 @@ if __name__ == "__main__":
 
     # Data directories
     root_data_dir_not_aug = "./data/processed/1726417351_70_15_15_42"
-    root_data_dir_aug = (
-        "./data/augmented"
-    )
+    root_data_dir_aug = "./data/augmented"
     train_not_aug = root_data_dir_not_aug + "/train"
     val_not_aug = root_data_dir_not_aug + "/val"
     test_not_aug = root_data_dir_not_aug + "/test"
@@ -43,16 +41,28 @@ if __name__ == "__main__":
 
     # Prepare for train (not aug)
     prepare_data.set_data_dir(train_not_aug)
-    prepare_data.process(path_save=os.path.join(save_dir, "train_not_aug.csv"))
+    prepare_data.process(
+        description="Create Data Train Not Aug",
+        path_save=os.path.join(save_dir, "train_not_aug.csv"),
+    )
 
     # Prepare for val (not aug)
     prepare_data.set_data_dir(val_not_aug)
-    prepare_data.process(path_save=os.path.join(save_dir, "val_not_aug.csv"))
+    prepare_data.process(
+        description="Create Data Val Not Aug",
+        path_save=os.path.join(save_dir, "val_not_aug.csv"),
+    )
 
     # Prepare for test (not aug)
     prepare_data.set_data_dir(test_not_aug)
-    prepare_data.process(path_save=os.path.join(save_dir, "test_not_aug.csv"))
+    prepare_data.process(
+        description="Create Data Test Not Aug",
+        path_save=os.path.join(save_dir, "test_not_aug.csv"),
+    )
 
     # Prepare for train (aug)
     prepare_data.set_data_dir(train_aug)
-    prepare_data.process(path_save=os.path.join(save_dir, "train_aug.csv"))
+    prepare_data.process(
+        description="Create Data Train Aug",
+        path_save=os.path.join(save_dir, "train_aug.csv"),
+    )
