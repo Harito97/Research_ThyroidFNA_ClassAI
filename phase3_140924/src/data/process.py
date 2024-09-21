@@ -558,9 +558,6 @@ class PrepareDataTrainModule2:
                 for image_name in os.listdir(os.path.join(self.data_dir, label)):
                     image_path = os.path.join(self.data_dir, label, image_name)
                     id_label = label_map[label]
-                    log = f"\nProcessing {image_path} with label {id_label}..."
-                    print(log)
-                    logs += log
 
                     origin_image = Image.open(image_path).convert("RGB")
                     list_of_images = [origin_image] + self.__crop_12_patches(
@@ -593,14 +590,19 @@ class PrepareDataTrainModule2:
                     true_labels.append(id_label)
                     predicted_labels.append(predicted_label)
 
+                    log = f"\nProcessed {image_path} with id_label: {id_label}, predicted_label: {predicted_label} ..."
+                    print(log)
+                    logs += log
+
             # Save final metrics
             f1 = f1_score(true_labels, predicted_labels, average="weighted")
             accuracy = accuracy_score(true_labels, predicted_labels)
 
         # Save the logs
-        with open("logs.txt", "a") as f:
+        with open(os.path.join(os.path.dirname(path_save), "logs.txt"), "a") as f:
             log = f"\nF1 score: {f1:.4f}\nAccuracy: {accuracy:.4f}\nAll done! in {time.time() - start_time:.2f} seconds.\n"
             f.write(logs + log)
+        print(log)
 
         return all_data
 
