@@ -30,7 +30,8 @@ if __name__ == "__main__":
 
     # Save directory
     save_dir = "home/haipn/Clone/Research_ThyroidFNA_ClassAI/phase3_140924/data/data_for_module2"
-    
+    os.makedirs(save_dir, exist_ok=True)
+
     # Prepare data
     prepare_data = PrepareDataTrainModule2(
         None,
@@ -42,16 +43,16 @@ if __name__ == "__main__":
 
     # Prepare for train (not aug)
     prepare_data.set_data_dir(train_not_aug)
-    prepare_data.process()
+    prepare_data.process(path_save=os.path.join(save_dir, "train_not_aug.csv"))
 
     # Prepare for val (not aug)
     prepare_data.set_data_dir(val_not_aug)
-    prepare_data.process()
+    prepare_data.process(path_save=os.path.join(save_dir, "val_not_aug.csv"))
 
     # Prepare for test (not aug)
     prepare_data.set_data_dir(test_not_aug)
-    prepare_data.process()
+    prepare_data.process(path_save=os.path.join(save_dir, "test_not_aug.csv"))
 
     # Prepare for train (aug)
     prepare_data.set_data_dir(train_aug)
-    prepare_data.process()
+    prepare_data.process(path_save=os.path.join(save_dir, "train_aug.csv"))

@@ -304,178 +304,6 @@ def augment_images(data_dir, destination_dir, model_path, batch_size=20):
 # Prepare data to train module 2                                                                   #
 ####################################################################################################
 
-# import os
-# import torch
-# import time
-# from PIL import Image
-# from src.models.module1.cnn import get_cnn_model
-# from src.models.module1.vit import get_vit_model
-
-
-# class PrepareDataTrainModule2:
-#     """
-#     This class is used to prepare the data for training the model in module 2.
-#     **Para one**: The path to folder dataset (train or val or test)
-#     It will take the folder directory of a set of data:
-#     Eg: 'data/processed/{dataset_name}/{dataset_subset}' like this
-#         'data/processed/1631550860_70_15_15_42/train' or
-#         'data/processed/1631550860_70_15_15_42/valid' or
-#         'data/processed/1631550860_70_15_15_42/test'.
-
-#     In each of these folder has the subfolders B2, B5, B6, etc. which contain the images.
-#     B2, B5, B6 are the classes of the images.
-
-#     **Para two**: The path to the model that will be used to predict label from one images.
-#     The second parameter is the path to a model that will be used to predict label from one images.
-#     Eg: 'model/best_f1_efficientNet_model.pth'
-
-#     **Output**:
-#     The output of this class is a dataframe that contains
-#         + the path to the images,
-#         + and the label of the images,
-#         + and the feature vector,
-#         + and the predicted vector.
-#     Eg:
-#     | path_to_image | label | feature_vector | predicted_vector |
-
-#     **How this works**:
-#     Step 1. Load the model
-#     Step 2. Load the data_dir
-#     Step 3. For each image in the data_dir, read the image.
-#     Step 4. Create a list []. Append the read image to the list.
-#     Step 5. From the image, crop 12 images as grid 4 columns and 3 rows.
-#     Step 6. Pass 13 images from a list to model.
-#     Step 7. Before pass to last dense layer -> get feature vector -> 13 vectors -> save this.
-#     Step 8. Pass feature vector to last dense layer -> 13 vectors -> save this.
-#     Step 9. Compare argmax(predicted label) to true label and then -> F1 score, accuracy, AUC, ...
-#     """
-
-#     def __init__(
-#         self,
-#         data_dir,
-#         model_path,
-#         model_type="efficientnet_b0",
-#         device="cpu",
-#         num_classes=3,
-#     ):
-#         self.data_dir = data_dir
-#         self.model_map = {
-#             "vgg16": "vgg16",
-#             "vgg19": "vgg19",
-#             "resnet18": "resnet18",
-#             "resnet152": "resnet152",
-#             "densenet121": "densenet121",
-#             "densenet201": "densenet201",
-#             "efficientnet_b0": "efficientnet_b0",
-#             "efficientnet_b7": "efficientnet_b7",
-#             "mobilenet_v1": "mobilenet_v1",
-#             "mobilenet_v3_large": "mobilenet_v3_large",
-#             "vit_b_16": "vit_b_16",
-#             "vit_l_16": "vit_l_16",
-#         }
-#         self.set_model(
-#             model_path=model_path,
-#             model_type=model_type,
-#             device=device,
-#             num_classes=num_classes,
-#         )
-
-#     def set_data_dir(self, data_dir):
-#         self.data_dir = data_dir
-
-#     def set_model(self, model_path, model_type='efficientnet_b0', device='cpu', num_classes=3):
-#         self.model_path = model_path
-#         self.model_type = model_type
-#         self.device = ...  # device if torch.is ...
-#         self.model = self.load_model(
-#             model_path=model_path, model_type=model_type, device=device, num_boxes=num_classes
-#         )
-
-#     def __get_model_structure(self, model_type, num_classes):
-#         if model_type in self.model_map:
-#             if "vit" in model_type:
-#                 return get_vit_model(
-#                     name=self.model_map[model_type], num_classes=num_classes
-#                 )
-#             else:
-#                 return get_cnn_model(
-#                     name=self.model_map[model_type], num_classes=num_classes
-#                 )
-#         else:
-#             raise ValueError(f"Unsupported model type: {model_type}")
-
-#     def load_model(self, model_path, model_type, device, num_classes):
-#         model = self.__get_model_structure(
-#             model_type=model_type, num_classes=num_classes
-#         )
-#         model.load_state_dict(torch.load(model_path, weights_only=True), device=device)
-#         model.to(self.device)
-#         model.eval()
-#         return model
-
-#     def process(self):
-#         start_time = time.time()
-#         all_data = []
-#         label_map = {'B2': 0, 'B5': 1, 'B6': 2}
-#         for label in os.listdir(self.data_dir):
-#             for image_path in os.listfile(os.path.join(self.data_dir, label)):
-#                 id_label = label_map[label]
-#                 record = [image_path, id_label]
-#                 # read the origin image
-#                 origin_image = Image.read_image(image_path)
-#                 list_of_images = [origin_image]
-
-#                 # crop 12 image as grid from origin image
-#                 list_of_images += self.__crop_12_patches(origin_image=origin_image)
-
-#                 # pass 13 images to model to get feature vector
-#                 feature_vector = self.model ...
-#                 # save feature vector
-#                 record.append(feature_vector)
-
-#                 # pass feature vector to last dense layer to get predicted vector
-#                 predicted_vector = self.model ...
-#                 # save predicted vector
-#                 record.append(predicted_vector)
-
-#                 # save the predicted label
-#                 record.append(torch.argmax(predicted_vector[0]).item()) # get predict for the origin image level
-#                 all_data.append(record)
-
-#         # save the file as a csv
-#         with open("data.csv", "w") as f:
-#             f.write("path_to_image, label, feature_vector, predicted_vector, predicted_label\n")
-#             for record in all_data:
-#                 f.write(",".join(record) + "\n")
-
-#         # calculate the F1 score, accuracy, AUC, ...
-#         ...
-#         # print the result
-#         print("F1 score: ", ...)
-#         print("Accuracy: ", ...)
-#         print("AUC: ", ...)
-
-#         print(f'All done! in {time.time() - start_time} seconds.')
-#         return all_data
-
-
-#     def __crop_12_patches(self, origin_image) -> list:
-#         ...
-#         return ...
-
-#     def help_to_use():
-#         print("Here is a example to use")
-#         print("data_dir = 'data/processed/1631550860_70_15_15_42/train'")
-#         print("model_path = 'model/best_f1_efficientNet_model.pth'")
-#         print("model_type = 'efficientnet_b0'")
-#         print("device = 'cuda:0'")
-#         print("num_classes = 3")
-#         print("prepare_data = PrepareDataTrainModule2(data_dir, model_path, model_type, device, num_classes)")
-#         print("prepare_data.process()")
-#         print("If you want to know more about this class: ")
-#         print("PrepareDataTrainModule2.help_to_use()")
-
-
 import os
 import torch
 import time
@@ -496,6 +324,42 @@ class PrepareDataTrainModule2:
         device="cpu",
         num_classes=3,
     ):
+        """
+        This class is used to prepare the data for training the model in module 2.
+        **Para one**: The path to folder dataset (train or val or test)
+        It will take the folder directory of a set of data:
+        Eg: 'data/processed/{dataset_name}/{dataset_subset}' like this
+            'data/processed/1631550860_70_15_15_42/train' or
+            'data/processed/1631550860_70_15_15_42/valid' or
+            'data/processed/1631550860_70_15_15_42/test'.
+
+        In each of these folder has the subfolders B2, B5, B6, etc. which contain the images.
+        B2, B5, B6 are the classes of the images.
+
+        **Para two**: The path to the model that will be used to predict label from one images.
+        The second parameter is the path to a model that will be used to predict label from one images.
+        Eg: 'model/best_f1_efficientNet_model.pth'
+
+        **Output**:
+        The output of this class is a dataframe that contains
+            + the path to the images,
+            + and the label of the images,
+            + and the feature vector,
+            + and the predicted vector.
+        Eg:
+        | path_to_image | label | feature_vector | predicted_vector |
+
+        **How this works**:
+        Step 1. Load the model
+        Step 2. Load the data_dir
+        Step 3. For each image in the data_dir, read the image.
+        Step 4. Create a list []. Append the read image to the list.
+        Step 5. From the image, crop 12 images as grid 4 columns and 3 rows.
+        Step 6. Pass 13 images from a list to model.
+        Step 7. Before pass to last dense layer -> get feature vector -> 13 vectors -> save this.
+        Step 8. Pass feature vector to last dense layer -> 13 vectors -> save this.
+        Step 9. Compare argmax(predicted label) to true label and then -> F1 score, accuracy, AUC, ...
+        """
         self.set_data_dir(data_dir)
         self.model_map = {
             "vgg16": "vgg16",
@@ -525,11 +389,15 @@ class PrepareDataTrainModule2:
         )
 
     def set_data_dir(self, data_dir):
+        print(f"Setting data directory to {data_dir}...")
         self.data_dir = data_dir
 
     def set_model(
         self, model_path, model_type="efficientnet_b0", device="cpu", num_classes=3
     ):
+        print(
+            f"Loading model {model_type} from {model_path} with {num_classes} classes..."
+        )
         self.model_path = model_path
         self.model_type = model_type
         self.device = torch.device(device if torch.cuda.is_available() else "cpu")
@@ -554,16 +422,21 @@ class PrepareDataTrainModule2:
             raise ValueError(f"Unsupported model type: {model_type}")
 
     def load_model(self, model_path, model_type, device, num_classes):
+        print(f"Setting model structure...")
         model = self.__get_model_structure(
             model_type=model_type, num_classes=num_classes
         )
+        print(f"Loading model weights, move to {device} and set eval mode...")
         model.load_state_dict(torch.load(model_path, map_location=device))
         model.to(device)
         model.eval()
         return model
 
-    def process(self, path_save:str="data.csv"):
+    def process(self, description: str = "Creator", path_save: str = "data.csv"):
         start_time = time.time()
+        log = f"\nStart processing data for {description} when {start_time}..."
+        print(log)
+        logs = log
         all_data = []
         label_map = {"B2": 0, "B5": 1, "B6": 2}
         true_labels = []
@@ -574,8 +447,14 @@ class PrepareDataTrainModule2:
                 image_path = os.path.join(self.data_dir, label, image_name)
                 id_label = label_map[label]
                 record = [image_path, id_label]
+                log = f"\n{'#' * 20}\nProcessing {image_path} with label {id_label}..."
+                print(log)
+                logs += log
 
                 # Read the origin image
+                log = f"\nTaking 13 images from 1 image {image_path}..."
+                print(log)
+                logs += log
                 origin_image = Image.open(image_path).convert("RGB")
                 list_of_images = [origin_image]
 
@@ -588,17 +467,35 @@ class PrepareDataTrainModule2:
                 ).to(self.device)
 
                 # Pass 13 images to model to get feature vector
+                log = f"\nPassing 13 images to model to get feature vector..."
+                print(log)
+                logs += log
                 with torch.no_grad():
                     feature_vector = self.model.features(processed_images).cpu().numpy()
+                    log = f"\nFeature vector shape: {feature_vector.shape}"
+                    log += f"\nFeature vector: {feature_vector}"
+                    print(log)
+                    logs += log
                 record.append(feature_vector.tolist())
 
                 # Pass feature vector to last dense layer to get predicted vector
+                log = f"\nPassing feature vector to last dense layer to get predicted vector..."
+                print(log)
                 with torch.no_grad():
-                    predicted_vector = self.model(processed_images).cpu().numpy()
+                    predicted_vector = (
+                        self.model.classifier(feature_vector).cpu().numpy()
+                    )
+                    log = f"\nPredicted vector shape: {predicted_vector.shape}"
+                    log += f"\nPredicted vector: {predicted_vector}"
+                    print(log)
+                    logs += log
                 record.append(predicted_vector.tolist())
 
                 # Save the predicted label for the origin image
                 predicted_label = np.argmax(predicted_vector[0])
+                log = f"\nPredicted label: {predicted_label}"
+                print(log)
+                logs += log
                 record.append(predicted_label.item())
 
                 all_data.append(record)
@@ -618,16 +515,19 @@ class PrepareDataTrainModule2:
         # Calculate the F1 score, accuracy, AUC
         f1 = f1_score(true_labels, predicted_labels, average="weighted")
         accuracy = accuracy_score(true_labels, predicted_labels)
-        auc = roc_auc_score(
-            true_labels, predicted_labels, average="weighted", multi_class="ovr"
-        )
 
         # Print the results
-        print(f"F1 score: {f1:.4f}")
-        print(f"Accuracy: {accuracy:.4f}")
-        print(f"AUC: {auc:.4f}")
+        log = f"\n{'#' * 20}\nData saved to {path_save}. Analyzing the results..."
+        log += f"\nF1 score: {f1:.4f}"
+        log += f"\nAccuracy: {accuracy:.4f}"
+        # log += f"\nAUC: {auc:.4f}"
+        log += f"\nAll done! in {time.time() - start_time:.2f} seconds.\n"
+        print(log)
+        logs += log
 
-        print(f"All done! in {time.time() - start_time:.2f} seconds.")
+        # Save the logs
+        with open("logs.txt", "a") as f:
+            f.write(logs)
         return all_data
 
     def __crop_12_patches(self, origin_image) -> list:
