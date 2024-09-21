@@ -471,8 +471,7 @@ class PrepareDataTrainModule2:
                 print(log)
                 logs += log
                 with torch.no_grad():
-                    feature_vector_tensor = self.model.features(processed_images)
-                    feature_vector = feature_vector_tensor.cpu().numpy()
+                    feature_vector = self.model.features(processed_images).cpu().numpy()
                     log = f"\nFeature vector shape: {feature_vector.shape}"
                     log += f"\nFeature vector: {feature_vector}"
                     print(log)
@@ -484,7 +483,7 @@ class PrepareDataTrainModule2:
                 print(log)
                 with torch.no_grad():
                     predicted_vector = (
-                        self.model.classifier(feature_vector_tensor).cpu().numpy()
+                        self.model(processed_images).cpu().numpy()
                     )
                     log = f"\nPredicted vector shape: {predicted_vector.shape}"
                     log += f"\nPredicted vector: {predicted_vector}"
