@@ -39,12 +39,12 @@ if __name__ == "__main__":
         num_classes=3,
     )
 
-    # # Prepare for train (not aug)
-    # prepare_data.set_data_dir(train_not_aug)
-    # prepare_data.process(
-    #     description="Create Data Train Not Aug",
-    #     path_save=os.path.join(save_dir, "train_not_aug.csv"),
-    # )
+    # Prepare for train (not aug)
+    prepare_data.set_data_dir(train_not_aug)
+    prepare_data.process(
+        description="Create Data Train Not Aug",
+        path_save=os.path.join(save_dir, "train_not_aug.csv"),
+    )
 
     # Prepare for val (not aug)
     prepare_data.set_data_dir(val_not_aug)
@@ -60,9 +60,9 @@ if __name__ == "__main__":
         path_save=os.path.join(save_dir, "test_not_aug.csv"),
     )
 
-    # Prepare for train (aug)
-    prepare_data.set_data_dir(train_aug)
-    prepare_data.process(
-        description="Create Data Train Aug",
-        path_save=os.path.join(save_dir, "train_aug.csv"),
-    )
+    # # # # # Prepare for train (aug)
+    # # # # prepare_data.set_data_dir(train_aug)
+    # # # # prepare_data.process(
+    # # # #     description="Create Data Train Aug",
+    # # # #     path_save=os.path.join(save_dir, "train_aug.csv"),
+    # # # # )
