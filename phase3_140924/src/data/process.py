@@ -604,7 +604,7 @@ class PrepareDataTrainModule2:
             f.write(logs + log)
         print(log)
 
-        return all_data
+
 
     def __crop_12_patches(self, origin_image) -> list:
         width, height = origin_image.size
