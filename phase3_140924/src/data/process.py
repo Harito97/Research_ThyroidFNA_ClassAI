@@ -438,80 +438,6 @@ class PrepareDataTrainModule2:
         model.eval()
         return model
 
-    # def process(self, description: str = "Creator", path_save: str = "data.csv"):
-    #     start_time = time.time()
-    #     log = f"\nStart processing data for {description} when {start_time}..."
-    #     print(log)
-    #     logs = log
-
-    #     # Mở tệp CSV và ghi header trước khi bắt đầu xử lý dữ liệu
-    #     with open(path_save, "w", newline="") as csvfile:
-    #         csvwriter = csv.writer(csvfile)
-    #         csvwriter.writerow(
-    #             [
-    #                 "path_to_image",
-    #                 "label",
-    #                 # "feature_vector",
-    #                 "predicted_vector",
-    #                 "predicted_label",
-    #             ]
-    #         )
-
-    #         label_map = {"B2": 0, "B5": 1, "B6": 2}
-    #         true_labels = []
-    #         predicted_labels = []
-
-    #         for label in os.listdir(self.data_dir):
-    #             for image_name in os.listdir(os.path.join(self.data_dir, label)):
-    #                 image_path = os.path.join(self.data_dir, label, image_name)
-    #                 id_label = label_map[label]
-
-    #                 origin_image = Image.open(image_path).convert("RGB")
-    #                 list_of_images = [origin_image] + self.__crop_12_patches(
-    #                     origin_image=origin_image
-    #                 )
-    #                 processed_images = torch.stack(
-    #                     [self.transform(img) for img in list_of_images]
-    #                 ).to(self.device)
-
-    #                 # Get feature and predicted vectors
-    #                 with torch.no_grad():
-    #                     # feature_vector = (
-    #                     #     self.model.features(processed_images).cpu().numpy()
-    #                     # ) # remove as make too much data (13 vectors 1280x7x7) x num_images
-    #                     predicted_vector = self.model(processed_images).cpu().numpy()
-
-    #                 predicted_label = np.argmax(predicted_vector[0])
-
-    #                 # Ghi log ra tệp CSV từng hàng
-    #                 csvwriter.writerow(
-    #                     [
-    #                         image_path,
-    #                         id_label,
-    #                         # feature_vector.tolist(),
-    #                         predicted_vector.tolist(),
-    #                         predicted_label,
-    #                     ]
-    #                 )
-
-    #                 true_labels.append(id_label)
-    #                 predicted_labels.append(predicted_label)
-
-    #                 # log = f"\nProcessed {image_path} with id_label: {id_label}, predicted_label: {predicted_label} ..."
-    #                 # print(log)    # Skip print as too much data
-    #                 # logs += log
-
-    #         # Save final metrics
-    #         f1 = f1_score(true_labels, predicted_labels, average="macro")  # "weighted")
-    #         # f1_macro = 1/3 * (f1_B2 + f1_B5 + f1_B6)
-    #         accuracy = accuracy_score(true_labels, predicted_labels)
-
-    #     # Save the logs
-    #     with open(os.path.join(os.path.dirname(path_save), "logs.txt"), "a") as f:
-    #         log = f"\nF1 score: {f1:.4f}\nAccuracy: {accuracy:.4f}\nAll done! in {time.time() - start_time:.2f} seconds.\n"
-    #         f.write(logs + log)
-    #     print(log)
-
     def process(self, description: str = "Creator", path_save: str = "data.csv"):
         start_time = time.time()
         log = f"\nStart processing data for {description} at {start_time}..."
@@ -590,7 +516,9 @@ class PrepareDataTrainModule2:
 
         # Ghi log vào tệp
         print(log)
-        with open(os.path.join(os.path.dirname(path_save), "process_logs.txt"), "a") as f:
+        with open(
+            os.path.join(os.path.dirname(path_save), "process_logs.txt"), "a"
+        ) as f:
             f.write(logs + log)
 
     def __crop_12_patches(self, origin_image) -> list:
@@ -624,3 +552,14 @@ class PrepareDataTrainModule2:
         print("prepare_data.process(path_save='data.csv')")
         print("If you want to know more about this class: ")
         print("PrepareDataTrainModule2.help_to_use()")
+
+    def process1(
+        self,
+        csv_path: str = ".",
+        path_save: str = ".",
+        flatten_39: bool = True,
+        pca_elbow: bool = True,
+        pca_95_percent: bool = True,
+        pla: bool = True,
+        tokenization_13: bool = True,
+    ): ...

@@ -32,12 +32,15 @@ class TransformerModel(nn.Module):
         super(TransformerModel, self).__init__()
 
         # Token đặc biệt [CLS] để tổng hợp thông tin
-        self.cls_token = nn.Parameter(torch.zeros(1, 1, dim))
+        # self.cls_token = nn.Parameter(torch.zeros(1, 1, dim))
 
         # Positional embedding cho các patch và cls_token
         self.add_pos_embedding = add_pos_embedding
         if self.add_pos_embedding:
-            self.pos_embedding = nn.Parameter(torch.zeros(1, num_patches + 1, dim))
+            # self.pos_embedding = nn.Parameter(torch.zeros(1, num_patches + 1, dim))
+            self.pos_embedding = nn.Parameter(
+                torch.zeros(1, num_patches, dim)
+            )  # as use first patch (image level embedding) as cls token
 
         # Xây dựng lớp TransformerEncoder với các tham số tùy chỉnh
         encoder_layer = nn.TransformerEncoderLayer(
@@ -67,11 +70,11 @@ class TransformerModel(nn.Module):
         """
         batch_size = x.size(0)
 
-        # Tạo cls_token có shape (batch_size, 1, dim)
-        cls_tokens = self.cls_token.expand(batch_size, -1, -1)
+        # # Tạo cls_token có shape (batch_size, 1, dim)
+        # cls_tokens = self.cls_token.expand(batch_size, -1, -1)
 
-        # Nối cls_token vào đầu chuỗi patches
-        x = torch.cat((cls_tokens, x), dim=1)
+        # # Nối cls_token vào đầu chuỗi patches
+        # x = torch.cat((cls_tokens, x), dim=1)
 
         # Thêm positional embedding nếu có
         if self.add_pos_embedding:
