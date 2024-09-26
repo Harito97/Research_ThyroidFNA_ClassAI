@@ -8,13 +8,13 @@ class TransformerModel(nn.Module):
         self,
         num_patches: int = 13,
         num_classes: int = 3,
-        dim: int = 6,
+        dim: int = 9,
         depth: int = 3,
-        heads: int = 2,
+        heads: int = 3,
         mlp_dim: int = 12,
-        dropout: float = 0.1,
+        hh_dim: int = 7,
+        dropout: float = 0.3,
         activation: str = "relu",
-        add_pos_embedding: bool = True,
     ):
         """
         Khởi tạo mô hình Transformer với các tham số tùy chỉnh.
@@ -25,9 +25,9 @@ class TransformerModel(nn.Module):
         :param depth: Số lớp encoder trong Transformer
         :param heads: Số lượng heads trong cơ chế attention
         :param mlp_dim: Kích thước của MLP (feedforward network)
+        :param hh_dim: Kích thước của hidden layer trong head classifier (fully connected)
         :param dropout: Tỷ lệ dropout
         :param activation: Hàm kích hoạt sử dụng trong encoder layer
-        :param add_pos_embedding: Có thêm positional embedding hay không
         """
         super(TransformerModel, self).__init__()
 
@@ -35,12 +35,12 @@ class TransformerModel(nn.Module):
         # self.cls_token = nn.Parameter(torch.zeros(1, 1, dim))
 
         # Positional embedding cho các patch và cls_token
-        self.add_pos_embedding = add_pos_embedding
-        if self.add_pos_embedding:
-            # self.pos_embedding = nn.Parameter(torch.zeros(1, num_patches + 1, dim))
-            self.pos_embedding = nn.Parameter(
-                torch.zeros(1, num_patches, dim)
-            )  # as use first patch (image level embedding) as cls token
+        # self.pos_embedding = nn.Parameter(torch.zeros(1, num_patches + 1, dim))
+        # self.pos_embedding = nn.Parameter(
+        #     torch.zeros(1, num_patches, dim)
+        # )  # as use first patch (image level embedding) as cls token
+        # self.post_embedding is a matrix of size (num_classes, dim)
+        self.pos_embedding = nn.Parameter(torch.zeros(1, num_patches, num_classes, dim))
 
         # Xây dựng lớp TransformerEncoder với các tham số tùy chỉnh
         encoder_layer = nn.TransformerEncoderLayer(
@@ -56,7 +56,12 @@ class TransformerModel(nn.Module):
         )
 
         # Lớp fully connected head để dự đoán
-        self.head = nn.Linear(dim, num_classes)
+        self.head = nn.Sequential(
+            nn.Linear(dim, hh_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(hh_dim, num_classes),
+        )
 
         # Số lượng tham số của mô hình
         self.num_paras = self.__get_num_paras()
@@ -65,26 +70,29 @@ class TransformerModel(nn.Module):
         """
         Forward pass của mô hình Transformer.
 
-        :param x: Tensor đầu vào có shape (batch_size, num_patches, dim)
+        :param x: Tensor đầu vào có shape (batch_size, num_patches, dim). Eg: (-1, 13, 3)
         :return: Dự đoán của mô hình
         """
         batch_size = x.size(0)
 
-        # # Tạo cls_token có shape (batch_size, 1, dim)
-        # cls_tokens = self.cls_token.expand(batch_size, -1, -1)
+        # Thêm chiều cho x để nhân với positional embedding
+        x = x.unsqueeze(2)  # (batch_size, num_patches, 1, dim)
 
-        # # Nối cls_token vào đầu chuỗi patches
-        # x = torch.cat((cls_tokens, x), dim=1)
+        # Nhân ma trận sử dụng bmm
+        # pos_embedding cần có shape (1, 13, 3, 9) để mở rộng cho batch
 
-        # Thêm positional embedding nếu có
-        if self.add_pos_embedding:
-            x += self.pos_embedding
+        x = torch.bmm(x, self.pos_embedding)  # (batch_size, num_patches, 1, 9)
+
+        # Loại bỏ chiều không cần thiết
+        x = x.squeeze(2)  # (batch_size, num_patches, 9)
 
         # Transformer Encoder
-        x = self.transformer(x)
+        x = self.transformer(x)  # (batch_size, num_patches, 9)
 
         # Lấy đầu ra từ cls_token (vị trí đầu tiên)
-        x = self.head(x[:, 0])
+        x = x[:, 0]  # (batch_size, 9)
+
+        x = self.head(x)  # Kích thước bây giờ là (batch_size, 3)
 
         return x
 
@@ -95,11 +103,11 @@ class TransformerModel(nn.Module):
 def get_transformer_model(
     num_patches: int = 13,
     num_classes: int = 3,
-    dim: int = 6,
+    dim: int = 9,
     depth: int = 3,
-    heads: int = 2,
+    heads: int = 3,
     mlp_dim: int = 12,
-    dropout: float = 0.1,
+    dropout: float = 0.3,
     activation: str = "relu",
     add_pos_embedding: bool = True,
 ) -> TransformerModel:
@@ -135,15 +143,15 @@ if __name__ == "__main__":
     model = get_transformer_model(
         num_patches=13,
         num_classes=3,
-        dim=6,
+        dim=9,
         depth=3,
-        heads=2,
+        heads=3,
         mlp_dim=12,
-        dropout=0.1,
+        dropout=0.3,
         activation="relu",
         add_pos_embedding=True,
     )
-    x = torch.randn(2, 13, 6)  # Một batch gồm 2 ảnh, mỗi ảnh có 13 patches và dim=6
+    x = torch.randn(2, 13, 3)  # Một batch gồm 2 ảnh, mỗi ảnh có 13 patches và dim=6
     output = model(x)
 
     num_params = model.num_paras
