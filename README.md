@@ -55,3 +55,9 @@ with x is id of experiment - see in configs file.
 nohup python main.py --config configs/experiment_{id1}.yaml > logs/output_experiment_{id1}.log 2>&1 && \
 nohup python main.py --config configs/experiment_{id2}.yaml > logs/output_experiment_{id2}.log 2>&1
 ```
+
+<!-- Google Scholar: Tìm kiếm các bài báo khoa học, luận văn.
+PubMed: Cơ sở dữ liệu các bài báo y khoa.
+IEEE Xplore Digital Library: Cơ sở dữ liệu các bài báo về kỹ thuật, bao gồm cả lĩnh vực xử lý ảnh và học máy.
+arXiv: Kho lưu trữ các bài báo khoa học chưa được công bố, đặc biệt trong lĩnh vực học máy và trí tuệ nhân tạo.
+ResearchGate: Mạng xã hội cho các nhà nghiên cứu, nơi bạn có thể tìm kiếm các bài báo và kết nối với các chuyên gia trong lĩnh vực. -->

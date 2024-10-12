@@ -81,7 +81,26 @@ class TransformerModel(nn.Module):
         # Nhân ma trận sử dụng bmm
         # pos_embedding cần có shape (1, 13, 3, 9) để mở rộng cho batch
 
-        x = torch.bmm(x, self.pos_embedding)  # (batch_size, num_patches, 1, 9)
+        # x = torch.bmm(x, self.pos_embedding)  # (batch_size, num_patches, 1, 9)
+
+        # Expand pos_embedding để phù hợp với batch size
+        pos_embedding_expanded = self.pos_embedding.expand(x.size(0), -1, -1, -1)  # (batch_size, num_patches, dim, new_dim)
+
+        # Nhân ma trận sử dụng bmm
+        # Lưu ý rằng x có shape (batch_size, num_patches, 1, dim)
+        # pos_embedding_expanded cần có shape (batch_size, num_patches, dim, new_dim)
+        # Nên chúng ta cần reshape lại các tensor này để sử dụng bmm
+
+        # Đầu tiên reshape x và pos_embedding_expanded để phù hợp cho bmm
+        x_reshaped = x.view(-1, 1, x.size(-1))  # (batch_size * num_patches, 1, dim)
+        pos_embedding_reshaped = pos_embedding_expanded.reshape(-1, pos_embedding_expanded.size(-2), pos_embedding_expanded.size(-1))  # (batch_size * num_patches, dim, new_dim)
+
+        # Nhân ma trận bmm
+        output = torch.bmm(x_reshaped, pos_embedding_reshaped)  # (batch_size * num_patches, 1, new_dim)
+
+        # Reshape lại output về (batch_size, num_patches, 1, new_dim)
+        output = output.view(x.size(0), x.size(1), 1, pos_embedding_expanded.size(-1))
+        x = output
 
         # Loại bỏ chiều không cần thiết
         x = x.squeeze(2)  # (batch_size, num_patches, 9)
@@ -103,13 +122,13 @@ class TransformerModel(nn.Module):
 def get_transformer_model(
     num_patches: int = 13,
     num_classes: int = 3,
-    dim: int = 9,
+    dim: int = 12,
     depth: int = 3,
-    heads: int = 3,
+    heads: int = 4,
     mlp_dim: int = 12,
     dropout: float = 0.3,
     activation: str = "relu",
-    add_pos_embedding: bool = True,
+    # add_pos_embedding: bool = True,
 ) -> TransformerModel:
     """
     Hàm tạo và trả về mô hình Transformer với các tham số tùy chỉnh.
@@ -122,7 +141,7 @@ def get_transformer_model(
     :param mlp_dim: Kích thước của MLP
     :param dropout: Tỷ lệ dropout
     :param activation: Hàm kích hoạt ('relu', 'gelu', 'tanh')
-    :param add_pos_embedding: Có thêm positional embedding hay không
+    # :param add_pos_embedding: Có thêm positional embedding hay không
     :return: Một instance của lớp TransformerModel
     """
     return TransformerModel(
@@ -134,26 +153,19 @@ def get_transformer_model(
         mlp_dim=mlp_dim,
         dropout=dropout,
         activation=activation,
-        add_pos_embedding=add_pos_embedding,
+        # add_pos_embedding=add_pos_embedding,
     )
 
-
-if __name__ == "__main__":
+def main():
     # Ví dụ sử dụng:
-    model = get_transformer_model(
-        num_patches=13,
-        num_classes=3,
-        dim=9,
-        depth=3,
-        heads=3,
-        mlp_dim=12,
-        dropout=0.3,
-        activation="relu",
-        add_pos_embedding=True,
-    )
+    model = get_transformer_model()
     x = torch.randn(2, 13, 3)  # Một batch gồm 2 ảnh, mỗi ảnh có 13 patches và dim=6
     output = model(x)
+    print(f"Output: {output}")
+    print(f"Output shape: {output.shape}")
 
     num_params = model.num_paras
-    print(f"Output shape: {output.shape}")
     print(f"Total parameters: {num_params}")
+
+if __name__ == "__main__":
+    main()
