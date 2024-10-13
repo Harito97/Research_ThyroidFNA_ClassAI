@@ -1,0 +1,97 @@
+<mxfile host="Electron" modified="2024-10-13T08:04:40.248Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="8vYtDgth8YlxiGD55oLm" version="24.4.0" type="device" pages="2">
+  <diagram name="Chẩn đoán - Tiên lượng" id="RNUE0MTEkUOO7GR4BvV5">
+    <mxGraphModel dx="933" dy="496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0fNHHUASZFORtw9xtf6i-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-1" target="0fNHHUASZFORtw9xtf6i-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-1" value="&lt;span style=&quot;text-align: center;&quot;&gt;&lt;b&gt;Khám lâm sàng&lt;/b&gt;&lt;br&gt;&lt;/span&gt;+ Sờ nắn&lt;br&gt;+ Quan sát biểu hiện&lt;br&gt;+ Phân tích lịch sử" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="210" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-9" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-2" target="0fNHHUASZFORtw9xtf6i-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-11" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-2" target="0fNHHUASZFORtw9xtf6i-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-16" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-2" target="0fNHHUASZFORtw9xtf6i-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-2" target="0fNHHUASZFORtw9xtf6i-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-2" value="&lt;b&gt;Xét nghiệm&lt;/b&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" vertex="1" parent="1">
+          <mxGeometry x="250" y="260" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-5" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-6" target="0fNHHUASZFORtw9xtf6i-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="120" as="sourcePoint" />
+            <mxPoint x="70" y="120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="810" y="120" />
+              <mxPoint x="810" y="530" />
+              <mxPoint x="200" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-6" value="&lt;b&gt;Chẩn đoán - Tiên lượng&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-8" value="&lt;div&gt;&lt;b&gt;Máu&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Hormone xác định biểu hiện chức năng của tuyến giáp&lt;/div&gt;&lt;div&gt;[Nếu nồng độ hormone bất ổn. Suy luận chức năng tuyến giáp bất ổn. Làm sang siêu âm]&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" vertex="1" parent="1">
+          <mxGeometry x="400" y="130" width="400" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-10" value="&lt;div&gt;&lt;b&gt;Siêu âm&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Phát hiện khối u&lt;/div&gt;&lt;div&gt;[Kích thước khối u đáng lo ngại, hình dạng cấu trúc bất thường. Nên làm sinh thiết]&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="400" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-12" value="&lt;div&gt;Sinh thiết&amp;nbsp;&lt;b&gt;tế bào học (&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Cytopathology&lt;/b&gt;&lt;/span&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;)&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;FNAB&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Xác định loại tế bào, tính chất khối u&lt;/span&gt;&lt;/div&gt;&lt;div&gt;[Phân tích tính chất các tế bào để dự đoán cho tính chất toàn bộ khối u]&lt;/div&gt;&lt;div&gt;[Ít xâm lấn, lấy ít tế bào]&lt;/div&gt;&lt;div&gt;[Thiết bị chụp:&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;kính hiển vi&lt;/b&gt;&amp;nbsp;quang học có gắn camera kỹ thuật số&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;[Kết quả: Ảnh của vài trăm đến 1000 tế bào]&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;rounded=0;fillColor=#80FF00;strokeColor=#00CC00;" vertex="1" parent="1">
+          <mxGeometry x="400" y="270" width="400" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-17" value="&lt;div&gt;Sinh thiết&amp;nbsp;&lt;b&gt;mô học (&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Histopathology&lt;/b&gt;&lt;/span&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;)&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;WSI&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Xác định loại mô, tính chất mô bệnh&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;[Phân tích tính chất các mô để dự đoán tính chất toàn bộ khối u]&lt;br&gt;[Xâm lấn nhiều, lấy nhiều tế bào, mô của bệnh nhân]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;[Bởi vậy thường được dùng phân tích trong quá trình đang phẫu thuật để xem có nên loại bỏ toàn bộ vùng mô của bệnh nhân không]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;[Thiết bị chụp: Máy quét slide (kiểu giống như nhiều ảnh cytopathology ghép lại) + Máy cắt đông (cắt mô thành các lớp tế bào mỏng khoảng 5&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;micrômet&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;[Kết quả: Ảnh WSI]&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="370" width="400" height="146.5" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-21" value="&lt;b style=&quot;text-wrap: nowrap;&quot;&gt;Xét nghiệm bổ sung&lt;/b&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;(thường không phổ biến)&lt;/div&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;+ X-quang: 2D&lt;/div&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;+ CT: X-quang 3D&lt;/div&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;+ MRI: 3D&lt;br&gt;+ Tiêm xạ - chụp tuyến giáp&lt;/div&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;+ Tiêm xạ - chụp toàn thân&lt;/div&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;+ Sinh thiết phân tử&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-wrap: nowrap;&quot;&gt;(phân tích gen)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="210" y="380" width="160" height="136.5" as="geometry" />
+        </mxCell>
+        <mxCell id="0fNHHUASZFORtw9xtf6i-18" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0fNHHUASZFORtw9xtf6i-2" target="0fNHHUASZFORtw9xtf6i-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="D1KPWmyI962yFliJFb5C" name="Điều trị">
+    <mxGraphModel dx="1120" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yzSi_2IYCzlH838r1APg-8" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="yzSi_2IYCzlH838r1APg-9" target="yzSi_2IYCzlH838r1APg-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="120" as="sourcePoint" />
+            <mxPoint x="70" y="120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="470" y="120" />
+              <mxPoint x="470" y="410" />
+              <mxPoint x="200" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yzSi_2IYCzlH838r1APg-9" value="&lt;b&gt;Điều trị&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="90" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yzSi_2IYCzlH838r1APg-10" value="&lt;div&gt;&lt;b&gt;Phẫu thuật&lt;/b&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Cắt bỏ một phần hoặc toàn bộ tuyến giáp&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Nạo vét hạch cổ (nếu di căn)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" vertex="1" parent="1">
+          <mxGeometry x="210" y="130" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="yzSi_2IYCzlH838r1APg-11" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Điều trị bằng thuốc&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Thuốc ức chế tuyến giáp&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Thuốc ức chế tyrosine kinase:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;tác động vào các thụ thể tế bào.&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="190" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="yzSi_2IYCzlH838r1APg-12" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Điều trị bằng iốt phóng xạ&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Tế bào ung thư tuyến giáp hấp thu iốt phóng xạ nhiều hơn so với các tế bào bình thường&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;rounded=0;fillColor=#80FF00;strokeColor=#00CC00;" vertex="1" parent="1">
+          <mxGeometry x="210" y="270" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yzSi_2IYCzlH838r1APg-13" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Xạ trị&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Tia X năng lượng cao tiêu diệt tế bào ung thư&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;TH không thể phẫu thuật hoặc đã di căn xa&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="340" width="250" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
