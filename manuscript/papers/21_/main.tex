@@ -1,0 +1,1478 @@
+
+%\documentclass[a4paper,fleqn,longmktitle]{cas-sc}
+\documentclass[a4paper,fleqn]{cas-sc}
+
+% \usepackage[numbers]{natbib}
+
+% Use the line below for numbered citations.
+\usepackage[square,numbers,sort&compress]{natbib}
+% Use the line below for author–date citations.
+% \usepackage[authoryear]{natbib}
+
+\usepackage{hyperref}
+
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,prependcaption]{todonotes}
+\usepackage[inline]{enumitem}
+\usepackage{xspace}
+\usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{afterpage}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage[nolist,nohyperlinks,printonlyused]{acronym}
+\usepackage{amsmath}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\text{\ding{55}}}
+%\usepackage[authoryear,longnamesfirst]{natbib}
+
+%\geometry{
+%  a4paper,         % or letterpaper
+%  textwidth=18cm,  % llncs has 12.2cm
+%  textheight=26cm, % llncs has 19.3cm
+%  heightrounded,   % integer number of lines
+%  hratio=1:1,      % horizontally centered
+%  vratio=2:3,      % not vertically centered
+%}
+
+%%%Author definitions
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+\tsc{EP}
+\tsc{PMS}
+\tsc{BEC}
+\tsc{DE}
+%%%
+
+\usepackage{float}
+ \usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{pstricks-add}
+
+ \usepackage{pst-grad} % For gradients
+ \usepackage{pst-plot} % For axes
+ \usepackage[space]{grffile} % For spaces in paths
+ \usepackage{etoolbox} % For spaces in paths
+ \makeatletter % For spaces in paths
+ \patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+ \makeatother
+%\usepackage{auto-pst-pdf}
+%--------Mind Map ----------------------
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees}
+\usepackage{verbatim}
+%--------------------------------
+\usepackage{xspace}
+\usepackage{acronym} 
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{array}
+\setcounter{tocdepth}{2}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage[ruled,lined,noresetcount ]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+\hypersetup{
+   colorlinks=true,
+}
+
+
+\begin{document}
+\definecolor{ElsevierBlueish}{RGB}{0, 128, 172}
+\hypersetup{
+    linkcolor=ElsevierBlueish,
+    citecolor=ElsevierBlueish,
+    urlcolor=ElsevierBlueish
+}
+
+
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+% Short title
+%\shorttitle{Deep Transfer Learning Applications in Intrusion Detection Systems}
+
+
+% Short title
+\shorttitle{Machine Learning and Vision Transformers for Thyroid Carcinoma Diagnosis}
+
+
+
+
+% Short author
+\shortauthors{Y. Habchi et al.}
+
+\title [mode = title]{Machine Learning and Vision Transformers for Thyroid Carcinoma Diagnosis: A review}
+%{Artificial intelligence for detecting thyroid carcinoma}                      
+
+
+
+
+\vskip2mm
+\author[1]{Yassine Habchi}
+\cormark[1]
+\ead{habchi@cuniv-naama.dz}
+
+\author[2]{Hamza Kheddar}
+\ead{hamza.kheddar@gmail.com}
+\cormark[2]
+
+\author[3]{Yassine Himeur}
+
+%\ead{yhimeur@ud.ac.ae}
+
+
+\author[4]{Abdelkrim Boukabou}
+%\ead{aboukabou@univ-jijel.dz }
+
+
+\author[5]{Ammar Chouchane}
+%\ead{chouchane_ammar@yahoo.com}
+
+\author[6]{Abdelmalik Ouamane}
+%\ead{ouamaneabdealmalik@univ-biskra.dz}
+
+\author[3]{Shadi Atalla}
+%\ead{satalla@ud.ac.ae }
+\author[3]{Wathiq Mansoor}
+%\ead{wmansoor@ud.ac.ae}
+
+%\cortext[cor1]{Corresponding author}
+
+\address[1]{Institute of Technology, University Center Salhi Ahmed, Naama, Algeria}
+\address[2]{LSEA Laboratory, Electrical Engineering Department, University of Medea, 26000, Algeria}
+\address[3]{College of Engineering and Information Technology, University of Dubai, Dubai, UAE}
+\address[4]{Department of Electronics, University of Jijel, BP 98 Ouled Aissa, 18000 Jijel, Algeria}
+\address[5]{University Center of Barika. Amdoukal Road, Barika, 05001, Algeria.}
+\address[6]{Laboratory of LI3C,  Mohamed Khider University, Biskra,  Algeria}
+
+
+\begin{abstract}
+The growing interest in developing smart diagnostic systems to help medical experts process extensive data for treating incurable diseases has been notable. In particular, the challenge of identifying thyroid cancer (TC) has seen progress with the use of \ac{ML} and big data analysis, incorporating transformers to evaluate TC prognosis and determine the risk of malignancy in individuals. This review article presents a summary of various studies on AI-based approaches, especially those employing transformers, for diagnosing TC. It introduces a new categorization system for these methods based on \ac{AI} algorithms, the goals of the framework, and the computing environments used. Additionally, it scrutinizes and contrasts the available TC datasets by their features. The paper highlights the importance of AI instruments in aiding the diagnosis and treatment of TC through supervised, unsupervised, or mixed approaches, with a special focus on the ongoing importance of transformers in medical diagnostics and disease management. It further discusses the progress made and the continuing obstacles in this area. Lastly, it explores future directions and focuses within this research field.
+
+\end{abstract}
+
+
+\begin{keywords}
+Thyroid carcinoma detection \sep
+Artificial intelligence \sep
+Deep learning \sep
+Biomerdical images\sep
+Transformers
+\end{keywords}
+
+
+\maketitle
+
+\section{Introduction}  \label{intro}
+
+\begin{tabular}{m{18cm}}
+%{\small \textbf{Abbreviations:}} \\ 
+%\begin{table*}[htbp]  
+%\section*{Abreviations}
+%\begin{multicols}{3}
+\footnotesize
+\begin{acronym}[AWGN]  
+\acro{AC}{active contour}
+\acro{AI}{artificial intelligence}
+\acro{ANN}{artificial neural network} 
+\acro{ATC}{anaplastic thyroid carcinoma}
+\acro{BA}{bootstrap aggregation}
+\acro{Bi-LSTM}{bi-directional LSTM}
+\acro{BN}{bayesian network}
+\acro{CAD}{computer-aided diagnosis}
+\acro{CFS}{correlation-based feature selection}
+\acro{CNN}{convolutional neural network}
+\acro{CT}{computed tomography} 
+\acro{DAE}{denoising autoencoder}
+\acro{DCG}{discounted cumulative gain}
+\acro{DCNN}{deep convolutional neural network}
+\acro{DDTI}{digital database thyroind image}
+\acro{DL}{deep learning}
+\acro{DTL}{deep transfer learning}
+\acro{DRL}{deep reinforcement learning}
+\acro{DNN}{deep neural network}  
+\acro{DR}{dimensionality reduction}
+\acro{DT}{decision trees}
+\acro{DTCW}{double-tree complex wavelet transform}
+\acro{DWT}{discrete wavelet transform}
+\acro{ELM}{extreme learning machine} 
+\acro{ER}{error rate}
+\acro{FB}{feature bagging}
+\acro{FL}{federated learning}
+\acro{FNAB}{fine-needle aspiration biopsy}
+\acro{FTC}{follicular thyroid carcinoma}
+\acro{GAN}{generative adversarial network}
+\acro{GEO}{gene expression omnibus}
+\acro{GLCM}{gray-level co-occurrence matrix}
+\acro{HOG}{histogram of oriented gradient}
+\acro{ICA}{independent component analysis}
+\acro{IG}{information gain}
+\acro{IoMIT}{internet of medical imaging thing}
+\acro{KM}{K-means}
+\acro{KNN}{k-nearest neighbors}
+\acro{LBP}{local binary patterns}
+\acro{LR}{logistic regression}
+\acro{LSTM}{long-short-term-memory}
+\acro{ML}{machine learning}
+\acro{MLP}{multilayer perceptron}
+\acro{MRI}{magnetic resonance imaging}
+\acro{MRM}{microRNA regulatory module}
+\acro{MRR}{mean reciprocal rank}
+\acro{MSE}{mean squared error}
+\acro{MTC}{medullary thyroid carcinoma}
+\acro{NCDR}{national cancer data repository}
+\acro{PCA}{principal component analysis}
+\acro{PLCO}{prostate, lung, colorectal, and ovarian} 
+\acro{PM}{probabilistic models}
+\acro{PS}{panoptic segmentation}
+\acro{PSNR}{peak signal to noise ratio} 
+\acro{PTC}{papillary carcinoma}
+\acro{RBF}{radial basis function} 
+\acro{RBM}{restricted Boltzmann machine}
+\acro{RF}{random forest}
+\acro{RL}{reinforcement learning}
+\acro{RMSE}{root mean square error} 
+\acro{RNN}{recurrent neural network}
+\acro{RS}{recommender systems}
+\acro{SEER}{surveillance, epidemiology, and end results}
+\acro{SL}{supervised learning} 
+\acro{SVM}{support vector machine}
+\acro{TC}{thyroid cancer}
+\acro{TCD}{thyroid cancer dataset}
+\acro{TCGA}{cancer genome atlas}
+\acro{TCL}{traditional classification}
+\acro{TD}{thyroid disease}
+\acro{TDDS}{thyroid disease data set} 
+\acro{TG}{thyroid gland} 
+\acro{TIRADS}{thyroid imaging reporting and data system}
+\acro{TI-RADS}{thyroid imaging, reporting, and data system}
+\acro{TL}{transfer learning}
+\acro{TN}{Thyroid nodules}
+\acro{US}{ultrasound}
+\acro{USL}{unsupervised learning}
+\acro{XAI}{explainable AI}
+\acro{XAI}{explainable artificial intelligence}
+\acro{XGBoost}{Gradient tree boosting}
+\acro{NLP}{natural language processing}
+\acro{BERT}{bidirectional encoder representations from transformers}
+\acro{ROC}{receiver operating characteristic}
+\end{acronym}
+%\end{multicols}
+%\end{table*} 
+\end{tabular}
+
+
+
+The integration of \ac{AI} into the healthcare sector represents a pivotal advancement, fundamentally altering the landscape of medical diagnostics, therapy, and patient management. The superior capabilities of \ac{AI}, Incorporating the identification of patterns, forecasting analytics, and the process of making decisions, have led to the creation of systems that can interpret intricate medical data with greater accuracy and scale than ever before \cite{himeur2023face,chouchane2023improving}. Such advancements facilitate the early identification of diseases, enhance the accuracy of diagnoses, and support the customization of treatment plans for individuals. In addition, predictive models powered by \ac{AI} are capable of foreseeing disease spread, boosting the efficiency of healthcare operations, and significantly improving outcomes for patients \cite{himeur2022deep}. \ac{AI} also has the potential to make healthcare more equitable by reducing disparities in service quality between rural and urban areas, thus improving access to premium healthcare services. As a result, the role of \ac{AI} is significant in healthcare  and is anticipated to grow as ongoing technological innovations lead to the creation of even more advanced applications, promising widespread benefits for patient health across the globe \cite{sohail2023decoding,himeur2023ai}.
+
+Nonetheless, trust serves as a critical intermediary, impacting the extent to which factors related to \ac{AI} affect user acceptance. Research has explored the roles of trust, risk, and security in determining the uptake of \ac{AI}-powered support \cite{calisto2022modeling}. Empirical investigations within these studies have underscored the essential influence of trust in forming the basis of user acceptance.
+
+Cancer is marked by the unchecked growth of cells across various parts of the body. These cells multiply erratically and can spread, damaging healthy tissue \cite{bechar2023harenessing}. Such uncontrolled cell growth is triggered by changes or mutations in the DNA of these cells \cite{habchi2023ai}. The DNA in cells comprises multiple genes, which provide the instructions necessary for a cell's function, growth, and division. When these instructions are erroneous, it can interrupt the normal functioning of cells and may result in the development of cancer \cite{dabbagh2022application, arunachalam2021study, atlihan2020recent, salem2023cancer}. \ac{TC}, in particular, is recognized as one of the most common types of endocrine malignancies around the globe \cite{deng2020global, hammouda2006registre}.
+
+
+
+
+
+Recent global epidemiological studies indicate a rise in abnormal thyroid nodules, linked to an upsurge in genetic cellular activity. This suggests an increase in normal cell functions, with anomalies classified into four primary types: \ac{FTC}, \ac{PTC}, \ac{MTC}, and \ac{ATC} \cite{castellana2020can,hitu2020microrna,giovanella2020eanm,ferrari2020novel}. Elements like exposure to radiation, Hashimoto's thyroiditis, psychological factors, and genetic components, alongside advances in technologies of of detection, appear these cancers. These factors can cause chronic health issues like diabetes and blood pressure instability. The cell cancer volume is a key to evaluating the aggressiveness and prognosis of \ac{TC}'s, with cell nuclei detection offering alternative markers for evaluating cancer cell proliferation. \Ac{CAD} systems have gained prominence in \ac{TC} analysis, improving diagnostic accuracy and reducing interpretation times \cite{jin2020ultrasound,khammari2023high}. Radiomics, particularly through \ac{US} imaging \cite{hamza2023hybrid}, has emerged as an efficient diagnostic method. The American College of Radiology's \ac{TIRADS} categorizes thyroid nodules from benign to malignant \cite{tessler2017acr, tessler2018thyroid, ABCD1}. Despite available open-source tools for nodule analysis, accurately identifying them remains a challenge, reliant on radiologists' experience and the subjective nature of visual image analysis \cite{zhou2020differential}.
+
+Additionally, \ac{US} imaging can be a lengthy and stress-inducing process, which may result in incorrect diagnoses. It is common to encounter classification errors among cases deemed normal, benign, malignant, or of uncertain nature \cite{schlumberger2015lenvatinib, wettasinghe2019diagnostic, nayak2020impact, singh2016diagnostic, kumar2020automated, ma2017ultrasound}. For a more precise diagnosis, a \ac{FNAB} is often conducted. Yet, this technique can be uncomfortable for patients, and inaccuracies by the practitioner can mistakenly label benign nodules as malignant, leading to unnecessary costs \cite{song2018fine, hahn2020comparison}. The main issue is the selection of nodule characteristics critical for accurately differentiating between benign and malignant cancer. Various research efforts have delved into the use of conventional \ac{US} imaging to characterize different types of cancers, such as retinal \cite{ullah2019ensemble, saba2018fundus}, breast \cite{mughal2018removal, morais2023classification, diogo2023weakly, wang2023generalizable, mughal2018novel}, blood \cite{abbas2019automated, abbas2019plasmodium}, and \ac{TC}s \cite{wang2020comparison, qin2019diagnosis}. Despite these efforts, there remains a lack of accuracy in the methods available for effectively categorizing thyroid nodules (see Figure \ref{fig1}).
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.8\columnwidth]{fig1.pdf}
+\caption{Approaches for identifying \ac{TC}.}
+\label{fig1}
+\end{figure}
+
+The deployment of \ac{AI} technology is crucial in diminishing subjectivity and boosting the precision of pathological assessments, particularly for complex conditions like thyroid diseases \cite{wu2016classifier, zhang2019machine}. These advancements enhance the the analysis of images obtained through \ac{US} and expedite analysis times. \ac{ML} and \ac{DL} stand out as effective strategies for automating the differentiation of TNs in various contexts, including \ac{US}, fine-needle aspiration (FNA), and during thyroid surgical procedures \cite{sollini2018texture, yang2019creating}. The efficacy of these methodologies has been underscored in multiple research studies, as evidenced by \cite{abbad2021effective, taylor2019high, chandio2020decision, zhang2019machine, lee2021deep, buda2019management}.
+
+Current research efforts are delving into the utilization of innovative technologies for cancer detection, where the success of these methods depends on the amount of data accessible and the accuracy of the classification strategies. The drive to compile a review on "AI in the Diagnosis of \ac{TC}" is motivated by the rising rates of \ac{TC}, a critical concern in endocrinology where early and precise diagnosis significantly impacts patient outcomes. As \ac{AI} and \ac{ML} continue to evolve, their incorporation into various medical diagnostic fields, including imaging, pathology, and genomics, promises to enhance the accuracy and speed of detection processes. Traditional methods for diagnosing \ac{TC}, like fine-needle aspiration biopsies, can often produce ambiguous outcomes, whereas \ac{AI} presents an opportunity for more accurate and less invasive alternatives. This review seeks to integrate insights from  pathology, computer science, ocrinologyand, and  radiology,  encouraging cross-disciplinary collaboration. It will also explore the clinical significance of \ac{AI}, offering recommendations for healthcare professionals on utilizing \ac{AI} advancements for improving patient care, and pinpointing directions for future research endeavors. Additionally, the review will discuss the healthcare and economic system benefits, including cost savings and reduced wait times. Yet, it's essential to confront the challenges \ac{AI} brings, such as ethical considerations and data privacy, to facilitate its responsible integration into healthcare practices. This review aims to provide an extensive examination of \ac{AI}'s current and future impact on the detection of \ac{TC}, serving as a resource for both researchers and clinicians.
+
+\subsection{Contribution of the paper}
+
+
+This review explores the use of \ac{AI} in identifying \ac{TC}, emphasizing the shift towards improved diagnostic accuracy using \ac{AI} techniques in healthcare, specifically for detecting \ac{TC}. It begins with an overview of current frameworks and delves into \ac{AI} strategies such as \ac{DL}, \acp{ANN}, vision Transformers,  conventional classification, predictive modeling, \ac{USL} like clustering, and ensemble methods like boosting and bagging. The significance of comprehensive datasets for \ac{AI} success is discussed, alongside an analysis of \ac{TC} datasets, feature selection, and extraction methods. It evaluates \ac{AI} effectiveness in  \ac{TCD} through various metrics and concludes by highlighting future research directions to overcome challenges and enhance \ac{AI} deployment in \ac{TCD}. The review underscores \ac{AI}'s potential to revolutionize \ac{TCD}, advocating for ongoing assessment to ensure ethical and effective use.\\
+
+\noindent The main advancements presented in our paper are:
+\begin{itemize}
+\item A review of current frameworks coupled with a detailed investigation into diverse AI strategies, including supervised learning, conventional classification, \ac{DL}, Transformers, \ac{PM}, and \ac{USL} techniques. Additionally, ensemble approaches like bagging and boosting are scrutinized.
+
+\item An in-depth review of various \acp{TCD}, detailing their attributes and examining methods for feature selection and extraction used in different studies
+
+\item A detailed discussion on the benchmark criteria for assessing the efficacy of \ac{AI}-powered approaches in identifying TC. These evaluation metrics cover a wide range, from regression and classification parameters to statistical, computer vision, and ranking parameters.
+
+\item A thorough critique and exploration of the challenges, limitations, prevalent trends, and unresolved questions in the domain.
+
+\item An analysis of future research priorities, highlighting specific areas that require more investigation to address current challenges and improve methods for detecting TC.
+
+\item A spotlight on the transformative impact of \ac{AI} in enhancing TC diagnosis, stressing the importance of continual critical review to guarantee its ethical and effective application.
+\end{itemize}
+
+
+\noindent Additionally, the main contributions of this review, as differentiated from other reviews, are summarized in Table \ref{table:1}.
+
+\begin{table}[t!]
+\caption{The notable advancements made by the suggested review in the categorization of TC when contrasted with similar research endeavors. }
+\label{table:1}
+\scriptsize
+\begin{tabular}{
+m{2mm}
+m{3mm}
+m{6mm}
+m{11mm}
+m{4mm}
+m{4mm}
+m{4mm}
+m{4mm}
+m{2mm}
+m{4mm}
+m{4mm}
+m{4mm}
+m{4mm}
+m{4mm}
+m{8mm}
+m{8mm}
+m{5mm}
+}
+
+\hline
+Ref & Year & Patient& TC detec. & AI & ML & DL & Trans& Feat & TCE &  \multicolumn{6}{c}{Prospective path} & Metric \\
+
+\cline{11-16}
+ &  & privacy & schemes & apps &  &  & &  &  & IoMIT & RS & RL & PS &  XAI & EFC-AI  \\
+\hline
+
+\cite{liu2021deep} & 2021 & Yes & Yes & No & No & Yes & No & Yes & No & No & No & No & No & No & No & No   \\
+
+\cite{iesato2021role} & 2021 & Yes & Yes & No & No & Yes & No& No & No & No & No & No  & No & No & No & No  \\
+
+\cite{sharifi2021deep} & 2021 & Yes & Yes & No & Yes & Yes & No & Yes& Yes & No & No & No & No & No & Yes & Yes   \\
+
+\cite{lin2021deep} & 2021 & Yes & Yes & No & No & Yes & No &No & No & No & No & No & No & No & Yes & Yes   \\
+
+\cite{ha2021applications} & 2021 & Yes & Yes & No & Yes & Yes & No &No &No & No & No & No & No & No & Yes & Yes   \\
+
+\cite{wu2022deep} & 2022 & Yes & Yes & No & No & Yes & No & No& No & No & No & No & No & No & No & Yes  \\
+
+\cite{pavithra2022deep} & 2022 & Yes & Yes & No & No & Yes & No &No & No & No & No & No & No & Yes & Yes & No   \\
+
+\cite{paul2022artificial} & 2022 & Yes & Yes & No & Yes & Yes & No & Yes& No & No & No & No & No & No & Yes & Yes   \\
+
+\cite{ilyas2022deep} & 2022 & Yes & Yes & No & Yes & Yes & No & No & No & No & No & No & No & No & Yes & Yes   \\
+
+%\cite{habchi2023ai} & 2023 & Yes & Yes & Yes & Yes & Yes & Yes & & Yes & Yes & Yes & Yes & Yes & Yes & Yes & No & Yes \\
+
+Our & - & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes  \\
+\hline
+\end{tabular}
+\begin{flushleft}
+Abbreviations: 
+Artificial intelligence applications (AI apps), 
+Machine learning (ML),
+Deep learning (DL),
+Transformers (Trans),
+Features (Feat),
+\ac{TC} example (TCE),
+Internet of medical imaging thing (IoMT), Recommender systems (RS), 
+Reinforcement learning (RL), 
+Panoptic segmentation (PS), 
+Explainable artificial intelligence (XAI), 
+Edge, fog and cloud networks based on AI (EFC-AI).  
+\end{flushleft}
+\end{table}
+
+
+
+
+
+
+\subsection{Bibliometric analysis}
+A bibliometric analysis was performed to delve into and evaluate the scientific studies reviewed in this paper. The continuous interest in AI-based TC research is depicted in Figure \ref{figbibio}, with the publication count reaching 81 in 2022. Figure \ref{figbibio} (a) highlights the leading researchers in the field of TC-oriented AI research, focusing on those who have published within the past five years. Figure \ref{figbibio} (b) provides a snapshot of the enduring interest in AI-based TC research, showcasing a rising trend in the creation of AI solutions for TC since 2015. Figure \ref{figbibio} (c) maps out the countries that are major contributors to the research output in this area, with China and the United States showing a pronounced focus on AI-driven TC detection. Lastly, Figure \ref{figbibio} (d) illustrates the breakdown of publication types, with journal articles making up the bulk of the research (67.2\%), followed by conference papers (19.3\%).
+
+\begin{figure}[t!]
+\centering
+\includegraphics[height=10cm, width=16cm]{fig2}
+\caption{Bibliometric analysis in terms of (a). Documents by author; (b). Documents by year; (c). Documents by country; (d). Documents by type.}
+\label{figbibio}
+\end{figure}
+
+
+\subsection{Roadmap}
+The subsequent sections of this manuscript are organized as follows: Section \ref{sec2} offers a detailed analysis of the frameworks currently employed in this field, outlining their advantages and disadvantages. In Section \ref{sec3}, various \acp{TCD} employed in AI-driven analyses are introduced, offering insights into their pertinence and distinctiveness. Section \ref{sec4} focuses on a pivotal aspect, 'Features,' detailing the techniques utilized for feature extraction and selection in AI models tailored for \ac{TCD}. Following this, Section \ref{sec5} presents a synopsis of contemporary methodologies for \ac{TCD} employing \ac{DL} and transformers, alongside an evaluation of their efficacy.
+
+The ensuing part of our document delves into a meticulous critique and dialogue in Section \ref{sec6}, meticulously evaluating the obstacles, deficiencies, and segments requiring advancements within existing methodologies. Proceeding to Section \ref{sec7}, it delineates prospective trajectories for forthcoming research, underlining areas ripe for deeper exploration and innovation that could propel forward the efficacy of \ac{AI} in diagnosing TC. The discourse culminates in Section \ref{sec8}, encapsulating the core insights and deliberations, thereby rendering a holistic conclusion to the subjects broached in earlier sections. This structured approach not only showcases our commitment to addressing the nuanced complexities of \ac{AI} application in medical diagnostics but also signals our dedication to fostering a forward-looking perspective on how these challenges can be navigated to harness the full potential of \ac{AI} technologies in enhancing \ac{TCD}.
+
+\section{Summary of current models and methods} \label{sec2}
+In this section, we discuss the various AI-based methodologies utilized for diagnosing \ac{TG} cancers. Figure \ref{fig3} offers a visual depiction of the classification system we propose for methods of TC diagnosis leveraging \ac{AI}.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.9]{fig3.pdf}
+\caption{Classification of \ac{TCD} strategies utilizing \ac{AI}.} 
+\label{fig3}
+\end{figure}
+
+
+\subsection{Pre-processing}
+\ac{DR} is a process applied in \ac{ML}, mainly during the preprocessing and feature crafting stages, aimed at converting data from a high-dimensional space into a more manageable lower-dimensional space. This technique is valued for its efficiency and its capacity to reduce unnecessary data patterns while decreasing redundancy, serving multiple objectives. For example, \ac{DR} was utilized in the diagnosis of \ac{TD} through the analysis of cytological images \cite{tarkov2012data}.
+
+\Ac{PCA} operates as a sophisticated method for preprocessing, transforming samples (variables) into a smaller set of uncorrelated ones. This technique effectively reduces the volume of variables, thus cutting down on redundant data, all the while striving to maintain the integrity of the data relationships. \ac{PCA} is extensively used in the realms of cancer detection and distinguishing between malignant and benign thyroid cells. In research conducted by Shankarlal et al. \cite{shankarlal2020performance}, \ac{PCA} was deployed to filter the most relevant set of wavelet coefficients from \ac{DTCW} processed noisy thyroid images, which were then categorized using \ac{RF}. In another instance, Soulaymani et al. \cite{soulaymani2018epidemiological} applied \ac{PCA} to a dataset comprising 399 patients with three different TC types (undifferentiated, follicular,  and papillary ), allowing the classification based on variables like age, sex, type of cancer, and geographical location.
+
+
+\subsection{Purpose of AI-driven examination }
+This research centers on the use of \ac{AI} for identifying TC. Comprehending the foundational objectives of each framework is essential for acquiring a more profound understanding of their reasoning \cite{habchi2023ai}.
+\vskip2mm
+\noindent \textbf{(a) Classification of thyroid carcinoma}: Entails the sorting of TCs according to their histopathological features, clinical manifestations, and prognostic outcomes. Various forms of thyroid carcinomas exist, each defined by unique characteristics. The principal categories are: (i) \ac{PTC}: Representing the most prevalent form, \ac{PTC} constitutes approximately 80\% of all TC cases. It typically exhibits slow growth but has a propensity to metastasize to neck lymph nodes. Nonetheless, \ac{PTC} generally responds well to treatment. (ii) \ac{FTC}: Ranking as the second most frequent type, \ac{FTC} has the capability to invade blood vessels and spread to distant body parts, although it is less prone to lymph node metastasis. (iii) \ac{MTC}: Arising from the parafollicular or C cells of the thyroid, which secrete calcitonin, an increase in blood calcitonin levels may signal \ac{MTC}. (iv) \ac{ATC}: \ac{ATC} is a highly aggressive and rare TC variant, characterized by its rapid spread to other neck regions and the body, making it challenging to treat. The stratification of thyroid carcinomas is vital for selecting the optimal treatment plan for individual patients, considering tumor dimensions, location, patient age, and general health. The evolution of \ac{AI} and \ac{ML} has significantly contributed to the automation and enhancement of thyroid carcinoma classification accuracy. Various models have been devised to categorize tumors based on medical imaging or genetic information.
+
+For example, Liu and colleagues \cite{liu2018setsvm} highlight the fundamental importance of \ac{SVM} in the detection of cancer. In a similar vein, Zhang and their team \cite{zhang2019integrating, zhang2019diagnosis} introduce approaches utilizing \ac{DNN} to distinguish between malignant and benign  thyroid nodules in \ac{US} imagery. Moreover, the \ac{Bi-LSTM} model \cite{chen2018thyroid}, shows noteworthy precision in the classification of thyroid nodules. These classification approaches create structured hierarchies crucial for organizing knowledge and processes in the field of TC.
+
+
+\vskip2mm
+\noindent \textbf{(b) Segmentation of thyroid carcinoma}: Entails pinpointing and outlining the area in an image that represents a thyroid tumor. The objective of this segmentation is to segregate the targeted regions, like the thyroid tumor, from adjacent tissues within medical images. This task can be achieved by manual annotation by an experienced radiologist or via automated techniques that employ \ac{ML} algorithms \cite{ma2023amseg, yadav2023assessment}.
+
+Segmentation plays a pivotal role in the detection of TC by enabling the accurate isolation and analysis of the thyroid gland, along with any potentially suspicious nodules or lesions present. Often detected through medical imaging modalities like \ac{US}, \ac{CT} scans, or \ac{MRI}, TC requires the precise delineation of the region of interest (ROI) for sound diagnostic judgements. Segmentation not only facilitates the distinction of the thyroid gland from the surrounding tissues but also supports the precise quantification of nodule dimensions and volume, which are critical for evaluating the potential for malignancy. Furthermore, it enables the extraction of significant image attributes such as texture and shape, providing critical data for \ac{ML} models or other analytical methods to improve diagnostic precision. Segmented images also enhance visual clarity, aiding radiologists and medical practitioners in the visual assessment and interpretation of areas of concern within the thyroid, vital for detecting abnormalities indicative of cancer. For longitudinal analyses, segmentation is invaluable in tracking changes in the thyroid and nodules over time, monitoring disease evolution or the efficacy of treatments. It also plays a role in accurately locating biopsy sites for suspicious nodules, guaranteeing targeted sample collection for cancer verification. In the context of treatment planning, segmentation is instrumental in assessing the tumor's size and its relationship to vital anatomical structures, thereby guiding therapeutic decisions. Moreover, the introduction of automated segmentation technologies streamlines clinical workflows by minimizing manual input and variability, empowering medical experts to dedicate more attention to complex diagnostic activities. Consequently, the segmentation process in \ac{TCD} enhances precision, consistency, and confidence in diagnostics, markedly impacting patient management and outcomes.
+
+\ac{AI} methods, especially \ac{CNN} and the U-Net architecture, are becoming progressively popular for the segmentation of thyroid carcinoma. Their growing preference is largely due to their capacity to learn from and generalize across large datasets, significantly improving the accuracy and dependability of the segmentation procedure.
+
+\vskip2mm
+\noindent \textbf{(c) Prediction of thyroid carcinoma}: 
+
+
+Prediction in TC involves utilizing diagnostic tools and \ac{ML} models to estimate the risk of development based on factors like genetic predisposition, gender, age, radiation exposure, and lifestyle choices. It's important to note that predictions indicate a heightened risk rather than a definite outcome. Medical practices often combine various predictive assessments to improve accuracy. For example, \ac{ML} algorithms developed from medical records can help distinguish between benign and malignant nodules, facilitating early intervention. Studies, such as one utilizing \ac{ANN}  and \ac{LR} \cite{jajroudi2014prediction}, and another employing a \ac{CNN} to analyze over 10,000 microscopic images of TC \cite{sajeev2020thyroid}, demonstrate the application of predictive techniques in identifying TC risk, showcasing advancements in AI-driven predictive modeling for more effective treatment strategies.
+
+
+
+
+\subsection{SL-based TC classification}
+\Ac{SL} is a \ac{ML} approach where the ai algorithm  outcomes is  based on data that is explicitly labeled, in this discussion, related to medical information concerning TC. The primary aim of \ac{SL} is to distinguish among different types of TC using data that is both labeled and illustrative.
+
+This data could include \ac{US} images, genetic indicators, radiomic features, patient demographics, or other pertinent details related to the diagnosis or prognosis of TC. The provided labels clarify whether each case is related to TC, and they may further specify details such as the type of thyroid carcinoma or the stage of cancer. In a classification task, an \ac{SL} algorithm might be trained to differentiate between malignant and benign \ac{TN} using distinct features derived from medical imaging data. The training data's labels indicate the nature of each nodule, thereby training the algorithm to classify new, unlabeled nodules accurately.
+
+Similarly, the deployment of regression techniques in \ac{SL} models, could be developed to forecast the progression or outcome of TC using diverse, patient-specific attributes. Here, the labels are associated with a continuous outcome variable, such as survival duration or a metric indicating disease advancement. It's vital to highlight that the efficacy of these methodologies is deeply dependent on the data's quality and comprehensiveness. The more accurate and complete the dataset, the more adeptly the algorithm can classify or predict new cases. Moreover, to validate the utility of supervised learning models in healthcare contexts, including the detection of thyroid carcinoma, it's essential to test these models on separate datasets and within real-world clinical environments to confirm their accuracy and reliability \cite{liu2023self, hou2023boosting}. In the following, a quick overview of frequently utilized \ac{ML} algorithms is described.
+\vskip2mm
+\noindent \textbf{(a)  KNN and SVM: } The \ac{KNN} algorithm stands as a non-parametric supervised learning method in \ac{ML}, applied to both regression and classification tasks. It operates by utilizing k-nearest training samples for making predictions. In research conducted by Chandel et al., referenced in \cite{chandel2016comparative}, the \ac{KNN} technique was used for classifying thyroid diseases using variables like TSH, T4, and the presence of goiter. Furthermore, Liu and colleagues \cite{liu2012design} applied a fuzzy \ac{KNN} model for distinguishing among hyperthyroidism, hypothyroidism, and euthyroid (normal) cases. The need for analyzing larger datasets in future studies has been emphasized, as noted in \cite{geetha2016empirical}.
+\vskip2mm
+
+\ac{SVM} is a \ac{ML} technique used for classification and regression tasks. In research presented by Ma et al. \cite{ma2010differential}, an \ac{SVM}-based method was developed to differentiate between benign and malignant thyroid nodules using a dataset that included 98 \ac{TN} samples, with 82 benign and 16 malignant cases. Another study by Chang et al. \cite{chang2010application} utilized six distinct \acp{SVM} for the classification of nodular thyroid lesions, focusing on identifying the most significant textural features for this purpose. The results indicated that the applied methodology was effective in achieving accurate classification. Furthermore, Dogantekin et al. \cite{dogantekin2011expert} introduced a system that integrates Generalized Discriminant Analysis with a wavelet \ac{SVM} (GDA-WSVM) for the diagnosis of thyroid nodules. This approach included steps for feature extraction, classification, and testing, showcasing its application in effectively diagnosing TC.
+
+\vskip2mm
+
+\noindent \textbf{(b) Decision trees and logistic regression:} \ac{DT} learning is a technique in data mining that uses a model for predictive decision-making. In such a model, the outcomes are indicated by the leaves, and the branches represent the input features. This method has been utilized in detecting latent thyroid disorders, as evidenced by a range of studies, such as those referenced in \cite{yadav2020prediction}, \cite{hao2018prognosis}, \cite{dharmarajan2020thyroid}, and \cite{yadav2019decision}.
+
+In the research presented in \cite{zhao2015logistic}, \ac{LR} was employed to pinpoint specific characteristics of thyroid microcarcinoma among a group of 63 patients. This analysis utilized data from both contrast-enhanced ultrasound (CEUS) and traditional \ac{US} evaluations. Furthermore, a significant study from northern Iran, detailed in \cite{yazdani2018factors}, used \ac{LR} to investigate a large dataset encompassing 33,530 cases of TC. \ac{LR} is a widely used binomial regression model within the domain of \ac{ML}.
+
+\subsection{USL-based TC classification}
+In the realms of \ac{AI} and computer science, \ac{USL} is the process of analyzing data that hasn't been previously labeled or annotated. Its primary goal is to uncover the underlying structures within datasets that do not have predefined labels. Contrary to supervised learning, which depends on labeled data for evaluating its effectiveness, \ac{USL} operates without such direct guidance, presenting additional challenges in result assessment. Although \ac{USL} algorithms are capable of addressing more complex problems than their supervised counterparts, they might also lead to increased uncertainty, sometimes creating unintended categories or incorporating noise rather than identifying clear patterns. Nonetheless, \ac{USL} is considered an indispensable asset in \ac{AI}, offering the potential to detect patterns  within data that may not be obvious at first \cite{kate2023check, nobile2023unsupervised}.
+
+\subsubsection{Clustering}
+The objective of this strategy is to organize a dataset composed of TC information into distinct, uniform groups that share similar features. This process aids in the categorization of unlabeled data into malignant or benign sections. Due to its straightforwardness, this technique has received significant attention in numerous medical research areas, enhancing its applicability to tasks like detecting DNA copy number variations \cite{manogaran2018machine}, identifying breast cancer \cite{agrawal2019combining}, pinpointing cancer-related genes \cite{de2008clustering}, diagnosing skin cancer \cite{anas2017skin}, and discovering brain tumors \cite{khan2021brain}. Clustering methods also prove helpful in classifying cancer instances that are not clearly defined \cite{yu2017clustering}.
+
+A research documented in \cite{chandel2020analysing} employed clustering to determine factors impacting the normal functioning of the thyroid gland. The use of \ac{PCA} played a key role in organizing the clusters and simplifying the data structure. Additionally, an innovative automated clustering system for diagnosing TC was developed, as described in \cite{katikireddy2020performa}, which recommended appropriate medication treatments for hyperthyroidism, hypothyroidism, and normal cases. The study in \cite{venkataramana2018comparative} explored the use of fuzzy clustering on thyroid and liver datasets from the UCI repository, where fuzzy c-means (FCM) and possibilistic fuzzy c-means (PFCM) algorithms were employed and their performances compared.
+
+\vskip2mm
+
+\noindent \textbf{(a) \Ac{KM}:} The \ac{KM} method is used for dividing data into partitions and tackles a combinatorial optimization challenge. It is commonly used in \ac{USL}, categorizing observations into k distinct clusters. In the research presented by Mahurkar et al. \cite{mahurkar2017normalization}, the study investigates the application of \ac{ANN} and an improved K-Means algorithm to standardize raw data. This study employed a thyroid dataset from the UCI repository, comprising 215 total instances.
+
+\vskip2mm
+
+\noindent \textbf{(b) Entropy-based (EB):} In the study conducted by Yang et al. \cite{yang2019information}, a novel, parameter-free computational model called DeMine was introduced for the prediction of \acp{MRM}. DeMine utilizes an information entropy-based methodology, comprising three primary steps. The process begins by converting the miRNA regulation network into a cooperative \acp{MRM} network. It then proceeds to pinpoint miRNA clusters, aiming to maximize entropy density within the specified cluster. The final step involves grouping co-regulated miRNAs into their appropriate clusters, thereby finalizing the \acp{MRM}. This technique enhances predictive precision and facilitates the identification of a broader array of miRNAs, potentially acting as tumor markers in cancer diagnosis.
+
+\subsection{DL-based TC classification}
+
+ \Ac{DL} is a subset of \ac{ML} and \ac{AI} that focuses on the use of \ac{ANN} for learning representations. \ac{ANN}s are information processing units composed of interconnected non-linear units called neurons, effective in solving intricate problems through information storage and management. A neural network featuring several hidden layers where are often referred to as a \ac{DNN}. The network's depth facilitates the extraction of increasingly abstract and advanced features as data moves through its layers. By leveraging large neural networks with several layers, \ac{DL} can independently learn, create, and improve data representations, which is why it's known as "deep" learning. Within the realm of TC, \ac{DL} is instrumental in several areas, including: (i) Classification of image: \ac{DL} techniques, for example \ac{CNN}, are trained to categorize thyroid \ac{US} images, distinguishing between malignant and benign nodules by analyzing texture and shape, and other features \cite{canton2021automatic, peng2021deep, guan2019deep}, streamlining the process and assisting with the early identification of TC. (ii) Analysis of disease: \ac{DL} is used to examine cytopathological or histopathological slide images, aiding in identifying and classifying cells of cancerous. (iii) Analysis of genomic information: In this era \ac{DL} models are capable of analyzing genetic variations linked to the risk of TC. (iv) Radiomics: \ac{DL} models are adept at extracting Multidimensional information obtained from radiographic images, contributing to more accurate and individualized treatment strategies. (v) Predictive Analysis: By analyzing electronic health records and patient information, \ac{DL} models can forecast the probability of an individual developing TC, facilitating early intervention. Figure \ref{fig4} illustrates the diverse applications of \ac{DL} in the field of TC diagnosis and management.
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.7]{fig4.pdf}
+\caption{Comprehensive \ac{DL} framework for detecting and classifying TC.}
+\label{fig4}
+\end{figure}
+
+
+\vskip2mm
+
+
+
+\vskip2mm
+
+\subsubsection{ELM and MLP}
+The \ac{ELM} model is distinguished by a single layer of hidden nodes that possess randomly assigned weight distributions. Crucially, the process of determining weights between the inputs and the hidden nodes to the outputs is executed in a solitary step, rendering the learning mechanism markedly more efficient than that of alternative models. The efficacy of the \ac{ELM} approach in diagnosing \ac{TD} has been corroborated through various research efforts, including those reported in \cite{li2012computer}, \cite{ma2018efficient}, \cite{xia2017ultrasound}, and \cite{pavithra2021optimal}.
+
+The \ac{MLP} is a type of feed-forward network that directs data processing sequentially from the initial point to the final layer of output. Within this architecture, each layer is made up of a different number of neurons. Rao and colleagues \cite{rao2019thyroid} devised an innovative approach for categorizing thyroid nodules employing an \ac{MLP} integrated with a backpropagation learning mechanism. Their design comprised four neurons in the initial layer, three neurons in each of its ten concealed layers, and one neuron in the terminal layer. In a separate effort to enhance the precision of \ac{TD} diagnosis, Hosseinzadeh et al. \cite{hosseinzadeh2020multiple} utilized \ac{MLP} networks. Their analysis compared the efficacy of \ac{MLP} networks against the backdrop of existing research on TC classification, highlighting the superior performance of \ac{MLP} networks. Isa and associates \cite{isa2010suitable} investigated the influence of \ac{MLP} networks with various activation functions to determine the most effective function for the precise classification of challenging diseases, including thyroid disease and cancer of breast. The study assessed a range of activation functions, such as logarithmic, sinusoidal, neural, hyperbolic tangent, sigmoid and exponential functions. It concluded that the function of hyperbolic tangent, especially when utilized in conjunction with the backpropagation algorithm for training, proved to be the most efficient for classifying \ac{TD}. This conclusion was also supported by the findings of Mourad et al. \cite{mourad2020machine}.
+
+\vskip2mm
+
+\subsubsection{RBF and DAE}
+In the study by Erol et al. \cite{erol2008radial}, \ac{ML} methods were used for the \ac{TN} classification. The research utilized both \ac{MLP} and \ac{RBF} as activation functions. Notably, the \ac{RBF} function outperformed the \ac{MLP} in the accurate classification of thyroid nodules, underscoring the critical role of activation functions in function approximation. This research emphasizes their significance in the classification and prediction of time series data, especially concerning the diagnosis of TC.
+
+
+\Acp{DAE} play a pivotal role in the identification of TC by adeptly deriving significant features from \ac{US} or histopathological imagery. As a subset of \ac{ANN}, \ac{DAE} are primarily focused on the accurate reconstruction of inputted data. Their usage extends to tasks such as reducing dimensions and enhancing feature learning capabilities. The integration of \acp{DAE} into the workflow for classifying thyroid carcinoma typically unfolds in several phases: (i) initial data preprocessing, (ii) creation of perturbed input data, (iii) training the \ac{DAE}, (iv) extraction of relevant features, and (v) execution of the classification procedure.
+
+In the research presented by Ferreira et al. \cite{ferreira2018autoencoders}, a variety of six autoencoder models were utilized for the purpose of classifying \ac{PTC}, incorporating strategies such as the stabilization of weights and network fine-tuning. The architecture of these autoencoders, especially the encoding layers, played an integral role in the effective integration of the network. In a related study by Teixeira et al. \cite{teixeira2017learning}, both \acp{DAE} and their stacked configurations were applied to distill crucial features and pinpoint genes relevant to TC diagnosis.
+
+\vskip2mm
+
+
+\subsubsection{CNN and RNN}
+\acp{CNN}, a branch of \ac{DL} models, stand out for their remarkable capabilities in tasks such as image analysis and processing, including the classification of medical images. Their efficiency in managing data structured in grids, like images where the spatial relationship between pixels is crucial, makes them particularly suited for these tasks.
+
+The focus on \ac{CNN}-based techniques for \ac{TCD}, especially in automating nodule identification and classification in \ac{US} imagery \cite{liu2019automated}, has grown significantly. The ConvNet model, known for its reliance on convolution operations vital for image recognition tasks \cite{ha2019deep}, is a prime example of this effort. Various architectures of \ac{CNN} such as 
+VGG \cite{guan2019deep}, 
+AlexNet \cite{qiao2021deep}, 
+LeNet \cite{zhang2020detection}, 
+Squeeze Net \cite{tekchandani2021severity}, GoogLeNet \cite{chi2017thyroid}, 
+DenseNet \cite{ke2020development}, ResNet \cite{cox2020hyperparameter} and  are celebrated for their inclusion of convolutional, pooling, and fully connected layers.
+
+In a notable study by Li et al. \cite{li2019diagnosis}, the efficacy of \ac{CNN} models in predicting TC was investigated, utilizing a dataset of 131,731 \ac{US} images from 17,627 patients. Xie et al. \cite{xie2019thyroid} implemented models such as Inception-Resnet, Inception, and VGG16 to differentiate malignant from benign tissues in 451 images of thyroid from the DDTI dataset, employing image augmentation to mitigate data limitations prior to classification. Moreover, Koh et al. \cite{koh2020diagnosis} assessed the diagnostic accuracy of \ac{DCNN} models against that of expert radiologists for identifying thyroid nodules in \ac{US} images, using a dataset of 15,375 images and showcasing the CNNE1 and CNNE2 models derived from \ac{DCNN} for differentiating between malignant and benign nodules. Liang et al. \cite{liang2020convolutional} introduced a \ac{DL}  based on \ac{CNN} for classifying and detecting  thyroid and nodules of breast, comparing its performance with traditional \ac{US} imaging results. Figure \ref{fig5} depicts the recent advancements in classifying TC via \ac{CNN}-based methods.
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.75]{fig5.pdf}
+\caption{Synopsis of \ac{CNN}-driven research in TC diagnosis with percentages for accuracy, sensitivity, and specificity.}
+\label{fig5}
+\end{figure}
+
+
+
+\Acp{RNN} belong to a category of \acp{ANN} characterized by connections between units forming a directed graph across temporal sequences. This structure allows them to leverage internal memory, making them adept at handling inputs of varying lengths. Consequently, \acp{RNN} excel in tasks that require understanding temporal dependencies, such as speech recognition, language translation, and time-series analysis.
+
+Within the realm of thyroid carcinoma classification, \acp{RNN} offer promising capabilities for analyzing data that is sequential or time-sensitive. This includes observing the evolution of clinical symptoms over time, tracking changes in tumors using successive medical images or studying fluctuations in gene expression associated with the onset of TC. For example, Chen et al. (2017) utilized a hierarchical \ac{RNN} structure to categorize thyroid nodules by analyzing historical \ac{US} reports \cite{chen2017thyroid}. Their model comprises three layers of \ac{LSTM} networks trained independently. The findings from their study suggest that this hierarchical \ac{RNN} approach surpasses conventional models such as SVM + Unigrams, SVM + Bigrams, CNN, and LSTM in accuracy, computational efficiency, and robustness. These benefits are attributed to the \acp{RNN}'s memory mechanisms, which permit the retention of information from previous states through feedback loops, thereby making \acp{RNN} highly effective for cancer detection applications.
+
+\vskip2mm
+
+\subsubsection{RBM and GAN}
+
+
+\Acp{RBM} feature a bipartite architecture with two layers: a visible layer for input data and a hidden layer for processing. The defining characteristic of \acp{RBM} is the absence of intra-layer connections, limiting connections to between-layer nodes only. This restriction simplifies the training process, as each node in one layer exclusively connects to all nodes in the opposite layer. Vairale et al. utilized \acp{RBM} to craft a customized fitness recommendation system for individuals with thyroid issues, demonstrating their practical application \cite{vairalephysical}. As generative models within the \acp{ANN} spectrum, \acp{RBM} are notable for their bidirectional nature and unsupervised learning capabilities, involving a visible layer of binary variables and a hidden layer of interrelated binary variables, with the learning mechanism heavily reliant on statistical methods.
+
+
+
+
+
+
+\ac{ML} framework is composed of two key elements: a generator and a discriminator. The generator's function is to convert a random input vector into a data point that fits within the space of the dataset. Conversely, the discriminator serves as a binary classifier, tasked with assessing whether input data, originating either from the training dataset or produced by the generator, is genuine. \ac{GAN} have found extensive applications in medical diagnosis, notably in the detection of \ac{TN} \cite{yang2019dscgans, yoo2020generative}.
+
+\subsubsection{PM and EM}
+
+\vskip2mm
+
+\acp{PM}, which include \acp{BN}, are crucial in both computer science and statistics for depicting uncertainties and the complex interrelations among variables. In the domain of computer science, these models are integral for decision-making processes in \ac{ML}, where they are used to quantify uncertainties and map out intricate dependencies among data points. Bayesian networks, a subset of probabilistic models, employ directed acyclic graphs to illustrate the relationships between variables, proving invaluable in scenarios that require reasoning in uncertain conditions, making predictions, and dealing with partial information. Within the realm of statistics, probabilistic models are essential for analyzing data, employing probabilistic principles to glean significant insights and estimate parameters, thus deepening our comprehension of multifaceted systems. Bayesian networks have been successfully applied in the medical field to differentiate between benign and malignant \ac{TN} \cite{liu2011bayesian, liu2009controlled}, as well as in diagnosing diseases such as thyroid, hepatitis, and breast cancer \cite{ashraf2012hybrid}.
+
+
+In the realm of oncology research, tackling the intricacies of cancer datasets and enhancing the accuracy of detection frequently involves the use of ensemble methods. This strategy splits the dataset into several subsets, upon which a variety of \ac{ML} algorithms are applied in parallel. The insights gained from these individual algorithms are subsequently merged to derive a comprehensive diagnosis. The main goal behind adopting ensemble methods is to forge a superior predictive model tailored for the detection of TC. Such an approach has been validated in multiple studies, including a significant one conducted by Chandran et al. \cite{chandran2021diagnosis}, where the authors underscored the contribution of ensemble methods to a more profound data comprehension and heightened diagnostic accuracy.
+
+\subsubsection{Bagging and Boosting}
+Within the domain of \ac{TCD}, Bagging stands out as a key ensemble learning strategy aimed at augmenting the precision and reliability of \ac{ML} models. By mitigating variance and preventing overfitting, this technique is extensively used, particularly with decision trees, across various approaches. The primary objective of Bagging is to bolster the efficacy of weaker classifiers, making it particularly valuable in the context of screening for TC.
+
+\vskip2mm
+
+%\noindent\textbf{(a) \Acf{BA}:} 
+
+Bagging is a notable ensemble learning approach in \ac{TCD}, aimed at boosting the accuracy and consistency of \ac{ML} algorithms. This technique achieves its objectives by lowering variance and offering protection against overfitting. It finds broad application in a variety of methods, with a particular emphasis on decision trees. The main goal of Bagging is to improve the effectiveness of weaker classifiers in the context of TC screening. In their research, Chen et al. \cite{chen2020diagnosis} presented \ac{FB} as an ensemble learning strategy designed to reduce the correlation between models in an ensemble. \ac{FB} accomplishes this by training each model on randomly selected feature subsets from the dataset, rather than using the full set of features. The utility of \ac{FB} is demonstrated in its ability to distinguish between benign and malignant cases of TC \cite{himeur2021artificial}. Within the scope of \ac{USL}, meta-algorithms play a crucial role in reducing variance and improving the performance of weak classifiers, effectively converting them into robust classifiers \cite{mehta2019high}.
+
+In the context of boosting, Pan et al. in their study \cite{pan2016improved} employed a novel method called AdaBoost to identify \ac{TN}, utilizing the widely recognized UCI dataset. The classification was performed using the random forest method, with \ac{PCA} employed to retain data variance. Chen et al. \cite{chen2016xgboost}, the \ac{XGBoost} algorithm was highlighted as a powerful implementation of gradient-boosted decision trees, with its application extending across multiple research areas. This includes usage in civil engineering \cite{lim2019xgboost}, time-series analysis \cite{ji2019xg}, sports and health monitoring \cite{guo2019xgboost}, and the prediction of ischemic stroke readmission \cite{xu2019extreme}. Specifically, in the context of TC, the \ac{XGBoost} algorithm was employed by researchers to distinguish between benign and malignant \ac{TN} \cite{chen2020computer}, offering a solution to the problem of obtaining accurate diagnoses without the need for large datasets that \ac{DL} models usually require.
+
+Table \ref{table:2} serves as an overview of various research initiatives aimed at identifying both benign and malignant forms of TC It outlines the classifiers used, diseases focused on, datasets applied, research goals, and metrics for assessment. This table helps categorize the \ac{AI} techniques applied in \ac{TCD}, underlining their key roles in the domain.
+
+
+
+
+
+\begin{table}[t!]
+\caption{Summary of studies on identifying benign and malignant TC, sorted by reference. }
+\label{table:2}
+\scriptsize
+\begin{tabular}{
+m{0.5cm}
+m{0.3cm}
+m{0.3cm}
+m{0.3cm}
+m{0.3cm}
+m{0.3cm}
+m{0.3cm}
+m{1.3cm}
+m{1.3cm}
+m{1.3cm}
+m{1.3cm}
+m{2.3cm}
+m{2.3cm}
+}
+\hline 
+
+Ref. & \multicolumn{2}{c}{AI Tech.} & \multicolumn{3}{c}{Classifier} & & Objective & DD & Dataset & APP & SV \\
+\cline{2-3}
+\cline{4-7}
+ & ML& DL & CNN & SVM & ELM & Other & & & & &   \\  \hline
+
+\cite{sajeev2020thyroid} & & \cmark & \cmark & & & & C & TC & PD & Omics & 10068 images \\
+
+\cite{soulaymani2018epidemiological} & & \cmark & & & & \cmark & C & TC & PD & NA & NA \\ 
+
+\cite{chandel2016comparative} &  \cmark & & & & & \cmark & C & TD & PD & US & 7200 instances \\ 
+
+\cite{ma2010differential} &  \cmark & & & \cmark & & & C & TC & PD & US & 92 subjects  \\
+
+\cite{yadav2020prediction} &  \cmark & & & & & \cmark & C & TC & UCI & US & 3739 patients \\ 
+
+\cite{dharmarajan2020thyroid} &  \cmark & & & & & \cmark & C & TC & NA & US & NA \\ 
+
+\cite{yadav2019decision} &  \cmark & & & & & \cmark & C & TC & UCI & US & 499 patients \\ 
+
+\cite{zhao2015logistic} & \cmark & & & & & \cmark & C & TC & PD & US & 63 patients \\
+
+\cite{yazdani2018factors} & \cmark & & & & & \cmark & C & TN & PD & US & 33,530 patients \\ 
+
+\cite{mahurkar2017normalization} &  \cmark & & & & & \cmark & C & TC & UCI & US & 215  instances \\ 
+
+\cite{yang2019information} &  \cmark & & & & & \cmark & C & TC & PD & US & 734 cases \\ 
+
+\cite{li2012computer} & \cmark & & & & \cmark & & C & TD & UCI & US & 215 patients \\
+
+\cite{ma2018efficient} & \cmark & & & & \cmark & & C & TD & UCI & US & 215 patients  \\ 
+
+\cite{xia2017ultrasound} & \cmark & & & & \cmark & & C & TD & PD & US & 187 patients \\
+
+\cite{rao2019thyroid} & \cmark & & & & & \cmark & C & TD & PD & US & 7200 samples  \\ 
+
+\cite{hosseinzadeh2020multiple} & \cmark & & & & & \cmark & C & TD & UCI & US & 7200  patients \\ 
+
+\cite{erol2008radial} & \cmark & & & & & \cmark & C & TD & PD & US & 487 patients \\ 
+
+\cite{ferreira2018autoencoders} &  & \cmark &  & & & \cmark & C & PTC & TCGA & US & 18985 features \\ 
+
+\cite{teixeira2017learning} &  &\cmark & & & & \cmark & C & PTC & TCGA & Omics & 510 samples \\
+
+\cite{li2019diagnosis} &  & \cmark & \cmark & & & & C & TC & PD & US & 17627 patients \\ 
+
+\cite{xie2019thyroid} &  & \cmark & \cmark & & & & C & TC & PD & US & 1110 images \\ 
+
+\cite{liang2020convolutional} &  & \cmark & \cmark & & & & C, P & TN & PD & US & 537 images \\ 
+
+\cite{chen2017thyroid} &  & \cmark & & & & \cmark & C & TN & PD & US & 13592 patients  \\ 
+
+\cite{vairalephysical} &  & \cmark & & & & \cmark & C & TD & PD & Fitness & 94 users \\
+
+\cite{liu2011bayesian} &  \cmark & & & & & \cmark & C & TD & UCI & US & 93 adult patients  \\ 
+
+\cite{liu2009controlled} & & \cmark & & & & \cmark & C & TC & NA & US & 37 patients \\ 
+
+\cite{chen2020diagnosis} & & \cmark & & & &\cmark & C & TN & PD & US & 1480 patients \\ 
+
+\cite{thomas2020aibx} & & \cmark & \cmark & & & & C & TC & PD & Omics & 482 images \\
+
+\cite{kezlarian2020artificial} & & \cmark & \cmark & & & & NA & PTC, FTC & NA & FNAB & NA \\ 
+
+\cite{sanyal2018artificial} &  & \cmark & \cmark & & & & C & PTC & PD & FNAB & 370 MPG \\ 
+
+\cite{yoon2020artificial} &  & \cmark & \cmark & & & & P & PTC & PD & FNAB & 469 patients \\ 
+
+\cite{nguyen2020ultrasound} & & \cmark & \cmark & & & & C & TC & DDTI & US & 298 patients \\ 
+
+\cite{liu2017classification} &  & \cmark & \cmark & & & & C & TC & PD & US & 1037 images \\ 
+
+\cite{abdolali2020automated} &  & \cmark & \cmark & & & & P & TN & PD & US & 80 patients \\ 
+
+\cite{li2018fully} &  & \cmark & \cmark & & & & P & TN & PD & US & 300 images \\ 
+
+\cite{kim2016deep} &  & \cmark & \cmark & & & & C & TC & PD & US & 459 labeled \\ 
+
+\cite{ma2019thyroid} & & \cmark & \cmark & & & & C & TD & ImageNet & US & 2888 samples  \\ 
+
+\cite{chai2020artificial} &  & \cmark & & & & \cmark & NA & TC & NA & US & NA \\ 
+
+\cite{song2019ultrasound} &  & \cmark & & & & \cmark & C & TC & PD & US & 1358 images \\ 
+
+\cite{barczynski2020clinical} & \cmark & & & & & \cmark & C & TC & PD & Surgery & 50 patients \\ 
+
+\cite{choi2017computer} & \cmark & & & & & \cmark & C & TC & PD & US & 89 patients \\ 
+
+\cite{fragopoulos2020radial} & \cmark & & & & & \cmark & C & TD & PD & Cyt & 447 patients \\ 
+
+\cite{savala2018artificial} & \cmark & \cmark & & & & \cmark & C & FTC & PD & FNAB & 57 smears \\ 
+
+\cite{li2021artificial} &\cmark & \cmark&  & & & \cmark & NA & FTC & NA & FNAB & NA \\ 
+
+\cite{zhao2019assessment} &\cmark & \cmark & & & & \cmark & P & TC & TCGA & Hist& 482 samples \\ 
+
+\cite{wildman2019using} & \cmark & \cmark & & & & \cmark & C & TC & PD & FNAB & 1264 patients \\
+
+\cite{wang2019automatic} &\cmark & \cmark  & & & & \cmark & C & TN & PD & US & 276 patients \\ 
+
+\cite{ozolek2014accurate} &  \cmark & & & & & \cmark & C, P & FTC & PD & Hist & 94 patients \\ 
+
+\cite{wang2010detection} & \cmark & & & \cmark & & & C & FTC & PD & Hist & 43 nuclei \\ 
+
+\cite{zhu2019deep} &  \cmark & & & \cmark & & & C & TN & PD & US & 467 TN  \\  
+
+\cite{bhalla2020expression} &  \cmark & & & \cmark & & & C & PTC & TCGA & Omics & 500 patients  \\
+
+\cite{dolezal2020deep} &  & \cmark & & & & \cmark & PTC & TCGA & Omics & 115 slides & NA \\ 
+
+\cite{daniels2020machine} &  \cmark & & & & & \cmark & C & TN & PD & Omics & 121 patients \\ 
+
+\hline
+\end{tabular}
+\begin{flushleft}
+Abbreviation: Application (APP), Detected disease (DD), Thyroid cancer (TC), Subjects for validation (SV), Private data (PD), Classification (C), Prediction (P), Segmentation (S), Cytopathological (Cyt), Histopathological (Hist),
+Microphotographs (MPG).
+\end{flushleft}
+\end{table}
+
+
+\section{Standardized assessment criteria and commonly used datasets}  \label{sec5}
+\subsection{Metrics}
+
+In this segment, we explore the standard metrics commonly utilized for evaluating \ac{TD} detection performance. These metrics act as critical benchmarks for measuring the success of methodologies, underscoring the significance of choosing the right metrics to assess \ac{ML} models. A variety of \ac{DL} metrics are used to determine the efficiency of the suggested method in identifying \ac{TD}. It is important to note that certain metrics have been previously addressed in \cite{kheddar2023deepSteg}. The other metrics, particularly designed for image processing applications in \ac{TD}, are concisely outlined in Table \ref{table:3}. Figure \ref{fig6} outlines the \ac{AI}-based techniques for \ac{TCD}.
+
+\clearpage
+
+\begin{center}
+\scriptsize
+\begin{longtable}[!t]{m{0.5cm}m{3cm}m{4cm}m{7cm}}
+\caption{Summary of the metrics for classification and regression employed in assessing \ac{AI}-driven methods for \ac{TCD}.}
+\label{table:3}\\
+\hline
+&Metric & Mathematical formula & Description\\ \hline
+\endfirsthead
+\multicolumn{3}{c}{{Table \thetable\ (Continued)}} \\
+\hline
+&Metric & Mathematical formula & Description \\ \hline 
+\endhead
+\hline
+\endfoot
+
+\multirow{4}{*}{\rotatebox{90}{Classification and Regression }}& Specificity  & $\frac{T_{N}}{T_{N}+F_{P}}100\%$ &This metric represents the proportion of accurately predicted negative samples out of all the negative samples.  \\
+
+
+& \Acf{RMSE}  & $\left( \sqrt{1-\left( ER\right) ^{2}}\right) \times SD$  & This is the standard deviation of the predicted errors between the training and testing datasets, and a lower value indicates the classifier's excellence.  \\
+
+
+& Jaccard similarity index (JSI)  & $\frac{\left\vert A\cap B\right\vert }{\left\vert A\cup B\right\vert }= \frac{T_{P}}{T_{P}+F_{P}+F_{N}}$ & Paul Jaccard introduced this method to measure both the similarity and diversity among samples.  \\
+
+
+& Volumetric overlap error (VOE)  & $\frac{F_{P}+F_{N}}{T_{P}+F_{P}+F_{N}}$  & Assess the likeness between the segmented area and the ground truth area. VOE quantifies the level of overlap between these two regions and is calculated as the ratio of the combined volume of the segmented and ground truth regions to the volume of their intersection.  \\
+
+& Mean absolute error (MAE)  & $\frac{1}{N}\sum\limits_{i=1}^{N}\left\vert a_{i}-p_{i}\right\vert$  & This measure indicates the average of the disparities between the real values and the predicted values.  \\[0.3cm]
+
+\hline \\
+& Standard deviation (SD)  & $\sqrt{\sum \left( x-\mu \right)^{2}/N}$  & It quantifies the degree of variability or spread within a dataset.  \\
+
+\multirow{4}{*}{\rotatebox{90}{Statistical}} & Correlation (Corr)  & $(\sum ((x-\mu x)\cdot (y-\mu y)))/(\sqrt{(\sum (x-\mu x)^{2})}\cdot \sqrt{(\sum (y-\mu y)^{2}))}$  & It characterizes the extent of correlation or connection between two or more variables.   \\
+
+& \acf{MRR}  & $MRR=\frac{1}{\left\vert Q\right\vert }\sum_{i=1}^{\left\vert Q\right\vert }%
+\frac{1}{rank_{i}}$ &The \ac{MRR} is a statistical measure used to assess the average reciprocal rank of outcomes for a set of queries, as explained in \cite{lasseck2018audio}. Here, "rank$_{i}$" denotes the position at which the first relevant document appears for the i-th query.\\
+
+& Kappa de Cohen & $k=\frac{\Pr \left( a\right) -\Pr \left( e\right) }{1-\Pr \left( e\right) }$  & This metric gauges the level of agreement between two assessors, considering chance as a baseline.   \\[0.3cm]
+
+\hline
+
+ & \Acf{PSNR}  & $10\cdot \log_{10}((MAX_{I}^{2})/MSE)$  & It quantifies the proportion between the highest achievable signal power and the power of the noise that impacts the faithfulness of its portrayal. \\
+
+\multirow{9}{*}{\rotatebox{90}{Computer vision  
+}} & Visual information fidelity (VIF)  & $\frac{\sum_{j}I(C^{j};F^{j}/s^{j})}{\sum_{j}I(C^{j};E^{j}/s^{j})}$  & It assesses the excellence of a reconstructed or compressed image or video in relation to the original signal. This evaluation considers how much visual information is retained in the processed image or video, accounting for the image's spatial and frequency attributes.  \\
+
+
+& Normalized cross-correlation (NCC)  & $\frac{\sum_{i=1}^{M}\sum_{i=1}^{N}(I(i,j)-R(i,j))^{2}}{\sum_{i=1}^{M}\sum_{i=1}^{N}I(i,j)^{2}}$  & Assess the likeness between two images (or videos) by subtracting the mean value from each signal and subsequently normalizing the signals by dividing them by their standard deviation. Finally, compute the cross-correlation between the two normalized signals. \\
+
+
+& Structural content (SC)  & $\frac{\sum_{i=1}^{M}\sum_{j=1}^{N}I(i,j)^{2}}{\sum_{i=1}^{M}\sum_{j=1}^{N}R(i,j)^{2}}$  & An elevated structural content value indicates that the image possesses lower quality.  \\
+
+
+& Noise visibility function (NVF)  & $\mathrm{Normalization}\left\{ \frac{1}{1+\delta_{bloc}^{2}}\right\}$    & This calculates the texture information within the image, where $\delta_{bloc}$ represents the variance in luminance. \\
+
+
+& Visual signal to noise ratio (VSNR)  & $10\log_{10}\left( \frac{C^{2}(I)}{(VD)^{2}}\right)$   & This approach sets distortion thresholds using contrast computations and wavelet transforms. VSNR is deemed excellent if distortions are below the threshold. It uses RMS contrast ($C(I)$) and visual distortion ($VD$) as defined in \cite{chandler2007vsnr}.  \\
+
+
+& Weighted signal-to-noise ratio (WSNR)  & $10\log_{10}\left( \frac{\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}\left\vert A(u,v) C(u,v) \right\vert ^{2}}{\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}\left\vert A(u,v) -B(u,v) C(u,v) \right\vert ^{2}}\right)$   & It relies on the contrast sensitivity function (CSF), with $A(u,v)$, $B(u,v)$, and $C(u,v)$ denoting the Discrete Fourier Transforms (2D TFD), as described in \cite{zhou2020weighted}.  \\
+
+& Normalized absolute error (NAE):  & $\frac{\sum_{i=1}^{M}\sum_{j=1}^{N}\left\vert I(i,j)-R(i,j) \right\vert }{\sum_{i=1}^{M}\sum_{j=1}^{N}\left\vert I(i,j) \right\vert }$  & This metric assesses the precision of an \ac{ML} model's predictions by quantifying the discrepancy between predicted and actual values relative to the range of actual values.  \\
+
+
+& Laplacian mean square error (LMSE)  & $\frac{\sum_{i=1}^{M}\sum_{j=1}^{N}\left[ L(I(i,j)) -L(R(i,j)) \right]^{2}}{\sum_{i=1}^{M}\sum_{j=1}^{N}\left[ L(I(i,j)) \right]^{2}}$    & It is a modified version of Mean Square Error (MSE), utilizing the Laplacian distribution instead of the Gaussian distribution. $L(I(i,j))$ represents the Laplacian operator. \\[0.5cm]
+\hline
+\end{longtable}
+\end{center}
+
+\subsection{Datasets for TC} \label{sec3}
+In the context of TC research, numerous datasets have been developed to support the testing and validation of \ac{ML} algorithms and models. This step is crucial, given the significant challenge of compiling these datasets within the endocrine \ac{ML} field. Table \ref{table:4} lists examples of publicly available \acp{TCD} that are used for detecting TC.
+
+\begin{table}[tbph]
+\scriptsize
+\caption{Instances of publicly available \acp{TCD} utilized in the identification of TC. }
+\label{table:4}
+\begin{center}
+
+\begin{tabular}{m{0.5cm}m{1cm}m{10cm}m{4cm}}
+\hline
+{ Ref.} & { TCD} & { Description} &  { Link}\\ \hline
+
+{ \cite{d1}} & { THO} &  This dataset is designed to investigate the fundamental causes and effects of \ac{TD} through the application of diverse omics approaches, including genomics, epigenomics, transcriptomics, proteomics, and metabolomics. & \href{https://transfer.sysepi.medizin.uni-greifswald.de/thyroidomics/}{Visit THO datasets}\\
+%\url{https://transfer.sysepi.medizin.uni-greifswald.de/thyroidomics/} 
+
+{ \cite{d2}} & { TDDS} & The dataset used for classification encompasses 5 features and 7200 instances, featuring a mix of 15 categorical and 6 numerical attributes. The classes within this dataset comprise hypothyroid, hyperfunction, and subnormal functioning. & \href{https://archive.ics.uci.edu/ml/datasets/thyroid+disease}{Visit TDDS datasets}\\
+%\url{https://archive.ics.uci.edu/ml/datasets/thyroid+disease} 
+
+\cite{d3} & KEEL &  The KEEL dataset offers a collection of benchmarks for assessing the performance of different learning approaches, including semi-supervised classification and \ac{USL}. It encompasses 21 features, 7200 instances, and 3 classes. & \href{https://sci2s.ugr.es/keel/dataset.php?cod=67}{Visit KEEL datasets}\\
+%\url{https://sci2s.ugr.es/keel/dataset.php?cod=67}
+
+
+\cite{d4} & GEO & The GEO database serves as a repository for genomics data. It is specifically structured to archive gene expression datasets, arrays, and sequences within \ac{GEO}. & \href{https://www.ncbi.nlm.nih.gov/geo/}{Visit GEO datasets} \\
+%\url{https://www.ncbi.nlm.nih.gov/geo/}
+
+
+{ \cite{d5}} & { DDTI} &  The \ac{DDTI} dataset acts as an essential tool for both researchers and novice radiologists aiming to create algorithm-driven \ac{CAD} systems for analyzing \ac{TN}. It contains 99 cases and 134 images. & \href{http://cimalab.intec.co/?lang=en&mod=project&id=31}{Visit DDTI datasets}\\
+%\url{http://cimalab.intec.co/?lang=en&mod=project&id=31}
+
+{ \cite{d6}} & { NCDR} &  The \ac{NCDR} functions as a repository for healthcare and research purposes, aimed at documenting every reported instance of cancer within England. The data originates from the Office for National Statistics. & \href{http://www.ncin.org.uk/about_ncin/}{Visit NCDR datasets} \\
+%http://www.ncin.org.uk/about_ncin/
+
+{ \cite{d7}} & { PLCO} & The National Cancer Institute backs the \ac{PLCO} cancer screening trial, which focuses on identifying the primary factors influencing cancer incidence in both genders. This trial encompasses records from 155,000 participants and includes comprehensive studies on TC incidence and mortality. & \href{https://prevention.cancer.gov/major-programs/prostate-lung-colorectal-and-ovarian-cancer-screening-trial}{Visit PLCO datasets}\\
+
+%https://prevention.cancer.gov/major-programs/prostate-lung-colorectal-and-ovarian-cancer-screening-trial
+
+\\ \hline
+\end{tabular}%
+% \begin{flushleft}
+% \small Abbreviations: ThyroidOmics (THO); Thyroid cancer datasets (TCDs); Image types (IT); Image format (IF); Dataset access (DA); Male (M); Female (F).
+% \end{flushleft}
+\end{center}
+\end{table}
+
+
+
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[height=8.5cm, width=8cm]{fig6.pdf}
+\caption{Summary of techniques for the \ac{TCD} based in \ac{AI} \cite{li2020classification, ko2019deep, lee2019automatic, sharifi2021comparison, vairale2021recommendation, shen2020diagnosis, wu2020machine, borzouei2020diagnosing, li2020arb}.} 
+\label{fig6}
+\end{figure}
+
+
+\section{Features selection and extraction} \label{sec4}
+This method evaluates the importance of different attributes by analyzing the relationships between features linked to cancer. In their research, Cui et al. \cite{cui2018ovarian} introduced a feature selection technique that leverages the Relief algorithm to enhance its performance.
+
+\subsection{Selection methods}
+This part focuses on highlighting the methods commonly employed in the classification process. The primary goal is to identify and select relevant features that can enhance the accuracy of classification, simultaneously eliminating non-essential variables.
+
+\noindent \textbf{(a)  \Ac{IG}:} This method simplifies the classification of TC attributes by assessing the probability of cancer presence through the comparison of entropy levels pre and post-evaluation. Generally, a greater gain value signifies reduced entropy. Although\ac{IG} provides numerous advantages, it also comes with specific limitations and challenges:
+
+
+\begin{itemize}
+    \item \textbf{Advantages:} This approach enhances model performance by identifying relevant features, reducing data clutter, and improving accuracy. By simplifying the feature set, it makes complex models more manageable and speeds up both training and inference, which is vital for real-time applications. It helps prevent overfitting through the removal of non-essential attributes, leading to models that are simpler and easier to understand, thereby aiding in decision-making processes. Additionally, it lowers costs by focusing on critical data, allows for easier application to new datasets, and provides insights into the significance of features for a better understanding.
+    
+    \item \textbf{Disadvantages:} Typically, this method assesses features on an individual basis, which may lead to missed crucial interactions between them. It often favors categorical features over continuous ones, especially in the absence of proper discretization. This approach risks ignoring the broader context, potentially leading to a substantial loss of information. Moreover, it can show a preference for majority classes and may not be well-suited to certain model types. Handling data with many dimensions poses difficulties, and the arbitrary decision-making in setting thresholds can affect the results.
+\end{itemize}
+
+The \ac{IG} technique has found extensive application in various aspects of cancer diagnosis. Its applications range from isolating genes that provide meaningful insights to enhance the precision of cancer classification, to determining treatment variables for breast cancer through entropy metrics. It has also been used for the systematic analysis and structuring of breast cancer-related medical data, compressing gene dimensions in datasets involving multiple cancer types, and removing genes that are either irrelevant or redundant in cancer studies. Moreover, the integration of \ac{IG} with \ac{SVM}, known as the IG-SVM method, has been adopted, where the \ac{IG} outcomes serve as input for the LIBSVM classifier, illustrating its versatility in feature selection and enhancement of classification processes.\\
+
+\noindent \textbf{(b)  \Acf{CFS}:}
+The \ac{CFS} technique is commonly applied to examine the relationships between various cancer-related attributes. Although \ac{CFS} offers a range of advantages, there are also notable limitations associated with its use in feature selection within \ac{ML}:
+
+\begin{itemize}
+    \item \textbf{Advantages:}  \ac{CFS} is valued for its straightforwardness, ability to identify linear correlations, capability to decrease dimensionality, and potential to boost model efficiency and clarity. This method supports quicker model training and prediction, exhibits robustness against outliers, and accommodates the incorporation of expert insights. Moreover, it enhances the effectiveness of other methodologies, provides opportunities for visualization and deeper understanding, lowers expenses, and enables the conduct of sensitivity analyses.
+    
+    \item \textbf{Disadvantages:} It's important to recognize that this approach may miss complex, nonlinear relationships between features and the outcome variable. Additionally, it can be vulnerable to multicollinearity, where features are highly correlated with each other, requiring additional preprocessing steps. Careful consideration of the specific issue and dataset at hand is crucial when applying this method.
+\end{itemize}
+
+The \ac{CFS} algorithm has been widely incorporated into feature selection strategies to enhance classification outcomes across various studies. For example, Ashraf et al. employed it for analyzing datasets related to thyroid, hepatitis, and breast cancer from the UCI \ac{ML} repository, as documented in \cite{ashraf2013feature}. A hybrid methodology that integrated learning algorithm tools with feature selection techniques for diagnosing diseases, including \ac{CFS} as a key element, was introduced in \cite{ashraf2012hybrid}. In \cite{al2019gene}, researchers utilized \ac{CFS} for feature selection within microarray datasets, successfully minimizing data dimensionality and pinpointing significant genes. A combined model that blended \ac{CFS} with binary particle swarm optimization (BPSO) was developed in \cite{jain2018correlation} for cancer classification, applied to 11 standard microarray datasets. Additionally, the CSVM-RFE technique, which integrates \ac{CFS}, was applied in \cite{rustam2018correlated} to diminish the feature set in cancer research by removing non-essential elements. Moreover, \ac{CFS} methodologies were utilized in \cite{bhalla2020expression} for the identification of key RNA expression features.\\
+
+\noindent \textbf{(c) Relief (RA):}
+The Relevance Analysis (RA) is an effective technique used in feature selection, evaluating the discriminative power of features between classes through score assignment. RA has its own array of advantages and disadvantages:
+
+\begin{itemize}
+    \item \textbf{Advantages:} Relief offers several benefits in feature selection, including its robustness against noisy data, capability to handle both continuous and categorical features, and ability to detect feature interactions without assuming their independence. It also reduces bias in datasets with imbalanced classes, eliminates the need for model training, and facilitates sensitivity analysis. These attributes make Relief an advantageous tool for feature selection in various data scenarios.
+    
+    \item \textbf{Disadvantages:}  Relief exhibits significant computational complexity, affecting its applicability to large datasets. Its performance is sensitive to parameters, particularly the choice of the number of nearest neighbors (k), which can be challenging to optimize. The stability of Relief is also affected, with variations in the dataset leading to different selections of features. Furthermore, it is designed solely for use within supervised learning contexts, struggles with non-metric features, and necessitates adaptations for handling multiclass classification scenarios.
+    
+\end{itemize}
+
+This method evaluates the importance of different features by exploring the relationships between variables related to cancer. In their research, Cui et al. \cite{cui2018ovarian} suggested a feature selection strategy that employs the Relief algorithm to enhance its effectiveness.
+
+\subsection{Extraction methods}
+
+\noindent \textbf{(a) \Acf{PCA}:} \ac{PCA} has been widely recognized in numerous researches for its effectiveness in reducing data dimensionality and decoupling cancer-related features. \ac{PCA} is praised for its ability to decrease dimensions and reveal patterns, although it may compromise on interpretability and is optimally used with linear correlations. For example, Shankarlal et al. (2020) implemented \ac{PCA} to refine feature selection for TC via the \ac{DTCW} transformation \cite{shankarlal2020performance}. Soulaymani et al. (2018) investigated \ac{PCA}'s capability in distinguishing various TC subtypes, such as papillary, follicular, and undifferentiated types \cite{soulaymani2018epidemiological}. Additionally, O et al. (2019) assessed \ac{PCA} and linear discriminant analysis in the classification of Raman spectra for different TC subtypes \cite{o2019raman}. Selaru et al. (2004) also utilized \ac{PCA} on cDNA microarray data to explore the genetic underpinnings of breast cancers \cite{selaru2004unsupervised}.
+
+\noindent \textbf{(b)  Texture description:}
+Texture analysis is a highly regarded technique for extracting related data in TC segmentation, classification, and prognosis efforts. The scientific community has developed various texture analysis methods, including wavelet transforms, binary descriptors, and statistical descriptors, among others. Specifically, the \ac{DWT} has garnered significant interest for its exceptional capability in data decorrelation. Although texture analysis is beneficial for distinguishing textures, it can be affected by changes in lighting conditions and does not inherently understand semantic content, which may limit its application in complex visual tasks. Wavelet-based methods have been extensively applied in detecting TC. For example, Sudarshan et al. \cite{sudarshan2016application} applied wavelet techniques to identify cancerous areas in thyroid, breast, ovarian, and prostate tumors. Additionally, Haji et al. \cite{haji2019novel} used texture data for the diagnosis of thyroid nodule malignancy employing a 2-level 2D wavelet transform. Further contributions to this field are documented in studies such as \cite{yu2019transverse} and \cite{nguyen2019artificial}.
+
+\noindent \textbf{(c) \Acf{AC}:} The \ac{AC} model, a versatile framework often used in image processing, was initially introduced by Kass and Witkin in 1987. \ac{AC} is known for its ability to adjust to complex shapes, yet it faces challenges such as sensitivity to initial placements and issues with overlapping figures. Various strategies have been developed to address these challenges in contour segmentation using deformable curve models. These models have seen significant application in \ac{TCD}, as evidenced by research conducted by \cite{poudel2017active}, \cite{poudel20163d}, and \cite{nugroho2015thyroid}.
+
+\noindent \textbf{(d) LBP and GLCM:}
+\ac{LBP} are descriptors used in computer vision for identifying textures or objects in digital images. They are appreciated for their straightforwardness and ability to distinguish features effectively. However, \ac{LBP} may be vulnerable to noise and often requires tuning of parameters for optimal performance. The \ac{LBP} method was employed in \ac{TCD}, as illustrated in a study by Yu et al. \cite{yu2019transverse}. Furthermore, the integration of \ac{LBP} with \ac{DL} has been explored for distinguishing between benign and malignant \ac{TN}, as seen in the studies by Xie et al. \cite{xie2020hybrid} and Mei et al. \cite{mei2017thyroid}.
+
+The \ac{GLCM} serves as a tool to depict the occurrence frequency of pixel value pairs at a predetermined distance within an image. It is particularly useful for texture analysis and the identification of distinctive features. Nevertheless, \ac{GLCM} faces challenges such as sensitivity to image variations, high computational demands, and the need for careful parameter tuning. Song et al. \cite{song2015model} leveraged \ac{GLCM} for feature extraction to differentiate among various types of TC. Additionally, Dinvcic et al. \cite{dinvcic2020fractal} employed \ac{GLCM} in a comparative study to investigate the differences between patients with Hashimoto's thyroiditis-associated \ac{PTC} and those with Hashimoto's thyroiditis only.
+
+\noindent \textbf{(e) ICA:} In \ac{ICA}, data is decomposed into a set of independent contributing features to aid in feature extraction. \ac{ICA} is adept at identifying statistically independent components, making it valuable for tasks like source separation. Its strengths lie in uncovering non-linear relationships and facilitating data compression. Nonetheless, \ac{ICA} faces challenges due to assumptions about the data mixing process and can be difficult to interpret. \ac{ICA} is applied for disentangling multivariate signals into their separate constituents. In the research conducted by Kalaimani et al. \cite{kalaimani2019analysis}, \ac{ICA} was used to isolate 29 attributes as independent and significant features for categorizing data into hypothyroid or hyperthyroid groups through a \ac{SVM}.\\
+
+
+
+\noindent A portrayal of the techniques derived from \ac{DL} utilized in diagnosing \ac{TC} is provided in Table \ref{table:6}.
+
+
+\begin{table}[t!]
+\caption{Summary of features methods based on \ac{DL} conducted in the diagnosis of TC.}
+\label{table:6}
+\scriptsize
+
+\renewcommand{\arraystretch}{1.5} % Adjust the row height by 50%
+\begin{tabular}{
+m{5mm}
+m{10mm}
+m{10mm}
+m{14mm}
+m{100mm}
+}
+\hline
+
+
+
+
+{\small Ref.} & {\small Year} & {\small Classifier} & {\small Features} & {\small Contributions}\\ \hline
+
+{\small \cite{ahmad2017thyroid}} & 2017 & KNN & FC/IG &  Minimize data duplication and decrease processing duration. KNN addresses absent dataset values, while ANFIS receives the modified data as input. \\
+
+{\small \cite{nugroho2017classification}} & 2017 & \ac{SVM} & FC/CFS &  Retrieve the geometric and moment characteristics, while specific \ac{SVM} classifier kernels categorize the acquired features.\\
+
+
+
+{\small \cite{mourad2020machine}} & 2020 & CNN & FC/R &  Utilize both \ac{ML} techniques and feature selection algorithms, specifically Fisher's discriminant ratio, Kruskal-Wallis analysis, and Relief-F, for the examination of the SEER database. \\
+
+{\small \cite{song2022rapid}} & 2022 & CNN & FE/\ac{PCA} & This study mitigated the impact of imbalanced serum Raman data on prediction outcomes by employing an oversampling technique. Subsequently, the dimension of the data was reduced with \ac{PCA} before applying \ac{RF} and the Adaptive Boosting for classification.\\
+
+
+{\small \cite{acharya2012thyroscreen}} & 2012 & Boosting & FE/\ac{TD} & Integrate \ac{CAD} with \ac{DWT} and extract texture features. Utilize the AdaBoost classifier to classify images into either malignant or benign thyroid images based on the extracted features.\\
+
+{\small \cite{nugroho2021computer}} & 2021 & CNN & FE/AC & Improve image quality, perform segmentation, and extract multiple features, including both geometric and texture features. Each feature set is subsequently classified using MLP and \ac{SVM}, leading to the classification of either malignant or benign cases. \\
+
+{\small \cite{sun2020evaluation}} & 2020 & \ac{SVM} & FE/LBP & Deep features are obtained through \ac{CNN}, and they are merged with manually crafted features, which include \ac{HOG} and scale-invariant feature transforms, to generate combined features. These combined features are subsequently employed for classification via an \ac{SVM}. \\
+
+
+{\small \cite{liu2019value}} & 2019 & \ac{SVM} & FE/GLCM &  Apply a median filter to mitigate noise and outline the contours before feature extraction from thyroid regions, encompassing \ac{GLCM} texture features. Subsequently, employ \ac{SVM}, \ac{RF}, and Bootstrap Aggregating (Bagging) to differentiate between benign and malignant nodules. \\
+
+{\small \cite{kalaimani2019analysis}} & 2019 & \ac{SVM} & FE/ICA & A multi-kernel-based classifier is employed for thyroid disease classification.  \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{\ac{TCD} using vision transformers}
+
+\subsection{Detection techniques}
+Transformer models are a type of \ac{DL} model introduced in \cite{vaswani2017attention}. They have since become the foundation for many state-of-the-art \ac{NLP} and \ac{ML} models. Transformers are designed to handle sequential data, making them suitable for various tasks beyond NLP as well. Transformers in \ac{TCD} enable efficient analysis of medical data, including literature and patient records, offering high accuracy. They uncover patterns, risk factors, and diagnostic clues, aiding early detection. This technology enhances diagnosis speed, fuels data-driven research, and promises improved patient care and oncology advancements \cite{tran2023video, chi2023hybrid}. Several studies have proposed the use of \ac{DL} models, particularly transformer-based models, for detecting \ac{TC} from \ac{US} images. Here are some of these studies, for example, researchers in \cite{sharma2023framework} developed a diagnostic system using \ac{DL} (Deit, Swin Transformer, and Mixer-MLP) and metaheuristics to improve thyroid abnormality detection. They employed feature extraction and dimensionality reduction techniques, then evaluated multiple classifiers. The MEREC-TOPSIS MCDM method ranked the models, leading to the selection of the best-performing models for ensemble learning. The PCA+FOX optimization-based feature selection and random forest model achieved high accuracy on \ac{US} and histopathological datasets, surpassing existing methods. This innovative approach eases the burden on healthcare professionals by enhancing TC diagnosis. The study \cite{pathak2023extracting}, addressed the challenge of extracting important thyroid nodule characteristics from clinical narratives in \ac{US} reports using \ac{NLP}. A team of experts developed annotation guidelines and tested five transformer-based NLP models. Their GatorTron model, trained on a substantial text corpus, outperformed others, achieving the best F1-scores for extracting 16 thyroid nodule characteristics and linking them to nodules. This pioneering work enables improved documentation quality of thyroid \ac{US} reports and enhances patient outcomes assessment through electronic health records analysis. In \cite{bi2023bpat}, the study introduces a novel Boundary-preserving assembly Transformer UNet (BPAT-UNet) for precise \ac{US} thyroid nodule segmentation. This network incorporates a boundary point supervision module (BPSM) for boundary refinement and an adaptive multi-scale feature fusion module (AMFFM) for handling various scales of features. Additionally, an assembled transformer module (ATM) improves boundary constraints and small object detection. Results demonstrated significantly improved segmentation accuracy compared to classical networks, achieving Dice similarity coefficients of 85.63\% and 81.64\% and HD95 values of 14.53 and 14.06 on private and public datasets, respectively. Chen et al. \cite{chen2023joint}, introduces Trans-CEUS, a spatial-temporal transformer-based model for real-time microvascular perfusion analysis using CEUS as it shown in Figure \ref{fig7}. It combines dynamic swin-transformer and collaborative learning to accurately segment lesions with unclear boundaries, achieving a Dice similarity coefficient of 82.41\%. The model also attains a high diagnostic accuracy of 86.59\% for distinguishing malignant and benign \ac{TN}. This pioneering research highlights the effectiveness of transformers in CEUS analysis and offers promising outcomes for thyroid nodule segmentation and diagnosis from dynamic CEUS datasets.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\columnwidth]{fig7_a.pdf}\\
+(a)\\
+\includegraphics[width=10cm, height=3.5cm]{fig7_b.pdf}\\
+(b)\\
+\caption{ (a) The general framework of the suggested HEAT-Net, (b) Details of the swin-transformer block  \cite{chen2023joint}}.
+\label{fig7}
+\end{figure}
+
+\ac{DL} has been instrumental in medical image segmentation, particularly for thyroid glands in \ac{US} images. However, existing models face issues like the loss of low-level boundary features and limitations in capturing contextual features. In response, a hybrid transformer UNet (H-TUNet) is introduced in \cite{chi2023hybrid}. It combines a 2D Transformer UNet with a multi-scale cross-attention transformer and a 3D Transformer UNet with self-attention to improve representation and contextual information. The end-to-end network was evaluated on thyroid segmentation datasets, outperforming other methods in benchmark tests. H-TUNet shows promise for thyroid gland segmentation in \ac{US} sequences. Set classification involves predicting a single label from sets with multiple instances, like pathology slides or medical text data. State-of-the-art methods often use complex attention architectures to model set interactions. However, when labeled sets are limited, as in medical applications, these architectures are challenging to train. To tackle this issue, a kernel-based framework is introduced in \cite{dov2021affinitention}, connecting affinity kernels and attention architectures. This leads to simplified "affinitention" nets, which are applied to tasks like Set-Cifar10 classification, thyroid malignancy prediction, and patient text triage. Affinitention nets deliver competitive results, outperforming heuristic attention architectures and other methods. 
+jerbi et al. in 2023 \cite{jerbi2023automatic}, a \ac{DL} approach, incorporating \acp{CNN} and vision Transformers, was employed to classify thyroid \ac{US} images as either malignant or benign. A deep convolutional generative adversarial network (DCGAN) was used to address data scarcity and imbalance. Various models, including VGG16, EfficientNetB0, ResNet50, ViT-B16, and Hybrid ViT, were trained with both softmax and \ac{SVM} classifiers. The hybrid ViT model, with SVM classification, outperformed others, achieving a 97.63\% accuracy, showing promise for aiding doctors in diagnosing thyroid patients more effectively.
+
+\ac{US} is a valuable clinical screening tool, but segmenting lesions or organs in \ac{US} images is challenging due to artifacts and low contrast. In this study \cite{jiang2023hybrid}, the authors introduces a novel U-shape segmentation model (Figure \ref{fig8}) combining CNN and transformer structures to integrate local and long-range information. It uses coordinate residual blocks (CdRB) to encode position data, channel-enhanced self-attention-based transformers (ECAT) for global feature enhancement, and a dual attention module (CDAM) for feature correlation and edge accuracy. The method outperforms state-of-the-art methods across various datasets, demonstrating adaptability and robustness in \ac{US} image segmentation, potentially serving as a general segmentation tool.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\columnwidth]{fig8.pdf}
+\caption{An example of the basic structure of encoder HEAT-Net for TC segmentation \cite{jiang2023hybrid}.}
+\label{fig8}
+\end{figure}
+
+The study \cite{li2023fusing} addresses the challenge of accurately diagnosing malignant \ac{TN} through \ac{US} imaging. Existing \ac{CAD} methods often struggle to maintain precise shape information and capture long-range dependencies. The proposed Transformer fusing CNN Network (TCNet) utilizes a large kernel module (LKM) in a CNN branch for shape feature extraction and an enhanced Transformer module (ETM) in another branch for remote pixel connections. A Multiscale fusion module (MFM) integrates feature maps from both branches. Comparisons with other methods demonstrate TCNet's superiority and effectiveness in nodule segmentation. Hypoparathyroidism is a major concern post-TC surgery, affecting patients' quality of life. Identifying and locating parathyroid glands via \ac{US} images before surgery can help protect them. In \cite{liu2023dca} a dual-branch contextual-aware network (DCA-Net) with Transformer is proposed to reduce hypoparathyroidism incidence. It combines a Transformer for global context extraction and a feature encoder branch for local feature aggregation. A channel and spatial fusion module (CSFM) integrates information from both branches. The DCA-Net effectively addresses detail loss, establishing global and local feature dependencies. Experiments with an \ac{US} image dataset demonstrate superior performance compared to existing methods. The thyroid gland plays a crucial role in regulating the human body's functions, making the identification of \ac{TN} from \ac{US} images important for medical diagnosis. However, the automatic segmentation of these nodules is challenging due to their heterogeneous appearance and background similarities. This study \cite{ma2023amseg} presents a novel framework AMSeg based on Swin-Unet architecture presented in Figure \ref{fig9}, which employs multiscale anatomical features and late-stage fusion through adversarial training to address these challenges. Experimental results demonstrate the superiority of AMSeg in thyroid nodule segmentation, achieving high dice, Hd95, Jaccard, and precision values. This end-to-end network offers promise for clinical applications, potentially replacing manual segmentation methods.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.9\columnwidth]{fig9.pdf}
+\caption{ The Swin-Unet architecture \cite{ma2023amseg}.}
+\label{fig9}
+\end{figure}
+
+In this study \cite{nam2023bert}, the authors harnessed natural language processing with a \ac{BERT} classifier  to analyze unstructured clinical text data pertaining to recurrent papillary \ac{TC} (PTC) diagnosis. The \ac{BERT} model achieved exceptional performance, boasting a 98.8\% accuracy in binary PTC recurrence classification. This approach streamlines the handling of unstructured patient information, eliminating the need for labor-intensive data refinement, and holds significant promise for training \ac{AI} models in healthcare. The variability in features between benign and malignant \ac{TN}, particularly in TI-RADS level 3, can lead to inconsistent diagnoses and unnecessary biopsies. To address this in \cite{sun2023classification}, TC-ViT, a Vision Transformer-based model, utilizes contrast learning to enhance diagnostic accuracy and biopsy specificity. By incorporating global and local features, this model minimizes the distinction between nodules of the same category. Test results indicate an accuracy of 86.9\%, outperforming classical \ac{DL} models. TC-ViT offers automatic classification of TI-RADS 3 and malignant nodules in \ac{US} images, promising improved computer-aided diagnosis and precise analysis. Optical coherence tomography (OCT) can aid in distinguishing normal and diseased thyroid tissue during surgery, but interpreting OCT images is challenging. In this study \cite{tampu2023diseased} explored various \ac{DL} models for classifying thyroid diseases using 2D and 3D OCT data from 22 surgical patients with thyroid pathologies. The 3D vision transformer model achieved the best performance, with an MCC of 0.79 (accuracy of 0.90) for normal versus abnormal classification. Custom models also excelled on open-access datasets. These findings suggest that combining OCT with \ac{DL} can enable real-time, automatic identification of diseased tissue during thyroid surgery.
+
+Accurate segmentation of thyroid nodules in \ac{US} images is crucial for early TC diagnosis. Addressing the challenges posed by weak image edges and complex thyroid tissue structure, the study \cite{tao2022local} introduces a local and context-attention adaptive network (LCA-Net). It combines local features from convolutional neural networks and global context from transformers, improving edge information capture. The model incorporates specific modules to handle different nodule sizes and positions, enhancing generalization. LCA-Net outperforms existing models on public datasets, demonstrating its potential for precise thyroid nodule diagnosis in clinical settings.  In this study \cite{wang2023shared}, the authors focuses on improving the prediction of lymph node metastasis in papillary thyroid carcinoma by combining whole slide histopathological images (WSIs) and clinical data. They introduce a transformer-guided multi-modal multi-instance learning framework that effectively groups high-dimensional WSIs into low-dimensional feature embeddings and explores shared and specific features between modalities. The approach achieved an impressive AUC (area under the curve) of 97.34\% on their dataset, outperforming state-of-the-art methods by 1.27\%, highlighting its potential in improving precision medicine decisions based on multi-modal medical data fusion. Diagnosing lymph node metastasis in papillary thyroid carcinoma typically relies on analyzing large whole slide histopathological images (WSIs). To enhance accuracy, a novel transformer-guided framework is introduced in \cite{wang2022lymph}, leveraging transformers in three critical aspects. It incorporates a lightweight feature extractor, a clustering-based instance selection scheme, and a Transformer-MIL module for effective feature aggregation. The model further benefits from an attention-based mutual knowledge distillation (AMKD) paradigm. Experimental results on a WSI dataset outperform state-of-the-art methods by a significant margin, achieving a 2.72\% higher AUC. Xiao et al. in \cite{xiao2022contrast} aim to address the challenges of diagnosing TC, particularly in cases where \ac{US} images suffer from noise and artifacts, leading to a certain misdiagnosis rate in clinical practice. They highlight the need for further diagnosis using plain and contrast-enhanced \ac{CT} scans. While plain \ac{CT} provides valuable information, contrast-enhanced \ac{CT} offers better contrast and can reflect organ margin erosion, a crucial symptom for TC diagnosis. However, the latter relies on the use of a contrast agent and exposes the patient to ionizing radiation. To mitigate these challenges, the authors propose an improved Unet architecture. Their approach involves using a convolutional Transformer module to learn global information from high-dimensional features. They also incorporate a texture feature module to extract local texture information from plain \ac{CT} scans and integrate edge information obtained from superpixels as prior knowledge. The ultimate goal is to generate enhanced \ac{CT} images with clear texture and higher quality, providing a valuable tool for TC diagnosis without the need for contrast agents and ionizing radiation. Histopathological images carry valuable information for tumor classification and disease prediction, but their size hinders direct use in \acp{CNN}. This study \cite{yin2022pyramid} introduces Pyramid Tokens-to-Token VIsion Transformer (PyT2T-ViT), a lightweight architecture with multiple instance learning based on the vision Transformer. PyT2T-ViT uses Token-to-Token ViT (T2T-ViT) for feature extraction to reduce model parameters. It also incorporates an image pyramid to capture local and global features, significantly reducing computation. Experiments on thyroid pathology images yield superior results compared to CNN-based methods, balancing accuracy and efficiency. The authors in \cite{yu2023pyramid} aim to utilize multi-instance learning for the diagnosis of TC based on cytological smears. These smears lack multidimensional histological features, necessitating the mining of contextual information and diverse features for improved classification performance. To address these challenges, they introduce a novel algorithm called PyMLViT, which consists of two core modules. First, the pyramid token extraction module is designed to capture potential contextual information from smears. This module extracts multi-scale local features using a pyramid token structure and obtains global information through a vision transformer structure with a self-attention mechanism. Second, they construct a multi-loss fusion module based on the conventional multi-instance learning framework. To enhance the diversity of supervised information, they carefully allocate bag and patch weights and incorporate slide-level annotations as pseudo-labels for patches during training.
+
+In Table \ref{table:7}, transformer-based models' performance (in \%) for TC diagnosis is summarized. 
+
+
+\begin{table*}[tbph]
+\scriptsize
+\caption{Summary of transformer-based models' performance (in \%) for TC diagnosis}
+\label{table:7}
+\begin{center}
+
+\begin{tabular}{
+m{0.4cm}
+m{2cm}
+m{0.5cm}
+m{0.5cm}
+m{0.5cm}
+m{0.5cm}
+m{0.5cm}
+m{0.5cm}
+m{7cm}
+}
+\hline
+Ref. & Transformer & Task & ACC & SEN & SPE & AUC & F1-score & Improvement\\
+\hline
+%%%%%%%%%%%%%%ù
+\cite{sharma2023framework} & 
+  Swing &
+C  & 
+99.13 &
+-- &
+-- &
+99.13 &
+98.82 & 
+The diagnosis accuracy and the extract features of thyroid abnormality detection has been improved. The redundant features has reduced to avoid the overfitting. \\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{pathak2023extracting} & 
+BERT, RoBERTa, LongFormer, DeBERTa, and GatorTron &
+C & 
+97.10&
+98.80&
+92.80&
+--&
+96.50&
+The proposed model can achieve satisfactory classification accuracy and identified a large numbre of characteristics comparable to experienced radiologists and can save time and effort as well as deliver potential clinical application value \\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{bi2023bpat} & 
+BPAT-UNet &
+S & 
+--&
+--&
+--&
+--&
+--& 
+The proposed BPAT-UNet displays superior segmentation performance in visualization results and evaluation metrics\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{chen2023joint} & 
+Trans-CEUS &
+S& 
+86.59&
+--&
+--&
+--&
+--&
+Demonstrated significant improvement when compared to previous approaches, showcasing its effectiveness in the tasks of lesion segmentation and thyroid nodule diagnosis.\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{chi2023hybrid} & 
+H-TUNet &
+S & 
+--&
+--&
+--&
+--&
+--&
+The 2D and 3D Transformer UNet can distinguish the thyroid regions from other anatomies more effectively than the state-of-the-art segmentation models.\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{dov2021affinitention} & 
+Network&
+C& 
+--&
+--&
+--&
+91.3&
+--&
+Attention nets outperform complex attention-based architectures and other competing methods in tasks such as thyroid malignancy prediction.\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{jerbi2023automatic} & 
+ViTs &
+C&
+97.63&
+--&
+--&
+--&
+96.67&
+The SVM classification produces better performance than the Softmax classification for all of the models with the Hybrid ViT\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{jiang2023hybrid} & 
+CNN &
+S & 
+--&
+--&
+--&
+--&
+--&
+The proposed method showcases excellent adaptability and robustness in US image segmentation and can potentially be a general US segmentation tool.\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{li2023fusing} & 
+ETM &
+S & 
+--&
+--&
+--&
+--&
+--&
+Extract the precise shape features of malignant thyroid and establish the remote connection between thyroid nodule pixels\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{liu2023dca} & 
+Bottleneck &
+S& 
+--&
+--&
+--&
+--&
+--&
+They proposed that DCA-Net can effectively mitigate the loss of details\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{ma2023amseg} & 
+Swing &
+S & 
+--&
+--&
+--&
+--&
+--&
+The method can handle blurred and uneven tissue regions during the thyroid nodule segmentation process and enhanced prediction of accurate nodule edges.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{nam2023bert} & 
+BERT &
+C& 
+--&
+--&
+--&
+--&
+88.00&
+Analyze unstructured clinical text information on diagnosis of the recurrent PTC efficiently.\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{sun2023classification} & 
+ViT &
+C& 
+86.90&
+87.10&
+86.10&
+--&
+92.4&
+Improve accuracy of diagnosis and specificity of biopsy recommendations. Minimize the representation distance between nodules of the same category\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{tampu2023diseased} & 
+3D vision  &
+C & 
+90.00&
+--&
+--&
+--&
+--&
+Efficiently classifying thyroid diseases \\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{tao2022local} & 
+LCA-Net &
+S& 
+--&
+--&
+--&
+--&
+--&
+The superiority of the proposed LCA-Net for thyroid nodule segmentation\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{wang2023shared} & 
+GMMMIL &
+P & 
+93.88&
+--&
+--&
+97.34&
+94.65&
+Experimental results on the collected lymph node metastasis dataset demonstrate the efficiency of the proposed method\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{wang2022lymph} & 
+Tiny-ViT &
+P& 
+--&
+--&
+--&
+98.35&
+92.97&
+Improve predict lymph node metastasis from WSIs efficiently using a novel transformer-guided.\\ \addlinespace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{xiao2022contrast} & 
+Convolutional  &
+S & 
+--&
+--&
+--&
+--&
+--&
+The Unet architecture has been optimized to create improved cross-sectional images with  clearer texture and higher quality\\ \addlinespace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{yin2022pyramid} & 
+T2T-ViT &
+C & 
+86.60&
+--&
+--&
+--&
+--&
+The model parameters are reduced , and the model performance and computation are greatly improved compared with CNN. \\ \addlinespace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{yu2023pyramid} & 
+PyMLViT & C &  87.50& --& --& --& --& Optimize the training process of the network\\
+
+
+\hline 
+\end{tabular}%
+\begin{flushleft}
+Abbreviations: segmentation (S), Classification (C),  Prediction (P), Guided
+multi-modal multi-instance learning (GMMMIL).   
+\end{flushleft}
+\end{center}
+\end{table*}
+
+\subsection{\ac{TC} diagnosis example} \label{sec6}
+To exemplify the approaches adopted in the literature for \ac{TCD} and the utilization of \ac{AI} in classifying cancer types, we provide a simplified example. The pattern recognition process entails training a neural network to accurately classify input patterns into specific target classes. Following training, the network becomes capable of categorizing model. In this part, we demonstrate an example of categorizing TC into benign, malignant, or normal based on a collection of characteristics according to the \ac{TIRADS}.
+
+In this case, we utilize a dataset obtained from the UCI \ac{ML} Repository \cite{murphy1994uci}. This dataset is instrumental in developing a neural network designed to categorize patients visiting a clinic into three distinct groups: normal, hyperfunctioning, or subnormally functioning.   The dataset is structured into Thyroid Targets (TT) and Thyroid Inputs (TI) as detailed below: (i) TI consists of a 21×7,200 matrix that describes 7,200 patients through 15 binary and 6 continuous attributes. (ii) TT is a 3×7,200 matrix with class vectors, distributing each patient input into one of the three categories: (1) Hyperfunctioning, (2) Normal, not suffering from hyperthyroidism, and (3) Subnormal functioning.
+
+In this neural network setup, the dataset is divided into 5,040 samples for training, 1,080 samples for validation, and 1,080 samples for testing purposes. The network undergoes training to minimize the error between the thyroid inputs and targets until it achieves the desired target objective. If the \ac{ER} fails to decrease and training progress stalls, training with the training data is stopped, and the validation data is utilized for additional evaluation. Subsequently, the testing data is employed to assess the accuracy of the trained model.
+
+In this illustration, we employ a network featuring 10 hidden layer neurons, 21 input features, and 3 output classes. Following the model simulation, the percentage error is computed, yielding values of 5.337\% for training, 7.407\% for validation, and 5.092\% for testing. The overall recognition rate stands at 94.4\%, with an overall error rate of 5.6\%. The \ac{ROC}  curve is presented in Figure \ref{fig10}. This example showcases the application of \ac{AI}  in TC classification, achieving a high recognition rate with the provided dataset. Figure \ref{fig11} illustrates an instance of thyroid segmentation in \ac{US} images utilizing k-means clustering, with three clusters selected for demonstration. K-means clustering is widely employed for such purposes.
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=12cm, height=10cm]{fig10.pdf}
+\caption{An example of TC classification USING \ac{ROC} metric. (a). Training \ac{ROC}; (b). Validation \ac{ROC}; (c). Test \ac{ROC}; (d). ALL \ac{ROC} put the refernece, mention first group what does it mean and the second group also, put (a) and (b) for each group}
+\label{fig10}
+\end{figure}
+
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\columnwidth]{fig11.pdf}
+\caption{ Thyroid segmentation example employing the K-Means method. (a) Imaging of medullary \ac{TC}; (b) Ultrasound imaging of the thyroid.}
+\label{fig11}
+\end{figure}
+
+\section{Critical analysis and discussion} \label{sec7}
+Data Accessibility and Precision Challenges: This document necessitates a thorough investigation and discussion on leveraging \ac{AI} for thyroid carcinoma detection. While there's ample discourse regarding \ac{AI}'s potential in existing studies, a nuanced analysis is crucial to fully decipher its impact on healthcare, spotlighting both its advantages and drawbacks.
+
+This segment commits to an exhaustive examination of \ac{AI} models' proficiency in identifying thyroid carcinoma. We aim to scrutinize not merely their statistical precision but also their efficacy in practical clinical environments, and their contribution to the overarching clinical decision-making framework.
+
+Furthermore, this exploration delves into the potential biases embedded in \ac{AI} models, seeking to unveil how they might inadvertently amplify existing healthcare inequities. By contrasting \ac{AI}-enabled methodologies with conventional diagnostic tactics, we aspire to glean deeper insights into their relative effectiveness.
+
+Recognizing the obstacles in integrating \ac{AI} solutions into healthcare practices, including infrastructural, regulatory, and cultural challenges, is essential. In conclusion, we highlight the critical role of cross-disciplinary cooperation in seamlessly integrating \ac{AI} into healthcare systems, thereby maximizing its beneficial impacts on patient health outcomes.
+
+The reported metrics of \ac{AI} models, such as accuracy, sensitivity, and specificity, can vary significantly across academic publications due to factors like the choice of dataset, data quality, and the methodological approach utilized. The performance of \ac{AI} models in controlled experimental setups may not accurately represent their effectiveness in actual clinical scenarios. Variables including data discrepancies, lack of complete data, and evolving clinical conditions can substantially influence outcomes. Therefore, assessing a model's flexibility and reliability in diverse conditions is crucial. Table \ref{tab8} provides an overview of the performance indicators for various \ac{AI}-enhanced \ac{TCD} frameworks, presented in percentage (\%) terms, across multiple models and data sources. Additionally, Figures \ref{fig15} and \ref{fig16} display these performance indicators, also in percentage (\%) terms, with a focus on private datasets and \ac{US} imaging data, respectively.
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.7]{fig15}
+\caption{Performance assessment of TC frameworks in percentages (\%) for private datasets }
+\label{fig15}
+\end{figure}
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.7]{fig16}
+\caption{Performance assessment of TC frameworks in percentages (\%) for ultrasound.}
+\label{fig16}
+\end{figure}
+
+
+\begin{table}[t!]
+\caption{Assessment of the effectiveness of different TC frameworks, measured in percentages (\%).}
+\label{tab8}
+\scriptsize
+\begin{tabular}{
+m{6mm}
+m{30mm}
+m{35mm}
+m{12mm}
+m{12mm}
+m{12mm}
+m{12mm}
+}
+\hline
+Ref. &  AI Model & Dataset & SEN & SPE & ACC & AUC\\
+\hline
+\cite{ma2017ultrasound} & CNN & DICOM & - & 91.50 & - & - \\
+\cite{zhang2019machine} & \ac{RF} & US  & - & - & - & 94.00 \\
+\cite{peng2021deep} & ThyNet & PD & - & - & - & 92.10 \\
+\cite{guan2019deep} & VGG-16 & CI & - & - & 97.66 & - \\
+\cite{chi2017thyroid} & Fine-Tuning DCNN & PD & - & - & 99.10 & - \\
+\cite{li2019diagnosis} & DCNN &SGI & 93.00 & 86.00 & 89.00 & - \\
+\cite{zhu2019deep} & \ac{DNN} & ACR T & - & - & 87.20 & - \\
+\cite{duc2022ensemble} & Ensemble \ac{DL} & CI & - & - & 99.71 & - \\
+\cite{ouyang2019comparison} & k-SVM & US & - & - & - & 95.00\\
+\cite{shin2020application} & \ac{ANN} & US & - & - & - & 69.00 \\
+\cite{zhao2021comparative} & \ac{SVM} \ac{RF} & US & - & - & - & 95.10 \\
+\cite{vadhiraj2021ultrasound} & \ac{ANN} \ac{SVM} & US & - & 96.00 & - & - \\
+\cite{gild2022risk} & \ac{RF} & US & - & - & - & 75.00 \\
+\cite{ma2017pre} & CNN & DICOM & 82.40 & 85.00 & 83.00 & - \\
+\cite{zhu2017image} & ResNet18-based &  PD& - & - & 93.80 & - \\
+\cite{gao2018computer} & multiple-scale CNN & PD & - & - & 82.20 & - \\
+\cite{zuo2018extraction} & Alexnet CNN & PD & - & - & 86.00 & - \\
+\cite{zhu2021efficient} & CNN (BETNET) & US & - & 98.30 & - & - \\
+\cite{kim2022deep} & ResNet & T & - & 75.00 & - & - \\
+\cite{lee2019application} & Xception & CT images & 86.00 & 92.00 & 89.00 & - \\
+\cite{tsou2019mapping} & Google inception v3 & HPI & - & - & 95.00 & - \\
+\cite{kim2021convolutional} & CNN & T  & 81.80 & 86.10 & 85.10 & - \\
+\cite{wu2021deep} & CNN & T  & 78.00 & 85.00 & 82.10 & - \\
+\cite{jin2020ultrasound} & CNN & T  & 80.60 & 80.10 & 80.30 & - \\
+\cite{wei2021radiomics} & CNN & MRI  & 65.00 & 80.00 & 79.00 & - \\
+\cite{gu2019prediction} & CNN & CT image  & 93.00 & 73.00 & 84.00 & - \\
+\cite{park2019association} & CNN & US  & - & - & 77.00 & - \\
+\hline
+\hline
+\end{tabular}
+\begin{flushleft}
+ Abbreviations:  Ultrasound  (US), TIRADS (T), Cytological images (CI), Sono graphic images (SGI), Histo pathology images (HPI)   
+\end{flushleft}
+\end{table}
+
+Although \ac{AI} methodologies have shown promise in TC diagnosis, they face challenges that hinder the development of efficient solutions, lead to increased expenses, and limit their broad application. For precise detection of TC, it's essential to collect and securely consolidate all relevant data in a single repository, unless adopting federated learning (FL) approaches, as Himeur et al. suggest \cite{himeur2023federated}. Following this, algorithms capable of identifying all forms of TC must be developed. Comprehensive \ac{TCD} should include an extensive array of training and testing images, diagrams of nodules, and detailed classifications of nodule characteristics across different sizes, as Shah et al. recommend \cite{shah2023deep}. It's crucial for these datasets to be continually updated with data from \ac{MRI}, \ac{CT} scans, X-rays, and other clinical images to assess TC accurately. Inclusion of demographic details such as race, ethnicity, gender, and age is also necessary. Establishing a centralized database accessible to all healthcare facilities for testing, validating, and implementing \ac{AI} algorithms on the collected data is critical, following Salazar et al.'s guidance \cite{salazar2019thyroid}. Additionally, a succinct overview of further limitations and challenges yet to be addressed is provided.
+
+
+
+\begin{itemize}[leftmargin=*]
+\item The challenge of obtaining clean data and ensuring accuracy: In the realm of cancer diagnosis, especially TC, a major obstacle is the absence of detailed and well-annotated datasets that comprehensively document the disease's incidence and progression. Elmore et al. \cite{elmore2021blueprint} point out that the limited detailed records on TC-related deaths make the process of collecting and authenticating data particularly difficult. Data availability is often restricted to individual healthcare providers, largely because there is no consolidated clinical database for TC to support data exchange across multiple organizations. Furthermore, the capability of \ac{AI} algorithms to accurately diagnose TC is hampered by the limited presence of labeled cases that correlate with actual clinical outcomes, as underscored by Park et al. \cite{park2021key}. Although substantial datasets are essential for neural networks to generate accurate results, there is a need for selective data incorporation during the training phase to prevent the ingress of detrimental noise.
+
+\item Thyroid gland imaging:  Within the domain of TC diagnosis, imaging modalities such as \ac{CT} and \ac{MRI} are available but often not preferred due to their high costs and limited availability under certain circumstances, as highlighted by Ha et al. \cite{ha2021applications}. \Ac{US} imaging is commonly used as an another physical exams technique, fine-needle aspiration biopsies, or radioisotope scans  for its cost-effectiveness and accessibility. During an ultrasound examination, medical professionals can evaluate the thyroid gland by analyzing the nodules' echo patterns, along with their size, echogenicity, margins, and any calcifications present. However, it's crucial to acknowledge, as Zhu et al. \cite{zhu2021generic} have noted, that the accuracy of ultrasound in differentiating between malignant and benign and  nodules can vary, and the images obtained may be prone to noise.
+
+\item Hyperparameters of DL models:  Designing  the effective \ac{DL} algorithm is crucial for overcoming different challenges, especially in diagnosing TC. The task of precisely differentiating between malignant and benign  tumors, is complex due to their significant similarities, as highlighted in the study by Wang et al. \cite{wang2022soft}. Addressing this challenge may require significantly increasing the number of DL layers for feature extraction. However, such an increase can lead to longer processing times, particularly with large datasets, which may delay timely cancer diagnoses for patients, as pointed out in the research by Lin et al. \cite{lin2021deep}.
+
+\item Computation cost and storage limitations pose notable hurdles in algorithm development. Time complexity, a key measure in algorithm evaluation, assesses computational complexity by approximating the count of basic operations performed and its relationship with the size of input data. Typically represented as $O(n)$, where $n$ is the size of the input, often measured by the bits required for its representation, this concept is thoroughly examined in the study by Al et al. \cite{al2021cost}. Particularly in \ac{AI} research related to TC or analogous cancer detection, researchers are tasked with finding algorithms that offer a harmonious blend of accuracy and computational efficiency. Their goal is to develop algorithms that can quickly process large datasets while maintaining precise results. Furthermore, the extensive amount of data used in these algorithms sometimes exceeds the storage capabilities, an issue underscored in the research by Lin et al. \cite{lin2021deep}.
+
+
+\item Imbalanced dataset: Cancer element distribution within thyroid tissue cell categories often shows considerable imbalance, with cancerous cells usually forming a small fraction of the total tissue cell dataset. This results in a dataset that is heavily skewed, containing both cancerous and normal cells. Such imbalanced distribution of features in datasets for cancer cell detection can cause less than ideal performance of \ac{AI} algorithms used for detection tasks, as observed in the study by Yao et al. \cite{yao2022deepthy}.
+
+\item Sparse labels:Annotation is crucial in the detection of \ac{CT}, particularly in differentiating normal cells from cancerous ones. However, this process can be both time-consuming and costly, largely because of the limited availability of annotated data. This shortage can result in inconsistent labeling, which may negatively impact the precision of \ac{AI} algorithms that depend heavily on accurately labeled data. Consequently, these challenges may diminish trust and confidence in \ac{AI} applications, as discussed in the study by Yao et al. \cite{yao2022deepthy}.
+
+\item Presently, due to advancements in technology, especially in TC diagnosis, and the growing availability of medical and patient data, researchers face challenges in developing algorithms capable of efficiently handling a limited number of samples. These samples could be characterized by noise, lack of annotations, sparsity, incompleteness, or high dimensionality. As a result, there is a need for \ac{AI} algorithms that are not only highly efficient but also able to process large datasets shared among healthcare providers and patients, or between specialist doctors, as underlined in the research by Sayed et al. \cite{sayed2023time}.
+
+\item Error Vulnerability: Despite \ac{AI}'s inherent autonomy, it is prone to making errors. For example, training an algorithm with \acp{TCD} for identifying cancerous regions can lead to biased predictions if the training datasets are biased. These biases may then lead to a series of erroneous results, which could go unnoticed for a significant duration. Identifying and correcting the source of these errors, once recognized, can be a laborious process, as explored in the research by Karsa et al. \cite{karsa2020optimized}.
+
+\item The data form: Even with the significant advances in leveraging \ac{AI} for \ac{TCD}, ongoing challenges due to several persistent limitations remain. The growing need for varied medical imaging technologies results in the creation of large datasets crucial for \ac{AI} algorithms. Nonetheless, efficiently managing and organizing this abundance of data has emerged as a daunting challenge. A primary issue exacerbating this challenge is the absence of adequate labeling, annotation, or segmentation of data, which complicates the process of data management, as underscored in the research by Kim et al. \cite{kim2022second}.
+
+\item Unexplainable \ac{AI}: The application of \ac{AI} in healthcare sometimes results in "black box" outcomes, where the decision-making process lacks transparency and sufficient justification. This lack of clarity can make healthcare practitioners question the dependability of the results, possibly leading to incorrect choices and treatments for patients with TC. In essence, \ac{AI} systems can operate as black boxes, providing outcomes without explicit and comprehensible rationales, a concern highlighted in the research by Sardianos et al. \cite{sardianos2021emergence}.
+
+
+\item Lack of cancer detection platform: A significant barrier in detecting various cancers, including TC, is the absence of platforms that facilitate the replication and evaluation of previous research. This gap presents a considerable challenge that hampers the assessment of \ac{AI} algorithms' performance, thereby hindering improvements \cite{abdolali2020automated}. The presence of online platforms that offer cutting-edge algorithms, extensive datasets, and expert insights is crucial for assisting healthcare practitioners, specialists, researchers, and developers in making the right decisions with reduced chances of error. Moreover, this kind of platforms are vital in augmenting clinical diagnoses, as they enable more thorough Examination and assessment \cite{masuda2021machine}.
+
+\item Data loss and contrast: The shift towards digital medical records is crucial, notably in cancer diagnosis using slide images. This latter facilitate the use of \ac{AI} for pathologic examinations \cite{dov2019thyroid}. Nonetheless, medical digitalization encounters specific challenges. There exists the danger of losing critical information during the digital conversion process and potential inaccuracies due to data compression methods applied in autoencoder algorithms. Thus, selecting the right digitalization technology is essential to ensure the preservation of data fidelity and authenticity \cite{dovai,halicek2019head}.  The subtle contrast between the thyroid gland and surrounding tissues complicates accurate analysis and diagnosis of TC.
+
+
+\end{itemize}
+
+
+
+\section{Future research directions} \label{sec8}
+This segment delves into the anticipated developments of \ac{AI} in identifying TC, scrutinizing forthcoming trends and advancements alongside their ethical repercussions. Ethical concerns encompass more than the immediate area of focus; issues regarding data privacy, responsibility, and fairness are also discussed. This part underscores research avenues poised to significantly improve \ac{TCD} moving forward.
+
+\vskip2mm
+\noindent \textbf{(a) Explainable Artificial Intelligence (XAI): } 
+Integrating AI into decision-making is crucial but faces challenges due to its complexity and lack of clarity. To mitigate these issues, \ac{XAI} seeks to make AI models more transparent. This is particularly vital in healthcare, where understanding the rationale behind AI-generated outcomes is paramount. \ac{XAI} has been applied to the diagnosis of intractable thyroid diseases, as evidenced in studies by Lamy et al. (2019) \cite{lamy2019explainable}, Kobylinska et al. (2019) \cite{kobylinska2019explainable}, Pintelas et al. (2020) \cite{pintelas2020explainable}, Lamy et al. (2020) \cite{lamy2020intelligence}, and Poceviciute et al. (2020) \cite{poceviciute2020survey}. The differentiation between standard AI and \ac{XAI} is showcased in Figure \ref{fig12}. Wildman et al. (2019) \cite{wildman2019using} proposed an \ac{XAI} approach for detecting \ac{TC}, enhancing the confidence of healthcare practitioners in AI predictions. \ac{XAI} models clarify their reasoning, addressing the limitations associated with opaque "black box" algorithms. With \ac{XAI}, healthcare professionals are equipped to make more accurate and confident decisions.\\
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.5\columnwidth]{fig12.pdf}
+\caption{Diagram of \ac{XAI} blocks. }
+\label{fig12}
+\end{figure}
+
+
+
+\vskip2mm
+\noindent \textbf{(b) Using Cloud, fog, and edge  computing: } 
+The concept of edge networks merges edge computing with AI, allowing AI algorithms to operate closer to where data originates, a discussion brought forward by Sayed et al. (2023) \cite{sayed2023edge}. This method enhances efficiency and cost-effectiveness for data-intensive applications, minimizing the requirement for extensive communication between patients and healthcare providers. By positioning data and storage closer to users in the healthcare field, this approach enables direct and swift access, a point highlighted by Alsalemi et al. (2022) \cite{alsalemi2022innovative}. To further improve the detection of \ac{TC} within edge networks, fog computing is integrated. Fog computing introduces a distributed framework that bridges cloud computing and data generation sources, offering a versatile distribution of computational and storage capacities at key locations to boost overall system performance \cite{sayed2021intelligent}.
+
+Cloud computing acts as a pivotal facilitator for the efficient functioning of AI-driven \ac{TCD} systems, offering readily available access to data storage, servers, databases, networks, and applications for healthcare professionals, contingent upon internet connectivity. This integrated approach has proven its worth in medical scenarios, such as in the TC detection, as corroborated by several researches \cite{charteros2020edge, sufian2020survey, chen2018disease, chai2020diagnosis, jagtap2016online, anuradha2021iot, kevco2018cloud, rajan2020fog, mutlag2019enabling, hartmann2019edge, corchado2019ai}.
+
+
+
+
+\vskip2mm
+\noindent \textbf{(c) \Acf{DRL}: } \ac{RL}, a branch of \ac{ML} \cite{gueriani2023deep}, enables agents to navigate and make decisions in evolving environments by engaging in a learning cycle of trial and error, observation, and interaction. The interest in leveraging \ac{RL} for diagnosing untreatable diseases and enhancing the support for medical decision-making processes has grown recently. For example, Balaprakash et al. (2019) \cite{balaprakash2019scalable} apply \ac{RL} in cancer data classification, whereas Li et al. (2020) \cite{li2020deep} explore the use of deep \ac{RL} for lymph node set segmentation. In the approach by Li et al. (2020) \cite{li2020deep}, pseudo-ground truths are created using RECIST-slices, facilitating the simultaneous tuning of lymph node bounding boxes through the collaborative efforts of a segmentation network and a policy network.
+
+
+\vskip2mm
+\noindent \textbf{(d) \Acf{DTL}: }
+\ac{TL} is recognized as an effective approach to reduce overfitting and improve the precision of diagnostic tools \cite{kerdjidj2023uncovering,kheddar2023deepIDS,himeur2023video}. This technique applies knowledge acquired from one domain to solve related issues in another, such as shortening the duration of training and minimizing the amount of data needed \cite{kheddar2023deep,sayed2023time}. It is particularly useful in diagnosing \ac{TG}. For example, the Enhance-Net model, described in \cite{narayan2023enhance}, could act as a foundational model to boost the efficacy of a targeted \ac{DL} model aimed at analyzing medical images in real-time. Furthermore, in \cite{liu2017classification}, the research focuses on identifying pertinent characteristics of benign and malignant nodules using \acp{CNN}. By transferring insights from generic data to a dataset of \ac{US} images, they achieve a fusion of hybrid semantic deep features. The application of transfer learning has also proven beneficial in categorizing images of thyroid nodules, as shown in \cite{song2019ultrasound}. Additional studies on this topic include \cite{yu2020lymph,kwon2020ultrasonographic, wang2019using,ma2019thyroid,sundar2018exploring}.
+
+\vskip2mm
+\noindent \textbf{(e) \Acf{PS}: } Accurately identifying and segmenting objects with varied and intersecting features continues to be a significant hurdle, especially in the medical field. To tackle this issue, several scholars have developed holistic and unified segmentation methods \cite{liu2019nuclei,elharrouss2021panoptic}. Panoptic segmentation has received considerable attention, merging the principles of instance and semantic segmentation to detect and delineate objects efficiently. Semantic segmentation involves the classification of each pixel into distinct categories, whereas instance segmentation focuses on delineating individual object instances. \ac{AI} has been applied to this framework through either supervised or unsupervised instance segmentation learning techniques, making it highly applicable to medical scenarios. The effectiveness of this integration in medical contexts has been highlighted in research works like \cite{yu2020deep,cai2020panoptic}.
+
+
+\vskip2mm
+\noindent \textbf{(f) IoMIT and 3D-TCD:}  The \ac{IoMIT} has gained substantial interest in the healthcare industry in recent years. \ac{IoMIT} seeks to advance the quality of healthcare services and minimize treatment expenses by facilitating the exchange of medical information between patients and healthcare providers via interconnected devices equipped with wireless communication technology. An instance of such integration is showcased in \cite{ivanova2018artificial}, where an \ac{AI}-enhanced solution for the preemptive identification of TC within the \ac{IoMIT} paradigm is introduced. This method employs \ac{CNN} to refine the distinction between benign and malignant nodules, aiming ultimately at life preservation. Additional investigations pertinent to \ac{IoMIT} include studies like those found in \cite{borovska2018internet} and \cite{ivanova2017internet}.
+
+
+2D ultrasound is a prevalent technique for evaluating thyroid nodules, yet its static imagery might not fully capture the nodules' complex structures. Consequently, there's a growing interest in utilizing three-dimensional (3D) ultrasound, which offers a holistic view of the lesion by reconstructing nodule characteristics, thereby facilitating enhanced discrimination between different diagnostic categories \cite{seifert2023optimization}. The capability of 3D ultrasound to analyze intricate growth patterns, edges, and forms from various perspectives and depths allows for a more accurate assessment of thyroid nodules' morphological features compared to 2D ultrasound. Comparative research has confirmed the superiority of 3D over 2D ultrasound in achieving more precise evaluations \cite{li2015comparison, lyshchik2004accuracy, ying2008two}.
+
+\vskip2mm
+\noindent \textbf{(g) AI-based thyroid surgical techniques: } As surgical practices face complex challenges, the essential role of AI-driven robotic assistance is becoming increasingly recognized. AI has the capability to navigate clinical intricacies by processing and leveraging large volumes of data, offering decision-making support with precision that rivals that of medical experts \cite{pakkasjarvi2023artificial}. Businesses are \ac{AI} into surgical operations through the development of AI systems and the deployment of robots to aid surgeons in the operating room. These robots fulfill various functions, such as managing surgical tools, handling potentially contaminated materials and medical waste, conducting remote patient monitoring, and compiling patient information including electronic health records, vital signs, lab results, and video documentation \cite{bodenstedt2020artificial}. It is therefore vital for surgeons to develop a comprehensive understanding of AI and its potential impacts on healthcare. While \ac{AI}-enabled robotic surgery is still emerging, fostering interdisciplinary collaboration can accelerate the progress of \ac{AI} technology, thereby improving surgical outcomes \cite{zhou2019artificial, zhou2020application, berikol2020artificial, tan2020part} \cite{habal2020brave, lee2020evaluation, voglis2020feasibility, navarrete2020current}.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\columnwidth]{fig13}
+\caption{Diagram of \ac{AI}-algorithms choice for \ac{TCD}. }
+\label{fig13}
+\end{figure}
+
+
+\vskip2mm
+\noindent \textbf{(h) Recommender systems (RSs): } The vast amount of information produced by online medical platforms and electronic health records presents a challenge for TC patients seeking specific and accurate data \cite{himeur2021survey}. Additionally, the substantial costs associated with healthcare data management can complicate the task for physicians handling a broad spectrum of patients and treatment alternatives. The implementation of RS has been suggested as a solution to improve decision-making within healthcare, reducing the load on both patients and oncologists \cite{areeb2023filter, varlamis2022smart}. Incorporating RS into digital health facilitates tailored recommendations, precise evaluation of large data sets, and stronger privacy measures, leveraging the capabilities of AI and ML technologies \cite{atalla2023intelligent}.
+
+
+
+\vskip2mm
+\noindent \textbf{(i) \Ac{FL}:} \acs{FL} has gained traction in healthcare applications due to its capacity to enhance patient data privacy across different healthcare settings \cite{antunes2022federated,himeur2023federated}. The influence of environmental factors on human health, which can subsequently impact economic stability, is substantial. An increase in the incidence of thyroid gland disorders has been observed across diverse populations. \ac{ML} plays a crucial role in addressing such health issues by leveraging collected data to train models capable of foreseeing severe health conditions. Considering the critical need for maintaining the confidentiality of patient information among various health institutions, \ac{FL} stands out as an optimal framework for these purposes, as illustrated in Figure \ref{fig14}. Lee et al. \cite{lee2021federated} conducted a study comparing the effectiveness of FL with five traditional DL techniques (SE-ResNext50, SE-ResNet50, ResNext50, ResNet50, VGG19) in analyzing and detecting \ac{TCD}.
+
+
+\begin{figure}[t!]
+\begin{center}
+\includegraphics[width=1\columnwidth]{fig14.pdf}
+\end{center}
+\caption{The \ac{FL} for healthcare. }
+\label{fig14}
+\end{figure}
+
+
+\vskip2mm
+\noindent \textbf{(j) Generative chatbots: } 
+
+Recent breakthroughs in \ac{AI}, notably in creating generative chatbots and expansive language models like the GPT series, have marked a significant stride forward \cite{sohail2023using}. These advanced models, trained on vast datasets, can produce text that mimics human speech and engage in meaningful dialogues beyond basic scripted responses. As these models have evolved, their application spectrum has broadened, with healthcare becoming a key area of application. In this sector, these models are being explored for patient interaction, initial symptom evaluation, dissemination of health information, and aiding healthcare workers in research and data analysis \cite{sohail2023decoding}. Integrating such technologies promises to enhance healthcare operations, patient experiences, and professional healthcare services, provided that necessary safety measures and ethical guidelines are observed \cite{farhat2023analyzing}.
+
+Applying generative chatbots or models like ChatGPT directly for diagnosing TC (or any medical condition) would be imprudent and risky. Nevertheless, they can play supportive roles within healthcare environments \cite{sohail2023future}. For example, chatbots can initially collect information from patients about their symptoms, familial health history, and lifestyle factors. This preliminary data gathering can enrich the understanding of a patient's situation before they consult a healthcare practitioner. Additionally, chatbots can inform about TC, including its risk factors, symptoms, and prevention measures \cite{haver2023appropriateness}, empowering patients with knowledge about the condition and prompting those with relevant symptoms to seek professional advice. Although not a substitute for professional diagnostics, these tools can guide users through questions that pinpoint potential risks or symptoms, encouraging them to seek further evaluation from a healthcare professional \cite{cao2023accuracy}.
+
+After diagnosis, chatbots can inform patients about treatment options, side effects, nutritional advice, and answer frequently asked questions. They can also (i) remind patients about medication times, upcoming appointments, or regular self-checks, (ii) support relaxation techniques, offer mental health resources, or provide empathetic listening, and (iii) assist healthcare workers by offering instant access to information on TC, latest research, or treatment alternatives, serving as a real-time resource \cite{sorin2023large}.
+
+\section{Conclusion}  \label{sec9}
+This investigation delves deeply into \ac{ML} and \ac{DL}, highlighting their growing prominence due to their enhanced precision over other methods. It comprehensively reviews various algorithms and training models, discussing their benefits and drawbacks. Specifically, \ac{DL} techniques are celebrated for their application in a myriad of real-world scenarios, notably for their generalization capabilities and resilience to noise.
+
+Nevertheless, significant challenges obstruct the full adoption of \ac{DL} in detecting TC, with the lack of clean data and appropriate platforms being primary concerns. Tackling these data challenges with detailed precision is essential for creating effective and robust models for detecting more complex cancer stages.
+
+Future research should aim at overcoming these hurdles and improving \ac{TCD} methods. This study highlights the urgent need for increased research focus on TC diagnostics to match the high precision expectations of healthcare practitioners. While cancer detection in two or three dimensions is progressing, the limited expertise in handling various geometric transformations and multi-dimensional data compromises the accuracy in diagnosing life-threatening diseases. Therefore, it is vital to innovate in distinguishing between cancerous nodule sizes. Such innovations could significantly speed up treatment, improve diagnostic precision, foster proactive epidemiological tracking, and reduce death rates.
+
+Novel technologies like Explainable AI, edge computing, reinforcement learning, privacy-preserving mechanisms, and remote sensing are paving new paths in \ac{TCD} research. These developments are crucial for medical professionals, simplifying the diagnostic process, reducing detection times, and enhancing patient confidentiality. Future research will explore the impact of these advanced technologies further. The objective is to create a major transformation in cancer detection approaches by crafting advanced, privacy-focused technologies for the identification of TC patients and extending into domains like telehealth.
+
+
+
+
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}
+
+
+

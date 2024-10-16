@@ -219,4 +219,5 @@ Bài báo đã đề cập đến một số nghiên cứu sử dụng AI trong 
     * Độ tương đồng (k) giữa đánh giá dựa trên WSI đầy đủ và kết quả giải phẫu bệnh: 0.845 cho TBSRTC, 0.669 cho phân loại nguy cơ.
 * **Kết luận:** AI có thể hỗ trợ hiệu quả trong việc lựa chọn ROI, giúp chuyên gia tiết kiệm thời gian và tập trung vào các vùng quan trọng trên phiến đồ.
 
+# Paper 6
 
