@@ -1,0 +1,10 @@
+label,count,set
+B2,353,train
+B5,368,train
+B6,541,train
+B2,68,valid
+B5,77,valid
+B6,125,valid
+B2,61,test
+B5,96,test
+B6,115,test
