@@ -39,6 +39,7 @@ class TestClassificationModel:
                 "Cannot convert time stamp to int.\n"
                 + "As model path is not in the right format ({time_stamp}_{model_type}/{model_name}.pth)."
             )
+            time_stamp = int(time.time())
 
         log_dir = os.path.join(
             self.test_logs_dir, f"test_logs_{time_stamp}_{self.model_type}"
