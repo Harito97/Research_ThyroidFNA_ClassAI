@@ -8,11 +8,11 @@
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_resnet152_data_701515.yaml > logs/test_train_aug_no_val_aug_resnet152_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_densenet121_data_701515.yaml > logs/test_train_aug_no_val_aug_densenet121_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_densenet201_data_701515.yaml > logs/test_train_aug_no_val_aug_densenet201_data_701515.log 2>&1
-nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_efficientnet_b0_data_701515.yaml > logs/test_train_aug_no_val_aug_efficientnet_b0_data_701515.log 2>&1
+# nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_efficientnet_b0_data_701515.yaml > logs/test_train_aug_no_val_aug_efficientnet_b0_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_efficientnet_b7_data_701515.yaml > logs/test_train_aug_no_val_aug_efficientnet_b7_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_mobilenet_v1_data_701515.yaml > logs/test_train_aug_no_val_aug_mobilenet_v1_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_mobilenet_v3_large_data_701515.yaml > logs/test_train_aug_no_val_aug_mobilenet_v3_large_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_vit_b_16_data_701515.yaml > logs/test_train_aug_no_val_aug_vit_b_16_data_701515.log 2>&1
 # nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_vit_l_16_data_701515.yaml > logs/test_train_aug_no_val_aug_vit_l_16_data_701515.log 2>&1
 
-nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_module1_efficientnet_b0_data_701515.yaml > logs/test_train_aug_no_val_aug_efficientnet_b0_data_701515.log 2>&1
+nohup python experiments/test_module1.py --config_path configs/train_aug_no_val_aug/test_newdata241115_module1_efficientnet_b0_data_701515.yaml > logs/test_newdata241115_train_aug_no_val_aug_efficientnet_b0_data_701515.log 2>&1
