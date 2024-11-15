@@ -1,0 +1,35 @@
+nohup: ignoring input
+/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=EfficientNet_B0_Weights.IMAGENET1K_V1`. You can also use `weights=EfficientNet_B0_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/Data/Projects/Research_ThyroidFNA_ClassAI/phase3_140924/experiments/test_module1.py", line 132, in <module>
+    test_module1(config_path=args.config_path)
+  File "/Data/Projects/Research_ThyroidFNA_ClassAI/phase3_140924/experiments/test_module1.py", line 104, in test_module1
+    model = load_model_weights(model=model, model_path=config["tester"]["model_path"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/Research_ThyroidFNA_ClassAI/phase3_140924/experiments/test_module1.py", line 65, in load_model_weights
+    model.load_state_dict(torch.load(model_path))
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 1025, in load
+    return _load(opened_zipfile,
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 1446, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 1416, in persistent_load
+    typed_storage = load_tensor(dtype, nbytes, key, _maybe_decode_ascii(location))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 1390, in load_tensor
+    wrap_storage=restore_location(storage, location),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 390, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 265, in _cuda_deserialize
+    device = validate_cuda_device(location)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/Projects/venv_manager/ai_work#311/lib/python3.11/site-packages/torch/serialization.py", line 249, in validate_cuda_device
+    raise RuntimeError('Attempting to deserialize object on a CUDA '
+RuntimeError: Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.

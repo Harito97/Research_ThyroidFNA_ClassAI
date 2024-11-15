@@ -83,3 +83,7 @@ __pycache__/
 # Temporary files
 .pytest_cache/
 # pytest cache
+
+# Manuscritps
+manuscript/
+Write_ManuScript/

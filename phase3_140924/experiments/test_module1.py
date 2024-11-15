@@ -62,7 +62,9 @@ def load_model_weights(model, model_path):
     Returns:
         nn.Module: Mô hình đã được load trọng số.
     """
-    model.load_state_dict(torch.load(model_path))
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # map_location=torch.device('cpu')
+    model.load_state_dict(torch.load(model_path, map_location=device))
     return model
 
 

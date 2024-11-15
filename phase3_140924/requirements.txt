@@ -1,2 +1,4 @@
 # List your dependencies here
 pip install fpdf
+pip install torch
+pip install timm

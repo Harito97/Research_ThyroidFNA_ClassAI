@@ -1,0 +1,18 @@
+
+Model:                  efficientnet_b0
+Num epochs:             100
+Patience:               10
+Device:                 cuda
+Time stamp:             1726492356
+Log dir:                logs/1726492356_efficientnet_b0
+Train logs txt path:    logs/1726492356_efficientnet_b0/train_logs.txt
+Train logs csv path:    logs/1726492356_efficientnet_b0/train_logs.csv
+Train metrics path:     logs/1726492356_efficientnet_b0/train_metrics.pdf
+Fig loss path:          logs/1726492356_efficientnet_b0/loss_plot.jpg
+Fig acc and f1 path:    logs/1726492356_efficientnet_b0/acc_and_f1_plot.jpg
+Fig best loss cm path:  logs/1726492356_efficientnet_b0/best_loss_cm.jpg
+Fig best f1 cm path:    logs/1726492356_efficientnet_b0/best_f1_cm.jpg
+Fig best acc cm path:   logs/1726492356_efficientnet_b0/best_acc_cm.jpg
+Best loss model path:   logs/1726492356_efficientnet_b0/best_loss_model.pth
+Best f1 model path:     logs/1726492356_efficientnet_b0/best_f1_model.pth
+Best acc model path:    logs/1726492356_efficientnet_b0/best_acc_model.pth
