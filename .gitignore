@@ -87,3 +87,10 @@ __pycache__/
 # Manuscritps
 manuscript/
 Write_ManuScript/
+
+logs/
+*.npy
+*.png
+*.log
+*.txt
+nohup.out
